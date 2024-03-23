@@ -1,8 +1,71 @@
 ---
-title: "Index"
+title: Intro to Infectious Disease Modelling
 ---
 
-<!-- Add information that will apepar on the landing page -->
+### Lecture Overview
+
+This lecture introduces participants to the theory and philosophy behind
+modelling infectious diseases, focussing on compartmental models, and especially
+the SIR model and its extensions (SEIR, SEIRV), and developing an understanding
+of the derivation and interpretation of the basic reproduction number, $R0$.
+
+## Prerequisites
+
+Participants should have a basic understanding of calculus and differential
+equations, as well as some familiarity with the R programming language.
+
+## Course Materials
+
+- Lecture slides
+- Code templates for exercises (R)
+- Recommended readings and resources list
+
+## Learning Objectives
+
+- Understand the basic principles of infectious disease modelling.
+- Implement and analyse compartmental models (SIR, SEIR, and SEIRV models).
+- Interpret model parameters and outputs.
+- Derive/calculate and interpret the basic reproduction number (R0).
+- Assess model assumptions and limitations.
+
+## Course Schedule (subject to change)
+
+- 9:00 AM - 10:30 AM: Overview of Infectious Disease Modelling (1 hour 30 mins)
+  - Introduction to mathematical modelling in epidemiology
+    - The role of models in public health
+    - Types of models: deterministic vs. stochastic
+    - Basics of compartmental modelling (SIR models)
+  - Understanding model parameters: rates, proportions, and probabilities
+
+- 10:30 AM - 10:45 AM: Short Break (15 mins)
+
+- 10:45 AM - 12:15 PM: Extending compartmental models (1 hour 30 mins)
+    - The SEIR Model: Adding the Exposed (E) compartment
+- The Basic Reproduction Number, $R0$
+  - Definition and significance of $R0$
+  - Methods for calculating $R0$
+  - Understanding $R0$ in the context of control measures
+
+- 12:15 AM - 13:15 PM: Lunch Break (1 hour)
+
+- 13:15 PM - 14:45 PM: Analyzing Model Outputs and Dynamics (1 hour 30 mins)
+
+  - Interpreting the epidemic curve
+  - Understanding equilibrium and threshold conditions
+  - Sensitivity analysis: How changes in parameters affect the model outputs
+
+- 14:45 PM - 15:00 PM: Short Break (15 mins)
+
+- 15:00 PM - 15:30 PM: Wrap-Up and Q&A (30 mins)
+
+  - Summary of key takeaways
+  - Discussion of model limitations and assumptions
+  - Open Q&A session
+
+- 15:30 PM - 17:00 - Exercises (1 hour 30 mins)
+
+  - Implementing compartmental models in R
+  - Calculating R0 for various models
 
 ![](https://i.creativecommons.org/l/by/4.0/88x31.png) This work is licensed
 under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).

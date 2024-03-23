@@ -1,6 +1,6 @@
 ---
-title: "My title"
-author: "Author name"
+title: "Introduction to Infectious Disease Modelling"
+author: "James Mba Azam, PhD"
 execute:
   echo: true
 format:
@@ -10,14 +10,43 @@ format:
 engine: knitr
 ---
 
-## Some title
+# Overview of Infectious Disease Modeling
 
-Talk outline:
+# Extending compartmental models
 
-## Slide 1
+# The Basic Reproduction Number
 
-Some content
+# Analyzing Model Outputs and Dynamics
 
-## Slide 2
+# Wrap-Up and Q&A
 
-Some more content
+# List of Resources
+
+## Textbooks
+
+- [Modeling Infectious Diseases in Humans and Animals by Matt Keeling and Pejman Rohani](https://www.amazon.co.uk/Modeling-Infectious-Diseases-Humans-Animals/dp/0691116172)
+-[Epidemics: Models and Data Using R by Ottar N. Bjornstad](https://link.springer.com/book/10.1007/978-3-031-12056-5)
+- [Infectious Disease Modelling by Emilia Vynnycky and Richard White](https://www.amazon.co.uk/Introduction-Infectious-Disease-Modelling/dp/0198565763)
+- [Infectious Diseases of Humans: Dynamics and Control by Roy M. Anderson and Robert M. May](https://www.amazon.co.uk/Infectious-Diseases-Humans-Dynamics-Control/dp/019854040X)
+
+## Papers and Articles {.scrollable}
+
+### Modelling infectious disease transmission
+
+- [Kirkeby, C., Brookes, V. J., Ward, M. P., Dürr, S., & Halasa, T. (2021). A practical introduction to mechanistic modeling of disease transmission in veterinary science. Frontiers in veterinary science, 7, 546651.](https://www.frontiersin.org/articles/10.3389/fvets.2020.546651/full)
+- [Blackwood, J. C., & Childs, L. M. (2018). An introduction to compartmental modeling for the budding infectious disease modeler.](https://vtechworks.lib.vt.edu/items/61e9ca00-ef21-4356-bcd7-a9294a1d2f17)
+- [Grassly, N. C., & Fraser, C. (2008). Mathematical models of infectious disease transmission. Nature Reviews Microbiology, 6(6), 477–487.](https://doi.org/10.1038/nrmicro1845)
+- [Cobey, S. (2020). Modeling infectious disease dynamics. Science, 368(6492), 713–714.](https://doi.org/10.1126/science.abb5659)
+- [Bjørnstad, O. N., Shea, K., Krzywinski, M., & Altman, N. (2020). Modeling infectious epidemics. Nature Methods, 17(5), 455–456.](https://doi.org/10.1038/s41592-020-0822-z)
+- [Bodner, K., Brimacombe, C., Chenery, E. S., Greiner, A., McLeod, A. M., Penk, S. R., & Soto, J. S. V. (2021). Ten simple rules for tackling your first mathematical models: A guide for graduate students by graduate students. PLOS Computational Biology, 17(1), e1008539.](https://doi.org/10.1371/journal.pcbi.1008539)
+- [Mishra, S., Fisman, D. N., & Boily, M.-C. (2011). The ABC of terms used in mathematical models of infectious diseases. Journal of Epidemiology & Community Health, 65(1), 87–94.](https://jech.bmj.com/content/65/1/87)
+- [James, L. P., Salomon, J. A., Buckee, C. O., & Menzies, N. A. (2021). The Use and Misuse of Mathematical Modeling for Infectious Disease Policymaking: Lessons for the COVID-19 Pandemic. 41(4), 379–385.](https://doi.org/10.1177/0272989X21990391)
+- [Holmdah, I., & Buckee, C. (2020). Wrong but useful—What COVID-19 epidemiologic models can and cannot tell us. New England Journal of Medicine.](https://doi.org/10.1056/nejmp2009027)
+- [Metcalf, C. J. E. E., Edmunds, W. J., & Lessler, J. (2015). Six challenges in modelling for public health policy. Epidemics, 10(2015), 93–96.](https://doi.org/10.1016/j.epidem.2014.08.008)
+- [Roberts, M., Andreasen, V., Lloyd, A., & Pellis, L. (2015). Nine challenges for deterministic epidemic models. Epidemics, 10(2015), 49–53.](https://doi.org/10.1016/j.epidem.2014.09.006)
+
+### Deriving and Interpreting R0
+
+- [Jones, J. H. (2011). Notes On R0. Building, 1–19.](https://web.stanford.edu/~jhj1/teachingdocs/Jones-on-R0.pdf)
+- [Diekmann, O., Heesterbeek, J. A. P., & Metz, J. A. J. (1990). On the definition and the computation of the basic reproduction ratio R0 in models for infectious diseases in heterogeneous populations. Journal of Mathematical Biology, 28(4), 365–382.](https://doi.org/10.1007/BF00178324)
+- [Diekmann, O., Heesterbeek, J. A. P., & Roberts, M. G. (2010). The construction of next-generation matrices for compartmental epidemic models. Journal of the Royal Society Interface, 7(47), 873–885.](https://doi.org/10.1098/rsif.2009.0386)
