@@ -1,0 +1,15 @@
+project: 
+  render:
+    - slides.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    link-external-newwindow: true
+
+editor: visual
+engine: knitr
+execute:
+  freeze: auto

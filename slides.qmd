@@ -1,0 +1,23 @@
+---
+title: "My title"
+author: "Author name"
+execute:
+  echo: true
+format:
+  revealjs: 
+    theme: dark
+    slide-number: true
+engine: knitr
+---
+
+## Some title
+
+Talk outline:
+
+## Slide 1
+
+Some content
+
+## Slide 2
+
+Some more content
