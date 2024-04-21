@@ -7,7 +7,10 @@
 <link href="slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="slides_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="slides_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="slides_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="slides_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="slides_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.515">
 
   <meta name="author" content="James Mba Azam, PhD">
@@ -244,6 +247,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -337,16 +341,86 @@ James Mba Azam, PhD
 </div>
 
 </section>
+<section>
 <section id="overview-of-infectious-disease-modeling" class="title-slide slide level1 center">
 <h1>Overview of Infectious Disease Modeling</h1>
 
 </section>
-
-<section id="extending-compartmental-models" class="title-slide slide level1 center">
-<h1>Extending compartmental models</h1>
+<section id="a-quick-overview-of-diseases" class="slide level2">
+<h2>A quick overview of diseases</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/disease_definition.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-description="" title="Generic definition of a disease (source: Merriam Webster)"><img data-src="images/disease_definition.png" alt="Generic definition of a disease (source: Merriam Webster)"></a></p>
+<figcaption>Generic definition of a disease (source: Merriam Webster)</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:70%;">
+<p>Depending on what we care about, we can classify diseases according to:</p>
+<ul>
+<li>Cause (e.g., infectious, non-infectious)</li>
+<li>Duration (e.g., acute, chronic)</li>
+<li>Mode of transmission (direct or indirect)</li>
+<li>Impact on the host (e.g., fatal, non-fatal)</li>
+</ul>
+<p>Note that these classifications are not mutually exclusive. Hence, a disease can be classified under more than one category at a time.</p>
+</div>
+</div>
+</section>
+<section id="what-is-infectious-disease-modeling" class="slide level2">
+<h2>What is infectious disease modeling?</h2>
+</section>
+<section id="what-are-models-used-for" class="slide level2">
+<h2>What are models used for?</h2>
+<ul>
+<li>Mathematical models often have three main purposes in infectious disease epidemiology:
+<ul>
+<li>To understand the spread and dynamics of infectious diseases</li>
+<li>To predict the future course of an outbreak</li>
+<li>To evaluate the impact of interventions and determine the next course of action</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="deterministic-compartmental-models" class="title-slide slide level1 center">
+<h1>Deterministic compartmental models</h1>
 
 </section>
+<section id="what-are-compartmental-models" class="slide level2">
+<h2>What are compartmental models?</h2>
+<ul>
+<li>Compartmental models are a type of mathematical model used to describe the spread of infectious diseases in a population.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>They divide the population into compartments based on the <span style="color:red;">disease status</span> of individuals.</li>
+<li>The most common compartments are:
+<ul>
+<li>Susceptible (S) - hosts are not infected but can be infected</li>
+<li>Infected (I) - hosts are infected (and can infect others)</li>
+<li>Removed (R) - hosts are no longer infected and cannot be re-infected</li>
+</ul></li>
+<li>In compartmental models, individuals move between compartments based on defined transition quantities.</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/infection_timeline.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-description="" title="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)"><img data-src="images/infection_timeline.png" alt="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)"></a></p>
+<figcaption>Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
 
+<ul>
+<li><p>Other compartments can be added to the model to account for important events or processes (e.g., exposed, recovered, vaccinated, etc.)</p></li>
+<li><p>It is, however, important to keep the model simple, less computationally intensive, and interpretable.</p></li>
+</ul>
+</section></section>
 <section id="the-basic-reproduction-number" class="title-slide slide level1 center">
 <h1>The Basic Reproduction Number</h1>
 
@@ -432,7 +506,7 @@ James Mba Azam, PhD
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': false,
+'smaller': true,
  
         // Display controls in the bottom right corner
         controls: false,
@@ -803,6 +877,7 @@ James Mba Azam, PhD
       }
     });
     </script>
+    <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox"});</script>
     
 
 </body></html>
