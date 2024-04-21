@@ -35,6 +35,48 @@ Note that these classifications are not mutually exclusive. Hence, a disease can
 
 ::::
 
+## What is infectious disease modeling?
+
+
+## What are models used for?
+
+- Mathematical models often have three main purposes in infectious disease epidemiology:
+  - To understand the spread and dynamics of infectious diseases
+  - To predict the future course of an outbreak
+  - To evaluate the impact of interventions and determine the next course of action
+
+# Deterministic compartmental models
+
+## What are compartmental models?
+
+- Compartmental models are a type of mathematical model used to describe the
+spread of infectious diseases in a population.
+
+:::: {.columns}
+
+::: {.column width="40%"}
+- They divide the population into compartments based on the [disease status]{style="color:red;"} of individuals.
+- The most common compartments are:
+  - Susceptible (S) - hosts are not infected but can be infected
+  - Infected (I) - hosts are infected (and can infect others)
+  - Removed (R) - hosts are no longer infected and cannot be re-infected
+- In compartmental models, individuals move between compartments based on defined
+transition quantities.
+:::
+
+::: {.column width="60%"}
+![Infection timeline illustrating how a pathogen in a host interacts with the host's immune system (source: Modelling Infectious Diseases of Humans and Animals)](images/infection_timeline.png){.lightbox}
+:::
+
+::::
+
+---
+
+- Other compartments can be added to the model to account for important events or
+processes (e.g., exposed, recovered, vaccinated, etc.)
+
+- It is, however, important to keep the model simple, less computationally
+intensive, and interpretable.
 
 # The Basic Reproduction Number
 
