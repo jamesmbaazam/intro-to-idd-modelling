@@ -27,9 +27,14 @@ Depending on what we care about, we can classify diseases according to:
 
 - Cause (e.g., infectious, non-infectious)
 - Duration (e.g., acute, chronic)
-
 - Mode of transmission (direct or indirect)
 - Impact on the host (e.g., fatal, non-fatal)
+
+Note that these classifications are not mutually exclusive. Hence, a disease can be classified under more than one category at a time.
+:::
+
+::::
+
 
 # The Basic Reproduction Number
 
