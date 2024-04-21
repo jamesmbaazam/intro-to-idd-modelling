@@ -14,7 +14,22 @@ engine: knitr
 
 # Overview of Infectious Disease Modeling
 
-# Extending compartmental models
+## A quick overview of diseases
+
+:::: {.columns}
+
+::: {.column width="30%"}
+![Generic definition of a disease (source: Merriam Webster)](images/disease_definition.png){.lightbox}
+:::
+
+::: {.column width="70%"}
+Depending on what we care about, we can classify diseases according to:
+
+- Cause (e.g., infectious, non-infectious)
+- Duration (e.g., acute, chronic)
+
+- Mode of transmission (direct or indirect)
+- Impact on the host (e.g., fatal, non-fatal)
 
 # The Basic Reproduction Number
 
