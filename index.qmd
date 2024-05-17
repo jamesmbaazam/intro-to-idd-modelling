@@ -4,84 +4,94 @@ title: Intro to Infectious Disease Modelling
 
 ### Lecture Overview
 
-This lecture introduces participants to some foundational concepts in infectious
-disease modelling, focussing on the basics of compartmental models, and especially
-the SIR model and its extensions (SEIR, SEIRV), and developing an understanding
-of the derivation and interpretation of the basic reproduction number, $R0$.
+This lecture introduces participants to some foundational concepts in infectious disease modelling, focussing on the basics of compartmental models, and especially the SIR model and its extensions (SEIR, SEIRV), and developing an understanding of the derivation and interpretation of the basic reproduction number, $R0$.
 
 ## Prerequisites
 
-Participants should have a basic understanding of calculus and differential
-equations, as well as some familiarity with the R programming language.
+Participants should have a basic understanding of calculus and differential equations, as well as some familiarity with the R programming language.
 
 ## Course Materials
 
-- Lecture slides
-- Code templates for exercises (R)
-- Recommended readings and resources list
+-   Lecture slides
+-   Code templates for exercises (R)
+-   Recommended readings and resources list
 
 ## Learning Objectives
 
-- Understand the basic principles of infectious disease modelling.
-- Implement and analyse compartmental models (SIR, SEIR, and SEIRV models).
-- Interpret model parameters and outputs.
-- Derive/calculate and interpret the basic reproduction number (R0).
-- Assess model assumptions and limitations.
+-   Understand the basic principles of infectious disease modelling.
+-   Implement and analyse compartmental models (SIR, SEIR, and SEIRV models).
+-   Interpret model parameters and outputs.
+-   Derive/calculate and interpret the basic reproduction number (R0).
+-   Assess model assumptions and limitations.
 
 ## Course Schedule (subject to change)
 
-- 9:00 AM - 10:30 AM: Overview of Infectious Disease Modelling (1 hour 30 mins)
-  - Introduction to mathematical modelling in epidemiology
-    - What are infectious disease (mathematical and statistical) models?
-    - The role of models in public health decision-making
-    - Types of models:
-        - deterministic vs. stochastic
-        - individual-based vs. population-based
-        - compartmental vs. network models
-  - Introduction to deterministic compartmental modelling
-    - The general compartmental model framework
-      - Adding compartments: susceptible, infected, and recovered
-      - Incorporating disease transmission and recovery processes
-    - Overview of the SIR model:
-      - structure and assumptions
-    - Understanding model parameters: rates, proportions, and probabilities
+## Day 1
 
-- 10:30 AM - 10:45 AM: Short Break (15 mins)
+-   9:00 AM - 10:30 AM: Overview of Infectious Disease Modelling (1 hour 30 mins)
 
-- 10:45 AM - 12:15 PM: Extending compartmental models (1 hour 30 mins)
-    - The SEIR Model: Adding the Exposed (E) compartment
-      - Incorporating an incubation period
-      - Understanding the role of the exposed compartment in disease transmission
-- The Basic Reproduction Number, $R0$
-  - Definition and significance of $R0$
-  - Methods for deriving/calculating $R0$
-  - Not a magic number: Understanding $R0$ in the context of control measures
+    - A brief overview of diseases
+        -   What are infectious diseases?
+        -   What are the impacts of infectious diseases on public health?
+        -   How are infectious diseases controlled?
+    - Introduction to mathematical modelling in epidemiology
+        -   What are infectious disease (mathematical and statistical) models?
+        -   The role of models in public health decision-making
+        -   Types of models:
+            -   deterministic vs. stochastic
+            -   individual-based vs. population-based
+            -   compartmental vs. network models
 
-- 12:15 AM - 13:15 PM: Lunch Break (1 hour)
+-   10:30 AM - 10:45 AM: Short Break (15 mins)
 
-- 13:15 PM - 14:45 PM: Analyzing Model Outputs and Dynamics (1 hour 30 mins)
+-   10:45 AM - 12:15 PM: Formulating compartmental models (1 hour 30 mins)
 
-  - Interpreting the epidemic curve
-  - Understanding equilibrium and threshold conditions
-  - Sensitivity analysis: How changes in parameters affect the model outputs
+    -   Types of compartmental models
+        -   The general compartmental model framework
+            -   Adding compartments: susceptible, infected, and recovered
+            -   Incorporating disease transmission and recovery processes
+        -   The SIR model:
+            -   structure and assumptions
+        -   Understanding model parameters: rates, proportions, and probabilities
+        
+    -   The SEIR Model: Adding the Exposed (E) compartment
+        -   Incorporating an incubation period
+        -   Understanding the role of the exposed compartment in disease transmission
 
-- 14:45 PM - 15:00 PM: Short Break (15 mins)
+-   12:15 AM - 13:15 PM: Lunch Break (1 hour)
 
-- 15:00 PM - 15:30 PM: Wrap-Up and Q&A (30 mins)
+-   13:15 PM - 14:45 PM: Characterising transmission (1 hour 30 mins)
 
-  - Summary of key takeaways
-  - Discussion of model limitations and assumptions
-  - Open Q&A session
+    -   The Basic Reproduction Number, $R0$
+        -   Definition and significance of $R0$
+        -   Methods for deriving/calculating $R0$
+        -   Not a magic number: Understanding $R0$ in the context of control measures
 
-- 15:30 PM - 17:00 - Exercises (1 hour 30 mins)
+-   14:45 PM - 15:00 PM: Short Break (15 mins)
 
-  - Describe a disease scenario and ask students to formulate a simple
-  compartmental model, explaining the rationale for their choices.
-  - Derive the R0 for the model
-  - More advanced exercises for students who are comfortable with the basics
-  of compartmental models and R:
-   - [TB elimination](https://www.reconlearn.org/post/practical-tb)
-   - 
+-   15:00 PM - 15:30 PM: Wrap-Up and Q&A (30 mins)
 
-![](https://i.creativecommons.org/l/by/4.0/88x31.png) This work is licensed
-under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+    -   Summary of key takeaways
+    -   Discussion of model limitations and assumptions
+    -   Open Q&A session
+
+-   15:30 PM - 17:00 - Exercises (1 hour 30 mins)
+
+    -   Describe a disease scenario and ask students to formulate a simple compartmental model, explaining the rationale for their choices.
+    -   Derive the R0 for the model
+    -   More advanced exercises for students who are comfortable with the basics of compartmental models and R:
+        -   Implementing the SIR model in R
+        -   Visualising the epidemic curve
+        -   Calculating the basic reproduction number, R0
+        -   Sensitivity analysis: How changes in parameters affect the model outputs
+    -   An adaption of this exercise on [TB elimination](https://www.reconlearn.org/post/practical-tb)
+
+## Day 2
+
+-  9:00 AM - 10:30 AM: Analysing model outputs (1 hour 30 mins)
+
+    -   Interpreting the epidemic curve
+    -   Understanding equilibrium and threshold conditions
+    -   Sensitivity analysis: How changes in parameters affect the model outputs
+
+![](https://i.creativecommons.org/l/by/4.0/88x31.png) This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).

@@ -7,11 +7,11 @@
 <link href="slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="slides_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="slides_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="slides_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="slides_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.552">
+  <meta name="generator" content="quarto-1.4.553">
 
   <meta name="author" content="James Mba Azam, PhD">
   <title>Introduction to Infectious Disease Modelling</title>
@@ -32,11 +32,98 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="slides_files/libs/revealjs/dist/theme/quarto.css">
   <link href="slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="slides_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="slides_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -325,7 +412,7 @@
     }
   </style>
 </head>
-<body class="quarto-dark">
+<body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
@@ -342,12 +429,12 @@ James Mba Azam, PhD
 
 </section>
 <section>
-<section id="overview-of-infectious-disease-modeling" class="title-slide slide level1 center">
-<h1>Overview of Infectious Disease Modeling</h1>
+<section id="an-overview-of-infectious-diseases" class="title-slide slide level1 center">
+<h1>An overview of infectious diseases</h1>
 
 </section>
-<section id="a-quick-overview-of-diseases" class="slide level2">
-<h2>A quick overview of diseases</h2>
+<section id="what-are-infectious-diseasess" class="slide level2">
+<h2>What are infectious diseasess</h2>
 <div class="columns">
 <div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-center">
@@ -368,30 +455,265 @@ James Mba Azam, PhD
 </div>
 </div>
 </section>
-<section id="what-is-infectious-disease-modeling" class="slide level2">
-<h2>What is infectious disease modeling?</h2>
+<section id="how-are-infectious-diseases-controlled" class="slide level2">
+<h2>How are infectious diseases controlled?</h2>
+<ul>
+<li>In general, infectious disease control aims to reduce disease transmission.</li>
+<li>The type of control used depends on the disease and its characteristics.</li>
+<li>Broadly, there are two main types of control measures:
+<ul>
+<li>Pharmaceutical interventions (PIs)</li>
+<li>Non-pharmaceutical interventions (NPIs)</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="pharmaceutical-interventions-pis">Pharmaceutical interventions (PIs)</h3>
+<ul>
+<li><p>Pharmaceutical Interventions are medical interventions that target the pathogen or the host.</p></li>
+<li><p>Examples:</p>
+<ul>
+<li>Vaccines,</li>
+<li>Antiviral drugs, and</li>
+<li>Antibiotics.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="vaccination">Vaccination</h3>
+<ul>
+<li>Most effective way to prevent infectious diseases.</li>
+<li>Activates the host’s immune system to produce antibodies against the pathogen.</li>
+<li>Generally applied prophylactically to susceptible individuals (before infection); this reduces the risk of infection and disease.</li>
+<li>Challenges:
+<ul>
+<li>Take time to develop for new pathogens</li>
+<li>Never 100% effective and limited duration of protection</li>
+<li>Adverse side effects</li>
+<li>Some individuals cannot be vaccinated or refuce vaccination</li>
+<li>Some pathogens mutate rapidly (e.g., influenza virus)</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="non-pharmaceutical-interventions-npis">Non-pharmaceutical interventions (NPIs)</h3>
+<ul>
+<li><p>Non-pharmaceutical interventions are measures that do not involve medical interventions.</p></li>
+<li><p>Examples:</p>
+<ul>
+<li>Quarantine,</li>
+<li>Physical/social distancing, and</li>
+<li>Mask-wearing.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="quarantine">Quarantine</h3>
+<ul>
+<li><em>Isolation of individuals who may have been exposed to a contagious disease</em>.</li>
+<li>Advantage is that it’s simple and its effectiveness does not depend on the disease.</li>
+<li>Disadvantages include:
+<ul>
+<li>Infringement on individual rights</li>
+<li>Can be difficult to enforce</li>
+<li>Can be costly</li>
+<li>Can lead to social stigma</li>
+</ul></li>
+</ul>
+<p><span style="color:red;">What type of intervention is contact tracing?</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="contact-tracing">Contact tracing</h3>
+<ul>
+<li>Contact tracing is not necessarily an NPI but is often used to identify likely infected individuals.</li>
+<li>It involves identifying, assessing, and managing people who have been exposed to a contagious disease to prevent further transmission.</li>
+<li>It is a critical component of infectious disease surveillance and is often used in combination with other control measures.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><span style="color:red;">How do we quantify the impact of a control measure?</span></p>
+</section></section>
+<section>
+<section id="infectious-disease-models" class="title-slide slide level1 center">
+<h1>Infectious disease models</h1>
+
+</section>
+<section id="what-are-infectious-disease-models" class="slide level2">
+<h2>What are infectious disease models?</h2>
+<ul>
+<li><span style="color:red;"><em>Models</em></span> generally refer to conceptual representations of an object or system.</li>
+<li><span style="color:red;"><em>Mathematical models</em></span> use mathematics to represent the description of the system.</li>
+<li><span style="color:red;"><em>Infectious disease models</em></span> use mathematics/statistics to represent dynamics/spread of infectious diseases.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Mathematical models can be used to link the biological process of disease transmission and the emergent dynamics of infection at the population level.</li>
+<li>Models require making some assumptions and abstractions.</li>
+<li>By definition, “all models are wrong, but some are useful” <span class="citation" data-cites="Box1979">(<a href="#/papers-and-articles" role="doc-biblioref" onclick="">Box 1979</a>)</span>.
+<ul>
+<li>Good enough models are those that capture the essential features of the system being studied.</li>
+</ul></li>
+<li>“Wrong” here means that models are simplifications of reality and do not capture all the complexities of the system being studied. It does not mean that models are useless.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>&lt;Insert example of some models and their assumptions and what makes them “wrong”&gt;</p>
+</section>
+<section id="conflicting-factors-that-influence-model-formulationchoice" class="slide level2">
+<h2>(Conflicting) Factors that influence model formulation/choice</h2>
+<ul>
+<li>Accuracy: how well does the model to reproduce observed data and predict future outcomes?</li>
+<li>Transparency: is it easy to understand and interpret the model and its outputs? (This is affected by the model’s complexity)</li>
+<li>Flexibility: the ability of the model to be adapted to different scenarios.</li>
+</ul>
 </section>
 <section id="what-are-models-used-for" class="slide level2">
 <h2>What are models used for?</h2>
 <ul>
-<li>Mathematical models often have three main purposes in infectious disease epidemiology:
+<li>Generally, models can be used to predict and understand/explain the dynamics of infectious diseases.</li>
+</ul>
+<p><span style="color:red;">How are these two uses impacted by accuracy, transparency, and flexibility?</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="modelling-to-predict-the-future-course">Modelling to predict the future course</h3>
+<div class="columns">
+<div class="column" style="width:40%;">
 <ul>
-<li>To understand the spread and dynamics of infectious diseases</li>
-<li>To predict the future course of an outbreak</li>
-<li>To evaluate the impact of interventions and determine the next course of action</li>
+<li>Must be <span style="color:red;">accurate</span> else they will provide an incorrect outlook of the future.</li>
+<li>Example of the <a href="https://apnews.com/domestic-news-domestic-news-fbb4fc8921d54201a1c5ca91e5b601f5">prediction of Ebola deaths</a> during the outbreak in West Africa in 2014/2015.</li>
+<li>“But the estimate proved to be off. Way, way off. Like, 65 times worse than what ended up happening.”</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/wrong_ebola_deaths_estimate.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Controversy over estimates of Ebola deaths"><img data-src="images/wrong_ebola_deaths_estimate.png" alt="Controversy over estimates of Ebola deaths"></a></p>
+<figcaption>Controversy over estimates of Ebola deaths</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>&lt; Insert examples of models that have made accurate predictions of the future course of an outbreak &gt;</p>
+</section>
+<section class="slide level2">
+
+<h3 id="modelling-to-understand-or-explain">Modelling to understand or explain</h3>
+<ul>
+<li>Models can be used to understand how a disease spreads and how its spread can be controlled.</li>
+<li>The insights gained from models can be used to:
+<ul>
+<li>inform public health policy and interventions.</li>
+<li>design interventions to control the spread of the disease, for example, randomised controlled trials.</li>
+<li>collect new data.</li>
+<li>build predictive models.</li>
 </ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>&lt; Insert examples of models that explain the spread and dynamics of infectious diseases &gt;</p>
+<p>&lt; Insert examples of models that evaluate the impact of interventions and determine the next course of action &gt;</p>
+</section>
+<section id="limitations-of-infectious-disease-models" class="slide level2">
+<h2>Limitations of infectious disease models</h2>
+<ul>
+<li>Host behaviour is often difficult to predict.</li>
+<li>The pathogen often has unknown characteristics or known characteristics that are difficult to model.</li>
+<li>Data is often not available or is of poor quality.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Models:
+<ul>
+<li>Simplifications of reality and do not capture all the complexities of the system being studied.</li>
+<li>Only as good as the data used to parameterize them.</li>
+<li>Can be sensitive to the assumptions made during their formulation.</li>
+<li>Can be computationally expensive and require a lot of data to run.</li>
+<li>Can be difficult to interpret and communicate to non-experts.</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-skills-are-needed-to-build-and-use-infectious-disease-models" class="slide level2">
+<h2>What skills are needed to build and use infectious disease models?</h2>
+<ul>
+<li>Mathematical and statistical skills:
+<ul>
+<li>Differential equations.</li>
+<li>Probability and statistics.</li>
+<li>Stochastic processes.</li>
+<li>Numerical analysis</li>
+<li>Time series analyses</li>
+<li>Survival analysis</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Programming skills:
+<ul>
+<li>Proficiency in at least one programming language (e.g., R, Python, Julia, C++).</li>
+<li>Experience with version control (e.g., Git).</li>
+<li>Experience with data manipulation and visualization.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Domain knowledge in infectious diseases:
+<ul>
+<li>Immunology.</li>
+<li>Epidemiology.</li>
+<li>Virology.</li>
+<li>Genomics</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>Other subject areas:</p></li>
+<li><p>Communication skills:</p>
+<ul>
+<li>Ability to communicate complex ideas to non-experts.</li>
+<li>Ability to write clear and concise reports.</li>
+<li>Ability to present results to a diverse audience.</li>
+</ul></li>
+<li><p>Public health.</p></li>
+<li><p>Health economics.</p></li>
+<li><p>Policy analysis.</p></li>
 </ul>
 </section></section>
 <section>
-<section id="deterministic-compartmental-models" class="title-slide slide level1 center">
-<h1>Deterministic compartmental models</h1>
+<section id="introduction-to-compartmental-models" class="title-slide slide level1 center">
+<h1>Introduction to compartmental models</h1>
 
 </section>
 <section id="what-are-compartmental-models" class="slide level2">
 <h2>What are compartmental models?</h2>
 <ul>
-<li>Compartmental models are a type of mathematical model used to describe the spread of infectious diseases in a population.</li>
+<li>Compartmental models divide populations into compartments (or groups) based on individual’s infection status <span class="citation" data-cites="Blackwood2018a">(<a href="#/papers-and-articles" role="doc-biblioref" onclick="">Blackwood and Childs 2018</a>)</span>.</li>
+<li>Individuals move between compartments based on defined transition quantities.</li>
+<li>Any particular individual can only be in one compartment at a time.</li>
 </ul>
+</section>
+<section class="slide level2">
+
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
@@ -407,7 +729,7 @@ James Mba Azam, PhD
 </div><div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/infection_timeline.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)"><img data-src="images/infection_timeline.png" alt="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)"></a></p>
+<p><a href="images/infection_timeline.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)"><img data-src="images/infection_timeline.png" alt="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)"></a></p>
 <figcaption>Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)</figcaption>
 </figure>
 </div>
@@ -420,6 +742,283 @@ James Mba Azam, PhD
 <li><p>Other compartments can be added to the model to account for important events or processes (e.g., exposed, recovered, vaccinated, etc.)</p></li>
 <li><p>It is, however, important to keep the model simple, less computationally intensive, and interpretable.</p></li>
 </ul>
+</section></section>
+<section>
+<section id="some-simple-compartmental-models" class="title-slide slide level1 center">
+<h1>Some simple compartmental models</h1>
+<ul>
+<li>We are going to consider infections that either confer immunity after recovery or not.</li>
+<li>The simplest compartmental models for capturing this are the SIS and SIR models.</li>
+</ul>
+</section>
+<section id="the-susceptible-infected-recovered-model-sir" class="slide level2">
+<h2>The Susceptible-Infected-Recovered model (SIR)</h2>
+<ul>
+<li><p>SIR models are used to model diseases that confer immunity after recovery.</p></li>
+<li><p>The SIR model groups individuals into three <em>disease states</em>:</p>
+<ul>
+<li>Susceptible (S): individuals who are not infected and can be infected.</li>
+<li>Infected (I): individuals who are infected and can infect others.</li>
+<li>Removed (R): individuals who have recovered from the infection and are immune.</li>
+</ul></li>
+<li><p>This framework was popularised by Kermack and McKendrick in 1927 <span class="citation" data-cites="kermack1927contribution">(<a href="#/papers-and-articles" role="doc-biblioref" onclick="">Kermack and McKendrick 1927</a>)</span></p>
+<ul>
+<li>A must-read paper for anyone interested in infectious disease modelling.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/sir_sirs_model.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="Diagram of an SIR/SIRS model"><img data-src="images/sir_sirs_model.png" alt="Diagram of an SIR/SIRS model"></a></p>
+<figcaption>Diagram of an SIR/SIRS model</figcaption>
+</figure>
+</div>
+</section>
+<section id="model-equations" class="slide level2">
+<h2>Model equations</h2>
+<ul>
+<li>The SIR model is described by the following set of differential equations:</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+\frac{dS}{dt} &amp; = \color{orange}{-\beta \frac{S I}{N}} \\
+\frac{dI}{dt} &amp; = \color{orange}{\beta \frac{S I}{N}} - \color{cornflowerblue}{\gamma I} \\
+\frac{dR}{dt} &amp; = \color{cornflowerblue}{\gamma I}
+\end{aligned}\]</span>
+<p>With initial conditions <span class="math inline">\(S(0) = S_0\)</span>, <span class="math inline">\(I(0) = I_0\)</span>, and <span class="math inline">\(R(0) = R_0\)</span>.</p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(N\)</span> is the total population size.</li>
+<li><span class="math inline">\(\beta\)</span> is the transmission rate.</li>
+<li><span class="math inline">\(\gamma\)</span> is the recovery rate.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>The model cannot be solved analytically, so numerical methods are used to solve the equations.</p></li>
+<li><p>However, we can gain insights into the dynamics of the model by qualitatively analysing the equations.</p></li>
+</ul>
+</section>
+<section id="solving-the-sir-model-in-r" class="slide level2">
+<h2>Solving the SIR model in R</h2>
+<ul>
+<li>To solve the model in R, we will always need to define at least three things:
+<ul>
+<li>The model equations.</li>
+<li>The parameter values.</li>
+<li>The initial conditions.</li>
+</ul></li>
+<li>We will need the <code>deSolve</code> package to solve the model.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Let’s start by defining the model equations.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Define the SIR model</span></span>
+<span id="cb1-2"><a href=""></a>sir_model <span class="ot">&lt;-</span> <span class="cf">function</span>(t, state, parameters) {</span>
+<span id="cb1-3"><a href=""></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parameters)), {</span>
+<span id="cb1-4"><a href=""></a>    dS <span class="ot">&lt;-</span> <span class="sc">-</span>beta <span class="sc">*</span> S <span class="sc">*</span> I</span>
+<span id="cb1-5"><a href=""></a>    dI <span class="ot">&lt;-</span> beta <span class="sc">*</span> S <span class="sc">*</span> I <span class="sc">-</span> gamma <span class="sc">*</span> I</span>
+<span id="cb1-6"><a href=""></a>    dR <span class="ot">&lt;-</span> gamma <span class="sc">*</span> I</span>
+<span id="cb1-7"><a href=""></a>    <span class="fu">return</span>(<span class="fu">list</span>(<span class="fu">c</span>(dS, dI, dR)))</span>
+<span id="cb1-8"><a href=""></a>  })</span>
+<span id="cb1-9"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Next, we will define the parameter values and initial conditions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># define parameters we know</span></span>
+<span id="cb2-2"><a href=""></a>N  <span class="ot">&lt;-</span> <span class="dv">1000</span>  </span>
+<span id="cb2-3"><a href=""></a>R0 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb2-4"><a href=""></a>infectious_period <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb2-5"><a href=""></a></span>
+<span id="cb2-6"><a href=""></a><span class="co"># Remember gamma &lt;- 1/ infectious_period as discussed earlier</span></span>
+<span id="cb2-7"><a href=""></a>gamma <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>infectious_period </span>
+<span id="cb2-8"><a href=""></a></span>
+<span id="cb2-9"><a href=""></a><span class="co"># We will use R0 = beta N / gamma  instead because it is easier to interpret.</span></span>
+<span id="cb2-10"><a href=""></a><span class="co"># beta is not directly interpretable.</span></span>
+<span id="cb2-11"><a href=""></a></span>
+<span id="cb2-12"><a href=""></a>params <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">beta =</span> R0 <span class="sc">*</span> gamma <span class="sc">/</span> N, <span class="at">gamma =</span> gamma)</span>
+<span id="cb2-13"><a href=""></a></span>
+<span id="cb2-14"><a href=""></a><span class="co"># Initial conditions for S, I, R</span></span>
+<span id="cb2-15"><a href=""></a><span class="co"># Why is S = N - 1?</span></span>
+<span id="cb2-16"><a href=""></a>inits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">S =</span> N <span class="sc">-</span> <span class="dv">1</span>, <span class="at">I =</span> <span class="dv">1</span>, <span class="at">R =</span> <span class="dv">0</span>)</span>
+<span id="cb2-17"><a href=""></a></span>
+<span id="cb2-18"><a href=""></a><span class="co"># Time steps to return results</span></span>
+<span id="cb2-19"><a href=""></a>dt <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">150</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Finally, we will solve the model using the <code>ode</code> function from the <code>deSolve</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Solve the model</span></span>
+<span id="cb3-2"><a href=""></a>results <span class="ot">&lt;-</span> deSolve<span class="sc">::</span><span class="fu">ode</span>(</span>
+<span id="cb3-3"><a href=""></a>  <span class="at">y =</span> inits,</span>
+<span id="cb3-4"><a href=""></a>  <span class="at">times =</span> dt,</span>
+<span id="cb3-5"><a href=""></a>  <span class="at">func =</span> sir_model,</span>
+<span id="cb3-6"><a href=""></a>  <span class="at">parms =</span> params</span>
+<span id="cb3-7"><a href=""></a>)</span>
+<span id="cb3-8"><a href=""></a></span>
+<span id="cb3-9"><a href=""></a><span class="co"># Make it a data.frame</span></span>
+<span id="cb3-10"><a href=""></a>results <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Now, let’s plot the results.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Load the necessary libraries</span></span>
+<span id="cb4-2"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-3"><a href=""></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb4-4"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-5"><a href=""></a><span class="co"># Create data for ggplot2 by reshaping</span></span>
+<span id="cb4-6"><a href=""></a>results_long <span class="ot">&lt;-</span> results <span class="sc">|&gt;</span> </span>
+<span id="cb4-7"><a href=""></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>), <span class="at">names_to =</span> <span class="st">"compartment"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
+<span id="cb4-8"><a href=""></a>  </span>
+<span id="cb4-9"><a href=""></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> results_long,</span>
+<span id="cb4-10"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> value, <span class="at">color =</span> compartment)</span>
+<span id="cb4-11"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb4-12"><a href=""></a><span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb4-13"><a href=""></a><span class="fu">labs</span>(</span>
+<span id="cb4-14"><a href=""></a>  <span class="at">title =</span> <span class="st">"SIR model"</span>,</span>
+<span id="cb4-15"><a href=""></a>  <span class="at">x =</span> <span class="st">"Time"</span>,</span>
+<span id="cb4-16"><a href=""></a>  <span class="at">y =</span> <span class="st">"Number of individuals"</span></span>
+<span id="cb4-17"><a href=""></a>) </span>
+<span id="cb4-18"><a href=""></a><span class="fu">print</span>(plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+</section>
+<section id="" class="slide level2 output-location-slide"><div class="cell output-location-slide">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/plot-sir-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="model-assumptions" class="slide level2">
+<h2>Model assumptions</h2>
+<ul>
+<li><p>There are no inflows or outflows from the population, i.e., no births, deaths, or migration. This is often described as a <em>closed population</em>.</p></li>
+<li><p>That is, the epidemic occurs much faster than the time scale of births, deaths, or migration.</p></li>
+<li><p>Mixing is homogeneous, i.e., individuals mix randomly and have an equal probability of coming into contact with any other individual in the population.</p></li>
+<li><p>Transition rates are constant and do not change over time.</p></li>
+<li><p>When this assumption is “relaxed”/included, we get more complex models.</p></li>
+</ul>
+</section>
+<section id="transitions-between-compartments" class="slide level2">
+<h2>Transitions between compartments</h2>
+<ul>
+<li>There are two processes that govern the transitions between compartments:
+<ul>
+<li>Transmission, governed by the transmission rate, <span class="math inline">\(\beta\)</span> (rate at which susceptible individuals become infected).</li>
+<li>Recovery, governed by the recovery rate, <span class="math inline">\(\gamma\)</span> (rate at which infected individuals recover and become immune).</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="transmission">Transmission</h3>
+<p><span style="color:orange;">What factors drive transmission?</span></p>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Transmission is driven by several factors:
+<ul>
+<li>The prevalence, <span style="color:orange;"><span class="math inline">\(I\)</span></span>, i.e., number of infected individuals at the time.</li>
+<li>The number of contacts, <span style="color:orange;"><span class="math inline">\(C\)</span></span>, susceptible individuals have with infected individual.</li>
+<li>The probability, <span style="color:orange;"><span class="math inline">\(p\)</span></span>, a susceptible individual will become infected when they contact an infected individual.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>The transmission term is often defined through the force of infection (FOI), <span class="math inline">\(\lambda\)</span>:</p>
+<ul>
+<li>The force of infection is the <span style="color:orange;">per capita rate</span> at which susceptible individuals become infected.</li>
+</ul></li>
+<li><p>The rate at which new infecteds are generated is given by <span style="color:orange;"><span class="math inline">\(\lambda S\)</span></span>, where <span class="math inline">\(S\)</span> is the number of susceptible individuals.</p></li>
+<li><p>The force of infection is proportional to the number of infected individuals and the transmission rate, <span style="color:orange;"><span class="math inline">\(\beta\)</span></span>.</p></li>
+<li><p><span class="math inline">\(\beta\)</span> is the product of the contact rate and the probability of transmission per contact.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>The FOI can be formulated in two ways, depending on how the contact rate is expected to change with the population size:
+<ul>
+<li><span style="color:orange;"><em>Frequency-dependent/mass action transmission</em></span>: The rate of contact between individuals is proportional to the population size. Here, <span style="color:orange;"><span class="math inline">\(\lambda = \beta \times \dfrac{I}{N}\)</span></span>.</li>
+<li><span style="color:orange;"><em>Density dependent transmission</em></span>: The rate of contact between individuals is independent of the population size. Here, <span style="color:orange;"><span class="math inline">\(\lambda = \beta \times I\)</span></span>.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Frequency-dependent transmission assumes that that the number of contacts an individual has is independent of the population size:
+<ul>
+<li>Often used to model vector-borned diseases and diseases with heterogeneity in contact rates.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Density-dependent transmission assumes that the number of contacts an individual has is proportional to the population size:
+<ul>
+<li>Often used to model diseases that allow the safe assumption of random/homogenous mixing.</li>
+</ul></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>The differences become important when dealing with population sizes that change significantly over time.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>The recovery rate <span class="math inline">\(\gamma\)</span> is the reciprocal of the average duration of the infection. That is, infected individuals spend <span class="math inline">\(1/\gamma\)</span> days in the infected compartment before recovering.</p></li>
+<li><p>The average infectious period is often estimated from epidemiological data.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="the-susceptible-infected-susceptible-model-sis" class="title-slide slide level1 center">
+<h1>The Susceptible-Infected-Susceptible model (SIS)</h1>
+<ul>
+<li>The SIS model has two compartments: Susceptible (S) and Infected (I).</li>
+</ul>
+<p><insert sis="" model="" diagram=""></insert></p>
+<!-- ### An SIR Shiny App -->
+<!-- ```{r} -->
+<!-- library(shinySIR) -->
+<!-- shinySIR::run_shiny(model = "SIR") -->
+<!-- ``` -->
+<ul>
+<li>We assume that individuals are susceptible to infection, become infected, and then either recover become susceptible again or become immune.</li>
+</ul>
+<p><span style="color:red;">What kinds of diseases can be modelled using the SIS and SIR models?</span></p>
+</section>
+<section class="slide level2">
+
 </section></section>
 <section id="the-basic-reproduction-number" class="title-slide slide level1 center">
 <h1>The Basic Reproduction Number</h1>
@@ -449,7 +1048,7 @@ James Mba Azam, PhD
 <li><a href="https://www.amazon.co.uk/Infectious-Diseases-Humans-Dynamics-Control/dp/019854040X">Infectious Diseases of Humans: Dynamics and Control by Roy M. Anderson and Robert M. May</a></li>
 </ul>
 </section>
-<section id="papers-and-articles" class="slide level2 scrollable">
+<section id="papers-and-articles" class="slide level2 scrollable smaller">
 <h2>Papers and Articles</h2>
 <h3 id="modelling-infectious-disease-transmission">Modelling infectious disease transmission</h3>
 <ul>
@@ -471,6 +1070,18 @@ James Mba Azam, PhD
 <li><a href="https://doi.org/10.1007/BF00178324">Diekmann, O., Heesterbeek, J. A. P., &amp; Metz, J. A. J. (1990). On the definition and the computation of the basic reproduction ratio R0 in models for infectious diseases in heterogeneous populations. Journal of Mathematical Biology, 28(4), 365–382.</a></li>
 <li><a href="https://doi.org/10.1098/rsif.2009.0386">Diekmann, O., Heesterbeek, J. A. P., &amp; Roberts, M. G. (2010). The construction of next-generation matrices for compartmental epidemic models. Journal of the Royal Society Interface, 7(47), 873–885.</a></li>
 </ul>
+<h3 id="references">References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Blackwood2018a" class="csl-entry" role="listitem">
+Blackwood, Julie C., and Lauren M. Childs. 2018. <span>“An Introduction to Compartmental Modeling for the Budding Infectious Disease Modeler.”</span> <em>Letters in Biomathematics</em> 5 (1): 195–221. <a href="https://doi.org/10.1080/23737867.2018.1509026">https://doi.org/10.1080/23737867.2018.1509026</a>.
+</div>
+<div id="ref-Box1979" class="csl-entry" role="listitem">
+Box, GE. 1979. <span>“All Models Are Wrong, but Some Are Useful.”</span> <em>Robustness in Statistics</em> 202 (1979): 549.
+</div>
+<div id="ref-kermack1927contribution" class="csl-entry" role="listitem">
+Kermack, William Ogilvy, and Anderson G McKendrick. 1927. <span>“A Contribution to the Mathematical Theory of Epidemics.”</span> <em>Proceedings of the Royal Society of London. Series A, Containing Papers of a Mathematical and Physical Character</em> 115 (772): 700–721.
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
@@ -478,7 +1089,9 @@ James Mba Azam, PhD
 </div>
 <div class="hidden" aria-hidden="true">
 <span class="glightbox-desc lightbox-desc-1">Generic definition of a disease (source: Merriam Webster)</span>
-<span class="glightbox-desc lightbox-desc-2">Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)</span>
+<span class="glightbox-desc lightbox-desc-2">Controversy over estimates of Ebola deaths</span>
+<span class="glightbox-desc lightbox-desc-3">Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)</span>
+<span class="glightbox-desc lightbox-desc-4">Diagram of an SIR/SIRS model</span>
 </div>
 </section></section>
     </div>
@@ -491,6 +1104,8 @@ James Mba Azam, PhD
   <script src="slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="slides_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="slides_files/libs/revealjs/plugin/reveal-text-resizer/revealjs-text-resizer.js"></script>
   <script src="slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -511,8 +1126,9 @@ James Mba Azam, PhD
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
  
         // Display controls in the bottom right corner
         controls: false,
@@ -682,7 +1298,7 @@ James Mba Azam, PhD
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealTextResizer, QuartoSupport,
 
           RevealMath,
           RevealNotes,
@@ -905,7 +1521,7 @@ James Mba Azam, PhD
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom"});
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
