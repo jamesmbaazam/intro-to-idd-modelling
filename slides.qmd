@@ -22,21 +22,23 @@ engine: knitr
 ## What are infectious diseasess
 
 ::: columns
-::: {.column width="30%"}
+::: {.column width="50%"}
 ![Generic definition of a disease (source: Merriam Webster)](images/disease_definition.png){.lightbox}
 :::
 
-::: {.column width="70%"}
+::: {.column width="50%"}
 Depending on what we care about, we can classify diseases according to:
 
 -   Cause (e.g., infectious, non-infectious)
 -   Duration (e.g., acute, chronic)
 -   Mode of transmission (direct or indirect)
 -   Impact on the host (e.g., fatal, non-fatal)
+:::
+:::
 
-Note that these classifications are not mutually exclusive. Hence, a disease can be classified under more than one category at a time.
-:::
-:::
+---
+
+- Note that these classifications are not mutually exclusive. Hence, a disease can be classified under more than one category at a time.
 
 ## How are infectious diseases controlled?
 
@@ -108,7 +110,11 @@ Note that these classifications are not mutually exclusive. Hence, a disease can
 
 ------------------------------------------------------------------------
 
-[How do we quantify the impact of a control measure?]{style="color:red;"}
+::: {.callout-caution collapse="true" icon=false}
+# Question
+
+- How do we quantify the impact of a control measure?
+:::
 
 # Infectious disease models
 
@@ -297,7 +303,9 @@ Note that these classifications are not mutually exclusive. Hence, a disease can
 \frac{dR}{dt} & = \color{cornflowerblue}{\gamma I}
 \end{aligned}
 
-With initial conditions $S(0) = S_0$, $I(0) = I_0$, and $R(0) = R_0$.
+---
+
+With initial conditions $S(0) > 0$, $I(0) > 0$, and $R(0) = 0$.
 
 where:
 
@@ -307,13 +315,50 @@ where:
 
 ---
 
-- The model cannot be solved analytically, so numerical methods are used to solve the equations.
+## Solving the SIR model
 
-- However, we can gain insights into the dynamics of the model by qualitatively analysing the equations.
+- Compartmental models cannot be solved analytically.
+
+- Other methods are used to understand the dynamics of the model:
+  - Numerical simulations.
+  - Qualitative analysis of the equations; threshold phenomena.
 
 ---
 
-## Solving the SIR model in R
+### Numerical simulations
+
+- Numerical simulations can be performed with any programming language.
+
+- This course focuses on R:
+  - In R, we can use the `deSolve` package to solve the differential equations.
+  - You are welcome to try it in other languages (Tip: Julia is really fast for complex models).
+
+---
+
+### Threshold phenomena
+
+- We can also study the conditions under which an epidemic will grow or die out using the model equations.
+
+- Two key threshold phenomena are often studied:
+  - The basic reproduction number ($R_0$).
+  - The herd immunity threshold.
+
+---
+
+- The [basic reproduction number ($R_0$)]{style="color:blue"}: the average number of secondary infections caused by a single infected individual in a [_completely susceptible_]{style="color:tomato;"} population.
+
+
+- The [herd immunity threshold]{style="color:blue"}: the proportion of the population that needs to be immune (by vaccination or natural infection) to prevent the epidemic from growing. This is often calculated as [$1 - \dfrac{1}{R_0}$]{style="color:red"}
+
+::: {.callout-caution collapse="true" icon=false}
+# Question
+
+- How would you interpret the herd immunity required for a disease with $R_0 = 2$?
+
+:::
+
+
+## Numerical simulations in R
 
 - To solve the model in R, we will always need to define at least three things:
   - The model equations.
@@ -344,8 +389,8 @@ Next, we will define the parameter values and initial conditions.
 
 ```{r parameter-values}
 # define parameters we know
-N  <- 1000  
-R0 <- 2
+N  <- 1  
+R0 <- 10
 infectious_period <- 7
 
 # Remember gamma <- 1/ infectious_period as discussed earlier
@@ -358,10 +403,10 @@ params <- c(beta = R0 * gamma / N, gamma = gamma)
 
 # Initial conditions for S, I, R
 # Why is S = N - 1?
-inits <- c(S = N - 1, I = 1, R = 0)
+inits <- c(S = N - 0.001, I = 0.000001, R = 0)
 
 # Time steps to return results
-dt <- 1:150
+dt <- 1:70
 ```
 
 ---
@@ -369,6 +414,7 @@ dt <- 1:150
 Finally, we will solve the model using the `ode` function from the `deSolve` package.
 
 ```{r solve-sir-model}
+#| cache: true
 # Solve the model
 results <- deSolve::ode(
   y = inits,
@@ -388,6 +434,7 @@ Now, let's plot the results.
 ```{r plot-sir}
 #| echo: true
 #| output-location: slide
+#| cache: true
 # Load the necessary libraries
 library(dplyr)
 library(tidyr)
@@ -433,7 +480,11 @@ print(plot)
 
 ### Transmission
 
-[What factors drive transmission?]{style="color:orange;"}
+::: {.callout-caution collapse="true" icon=false}
+# Question
+
+- What factors drive transmission?
+:::
 
 ---
 
@@ -479,12 +530,47 @@ The differences become important when dealing with population sizes that change 
 
 - The average infectious period is often estimated from epidemiological data.
 
+## Threshold phenomena
 
-# The Susceptible-Infected-Susceptible model (SIS)
+- Let's study the factors that will determine whether an epidemic will grow or not.
 
--   The SIS model has two compartments: Susceptible (S) and Infected (I).
+- Consider the case where $I(0)$ individuals are introduced into a population of size $N$ at time $t = 0$.
 
-<Insert SIS model diagram>
+- Recall that $\dfrac{dI}{dt} = I (\beta S - \gamma)$
+
+::: {.callout-caution collapse="true" icon=false}
+# Question
+
+- What will make $\dfrac{dI}{dt} > 0$? and what will that tell us?
+:::
+
+---
+
+- If $\dfrac{dI}{dt} > 0$, the number of infected individuals will increase.
+
+- If $\dfrac{dI}{dt} < 0$, the number of infected individuals will decrease.
+
+---
+
+- $\dfrac{dI}{dt} > 0$ when $S > \dfrac{\gamma}{\beta}$
+
+- This means that initially, $S(0)$ must be greater than $\dfrac{\gamma}{\beta}$ for the epidemic to grow.
+
+- This also means that we require the rate of recovery to be less than the rate of transmission for the epidemic to grow.
+
+---
+- The reverse of the removal rate is the reproduction number, $R_0 = \dfrac{\beta}{\gamma}$.
+
+::: {.callout-caution collapse="true" icon=false}
+# Question
+
+- Can you define the basic reproduction number, $R_0$?
+:::
+<!-- # The Susceptible-Infected-Susceptible model (SIS) -->
+
+<!-- -   The SIS model has two compartments: Susceptible (S) and Infected (I). -->
+
+<!-- <Insert SIS model diagram> -->
 
 <!-- ### An SIR Shiny App -->
 
@@ -496,13 +582,14 @@ The differences become important when dealing with population sizes that change 
 
 <!-- ``` -->
 
--   We assume that individuals are susceptible to infection, become infected, and then either recover become susceptible again or become immune.
+<!-- -   We assume that individuals are susceptible to infection, become infected, and then either recover become susceptible again or become immune. -->
 
-[What kinds of diseases can be modelled using the SIS and SIR models?]{style="color:red;"}
+<!-- [What kinds of diseases can be modelled using the SIS and SIR models?]{style="color:red;"} -->
 
-------------------------------------------------------------------------
 
 # The Basic Reproduction Number
+
+- Mathematically, the basic reproduction number, $R_0$, is the rate at which secondary infections are generated from a single primary infection in a completely susceptible population multiplied by the duration of the infectious period.
 
 # Analyzing Model Outputs and Dynamics
 

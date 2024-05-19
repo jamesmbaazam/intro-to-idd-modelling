@@ -436,14 +436,14 @@ James Mba Azam, PhD
 <section id="what-are-infectious-diseasess" class="slide level2">
 <h2>What are infectious diseasess</h2>
 <div class="columns">
-<div class="column" style="width:30%;">
+<div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/disease_definition.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Generic definition of a disease (source: Merriam Webster)"><img data-src="images/disease_definition.png" alt="Generic definition of a disease (source: Merriam Webster)"></a></p>
+<p><a href="images/disease_definition.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Generic definition of a disease (source: Merriam Webster)"><img data-src="images/disease_definition.png" alt="Generic definition of a disease (source: Merriam Webster)"></a></p>
 <figcaption>Generic definition of a disease (source: Merriam Webster)</figcaption>
 </figure>
 </div>
-</div><div class="column" style="width:70%;">
+</div><div class="column" style="width:50%;">
 <p>Depending on what we care about, we can classify diseases according to:</p>
 <ul>
 <li>Cause (e.g., infectious, non-infectious)</li>
@@ -451,9 +451,14 @@ James Mba Azam, PhD
 <li>Mode of transmission (direct or indirect)</li>
 <li>Impact on the host (e.g., fatal, non-fatal)</li>
 </ul>
-<p>Note that these classifications are not mutually exclusive. Hence, a disease can be classified under more than one category at a time.</p>
 </div>
 </div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Note that these classifications are not mutually exclusive. Hence, a disease can be classified under more than one category at a time.</li>
+</ul>
 </section>
 <section id="how-are-infectious-diseases-controlled" class="slide level2">
 <h2>How are infectious diseases controlled?</h2>
@@ -537,7 +542,18 @@ James Mba Azam, PhD
 </section>
 <section class="slide level2">
 
-<p><span style="color:red;">How do we quantify the impact of a control measure?</span></p>
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>How do we quantify the impact of a control measure?</li>
+</ul>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="infectious-disease-models" class="title-slide slide level1 center">
@@ -596,7 +612,7 @@ James Mba Azam, PhD
 </div><div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/wrong_ebola_deaths_estimate.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Controversy over estimates of Ebola deaths"><img data-src="images/wrong_ebola_deaths_estimate.png" alt="Controversy over estimates of Ebola deaths"></a></p>
+<p><a href="images/wrong_ebola_deaths_estimate.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Controversy over estimates of Ebola deaths"><img data-src="images/wrong_ebola_deaths_estimate.png" alt="Controversy over estimates of Ebola deaths"></a></p>
 <figcaption>Controversy over estimates of Ebola deaths</figcaption>
 </figure>
 </div>
@@ -729,7 +745,7 @@ James Mba Azam, PhD
 </div><div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/infection_timeline.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)"><img data-src="images/infection_timeline.png" alt="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)"></a></p>
+<p><a href="images/infection_timeline.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)"><img data-src="images/infection_timeline.png" alt="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)"></a></p>
 <figcaption>Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)</figcaption>
 </figure>
 </div>
@@ -771,7 +787,7 @@ James Mba Azam, PhD
 
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/sir_sirs_model.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="Diagram of an SIR/SIRS model"><img data-src="images/sir_sirs_model.png" alt="Diagram of an SIR/SIRS model"></a></p>
+<p><a href="images/sir_sirs_model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4" title="Diagram of an SIR/SIRS model"><img data-src="images/sir_sirs_model.png" alt="Diagram of an SIR/SIRS model"></a></p>
 <figcaption>Diagram of an SIR/SIRS model</figcaption>
 </figure>
 </div>
@@ -786,7 +802,10 @@ James Mba Azam, PhD
 \frac{dI}{dt} &amp; = \color{orange}{\beta \frac{S I}{N}} - \color{cornflowerblue}{\gamma I} \\
 \frac{dR}{dt} &amp; = \color{cornflowerblue}{\gamma I}
 \end{aligned}\]</span>
-<p>With initial conditions <span class="math inline">\(S(0) = S_0\)</span>, <span class="math inline">\(I(0) = I_0\)</span>, and <span class="math inline">\(R(0) = R_0\)</span>.</p>
+</section>
+<section class="slide level2">
+
+<p>With initial conditions <span class="math inline">\(S(0) &gt; 0\)</span>, <span class="math inline">\(I(0) &gt; 0\)</span>, and <span class="math inline">\(R(0) = 0\)</span>.</p>
 <p>where:</p>
 <ul>
 <li><span class="math inline">\(N\)</span> is the total population size.</li>
@@ -794,15 +813,62 @@ James Mba Azam, PhD
 <li><span class="math inline">\(\gamma\)</span> is the recovery rate.</li>
 </ul>
 </section>
+<section id="solving-the-sir-model" class="slide level2">
+<h2>Solving the SIR model</h2>
+<ul>
+<li><p>Compartmental models cannot be solved analytically.</p></li>
+<li><p>Other methods are used to understand the dynamics of the model:</p>
+<ul>
+<li>Numerical simulations.</li>
+<li>Qualitative analysis of the equations; threshold phenomena.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="numerical-simulations">Numerical simulations</h3>
+<ul>
+<li><p>Numerical simulations can be performed with any programming language.</p></li>
+<li><p>This course focuses on R:</p>
+<ul>
+<li>In R, we can use the <code>deSolve</code> package to solve the differential equations.</li>
+<li>You are welcome to try it in other languages (Tip: Julia is really fast for complex models).</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="threshold-phenomena">Threshold phenomena</h3>
+<ul>
+<li><p>We can also study the conditions under which an epidemic will grow or die out using the model equations.</p></li>
+<li><p>Two key threshold phenomena are often studied:</p>
+<ul>
+<li>The basic reproduction number (<span class="math inline">\(R_0\)</span>).</li>
+<li>The herd immunity threshold.</li>
+</ul></li>
+</ul>
+</section>
 <section class="slide level2">
 
 <ul>
-<li><p>The model cannot be solved analytically, so numerical methods are used to solve the equations.</p></li>
-<li><p>However, we can gain insights into the dynamics of the model by qualitatively analysing the equations.</p></li>
+<li><p>The <span style="color:blue">basic reproduction number (<span class="math inline">\(R_0\)</span>)</span>: the average number of secondary infections caused by a single infected individual in a <span style="color:tomato;"><em>completely susceptible</em></span> population.</p></li>
+<li><p>The <span style="color:blue">herd immunity threshold</span>: the proportion of the population that needs to be immune (by vaccination or natural infection) to prevent the epidemic from growing. This is often calculated as <span style="color:red"><span class="math inline">\(1 - \dfrac{1}{R_0}\)</span></span></p></li>
 </ul>
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>How would you interpret the herd immunity required for a disease with <span class="math inline">\(R_0 = 2\)</span>?</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
-<section id="solving-the-sir-model-in-r" class="slide level2">
-<h2>Solving the SIR model in R</h2>
+<section id="numerical-simulations-in-r" class="slide level2">
+<h2>Numerical simulations in R</h2>
 <ul>
 <li>To solve the model in R, we will always need to define at least three things:
 <ul>
@@ -835,8 +901,8 @@ James Mba Azam, PhD
 <p>Next, we will define the parameter values and initial conditions.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># define parameters we know</span></span>
-<span id="cb2-2"><a href=""></a>N  <span class="ot">&lt;-</span> <span class="dv">1000</span>  </span>
-<span id="cb2-3"><a href=""></a>R0 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb2-2"><a href=""></a>N  <span class="ot">&lt;-</span> <span class="dv">1</span>  </span>
+<span id="cb2-3"><a href=""></a>R0 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb2-4"><a href=""></a>infectious_period <span class="ot">&lt;-</span> <span class="dv">7</span></span>
 <span id="cb2-5"><a href=""></a></span>
 <span id="cb2-6"><a href=""></a><span class="co"># Remember gamma &lt;- 1/ infectious_period as discussed earlier</span></span>
@@ -849,10 +915,10 @@ James Mba Azam, PhD
 <span id="cb2-13"><a href=""></a></span>
 <span id="cb2-14"><a href=""></a><span class="co"># Initial conditions for S, I, R</span></span>
 <span id="cb2-15"><a href=""></a><span class="co"># Why is S = N - 1?</span></span>
-<span id="cb2-16"><a href=""></a>inits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">S =</span> N <span class="sc">-</span> <span class="dv">1</span>, <span class="at">I =</span> <span class="dv">1</span>, <span class="at">R =</span> <span class="dv">0</span>)</span>
+<span id="cb2-16"><a href=""></a>inits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">S =</span> N <span class="sc">-</span> <span class="fl">0.001</span>, <span class="at">I =</span> <span class="fl">0.000001</span>, <span class="at">R =</span> <span class="dv">0</span>)</span>
 <span id="cb2-17"><a href=""></a></span>
 <span id="cb2-18"><a href=""></a><span class="co"># Time steps to return results</span></span>
-<span id="cb2-19"><a href=""></a>dt <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">150</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-19"><a href=""></a>dt <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">70</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section class="slide level2">
@@ -927,7 +993,18 @@ James Mba Azam, PhD
 <section class="slide level2">
 
 <h3 id="transmission">Transmission</h3>
-<p><span style="color:orange;">What factors drive transmission?</span></p>
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>What factors drive transmission?</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
@@ -999,30 +1076,75 @@ James Mba Azam, PhD
 <li><p>The recovery rate <span class="math inline">\(\gamma\)</span> is the reciprocal of the average duration of the infection. That is, infected individuals spend <span class="math inline">\(1/\gamma\)</span> days in the infected compartment before recovering.</p></li>
 <li><p>The average infectious period is often estimated from epidemiological data.</p></li>
 </ul>
-</section></section>
-<section>
-<section id="the-susceptible-infected-susceptible-model-sis" class="title-slide slide level1 center">
-<h1>The Susceptible-Infected-Susceptible model (SIS)</h1>
+</section>
+<section id="threshold-phenomena-1" class="slide level2">
+<h2>Threshold phenomena</h2>
 <ul>
-<li>The SIS model has two compartments: Susceptible (S) and Infected (I).</li>
+<li><p>Let’s study the factors that will determine whether an epidemic will grow or not.</p></li>
+<li><p>Consider the case where <span class="math inline">\(I(0)\)</span> individuals are introduced into a population of size <span class="math inline">\(N\)</span> at time <span class="math inline">\(t = 0\)</span>.</p></li>
+<li><p>Recall that <span class="math inline">\(\dfrac{dI}{dt} = I (\beta S - \gamma)\)</span></p></li>
 </ul>
-<p><insert sis="" model="" diagram=""></insert></p>
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>What will make <span class="math inline">\(\dfrac{dI}{dt} &gt; 0\)</span>? and what will that tell us?</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>If <span class="math inline">\(\dfrac{dI}{dt} &gt; 0\)</span>, the number of infected individuals will increase.</p></li>
+<li><p>If <span class="math inline">\(\dfrac{dI}{dt} &lt; 0\)</span>, the number of infected individuals will decrease.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p><span class="math inline">\(\dfrac{dI}{dt} &gt; 0\)</span> when <span class="math inline">\(S &gt; \dfrac{\gamma}{\beta}\)</span></p></li>
+<li><p>This means that initially, <span class="math inline">\(S(0)\)</span> must be greater than <span class="math inline">\(\dfrac{\gamma}{\beta}\)</span> for the epidemic to grow.</p></li>
+<li><p>This also means that we require the rate of recovery to be less than the rate of transmission for the epidemic to grow.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>The reverse of the removal rate is the reproduction number, <span class="math inline">\(R_0 = \dfrac{\beta}{\gamma}\)</span>.</li>
+</ul>
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Can you define the basic reproduction number, <span class="math inline">\(R_0\)</span>?</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- # The Susceptible-Infected-Susceptible model (SIS) -->
+<!-- -   The SIS model has two compartments: Susceptible (S) and Infected (I). -->
+<!-- <Insert SIS model diagram> -->
 <!-- ### An SIR Shiny App -->
 <!-- ```{r} -->
 <!-- library(shinySIR) -->
 <!-- shinySIR::run_shiny(model = "SIR") -->
 <!-- ``` -->
-<ul>
-<li>We assume that individuals are susceptible to infection, become infected, and then either recover become susceptible again or become immune.</li>
-</ul>
-<p><span style="color:red;">What kinds of diseases can be modelled using the SIS and SIR models?</span></p>
-</section>
-<section class="slide level2">
-
+<!-- -   We assume that individuals are susceptible to infection, become infected, and then either recover become susceptible again or become immune. -->
+<!-- [What kinds of diseases can be modelled using the SIS and SIR models?]{style="color:red;"} -->
 </section></section>
 <section id="the-basic-reproduction-number" class="title-slide slide level1 center">
 <h1>The Basic Reproduction Number</h1>
-
+<ul>
+<li>Mathematically, the basic reproduction number, <span class="math inline">\(R_0\)</span>, is the rate at which secondary infections are generated from a single primary infection in a completely susceptible population multiplied by the duration of the infectious period.</li>
+</ul>
 </section>
 
 <section id="analyzing-model-outputs-and-dynamics" class="title-slide slide level1 center">
@@ -1522,10 +1644,14 @@ Kermack, William Ogilvy, and Anderson G McKendrick. 1927. <span>“A Contributio
     });
     </script>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
 =======
     <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false});
 >>>>>>> d12ec71 (Activate renv)
+=======
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","loop":false,"closeEffect":"zoom"});
+>>>>>>> 5f85b62 (Add more slides and improve existing slides)
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
