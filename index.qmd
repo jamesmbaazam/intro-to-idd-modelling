@@ -1,10 +1,12 @@
 ---
-title: Intro to Infectious Disease Modelling
+title: Modelling for Pandemic Preparedness and Response
+subtitle: Introduction to Infectious Disease Dynamics Modelling
+format: pdf
 ---
 
 ### Lecture Overview
 
-This lecture introduces participants to some foundational concepts in infectious disease modelling, focussing on the basics of compartmental models, and especially the SIR model and its extensions (SEIR, SEIRV), and developing an understanding of the derivation and interpretation of the basic reproduction number, $R0$.
+This lecture introduces participants to some foundational concepts in infectious disease modelling, focusing on the basics of compartmental models, and especially the SIR model and its extensions (SEIR, SEIRV), and developing an understanding of the derivation and interpretation of the basic reproduction number, $R0$.
 
 ## Prerequisites
 
@@ -13,85 +15,125 @@ Participants should have a basic understanding of calculus and differential equa
 ## Course Materials
 
 -   Lecture slides
--   Code templates for exercises (R)
+-   R script templates for exercises
 -   Recommended readings and resources list
 
 ## Learning Objectives
 
--   Understand the basic principles of infectious disease modelling.
--   Implement and analyse compartmental models (SIR, SEIR, and SEIRV models).
--   Interpret model parameters and outputs.
--   Derive/calculate and interpret the basic reproduction number (R0).
--   Assess model assumptions and limitations.
+- An overview of infectious diseases and control.
+- Foundations of infectious disease modelling.
+- Introduction to compartmental modelling:
+    - Implement and analyse homogeneous compartmental models (SIR and SEIR).
+-  Derive/calculate and interpret the basic reproduction number (R0).
+-  Introduction to models of infectious disease control:
+    - Implement and analyse models with control measures (SEIRV and SEIR + simple NPI).
+-   Incorporating heterogeneity in populations:
+    - Models with age structure
+    - Notes on other heterogeneities: spatial and network structure.
+-  Interpreting model parameters and outputs.
+-  Assessing model assumptions and limitations.
 
 ## Course Schedule (subject to change)
 
 ## Day 1
 
--   9:00 AM - 10:30 AM: Overview of Infectious Disease Modelling (1 hour 30 mins)
+### 9:00 AM - 10:00 AM: Welcome and Introduction
 
-    - A brief overview of diseases
-        -   What are infectious diseases?
-        -   What are the impacts of infectious diseases on public health?
-        -   How are infectious diseases controlled?
-    - Introduction to mathematical modelling in epidemiology
-        -   What are infectious disease (mathematical and statistical) models?
-        -   The role of models in public health decision-making
-        -   Types of models:
-            -   deterministic vs. stochastic
-            -   individual-based vs. population-based
-            -   compartmental vs. network models
+- Overview of the course objectives and schedule.
+- Introduction to infectious diseases and control measures.
 
--   10:30 AM - 10:45 AM: Short Break (15 mins)
+### 10:00 AM - 10:15 AM: Morning Break
 
--   10:45 AM - 12:15 PM: Formulating compartmental models (1 hour 30 mins)
+### 10:15 AM - 11:15 AM: Lecture - Foundations of Infectious Disease Modelling
 
-    -   Types of compartmental models
-        -   The general compartmental model framework
-            -   Adding compartments: susceptible, infected, and recovered
-            -   Incorporating disease transmission and recovery processes
-        -   The SIR model:
-            -   structure and assumptions
-        -   Understanding model parameters: rates, proportions, and probabilities
-        
-    -   The SEIR Model: Adding the Exposed (E) compartment
-        -   Incorporating an incubation period
-        -   Understanding the role of the exposed compartment in disease transmission
+- Basic concepts in infectious disease epidemiology.
+- Historical context and development of infectious disease models.
 
--   12:15 AM - 13:15 PM: Lunch Break (1 hour)
+### 11:15 AM - 11:45 AM: Exercise - Foundations of Infectious Disease Modelling
 
--   13:15 PM - 14:45 PM: Characterising transmission (1 hour 30 mins)
+- Group discussion on historical infectious disease outbreaks.
+- Identifying key epidemiological concepts in past outbreaks.
 
-    -   The Basic Reproduction Number, $R0$
-        -   Definition and significance of $R0$
-        -   Methods for deriving/calculating $R0$
-        -   Not a magic number: Understanding $R0$ in the context of control measures
+### 11:45 AM - 12:45 PM: Lecture - Introduction to Compartmental Modelling
 
--   14:45 PM - 15:00 PM: Short Break (15 mins)
+- Basic principles of compartmental models.
+- Introduction to SIR and SEIR models.
 
--   15:00 PM - 15:30 PM: Wrap-Up and Q&A (30 mins)
+### 12:45 PM - 1:00 PM: Exercise - Introduction to Compartmental Modelling
 
-    -   Summary of key takeaways
-    -   Discussion of model limitations and assumptions
-    -   Open Q&A session
+- Simple implementation of an SEIR model using R.
 
--   15:30 PM - 17:00 - Exercises (1 hour 30 mins)
+### 1:00 PM - 2:00 PM: Lunch Break
 
-    -   Describe a disease scenario and ask students to formulate a simple compartmental model, explaining the rationale for their choices.
-    -   Derive the R0 for the model
-    -   More advanced exercises for students who are comfortable with the basics of compartmental models and R:
-        -   Implementing the SIR model in R
-        -   Visualising the epidemic curve
-        -   Calculating the basic reproduction number, R0
-        -   Sensitivity analysis: How changes in parameters affect the model outputs
-    -   An adaption of this exercise on [TB elimination](https://www.reconlearn.org/post/practical-tb)
+### 2:00 PM - 3:00 PM: Lecture - Deriving and Interpreting the Basic Reproduction Number (R0)
+
+- Theoretical derivation of R0.
+- Calculation and interpretation of R0 in different scenarios.
+
+### 3:00 PM - 3:15 PM: Afternoon Break
+
+### 3:15 PM - 4:45 PM: Exercise - Deriving and Interpreting R0
+
+- Comprehensive exercise: Implementing, running, and analyzing an SEIR models.
+- Calculation and interpretation of R0 for different infectious diseases.
+- Discussion of results and implications for public health decision-making.
+
+### 4:45 PM - 5:00 PM: Q&A and Recap of Day 1
+
+- Open session for questions and clarifications.
+- Summary of the key points covered during the day.
 
 ## Day 2
 
--  9:00 AM - 10:30 AM: Analysing model outputs (1 hour 30 mins)
+### 9:00 AM - 10:00 AM: Lecture - Introduction to Models of Infectious Disease Control
 
-    -   Interpreting the epidemic curve
-    -   Understanding equilibrium and threshold conditions
-    -   Sensitivity analysis: How changes in parameters affect the model outputs
+- Overview of control measures in infectious disease models.
+- Introduction to SEIR models with vaccination and/or non-pharmaceutical interventions (NPI).
+
+### 10:00 AM - 10:15 AM: Morning Break
+
+### 10:15 AM - 10:45 AM: Exercise - Models of Infectious Disease Control
+
+- Setting up SEIRV and SEIR + NPI models.
+
+### 10:45 AM - 11:45 AM: Lecture - Implementing Models with Control Measures
+
+- Detailed steps for incorporating control measures in models.
+- Analysis of model modifications.
+
+### 11:45 AM - 12:15 PM: Exercise - Implementing Models with Control Measures
+
+- Practical session: Implementing an SEIR model with time-varying vaccination.
+
+### 12:15 PM - 1:15 PM: Lunch Break
+
+### 1:15 PM - 2:15 PM: Lecture - Incorporating Heterogeneity in Populations
+
+- Introduction to age-structured models.
+- Brief notes on spatial and network heterogeneity.
+
+### 2:15 PM - 2:30 PM: Afternoon Break
+
+### 2:30 PM - 3:00 PM: Exercise - Incorporating Heterogeneity
+
+- Building a simple age-structured SIR model.
+
+### 3:00 PM - 4:00 PM: Lecture - Assessing Model Assumptions and Limitations
+
+- Discussion on common assumptions in infectious disease models.
+- Identifying and addressing limitations in model applications.
+
+### 4:00 PM - 4:15 PM: Break
+
+### 4:15 PM - 5:15 PM: Extended Exercise - Comprehensive Modelling and Analysis
+
+- Comprehensive exercise: Implementing control measures and heterogeneity in models.
+- Analyzing and discussing the extended models' outputs.
+
+### 5:15 PM - 5:30 PM: Q&A and Course Wrap-up
+
+- Open session for final questions and clarifications.
+- Summary of the course and key takeaways.
+
 
 ![](https://i.creativecommons.org/l/by/4.0/88x31.png) This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).

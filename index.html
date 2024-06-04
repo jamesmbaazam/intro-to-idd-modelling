@@ -110,10 +110,16 @@ window.Quarto = {
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <ul>
-<li>Understand the basic principles of infectious disease modelling.</li>
-<li>Implement and analyse compartmental models (SIR, SEIR, and SEIRV models).</li>
-<li>Interpret model parameters and outputs.</li>
+<li>An overview of infectious diseases and control.</li>
+<li>Foudnations of infectious disease modelling.</li>
+<li>Introduction to compartmental modelling: - Implement and analyse homogeneous compartmental models (SIR and SEIR).</li>
 <li>Derive/calculate and interpret the basic reproduction number (R0).</li>
+<li>Introduction to models of infectious disease control: - Implement and analyse models with control measures (SEIRV and SEIR + simple NPI).</li>
+<li>Incorporating heterogeneity in populations (age structure):
+<ul>
+<li>Notes on other heterogeneity: spatial and network structure.</li>
+</ul></li>
+<li>Interpret model parameters and outputs.</li>
 <li>Assess model assumptions and limitations.</li>
 </ul>
 </section>
@@ -122,87 +128,152 @@ window.Quarto = {
 </section>
 <section id="day-1" class="level2">
 <h2 class="anchored" data-anchor-id="day-1">Day 1</h2>
+<section id="am---1000-am-welcome-and-introduction" class="level3">
+<h3 class="anchored" data-anchor-id="am---1000-am-welcome-and-introduction">9:00 AM - 10:00 AM: Welcome and Introduction</h3>
 <ul>
-<li><p>9:00 AM - 10:30 AM: Overview of Infectious Disease Modelling (1 hour 30 mins)</p>
-<ul>
-<li>A brief overview of diseases
-<ul>
-<li>What are infectious diseases?</li>
-<li>What are the impacts of infectious diseases on public health?</li>
-<li>How are infectious diseases controlled?</li>
-</ul></li>
-<li>Introduction to mathematical modelling in epidemiology
-<ul>
-<li>What are infectious disease (mathematical and statistical) models?</li>
-<li>The role of models in public health decision-making</li>
-<li>Types of models:
-<ul>
-<li>deterministic vs.&nbsp;stochastic</li>
-<li>individual-based vs.&nbsp;population-based</li>
-<li>compartmental vs.&nbsp;network models</li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><p>10:30 AM - 10:45 AM: Short Break (15 mins)</p></li>
-<li><p>10:45 AM - 12:15 PM: Formulating compartmental models (1 hour 30 mins)</p>
-<ul>
-<li>Types of compartmental models
-<ul>
-<li>The general compartmental model framework
-<ul>
-<li>Adding compartments: susceptible, infected, and recovered</li>
-<li>Incorporating disease transmission and recovery processes</li>
-</ul></li>
-<li>The SIR model:
-<ul>
-<li>structure and assumptions</li>
-</ul></li>
-<li>Understanding model parameters: rates, proportions, and probabilities</li>
-</ul></li>
-<li>The SEIR Model: Adding the Exposed (E) compartment
-<ul>
-<li>Incorporating an incubation period</li>
-<li>Understanding the role of the exposed compartment in disease transmission</li>
-</ul></li>
-</ul></li>
-<li><p>12:15 AM - 13:15 PM: Lunch Break (1 hour)</p></li>
-<li><p>13:15 PM - 14:45 PM: Characterising transmission (1 hour 30 mins)</p>
-<ul>
-<li>The Basic Reproduction Number, <span class="math inline">\(R0\)</span>
-<ul>
-<li>Definition and significance of <span class="math inline">\(R0\)</span></li>
-<li>Methods for deriving/calculating <span class="math inline">\(R0\)</span></li>
-<li>Not a magic number: Understanding <span class="math inline">\(R0\)</span> in the context of control measures</li>
-</ul></li>
-</ul></li>
-<li><p>14:45 PM - 15:00 PM: Short Break (15 mins)</p></li>
-<li><p>15:00 PM - 15:30 PM: Wrap-Up and Q&amp;A (30 mins)</p>
-<ul>
-<li>Summary of key takeaways</li>
-<li>Discussion of model limitations and assumptions</li>
-<li>Open Q&amp;A session</li>
-</ul></li>
-<li><p>15:30 PM - 17:00 - Exercises (1 hour 30 mins)</p>
-<ul>
-<li>Describe a disease scenario and ask students to formulate a simple compartmental model, explaining the rationale for their choices.</li>
-<li>Derive the R0 for the model</li>
-<li>More advanced exercises for students who are comfortable with the basics of compartmental models and R:</li>
-<li><a href="https://www.reconlearn.org/post/practical-tb">TB elimination</a></li>
-<li></li>
-</ul></li>
+<li>Overview of the course objectives and schedule.</li>
+<li>Introduction to infectious diseases and control measures.</li>
 </ul>
+</section>
+<section id="am---1015-am-morning-break" class="level3">
+<h3 class="anchored" data-anchor-id="am---1015-am-morning-break">10:00 AM - 10:15 AM: Morning Break</h3>
+</section>
+<section id="am---1115-am-lecture---foundations-of-infectious-disease-modelling" class="level3">
+<h3 class="anchored" data-anchor-id="am---1115-am-lecture---foundations-of-infectious-disease-modelling">10:15 AM - 11:15 AM: Lecture - Foundations of Infectious Disease Modelling</h3>
+<ul>
+<li>Basic concepts in infectious disease epidemiology.</li>
+<li>Historical context and development of infectious disease models.</li>
+</ul>
+</section>
+<section id="am---1145-am-exercise---foundations-of-infectious-disease-modelling" class="level3">
+<h3 class="anchored" data-anchor-id="am---1145-am-exercise---foundations-of-infectious-disease-modelling">11:15 AM - 11:45 AM: Exercise - Foundations of Infectious Disease Modelling</h3>
+<ul>
+<li>Group discussion on historical infectious disease outbreaks.</li>
+<li>Identifying key epidemiological concepts in past outbreaks.</li>
+</ul>
+</section>
+<section id="am---1245-pm-lecture---introduction-to-compartmental-modelling" class="level3">
+<h3 class="anchored" data-anchor-id="am---1245-pm-lecture---introduction-to-compartmental-modelling">11:45 AM - 12:45 PM: Lecture - Introduction to Compartmental Modelling</h3>
+<ul>
+<li>Basic principles of compartmental models.</li>
+<li>Introduction to SIR and SEIR models.</li>
+</ul>
+</section>
+<section id="pm---100-pm-exercise---introduction-to-compartmental-modelling" class="level3">
+<h3 class="anchored" data-anchor-id="pm---100-pm-exercise---introduction-to-compartmental-modelling">12:45 PM - 1:00 PM: Exercise - Introduction to Compartmental Modelling</h3>
+<ul>
+<li>Simple implementation of SIR and SEIR models using R.</li>
+</ul>
+</section>
+<section id="pm---200-pm-lunch-break" class="level3">
+<h3 class="anchored" data-anchor-id="pm---200-pm-lunch-break">1:00 PM - 2:00 PM: Lunch Break</h3>
+</section>
+<section id="pm---300-pm-lecture---deriving-and-interpreting-the-basic-reproduction-number-r0" class="level3">
+<h3 class="anchored" data-anchor-id="pm---300-pm-lecture---deriving-and-interpreting-the-basic-reproduction-number-r0">2:00 PM - 3:00 PM: Lecture - Deriving and Interpreting the Basic Reproduction Number (R0)</h3>
+<ul>
+<li>Theoretical derivation of R0.</li>
+<li>Calculation and interpretation of R0 in different scenarios.</li>
+</ul>
+</section>
+<section id="pm---315-pm-afternoon-break" class="level3">
+<h3 class="anchored" data-anchor-id="pm---315-pm-afternoon-break">3:00 PM - 3:15 PM: Afternoon Break</h3>
+</section>
+<section id="pm---345-pm-exercise---deriving-and-interpreting-r0" class="level3">
+<h3 class="anchored" data-anchor-id="pm---345-pm-exercise---deriving-and-interpreting-r0">3:15 PM - 3:45 PM: Exercise - Deriving and Interpreting R0</h3>
+<ul>
+<li>Hands-on calculation of R0 for different infectious diseases.</li>
+</ul>
+</section>
+<section id="pm---445-pm-extended-exercise---homogeneous-compartmental-models" class="level3">
+<h3 class="anchored" data-anchor-id="pm---445-pm-extended-exercise---homogeneous-compartmental-models">3:45 PM - 4:45 PM: Extended Exercise - Homogeneous Compartmental Models</h3>
+<ul>
+<li>Comprehensive exercise: Implementing, running, and analyzing SIR and SEIR models.</li>
+<li>Discussion of results and implications for public health.</li>
+</ul>
+</section>
+<section id="pm---500-pm-qa-and-recap-of-day-1" class="level3">
+<h3 class="anchored" data-anchor-id="pm---500-pm-qa-and-recap-of-day-1">4:45 PM - 5:00 PM: Q&amp;A and Recap of Day 1</h3>
+<ul>
+<li>Open session for questions and clarifications.</li>
+<li>Summary of the key points covered during the day.</li>
+</ul>
+</section>
 </section>
 <section id="day-2" class="level2">
 <h2 class="anchored" data-anchor-id="day-2">Day 2</h2>
+<section id="am---1000-am-lecture---introduction-to-models-of-infectious-disease-control" class="level3">
+<h3 class="anchored" data-anchor-id="am---1000-am-lecture---introduction-to-models-of-infectious-disease-control">9:00 AM - 10:00 AM: Lecture - Introduction to Models of Infectious Disease Control</h3>
 <ul>
-<li><p>9:00 AM - 10:30 AM: Analysing model outputs (1 hour 30 mins)</p>
+<li>Overview of control measures in infectious disease models.</li>
+<li>Introduction to SEIRV and SEIR models with non-pharmaceutical interventions (NPI).</li>
+</ul>
+</section>
+<section id="am---1015-am-morning-break-1" class="level3">
+<h3 class="anchored" data-anchor-id="am---1015-am-morning-break-1">10:00 AM - 10:15 AM: Morning Break</h3>
+</section>
+<section id="am---1045-am-exercise---models-of-infectious-disease-control" class="level3">
+<h3 class="anchored" data-anchor-id="am---1045-am-exercise---models-of-infectious-disease-control">10:15 AM - 10:45 AM: Exercise - Models of Infectious Disease Control</h3>
 <ul>
-<li>Interpreting the epidemic curve</li>
-<li>Understanding equilibrium and threshold conditions</li>
-<li>Sensitivity analysis: How changes in parameters affect the model outputs</li>
-</ul></li>
+<li>Setting up SEIRV and SEIR + NPI models.</li>
+</ul>
+</section>
+<section id="am---1145-am-lecture---implementing-models-with-control-measures" class="level3">
+<h3 class="anchored" data-anchor-id="am---1145-am-lecture---implementing-models-with-control-measures">10:45 AM - 11:45 AM: Lecture - Implementing Models with Control Measures</h3>
+<ul>
+<li>Detailed steps for incorporating control measures in models.</li>
+<li>Analysis of model modifications.</li>
+</ul>
+</section>
+<section id="am---1215-pm-exercise---implementing-models-with-control-measures" class="level3">
+<h3 class="anchored" data-anchor-id="am---1215-pm-exercise---implementing-models-with-control-measures">11:45 AM - 12:15 PM: Exercise - Implementing Models with Control Measures</h3>
+<ul>
+<li>Practical session: Adding vaccination and NPI to SEIR models.</li>
+</ul>
+</section>
+<section id="pm---115-pm-lunch-break" class="level3">
+<h3 class="anchored" data-anchor-id="pm---115-pm-lunch-break">12:15 PM - 1:15 PM: Lunch Break</h3>
+</section>
+<section id="pm---215-pm-lecture---incorporating-heterogeneity-in-populations" class="level3">
+<h3 class="anchored" data-anchor-id="pm---215-pm-lecture---incorporating-heterogeneity-in-populations">1:15 PM - 2:15 PM: Lecture - Incorporating Heterogeneity in Populations</h3>
+<ul>
+<li>Introduction to age-structured models.</li>
+<li>Brief notes on spatial and network heterogeneity.</li>
+</ul>
+</section>
+<section id="pm---230-pm-afternoon-break" class="level3">
+<h3 class="anchored" data-anchor-id="pm---230-pm-afternoon-break">2:15 PM - 2:30 PM: Afternoon Break</h3>
+</section>
+<section id="pm---300-pm-exercise---incorporating-heterogeneity" class="level3">
+<h3 class="anchored" data-anchor-id="pm---300-pm-exercise---incorporating-heterogeneity">2:30 PM - 3:00 PM: Exercise - Incorporating Heterogeneity</h3>
+<ul>
+<li>Building simple age-structured models.</li>
+</ul>
+</section>
+<section id="pm---400-pm-lecture---assessing-model-assumptions-and-limitations" class="level3">
+<h3 class="anchored" data-anchor-id="pm---400-pm-lecture---assessing-model-assumptions-and-limitations">3:00 PM - 4:00 PM: Lecture - Assessing Model Assumptions and Limitations</h3>
+<ul>
+<li>Discussion on common assumptions in infectious disease models.</li>
+<li>Identifying and addressing limitations in model applications.</li>
+</ul>
+</section>
+<section id="pm---415-pm-break" class="level3">
+<h3 class="anchored" data-anchor-id="pm---415-pm-break">4:00 PM - 4:15 PM: Break</h3>
+</section>
+<section id="pm---515-pm-extended-exercise---comprehensive-modelling-and-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="pm---515-pm-extended-exercise---comprehensive-modelling-and-analysis">4:15 PM - 5:15 PM: Extended Exercise - Comprehensive Modelling and Analysis</h3>
+<ul>
+<li>Comprehensive exercise: Implementing control measures and heterogeneity in models.</li>
+<li>Analyzing and discussing the extended models’ outputs.</li>
+</ul>
+</section>
+<section id="pm---530-pm-qa-and-course-wrap-up" class="level3">
+<h3 class="anchored" data-anchor-id="pm---530-pm-qa-and-course-wrap-up">5:15 PM - 5:30 PM: Q&amp;A and Course Wrap-up</h3>
+<ul>
+<li>Open session for final questions and clarifications.</li>
+<li>Summary of the course and key takeaways.</li>
 </ul>
 <p><img src="https://i.creativecommons.org/l/by/4.0/88x31.png" class="img-fluid"> This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+</section>
 </section>
 
 </main>
