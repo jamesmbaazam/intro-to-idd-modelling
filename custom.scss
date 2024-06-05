@@ -1,0 +1,11 @@
+/*-- scss:rules --*/
+
+.reveal {
+  .slides {
+    .slide {
+      img+p.caption {
+        font-size: 0.005;
+      }
+    }
+  }
+}
