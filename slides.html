@@ -439,7 +439,7 @@ James Mba Azam, PhD
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/disease_definition.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Generic definition of a disease (source: Merriam Webster)"><img data-src="images/disease_definition.png" alt="Generic definition of a disease (source: Merriam Webster)"></a></p>
+<p><a href="images/disease_definition.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Generic definition of a disease (source: Merriam Webster)"><img data-src="images/disease_definition.png" alt="Generic definition of a disease (source: Merriam Webster)"></a></p>
 <figcaption>Generic definition of a disease (source: Merriam Webster)</figcaption>
 </figure>
 </div>
@@ -587,7 +587,7 @@ James Mba Azam, PhD
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/GeorgeEPBox.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="By DavidMCEddy at en.wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=115167166"><img data-src="images/GeorgeEPBox.jpeg" alt="By DavidMCEddy at en.wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=115167166"></a></p>
+<p><a href="images/GeorgeEPBox.jpeg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="By DavidMCEddy at en.wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=115167166"><img data-src="images/GeorgeEPBox.jpeg" alt="By DavidMCEddy at en.wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=115167166"></a></p>
 <figcaption>By DavidMCEddy at en.wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=115167166</figcaption>
 </figure>
 </div>
@@ -660,7 +660,7 @@ James Mba Azam, PhD
 </div><div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/wrong_ebola_deaths_estimate.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Controversy over estimates of Ebola deaths"><img data-src="images/wrong_ebola_deaths_estimate.png" alt="Controversy over estimates of Ebola deaths"></a></p>
+<p><a href="images/wrong_ebola_deaths_estimate.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Controversy over estimates of Ebola deaths"><img data-src="images/wrong_ebola_deaths_estimate.png" alt="Controversy over estimates of Ebola deaths"></a></p>
 <figcaption>Controversy over estimates of Ebola deaths</figcaption>
 </figure>
 </div>
@@ -719,31 +719,41 @@ James Mba Azam, PhD
 <section id="what-are-compartmental-models" class="slide level2">
 <h2>What are compartmental models?</h2>
 <ul>
-<li>Compartmental models divide populations into compartments (or groups) based on the individual’s infection status <span class="citation" data-cites="Blackwood2018a">(<a href="#/papers-and-articles" role="doc-biblioref" onclick="">Blackwood and Childs 2018</a>)</span>.</li>
-<li>Compartmental models are mechanistic, meaning they describe processes such the interaction between hosts, biological processes of pathogen, host immune response, and so forth.</li>
-<li>Individuals move between compartments based on defined transition quantities.</li>
-<li>Individuals can only be in one compartment at a time.</li>
+<li>Compartmental models:
+<ul>
+<li>divide populations into compartments (or groups) based on the individual’s infection status <span class="citation" data-cites="Blackwood2018a">(<a href="#/papers-and-articles" role="doc-biblioref" onclick="">Blackwood and Childs 2018</a>)</span>.</li>
+<li>are mechanistic, meaning they describe processes such the interaction between hosts, biological processes of pathogen, host immune response, and so forth.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Individuals in a compartment:
+<ul>
+<li>are assumed to have the same features (disease state, age, location, etc)</li>
+<li>can only be in one compartment at a time.</li>
+<li>move between compartments based on defined transition rates.</li>
+</ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:60%;">
 <ul>
-<li>Compartments are based on the <span style="color:red;">disease status</span> of individuals.</li>
-<li>The most common compartments are:
+<li>Common compartments:
 <ul>
 <li>Susceptible (S) - hosts are not infected but can be infected</li>
 <li>Infected (I) - hosts are infected (and can infect others)</li>
 <li>Removed (R) - hosts are no longer infected and cannot be re-infected</li>
 </ul></li>
-<li>In compartmental models, individuals move between compartments based on defined transition quantities.</li>
 </ul>
-</div><div class="column" style="width:60%;">
+</div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/infection_timeline.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4" title="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)"><img data-src="images/infection_timeline.png" alt="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)"></a></p>
-<figcaption>Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)</figcaption>
+<p><a href="images/infection_timeline.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)"><img data-src="images/infection_timeline.png" alt="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)"></a></p>
+<figcaption>Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)</figcaption>
 </figure>
 </div>
 </div>
@@ -756,30 +766,78 @@ James Mba Azam, PhD
 <li><p>It is, however, important to keep the model simple, less computationally intensive, and interpretable.</p></li>
 </ul>
 </section>
-<section id="some-simple-compartmental-models" class="slide level2">
-<h2>Some simple compartmental models</h2>
+<section class="slide level2">
+
 <ul>
-<li>We are going to consider infections that either confer immunity after recovery or not.</li>
-<li>The simplest compartmental models for capturing this are the SIS and SIR models.</li>
+<li>Compartmental models either have <em>discrete</em> or <em>continuous</em> time scales:
+<ul>
+<li><span style="color:tomato;">Discrete time scales</span>: time is divided into discrete intervals (e.g., days, weeks, months).</li>
+<li><span style="color:tomato;">Continuous time scales</span>: time is continuous and the model is described using differential equations.</li>
+</ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
-<h3 id="the-susceptible-infected-recovered-sir-model">The Susceptible-Infected-Recovered (SIR) model</h3>
+<ul>
+<li>Compartmental models can be <em>deterministic</em> or <em>stochastic</em>:
+<ul>
+<li><span style="color:tomato;">Deterministic</span> models always return the same output for the same input.</li>
+<li><span style="color:tomato;">Stochastic</span> models account for randomness in the system and model output always varies. Hence, they are often run multiple times to get an average output.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>The choice of model type depends on the research question, data availability, and computational resources.</p></li>
+<li><p>In this introduction, we will focus on <span style="color:tomato;">deterministic compartmental models with continuous time scales</span>.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Now, back to the models, we are going to consider infections that either confer immunity after recovery or not.</li>
+<li>The simplest compartmental models for capturing this are the SIS and SIR models.</li>
+</ul>
+</section>
+<section id="the-susceptible-infected-recovered-sir-model" class="slide level2">
+<h2>The Susceptible-Infected-Recovered (SIR) model</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Used to model diseases that confer immunity after recovery. For example, measles.</li>
+<li>Popularised by Kermack and McKendrick in 1927 <span class="citation" data-cites="kermack1927contribution">(<a href="#/papers-and-articles" role="doc-biblioref" onclick="">Kermack and McKendrick 1927</a>)</span>
+<ul>
+<li>A must-read paper for budding infectious disease modellers.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/model_diagrams/model_diagrams.001.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5" title="Diagram of an SIR model"><img data-src="images/model_diagrams/model_diagrams.001.png" alt="Diagram of an SIR model"></a></p>
+<figcaption>Diagram of an SIR model</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li>SIR models are used to model diseases that confer immunity after recovery. For example, measles.</li>
-<li>This SIR framework was popularised by Kermack and McKendrick in 1927 <span class="citation" data-cites="kermack1927contribution">(<a href="#/papers-and-articles" role="doc-biblioref" onclick="">Kermack and McKendrick 1927</a>)</span>
+<li>The SIR model groups individuals into three <em>disease states</em>:
 <ul>
-<li>A must-read paper for anyone interested in infectious disease modelling.</li>
+<li><span style="color:green;">Susceptible (S)</span>: individuals who are not infected and can be infected.</li>
+<li><span style="color:tomato;">Infected (I)</span>: individuals who are infected and can infect others.</li>
+<li><span style="color:blue;">Removed (R)</span>: individuals who have recovered from the infection and are immune.</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/measles_boy.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5" title="Face of a boy with measles. Source: https://www.immunize.org/clinical/image-library/measles/"><img data-src="images/measles_boy.jpeg" alt="Face of a boy with measles. Source: https://www.immunize.org/clinical/image-library/measles/"></a></p>
-<figcaption>Face of a boy with measles. Source: https://www.immunize.org/clinical/image-library/measles/</figcaption>
+<p><a href="images/model_diagrams/model_diagrams.001.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6" title="Diagram of an SIR model"><img data-src="images/model_diagrams/model_diagrams.001.png" alt="Diagram of an SIR model"></a></p>
+<figcaption>Diagram of an SIR model</figcaption>
 </figure>
 </div>
 </div>
@@ -787,56 +845,18 @@ James Mba Azam, PhD
 </section>
 <section class="slide level2">
 
+<h3 id="how-do-individuals-move-between-compartments">How do individuals move between compartments?</h3>
 <ul>
-<li>The SIR model groups individuals into three <em>disease states</em>:
+<li>There are two processes that govern the transitions between compartments:
 <ul>
-<li>Susceptible (S): individuals who are not infected and can be infected.</li>
-<li>Infected (I): individuals who are infected and can infect others.</li>
-<li>Removed (R): individuals who have recovered from the infection and are immune.</li>
+<li><span style="color:orange;">Transmission</span>, governed by the transmission rate, <span class="math inline">\(\beta\)</span> (rate at which susceptible individuals become infected).</li>
+<li><span style="color:orange;">Recovery</span>, governed by the recovery rate, <span class="math inline">\(\gamma\)</span> (rate at which infected individuals recover and become immune).</li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="images/model_diagrams/model_diagrams.001.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6" title="Diagram of an SIR model"><img data-src="images/model_diagrams/model_diagrams.001.png" alt="Diagram of an SIR model"></a></p>
-<figcaption>Diagram of an SIR model</figcaption>
-</figure>
-</div>
-</section>
-<section id="model-equations" class="slide level2">
-<h2>Model equations</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="images/model_diagrams/model_diagrams.001.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7" title="Diagram of an SIR model"><img data-src="images/model_diagrams/model_diagrams.001.png" alt="Diagram of an SIR model"></a></p>
-<figcaption>Diagram of an SIR model</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<p>Model equations:</p>
-<span class="math display">\[\begin{aligned}
-\frac{dS}{dt} &amp; = \color{orange}{-\beta \frac{S I}{N}} \\
-\frac{dI}{dt} &amp; = \color{orange}{\beta \frac{S I}{N}} - \color{cornflowerblue}{\gamma I} \\
-\frac{dR}{dt} &amp; = \color{cornflowerblue}{\gamma I}
-\end{aligned}\]</span>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<p>With initial conditions <span class="math inline">\(S(0) = N - 1\)</span>, <span class="math inline">\(I(0) = 1\)</span>, and <span class="math inline">\(R(0) = 0\)</span>.</p>
-<p>where:</p>
-<ul>
-<li><span class="math inline">\(N\)</span> is the total population size.</li>
-<li><span class="math inline">\(\beta\)</span> is the transmission rate.</li>
-<li><span class="math inline">\(\gamma\)</span> is the recovery rate.</li>
-</ul>
-</section>
-<section id="model-assumptions" class="slide level2">
-<h2>Model assumptions</h2>
+<h3 id="model-assumptions">Model assumptions</h3>
 <ul>
 <li><p>There are no inflows or outflows from the population, i.e., no births, deaths, or migration. This is often described as a <em>closed population</em>.</p>
 <ul>
@@ -846,15 +866,32 @@ James Mba Azam, PhD
 <li><p>Transition rates are constant and do not change over time.</p></li>
 </ul>
 </section>
-<section id="how-do-individuals-move-between-compartments" class="slide level2">
-<h2>How do individuals move between compartments?</h2>
-<ul>
-<li>There are two processes that govern the transitions between compartments:
-<ul>
-<li><span style="color:orange;">Transmission</span>, governed by the transmission rate, <span class="math inline">\(\beta\)</span> (rate at which susceptible individuals become infected).</li>
-<li><span style="color:orange;">Recovery</span>, governed by the recovery rate, <span class="math inline">\(\gamma\)</span> (rate at which infected individuals recover and become immune).</li>
-</ul></li>
-</ul>
+<section class="slide level2">
+
+<h3 id="model-equations">Model equations</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/model_diagrams/model_diagrams.001.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7" title="Diagram of an SIR model"><img data-src="images/model_diagrams/model_diagrams.001.png" alt="Diagram of an SIR model"></a></p>
+<figcaption>Diagram of an SIR model</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+Model equations:
+<span class="math display">\[\begin{aligned}
+\frac{dS}{dt} &amp; = \color{orange}{-\beta \frac{S I}{N}} \\
+\frac{dI}{dt} &amp; = \color{orange}{\beta \frac{S I}{N}} - \color{cornflowerblue}{\gamma I} \\
+\frac{dR}{dt} &amp; = \color{cornflowerblue}{\gamma I}
+\end{aligned}\]</span>
+<p>where <span style="color:orange;"><span class="math inline">\(\beta\)</span></span> is the transmission rate, and <span style="color:orange;"><span class="math inline">\(\gamma\)</span></span> is the recovery rate.</p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>With initial conditions <span class="math inline">\(S(0) = N - 1\)</span>, <span class="math inline">\(I(0) = 1\)</span>, and <span class="math inline">\(R(0) = 0\)</span>.</p>
+<p>where <span class="math inline">\(N\)</span> is the total population size.</p>
 </section>
 <section class="slide level2">
 
@@ -943,52 +980,8 @@ James Mba Azam, PhD
 <li><p>The average infectious period is often estimated from epidemiological data.</p></li>
 </ul>
 </section>
-<section id="threshold-phenomena" class="slide level2">
-<h2>Threshold phenomena</h2>
-<ul>
-<li><p>Let’s study the factors that will determine whether an epidemic will grow or not.</p></li>
-<li><p>Consider the case where <span class="math inline">\(I(0)\)</span> individuals are introduced into a population of size <span class="math inline">\(N\)</span> at time <span class="math inline">\(t = 0\)</span>.</p></li>
-<li><p>That means in a completely susceptible population, we have <span class="math inline">\(S(0) = N - I(0)\)</span> susceptibles.</p></li>
-<li><p>Recall from the SIR model that <span class="math inline">\(\dfrac{dI}{dt} = I (\beta S - \gamma)\)</span></p></li>
-</ul>
-<div class="callout callout-caution no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Discussion</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li>What will cause <span class="math inline">\(\dfrac{dI}{dt} &gt; 0\)</span>? and how do we interpret it?</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<ul>
-<li><p><span class="math inline">\(\dfrac{dI}{dt} &gt; 0\)</span> when <span class="math inline">\(S &gt; \dfrac{\gamma}{\beta}\)</span></p></li>
-<li><p>Hence, at <span class="math inline">\(t = 0\)</span>, <span class="math inline">\(S(0)\)</span> must be greater than <span class="math inline">\(\dfrac{\gamma}{\beta}\)</span> for the epidemic to grow.</p></li>
-<li><p>This can be interpreted to mean that we require the rate of recovery must be less than the rate of transmission for the epidemic to grow.</p></li>
-<li><p>The reverse of the removal rate is the reproduction number, <span class="math inline">\(R_0 = \dfrac{\beta}{\gamma}\)</span>.</p></li>
-</ul>
-</section></section>
-<section>
-<section id="the-basic-reproduction-number" class="title-slide slide level1 center">
-<h1>The Basic Reproduction Number</h1>
-<ul>
-<li><p>The basic reproduction number, <span style="color:tomato"><span class="math inline">\(R_0\)</span></span>, is the rate at which secondary infections are generated from a <span style="color:tomato">single primary infection</span> in a <span style="color:tomato">completely susceptible</span> population.</p></li>
-<li><p><span class="math inline">\(R0\)</span> is often used to express the threshold phenomena in infectious disease epidemiology:</p>
-<ul>
-<li>If <span class="math inline">\(R_0 &gt; 1\)</span>, the epidemic will grow.</li>
-<li>If <span class="math inline">\(R_0 &lt; 1\)</span>, the epidemic will decline.</li>
-</ul></li>
-<li><p>The value of <span class="math inline">\(R0\)</span> is determined by the disease and characteristics of the population.</p></li>
-<li><p>We will learn how to derive <span class="math inline">\(R_0\)</span> from various model structures in a dedicated section.</p></li>
-</ul>
-</section>
-<section id="solving-the-sir-model" class="slide level2">
-<h2>Solving the SIR model</h2>
+<section id="how-do-we-solve-the-sir-model" class="slide level2">
+<h2>How do we solve the SIR model?</h2>
 <ul>
 <li><p>Compartmental models cannot be solved analytically.</p></li>
 <li><p>Other methods are used to understand the dynamics of the model:</p>
@@ -1000,19 +993,7 @@ James Mba Azam, PhD
 </section>
 <section class="slide level2">
 
-<h3 id="numerical-simulations">Numerical simulations</h3>
-<ul>
-<li><p>Numerical simulations can be performed with any programming language.</p></li>
-<li><p>This course focuses on R:</p>
-<ul>
-<li>In R, we can use the <code>deSolve</code> package to solve the differential equations.</li>
-<li>You are welcome to try it in other languages (Tip: Julia is really fast for complex models).</li>
-</ul></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<h3 id="threshold-phenomena-1">Threshold phenomena</h3>
+<h3 id="threshold-phenomena">Threshold phenomena</h3>
 <ul>
 <li><p>We can also study the conditions under which an epidemic will grow or die out using the model equations.</p></li>
 <li><p>Two key threshold phenomena are often studied:</p>
@@ -1041,16 +1022,57 @@ James Mba Azam, PhD
 </div>
 </div>
 </section>
-<section id="numerical-simulations-in-r" class="slide level2">
-<h2>Numerical simulations in R</h2>
+<section class="slide level2">
+
+<ul>
+<li><p>Let’s study the factors that will determine whether an epidemic will grow or not.</p></li>
+<li><p>Consider the case where <span class="math inline">\(I(0)\)</span> individuals are introduced into a population of size <span class="math inline">\(N\)</span> at time <span class="math inline">\(t = 0\)</span>.</p></li>
+<li><p>That means in a completely susceptible population, we have <span class="math inline">\(S(0) = N - I(0)\)</span> susceptibles.</p></li>
+<li><p>Recall from the SIR model that <span class="math inline">\(\dfrac{dI}{dt} = I (\beta S - \gamma)\)</span></p></li>
+</ul>
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Discussion</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Considering the SIR model, what will cause <span class="math inline">\(\dfrac{dI}{dt} &gt; 0\)</span>?</li>
+<li>How do you interpret it?</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>Note that <span class="math inline">\(\dfrac{dI}{dt} &gt; 0\)</span> when <span class="math inline">\(S &gt; \dfrac{\gamma}{\beta}\)</span></p></li>
+<li><p>Hence, at <span class="math inline">\(t = 0\)</span>, <span class="math inline">\(S(0)\)</span> must be greater than <span class="math inline">\(\dfrac{\gamma}{\beta}\)</span> for the epidemic to grow.</p></li>
+<li><p>This can be interpreted to mean that we require the rate of recovery to be less than the rate of transmission for the epidemic to grow.</p></li>
+<li><p>The reverse of the removal rate is the reproduction number, <span class="math inline">\(R_0 = \dfrac{\beta}{\gamma}\)</span>.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="numerical-simulations">Numerical simulations</h3>
+<ul>
+<li><p>Numerical simulations can be performed with any programming language.</p></li>
+<li><p>This course focuses on the R programming language:</p>
+<ul>
+<li>In R, we can use the <code>deSolve</code> package to solve the differential equations.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
 <ul>
 <li>To solve the model in R, we will always need to define at least three things:
 <ul>
 <li>The model equations.</li>
-<li>The parameter values.</li>
-<li>The initial conditions.</li>
+<li>The initial parameter values.</li>
+<li>The initial conditions (population sizes).</li>
 </ul></li>
-<li>We will need the <code>deSolve</code> package to solve the model.</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -1097,7 +1119,7 @@ James Mba Azam, PhD
 </section>
 <section class="slide level2">
 
-<p>Finally, we will solve the model using the <code>ode</code> function from the <code>deSolve</code> package.</p>
+<p>Finally, we will solve the model using the <code>ode()</code> function from the <code>deSolve</code> package. For now, we will use the default values of the function. You are encouraged to explore the documentation to understand the function better.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Solve the model</span></span>
 <span id="cb3-2"><a href=""></a>results <span class="ot">&lt;-</span> deSolve<span class="sc">::</span><span class="fu">ode</span>(</span>
@@ -1120,23 +1142,31 @@ James Mba Azam, PhD
 <span id="cb4-3"><a href=""></a><span class="fu">library</span>(tidyr)</span>
 <span id="cb4-4"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb4-5"><a href=""></a><span class="co"># Create data for ggplot2 by reshaping</span></span>
-<span id="cb4-6"><a href=""></a>results_long <span class="ot">&lt;-</span> results <span class="sc">|&gt;</span> </span>
-<span id="cb4-7"><a href=""></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>), <span class="at">names_to =</span> <span class="st">"compartment"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
-<span id="cb4-8"><a href=""></a>  </span>
-<span id="cb4-9"><a href=""></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> results_long,</span>
-<span id="cb4-10"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> value, <span class="at">color =</span> compartment)</span>
-<span id="cb4-11"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb4-12"><a href=""></a><span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb4-13"><a href=""></a><span class="fu">labs</span>(</span>
-<span id="cb4-14"><a href=""></a>  <span class="at">title =</span> <span class="st">"SIR model"</span>,</span>
-<span id="cb4-15"><a href=""></a>  <span class="at">x =</span> <span class="st">"Time"</span>,</span>
-<span id="cb4-16"><a href=""></a>  <span class="at">y =</span> <span class="st">"Number of individuals"</span></span>
-<span id="cb4-17"><a href=""></a>) </span>
-<span id="cb4-18"><a href=""></a><span class="fu">print</span>(plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-6"><a href=""></a>results_long <span class="ot">&lt;-</span> results <span class="sc">|&gt;</span></span>
+<span id="cb4-7"><a href=""></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb4-8"><a href=""></a>    <span class="at">cols =</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>),</span>
+<span id="cb4-9"><a href=""></a>    <span class="at">names_to =</span> <span class="st">"compartment"</span>,</span>
+<span id="cb4-10"><a href=""></a>    <span class="at">values_to =</span> <span class="st">"value"</span></span>
+<span id="cb4-11"><a href=""></a>  )</span>
+<span id="cb4-12"><a href=""></a></span>
+<span id="cb4-13"><a href=""></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb4-14"><a href=""></a>  <span class="at">data =</span> results_long,</span>
+<span id="cb4-15"><a href=""></a>  <span class="fu">aes</span>(</span>
+<span id="cb4-16"><a href=""></a>    <span class="at">x =</span> time,</span>
+<span id="cb4-17"><a href=""></a>    <span class="at">y =</span> value,</span>
+<span id="cb4-18"><a href=""></a>    <span class="at">color =</span> compartment</span>
+<span id="cb4-19"><a href=""></a>  )</span>
+<span id="cb4-20"><a href=""></a>) <span class="sc">+</span></span>
+<span id="cb4-21"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb4-22"><a href=""></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-23"><a href=""></a>    <span class="at">title =</span> <span class="st">"SIR model"</span>,</span>
+<span id="cb4-24"><a href=""></a>    <span class="at">x =</span> <span class="st">"Time"</span>,</span>
+<span id="cb4-25"><a href=""></a>    <span class="at">y =</span> <span class="st">"Number of individuals"</span></span>
+<span id="cb4-26"><a href=""></a>  )</span>
+<span id="cb4-27"><a href=""></a><span class="fu">print</span>(plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
-</section>
-<section id="" class="slide level2 output-location-slide"><div class="cell output-location-slide">
+</section><section id="" class="slide level2 output-location-slide"><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1144,7 +1174,41 @@ James Mba Azam, PhD
 </figure>
 </div>
 </div>
-</div></section><section id="the-susceptible-exposed-infected-recovered-seir-model" class="slide level2">
+</div></section></section>
+<section>
+<section id="an-overview-of-the-basic-reproduction-number-r_0" class="title-slide slide level1 center">
+<h1>An Overview of the Basic Reproduction Number, <span class="math inline">\(R_0\)</span></h1>
+
+</section>
+<section class="slide level2">
+
+<ul>
+<li>The basic reproduction number, <span style="color:tomato"><span class="math inline">\(R_0\)</span></span>, is the rate at which secondary infections are generated from a <span style="color:tomato">single primary infection</span> in a <span style="color:tomato">completely susceptible</span> population.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Conceptually, <span class="math inline">\(R0\)</span> is given by <span class="math display">\[ \text{Probability of infection given contact} \times \\ \text{Number of contacts per unit time} \times \\ \text{Duration of infectiousness}\]</span>, and mathematically,</li>
+</ul>
+<p><span class="math display">\[R_0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}}{\text{Time}} \times \dfrac{\text{Time}}{\text{Infection}}\]</span></p>
+<ul>
+<li><span class="math inline">\(R0\)</span> is therefore unitless and dimensionless <span class="citation" data-cites="yadav2021statistical">(<a href="#/papers-and-articles" role="doc-biblioref" onclick="">Yadav and Akhter 2021</a>)</span>.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p><span class="math inline">\(R0\)</span> is often used to express the threshold phenomena in infectious disease epidemiology:</p>
+<ul>
+<li>If <span class="math inline">\(R_0 &gt; 1\)</span>, the epidemic will grow.</li>
+<li>If <span class="math inline">\(R_0 &lt; 1\)</span>, the epidemic will decline.</li>
+</ul></li>
+<li><p>The value of <span class="math inline">\(R0\)</span> is determined by the disease and characteristics of the population.</p></li>
+<li><p>We will learn how to derive <span class="math inline">\(R_0\)</span> from various model structures.</p></li>
+</ul>
+</section>
+<section id="the-susceptible-exposed-infected-recovered-seir-model" class="slide level2">
 <h2>The Susceptible-Exposed-Infected-Recovered (SEIR) Model</h2>
 <ul>
 <li>Many diseases have an incubation period during which individuals are infected but not yet infectious. Examples include COVID-19 and Ebola.</li>
@@ -1154,10 +1218,33 @@ James Mba Azam, PhD
 </section>
 <section class="slide level2">
 
+<div class="columns">
+<div class="column" style="width:50%;">
 <p><a href="images/model_diagrams/model_diagrams.002.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="images/model_diagrams/model_diagrams.002.png"></a></p>
+</div><div class="column" style="width:50%;">
 <ul>
-<li>The SEIR model extends the SIR model to include an exposed compartment, <span class="math inline">\(E\)</span>. The exposed compartment represents individuals who have been infected but are not yet infectious.</li>
+<li>The SEIR model extends the SIR model to include an exposed compartment, <span class="math inline">\(E\)</span>.</li>
+<li>The exposed compartment represents individuals who have been infected but are not yet infectious.</li>
+<li>Individuals stay in the exposed compartment for a period of time (<span class="math inline">\(1/\sigma)\)</span> before moving to the infectious compartment.</li>
 </ul>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><a href="images/model_diagrams/model_diagrams.002.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="images/model_diagrams/model_diagrams.002.png"></a></p>
+</div><div class="column" style="width:60%;">
+Model equations:
+<span class="math display">\[\begin{aligned}
+\frac{dS}{dt} &amp; = -\beta \frac{S I}{N} \\
+\frac{dE}{dt} &amp; = \beta \frac{S I}{N} - \sigma E \\
+\frac{dI}{dt} &amp; = \sigma E - \gamma I \\
+\frac{dR}{dt} &amp; = \gamma I
+\end{aligned}\]</span>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
@@ -1343,6 +1430,9 @@ Box, GE. 1979. <span>“All Models Are Wrong, but Some Are Useful.”</span> <em
 <div id="ref-kermack1927contribution" class="csl-entry" role="listitem">
 Kermack, William Ogilvy, and Anderson G McKendrick. 1927. <span>“A Contribution to the Mathematical Theory of Epidemics.”</span> <em>Proceedings of the Royal Society of London. Series A, Containing Papers of a Mathematical and Physical Character</em> 115 (772): 700–721.
 </div>
+<div id="ref-yadav2021statistical" class="csl-entry" role="listitem">
+Yadav, Subhash Kumar, and Yusuf Akhter. 2021. <span>“Statistical Modeling for the Prediction of Infectious Disease Dissemination with Special Reference to COVID-19 Spread.”</span> <em>Frontiers in Public Health</em> 9: 645405.
+</div>
 </div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -1353,8 +1443,8 @@ Kermack, William Ogilvy, and Anderson G McKendrick. 1927. <span>“A Contributio
 <span class="glightbox-desc lightbox-desc-1">Generic definition of a disease (source: Merriam Webster)</span>
 <span class="glightbox-desc lightbox-desc-2">By DavidMCEddy at en.wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=115167166</span>
 <span class="glightbox-desc lightbox-desc-3">Controversy over estimates of Ebola deaths</span>
-<span class="glightbox-desc lightbox-desc-4">Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (source: Modelling Infectious Diseases of Humans and Animals)</span>
-<span class="glightbox-desc lightbox-desc-5">Face of a boy with measles. Source: https://www.immunize.org/clinical/image-library/measles/</span>
+<span class="glightbox-desc lightbox-desc-4">Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)</span>
+<span class="glightbox-desc lightbox-desc-5">Diagram of an SIR model</span>
 <span class="glightbox-desc lightbox-desc-6">Diagram of an SIR model</span>
 <span class="glightbox-desc lightbox-desc-7">Diagram of an SIR model</span>
 </div>
@@ -1790,6 +1880,7 @@ Kermack, William Ogilvy, and Anderson G McKendrick. 1927. <span>“A Contributio
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
 =======
     <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false});
@@ -1803,6 +1894,9 @@ Kermack, William Ogilvy, and Anderson G McKendrick. 1927. <span>“A Contributio
 =======
     <script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom"});
 >>>>>>> 75ea54a (Add more material)
+=======
+    <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox"});
+>>>>>>> 298b966 (Add more material)
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
