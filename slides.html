@@ -460,7 +460,7 @@ James Mba Azam, PhD
 <li>Note that these classifications are not mutually exclusive. Hence, a disease can be classified under more than one category at a time.</li>
 </ul>
 </section>
-<section id="how-are-infectious-diseases-controlled" class="slide level2">
+<section id="sec-control-measures" class="slide level2">
 <h2>How are infectious diseases controlled?</h2>
 <ul>
 <li>In general, infectious disease control aims to reduce disease transmission.</li>
@@ -487,7 +487,7 @@ James Mba Azam, PhD
 </section>
 <section class="slide level2">
 
-<h4 id="vaccination">Vaccination</h4>
+<h4 id="sec-vaccination">Vaccination</h4>
 <ul>
 <li>Most effective way to prevent infectious diseases.</li>
 <li>Activates the host’s immune system to produce antibodies against the pathogen.</li>
@@ -504,7 +504,7 @@ James Mba Azam, PhD
 </section>
 <section class="slide level2">
 
-<h3 id="non-pharmaceutical-interventions-npis">Non-pharmaceutical interventions (NPIs)</h3>
+<h3 id="sec-npi">Non-pharmaceutical interventions (NPIs)</h3>
 <ul>
 <li><p>Non-pharmaceutical interventions are measures that do not involve medical interventions.</p></li>
 <li><p>Examples:</p>
@@ -721,7 +721,7 @@ James Mba Azam, PhD
 <ul>
 <li>Compartmental models:
 <ul>
-<li>divide populations into compartments (or groups) based on the individual’s infection status <span class="citation" data-cites="Blackwood2018a">(<a href="#/papers-and-articles" role="doc-biblioref" onclick="">Blackwood and Childs 2018</a>)</span>.</li>
+<li>divide populations into compartments (or groups) based on the individual’s infection status and track them through time <span class="citation" data-cites="Blackwood2018a">(<a href="#/papers-and-articles" role="doc-biblioref" onclick="">Blackwood and Childs 2018</a>)</span>.</li>
 <li>are mechanistic, meaning they describe processes such the interaction between hosts, biological processes of pathogen, host immune response, and so forth.</li>
 </ul></li>
 </ul>
@@ -805,7 +805,7 @@ James Mba Azam, PhD
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li>Used to model diseases that confer immunity after recovery. For example, measles.</li>
+<li>Used to model diseases that confer immunity after recovery. For example, measles and chicken pox.</li>
 <li>Popularised by Kermack and McKendrick in 1927 <span class="citation" data-cites="kermack1927contribution">(<a href="#/papers-and-articles" role="doc-biblioref" onclick="">Kermack and McKendrick 1927</a>)</span>
 <ul>
 <li>A must-read paper for budding infectious disease modellers.</li>
@@ -858,44 +858,37 @@ James Mba Azam, PhD
 
 <h3 id="model-assumptions">Model assumptions</h3>
 <ul>
-<li><p>There are no inflows or outflows from the population, i.e., no births, deaths, or migration. This is often described as a <em>closed population</em>.</p>
+<li>There are no inflows or outflows from the population, i.e., no births, deaths, or migration. This is often described as a <em>closed population</em>.
 <ul>
 <li>That is, the epidemic occurs much faster than the time scale of births, deaths, or migration.</li>
 </ul></li>
-<li><p>Mixing is <em>homogeneous</em>, i.e., <span style="color:orange;">individuals mix randomly</span> and have an equal probability of coming into contact with any other individual in the population.</p></li>
-<li><p>Transition rates are constant and do not change over time.</p></li>
+<li>Individuals are infectious immediately after infection and remain infectious until they recover.</li>
 </ul>
 </section>
 <section class="slide level2">
 
-<h3 id="model-equations">Model equations</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="images/model_diagrams/model_diagrams.001.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7" title="Diagram of an SIR model"><img data-src="images/model_diagrams/model_diagrams.001.png" alt="Diagram of an SIR model"></a></p>
-<figcaption>Diagram of an SIR model</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-Model equations:
-<span class="math display">\[\begin{aligned}
-\frac{dS}{dt} &amp; = \color{orange}{-\beta \frac{S I}{N}} \\
-\frac{dI}{dt} &amp; = \color{orange}{\beta \frac{S I}{N}} - \color{cornflowerblue}{\gamma I} \\
-\frac{dR}{dt} &amp; = \color{cornflowerblue}{\gamma I}
-\end{aligned}\]</span>
-<p>where <span style="color:orange;"><span class="math inline">\(\beta\)</span></span> is the transmission rate, and <span style="color:orange;"><span class="math inline">\(\gamma\)</span></span> is the recovery rate.</p>
-</div>
-</div>
+<ul>
+<li><p>Mixing is <em>homogeneous</em>, i.e., <span style="color:orange;">individuals mix randomly</span> and have an equal probability of coming into contact with any other individual in the population.</p></li>
+<li><p>Transition rates are constant and do not change over time.</p></li>
+<li><p>Individuals acquire “lifelong” immunity after recovery.</p></li>
+</ul>
 </section>
 <section class="slide level2">
 
-<p>With initial conditions <span class="math inline">\(S(0) = N - 1\)</span>, <span class="math inline">\(I(0) = 1\)</span>, and <span class="math inline">\(R(0) = 0\)</span>.</p>
-<p>where <span class="math inline">\(N\)</span> is the total population size.</p>
+<h3 id="formulating-the-model-equations">Formulating the model equations</h3>
+<ul>
+<li><p>Continuous time compartmental models are often formulated using differential equations that describe the change in the number of individuals in each compartment over time.</p></li>
+<li><p>The SIR model can be formulated by identifying the events/processes that cause individuals to move between compartments:</p>
+<ul>
+<li><span style="color:orange;">Transmission</span>: susceptible individuals become infected.</li>
+<li><span style="color:orange;">Recoveries</span>: infected individuals recover.</li>
+</ul></li>
+<li><p>Let’s break these two processes down further.</p></li>
+</ul>
 </section>
 <section class="slide level2">
 
-<h3 id="transmission">Transmission</h3>
+<h3 id="process-1-transmission">Process 1: Transmission</h3>
 <div class="callout callout-caution no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -925,7 +918,7 @@ Model equations:
 <ul>
 <li><p>The transmission term is often defined through the force of infection (FOI), <span class="math inline">\(\lambda\)</span>:</p>
 <ul>
-<li>The force of infection is the <span style="color:orange;">per capita rate</span> at which susceptible individuals become infected.</li>
+<li>the <span style="color:orange;">per capita rate</span> at which susceptible individuals become infected.</li>
 </ul></li>
 <li><p>The rate at which new infecteds are generated is given by <span style="color:orange;"><span class="math inline">\(\lambda S\)</span></span>, where <span class="math inline">\(S\)</span> is the number of susceptible individuals.</p></li>
 <li><p>The force of infection is proportional to the number of infected individuals and the transmission rate, <span style="color:orange;"><span class="math inline">\(\beta\)</span></span>.</p></li>
@@ -945,18 +938,21 @@ Model equations:
 <section class="slide level2">
 
 <ul>
-<li>Frequency-dependent transmission assumes that that the number of contacts an individual has is independent of the population size:
+<li><span style="color:tomato;">Frequency-dependent</span> transmission assumes that that the number of contacts an individual has does not depend on the population size:
 <ul>
-<li>Often used to model vector-borned diseases and diseases with heterogeneity in contact rates.</li>
+<li>Here, the interaction between susceptible and infected individuals does not change with the population size.</li>
+<li>Often used to model sexually-transmitted diseases and diseases with heterogeneity in contact rates.</li>
+<li>Sexual transmission in this case does not depend on how many infected individuals are in the population.</li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <ul>
-<li>Density-dependent transmission assumes that the number of contacts an individual has is proportional to the population size:
+<li><span style="color:tomato;">Density-dependent</span> transmission assumes that the number of contacts an individual has is proportional to the population size:
 <ul>
-<li>Often used to model diseases that allow the safe assumption of random/homogenous mixing.</li>
+<li>It impacts the interaction between susceptible and infected individuals.</li>
+<li>Can be used to model airborne and directly transmitted diseases, for example, measles.</li>
 </ul></li>
 </ul>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -968,20 +964,73 @@ Model equations:
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>The differences become important when dealing with population sizes that change significantly over time.</p>
+<ul>
+<li>The differences become important when dealing with population sizes that change significantly over time.</li>
+<li>We will mostly use the density-dependent formulation in this course.</li>
+</ul>
 </div>
 </div>
 </div>
 </section>
 <section class="slide level2">
 
+<h3 id="process-2-recovery">Process 2: Recovery</h3>
 <ul>
-<li><p>The recovery rate <span class="math inline">\(\gamma\)</span> is the reciprocal of the average duration of the infection. That is, infected individuals spend <span class="math inline">\(1/\gamma\)</span> days in the infected compartment before recovering.</p></li>
-<li><p>The average infectious period is often estimated from epidemiological data.</p></li>
+<li><p>Individuals recover after having been infected for the duration of infection.</p></li>
+<li><p>The <span style="color:tomato">recovery rate, <span class="math inline">\(\gamma\)</span></span>, is the reciprocal of the average duration of the infection.</p></li>
+<li><p>Infected individuals spend <span class="math inline">\(1/\gamma\)</span> days in the infected compartment before recovering.</p></li>
+<li><p>The average infectious period is often estimated from epidemiological data:</p>
+<ul>
+<li>You will learn about parameter estimation in a future lecture.</li>
+</ul></li>
 </ul>
 </section>
-<section id="how-do-we-solve-the-sir-model" class="slide level2">
-<h2>How do we solve the SIR model?</h2>
+<section class="slide level2">
+
+<p>Putting it all together, the SIR model can be formulated as a set of differential equations:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/model_diagrams/model_diagrams.001.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="images/model_diagrams/model_diagrams.001.png" class="centered quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<span class="math display">\[\begin{aligned}
+\frac{dS}{dt} &amp; = \color{orange}{-\beta \frac{S I}{N}} \\
+\frac{dI}{dt} &amp; = \color{orange}{\beta \frac{S I}{N}} - \color{cornflowerblue}{\gamma I} \\
+\frac{dR}{dt} &amp; = \color{cornflowerblue}{\gamma I}
+\end{aligned}\]</span>
+</div>
+</div>
+<p>where <span style="color:orange;"><span class="math inline">\(\beta\)</span></span> is the transmission rate, and <span style="color:orange;"><span class="math inline">\(\gamma\)</span></span> is the recovery rate.</p>
+</section>
+<section class="slide level2">
+
+<p>With initial conditions <span class="math inline">\(S(0) = N - 1\)</span>, <span class="math inline">\(I(0) = 1\)</span>, and <span class="math inline">\(R(0) = 0\)</span>.</p>
+<p>where <span class="math inline">\(N\)</span> is the total population size.</p>
+<h4 id="some-things-to-note">Some things to note</h4>
+<ul>
+<li>We represent the compartments as <span style="color:orange;">population sizes</span>.:
+<ul>
+<li>Some modellers often use <span style="color:orange;">proportions</span> instead of population sizes as a way to remove the dimensions from the equations.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="what-questions-can-we-answer-with-the-sir-model">What questions can we answer with the SIR model?</h3>
+<ul>
+<li>The SIR model can be used to understand the dynamics of an epidemic:
+<ul>
+<li>How long will the epidemic last?</li>
+<li>How many individuals will be infected (final epidemic size)?</li>
+<li>When will the epidemic reach its peak?</li>
+</ul></li>
+</ul>
+</section>
+<section id="solving-the-sir-model" class="slide level2">
+<h2>Solving the SIR model</h2>
 <ul>
 <li><p>Compartmental models cannot be solved analytically.</p></li>
 <li><p>Other methods are used to understand the dynamics of the model:</p>
@@ -995,63 +1044,90 @@ Model equations:
 
 <h3 id="threshold-phenomena">Threshold phenomena</h3>
 <ul>
-<li><p>We can also study the conditions under which an epidemic will grow or die out using the model equations.</p></li>
-<li><p>Two key threshold phenomena are often studied:</p>
+<li><p>Here, we study the conditions under which an epidemic will grow or die out using the model equations.</p></li>
+<li><p>Consider the case where <span class="math inline">\(I(0) = 1\)</span> individual is introduced into a population of size <span class="math inline">\(N\)</span> at time <span class="math inline">\(t = 0\)</span>.</p></li>
+<li><p>That means in a completely susceptible population, we have <span class="math inline">\(S(0) = N - 1\)</span> susceptible individuals.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
 <ul>
-<li>The basic reproduction number (<span class="math inline">\(R_0\)</span>).</li>
-<li>The herd immunity threshold.</li>
+<li><p>At time 0, the disease will not spread if the rate of change of infections is negative, that is <span class="math inline">\(\dfrac{dI}{dt} &lt; 0\)</span>.</p></li>
+<li><p>Recall from the SIR model that <span class="math inline">\(\dfrac{dI}{dt} = \beta\dfrac{S I}{N} - \gamma I\)</span></p></li>
+<li><p>Let’s solve this equation at <span class="math inline">\(t = 0\)</span> by setting <span class="math inline">\(S = N - 1\)</span> and <span class="math inline">\(I = 1\)</span>, assuming <span class="math inline">\(\dfrac{dI}{dt} &lt; 0\)</span>.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>At <span class="math inline">\(t = 0\)</span>, we have</li>
+</ul>
+<p><span class="math display">\[ \frac{dI}{dt} = \beta \times \frac{N - 1}{N} \times 1  - \gamma I &lt; 0 \]</span></p>
+<ul>
+<li>Re-arranging the equation, we get</li>
+</ul>
+<p><span class="math display">\[ \dfrac{\beta}{\gamma} \times \left( \frac{N - 1}{N} \right) &lt; 1 \]</span></p>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>For very large populations, <span class="math inline">\(\dfrac{N - 1}{N} \approx 1\)</span>, and the equation simplifies to <span class="math inline">\(\dfrac{\beta}{\gamma} &lt; 1\)</span>.</p></li>
+<li><p>This implies that the epidemic will not grow if <span class="math inline">\(\dfrac{\beta}{\gamma} &lt; 1\)</span>.</p></li>
+<li><p>This is the threshold condition for the epidemic to die out. The epidemic will grow if <span class="math inline">\(\dfrac{\beta}{\gamma} &gt; 1\)</span>.</p></li>
+<li><p>For the SIR model, the quantity is called the reproduction number, <span class="math inline">\(R0\)</span> (pronounced “R naught” or “R zero”).</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h4 id="the-basic-reproduction-number-r0">The basic reproduction number, R0</h4>
+<ul>
+<li><p>The basic reproduction number, <span style="color:tomato"><span class="math inline">\(R_0\)</span></span>, is the average number of secondary infections generated by a <span style="color:tomato">single primary infection</span> in a <span style="color:tomato">completely susceptible</span> population.</p></li>
+<li><p>The basic reproduction number is a key quantity in infectious disease epidemiology.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>It is often represented as a single number or a range of high-low values.
+<ul>
+<li>For example, the <span class="math inline">\(R_0\)</span> for measles is popularly known to be <span class="math inline">\(12\)</span> - <span class="math inline">\(18\)</span> <span class="citation" data-cites="guerra2017measlesR0">(<a href="#/papers-and-articles" role="doc-biblioref" onclick="">Guerra et al. 2017</a>)</span>.</li>
 </ul></li>
+<li>For an insightful historical account of the evolution of <span class="math inline">\(R_0\)</span> derivations, see <span class="citation" data-cites="heesterbeek2002brief">(<a href="#/papers-and-articles" role="doc-biblioref" onclick="">Heesterbeek 2002</a>)</span>.</li>
 </ul>
 </section>
 <section class="slide level2">
 
 <ul>
-<li><p>The <span style="color:blue">basic reproduction number (<span class="math inline">\(R_0\)</span>)</span>: the average number of secondary infections caused by a single infected individual in a <span style="color:tomato;"><em>completely susceptible</em></span> population.</p></li>
-<li><p>The <span style="color:blue">herd immunity threshold</span>: the proportion of the population that needs to be immune (by vaccination or natural infection) to prevent the epidemic from growing. This is often calculated as <span style="color:red"><span class="math inline">\(1 - \dfrac{1}{R_0}\)</span></span></p></li>
-</ul>
-<div class="callout callout-caution no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Discussion</strong></p>
-</div>
-<div class="callout-content">
+<li><span class="math inline">\(R0\)</span> is often used to express the threshold phenomena in infectious disease epidemiology:
 <ul>
-<li>How would you interpret the herd immunity required for a disease with <span class="math inline">\(R_0 = 2\)</span>?</li>
+<li>If <span class="math inline">\(R_0 &gt; 1\)</span>, the epidemic will grow.</li>
+<li>If <span class="math inline">\(R_0 &lt; 1\)</span>, the epidemic will decline.</li>
+</ul></li>
+<li>A pathogen’s <span class="math inline">\(R0\)</span> value is determined by biological characteristics of the pathogen and the host’s behaviour.</li>
 </ul>
-</div>
-</div>
-</div>
 </section>
 <section class="slide level2">
 
 <ul>
-<li><p>Let’s study the factors that will determine whether an epidemic will grow or not.</p></li>
-<li><p>Consider the case where <span class="math inline">\(I(0)\)</span> individuals are introduced into a population of size <span class="math inline">\(N\)</span> at time <span class="math inline">\(t = 0\)</span>.</p></li>
-<li><p>That means in a completely susceptible population, we have <span class="math inline">\(S(0) = N - I(0)\)</span> susceptibles.</p></li>
-<li><p>Recall from the SIR model that <span class="math inline">\(\dfrac{dI}{dt} = I (\beta S - \gamma)\)</span></p></li>
+<li>Conceptually, <span class="math inline">\(R0\)</span> is given by <span class="math display">\[ \text{Probability of infection given contact} \times \\ \text{Number of contacts per unit time} \times \\ \text{Duration of infectiousness}\]</span>, and mathematically,</li>
 </ul>
-<div class="callout callout-caution no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Discussion</strong></p>
-</div>
-<div class="callout-content">
+<p><span class="math display">\[R_0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}}{\text{Time}} \times \dfrac{\text{Time}}{\text{Infection}}\]</span></p>
 <ul>
-<li>Considering the SIR model, what will cause <span class="math inline">\(\dfrac{dI}{dt} &gt; 0\)</span>?</li>
-<li>How do you interpret it?</li>
+<li><span class="math inline">\(R0\)</span> is therefore unitless and dimensionless.</li>
 </ul>
-</div>
-</div>
-</div>
 </section>
 <section class="slide level2">
 
+<h4 id="the-next-generation-matrix-approach">The next-generation matrix approach</h4>
 <ul>
-<li><p>Note that <span class="math inline">\(\dfrac{dI}{dt} &gt; 0\)</span> when <span class="math inline">\(S &gt; \dfrac{\gamma}{\beta}\)</span></p></li>
-<li><p>Hence, at <span class="math inline">\(t = 0\)</span>, <span class="math inline">\(S(0)\)</span> must be greater than <span class="math inline">\(\dfrac{\gamma}{\beta}\)</span> for the epidemic to grow.</p></li>
-<li><p>This can be interpreted to mean that we require the rate of recovery to be less than the rate of transmission for the epidemic to grow.</p></li>
-<li><p>The reverse of the removal rate is the reproduction number, <span class="math inline">\(R_0 = \dfrac{\beta}{\gamma}\)</span>.</p></li>
+<li><p>The method used to derive <span class="math inline">\(R0\)</span> in the SIR model is possible because there is only one compartment with infected individuals.</p></li>
+<li><p>In more complex models, <span class="math inline">\(R0\)</span>, this method becomes impossible to use.</p></li>
+<li><p>A more general method would be to use the next-generation matrix approach.</p></li>
 </ul>
+</section>
+<section class="slide level2">
+
+<p><insert slides="" on="" next-generation="" matrix="" approach="" for="" deriving="" r0="" seir=""></insert></p>
 </section>
 <section class="slide level2">
 
@@ -1166,7 +1242,8 @@ Model equations:
 <span id="cb4-27"><a href=""></a><span class="fu">print</span>(plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
-</section><section id="" class="slide level2 output-location-slide"><div class="cell output-location-slide">
+</section>
+<section id="" class="slide level2 output-location-slide"><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1174,41 +1251,7 @@ Model equations:
 </figure>
 </div>
 </div>
-</div></section></section>
-<section>
-<section id="an-overview-of-the-basic-reproduction-number-r_0" class="title-slide slide level1 center">
-<h1>An Overview of the Basic Reproduction Number, <span class="math inline">\(R_0\)</span></h1>
-
-</section>
-<section class="slide level2">
-
-<ul>
-<li>The basic reproduction number, <span style="color:tomato"><span class="math inline">\(R_0\)</span></span>, is the rate at which secondary infections are generated from a <span style="color:tomato">single primary infection</span> in a <span style="color:tomato">completely susceptible</span> population.</li>
-</ul>
-</section>
-<section class="slide level2">
-
-<ul>
-<li>Conceptually, <span class="math inline">\(R0\)</span> is given by <span class="math display">\[ \text{Probability of infection given contact} \times \\ \text{Number of contacts per unit time} \times \\ \text{Duration of infectiousness}\]</span>, and mathematically,</li>
-</ul>
-<p><span class="math display">\[R_0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}}{\text{Time}} \times \dfrac{\text{Time}}{\text{Infection}}\]</span></p>
-<ul>
-<li><span class="math inline">\(R0\)</span> is therefore unitless and dimensionless <span class="citation" data-cites="yadav2021statistical">(<a href="#/papers-and-articles" role="doc-biblioref" onclick="">Yadav and Akhter 2021</a>)</span>.</li>
-</ul>
-</section>
-<section class="slide level2">
-
-<ul>
-<li><p><span class="math inline">\(R0\)</span> is often used to express the threshold phenomena in infectious disease epidemiology:</p>
-<ul>
-<li>If <span class="math inline">\(R_0 &gt; 1\)</span>, the epidemic will grow.</li>
-<li>If <span class="math inline">\(R_0 &lt; 1\)</span>, the epidemic will decline.</li>
-</ul></li>
-<li><p>The value of <span class="math inline">\(R0\)</span> is determined by the disease and characteristics of the population.</p></li>
-<li><p>We will learn how to derive <span class="math inline">\(R_0\)</span> from various model structures.</p></li>
-</ul>
-</section>
-<section id="the-susceptible-exposed-infected-recovered-seir-model" class="slide level2">
+</div></section><section id="the-susceptible-exposed-infected-recovered-seir-model" class="slide level2">
 <h2>The Susceptible-Exposed-Infected-Recovered (SEIR) Model</h2>
 <ul>
 <li>Many diseases have an incubation period during which individuals are infected but not yet infectious. Examples include COVID-19 and Ebola.</li>
@@ -1248,42 +1291,217 @@ Model equations:
 </section>
 <section class="slide level2">
 
+<h3 id="the-r0-of-the-seir-model">The <span class="math inline">\(R0\)</span> of the SEIR Model</h3>
+<p><insert slides="" on="" next="" generation="" matrix="" approach=""></insert></p>
+</section>
+<section class="slide level2">
+
+<h3 id="numerical-simulations-1">Numerical simulations</h3>
+<ul>
+<li><p>We can use the same approach as the SIR model to simulate the SEIR model.</p></li>
+<li><p>Let’s do a code walk though in R.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
 </section></section>
 <section>
 <section id="controlling-epidemics" class="title-slide slide level1 center">
-<h1>Controlling Epidemics</h1>
-
+<h1>Controlling epidemics</h1>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>For a recap on the various control measures, refer to <a href="#/sec-control-measures" class="quarto-xref">Section&nbsp;1.2</a>.</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="modelling-vaccination" class="slide level2">
-<h2>Modelling Vaccination</h2>
+<h2>Modelling vaccination</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
 <ul>
-<li>Refer to the slides on vaccination.</li>
-<li>These work to reduce the number of susceptible individuals, <span class="math inline">\(S\)</span> and infecteds.</li>
+<li>For a background on vaccination, refer to <a href="#/sec-vaccination" class="quarto-xref">Section&nbsp;1.2.1.1</a>.</li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Conceptually, vaccination works to reduce the number of susceptible individuals, <span class="math inline">\(S\)</span>.</p></li>
+<li><p>The SIR and SEIR model can be extended to include vaccination by adding a new compartment, <span class="math inline">\(V\)</span>.</p></li>
+<li><p>Let’s consider the SEIR model with vaccination.</p></li>
 </ul>
 </section>
-<section id="modelling-npis" class="slide level2">
-<h2>Modelling NPIs</h2>
+<section class="slide level2">
+
+<h3 id="the-susceptible-exposed-infected-recovered-vaccinated-seirv-model">The Susceptible-Exposed-Infected-Recovered-Vaccinated (SEIRV) Model</h3>
 <ul>
-<li><p>Refer to the slides on NPIs.</p></li>
-<li><p>These work to reduce the transmission rate, <span class="math inline">\(\beta\)</span>.</p></li>
+<li><p>The SEIRV model is simply the SEIR model with a vaccinated compartment, <span class="math inline">\(V\)</span>.</p></li>
+<li><p>The vaccinated compartment represents previously susceptible individuals who have been vaccinated and are immune to the disease.</p></li>
+<li><p>The vaccinated compartment is not infectious and does not move to the exposed or infectious compartments.</p></li>
+<li><p>The vaccinated compartment is replenished by the rate of vaccination, <span class="math inline">\(\eta\)</span>.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>The model diagram and equations are as follows:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<span class="math display">\[\begin{aligned}
+\frac{dS}{dt} &amp; = -\beta \frac{S I}{N} - \eta S \\
+\frac{dE}{dt} &amp; = \beta \frac{S I}{N} - \sigma E \\
+\frac{dI}{dt} &amp; = \sigma E - \gamma I \\
+\frac{dR}{dt} &amp; = \gamma I \\
+\frac{dV}{dt} &amp; = \eta S
+\end{aligned}\]</span>
+</div><div class="column" style="width:60%;">
+<p><a href="images/model_diagrams/model_diagrams.003.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="images/model_diagrams/model_diagrams.003.png"></a></p>
+</div>
+</div>
+<p>where <span class="math inline">\(\eta\)</span> is the rate of vaccination.</p>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Discussion</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>What are some of the assumptions of the SEIRV model?</p></li>
+<li><p>What are the implications of these assumptions for the model’s predictions?</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="numerical-simulations-2">Numerical simulations</h3>
+<ul>
+<li><p>We can use the same approach as the SIR and SEIR models to simulate the SEIRV model.</p></li>
+<li><p>Let’s do a code walk though in R.</p></li>
+</ul>
+</section>
+<section id="modelling-npis" class="slide level2 scrollable">
+<h2>Modelling NPIs</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>For a background on non-pharmaceutical interventions, refer to <a href="#/sec-npi" class="quarto-xref">Section&nbsp;1.2.2</a>.</li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Conceptually, NPIs usually act to either reduce the transmission rate, <span class="math inline">\(\beta\)</span> or prevent infected individuals from transmitting.</p></li>
+<li><p>Let’s consider two scenarios that will extend the SIR model:</p>
+<ol type="1">
+<li>Reducing the transmission rate, <span class="math inline">\(\beta\)</span>.</li>
+<li>Preventing infected individuals from transmitting through isolation.</li>
+</ol></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="reducing-the-transmission-rate">Reducing the transmission rate</h3>
+<ul>
+<li><p>NPIs such as social distancing, mask-wearing, and hand hygiene can reduce the transmission rate, <span class="math inline">\(\beta\)</span>.</p></li>
+<li><p>We can model this by introducing a reduction factor, <span class="math inline">\(\alpha\)</span>, that reduces transmission rate, <span class="math inline">\(\beta\)</span>.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>The modified SIR model with a reduced transmission rate is as follows:</p>
+<span class="math display">\[\begin{aligned}
+\frac{dS}{dt} &amp; = -\alpha\beta \frac{S I}{N} \\
+\frac{dI}{dt} &amp; = \alpha \beta \frac{S I}{N} - \gamma I \\
+\frac{dR}{dt} &amp; = \gamma I
+\end{aligned}\]</span>
+<p>where <span class="math inline">\(\alpha\)</span> is the reduction factor, and <span class="math inline">\(0 \leq \alpha \leq 1\)</span>.</p>
+</section>
+<section class="slide level2">
+
+<h4 id="scenarios-with-reduced-transmission-rate">Scenarios with reduced transmission rate</h4>
+<ul>
+<li><p>We can use the same approach as the SIR model to simulate the model with a reduced transmission rate.</p></li>
+<li><p>Let’s do a code walk though in R.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="modelling-quarantine">Modelling quarantine</h3>
+<ul>
+<li><p>Isolation is a key NPI that prevents infected individuals from transmitting the disease.</p></li>
+<li><p>We can model this by introducing a new compartment, <span class="math inline">\(Q\)</span>, for quarantining infected individuals.</p></li>
+<li><p>Infected individuals move to the quarantine compartment at a rate, <span class="math inline">\(\delta\)</span>.</p></li>
+<li><p>Infected individuals in the quarantine compartment do not transmit the disease.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>The modified SIR model with quarantine is as follows:</p>
+<span class="math display">\[\begin{aligned}
+\frac{dS}{dt} &amp; = -\beta \frac{S I}{N} \\
+\frac{dI}{dt} &amp; = \beta \frac{S I}{N} - \gamma I - \delta I \\
+\frac{dR}{dt} &amp; = \gamma I + \tau Q \\
+\frac{dQ}{dt} &amp; = \delta I - \tau Q
+\end{aligned}\]</span>
+<p>where <span class="math inline">\(\delta\)</span> is the rate at which infected individuals move to the quarantine compartment, and <span class="math inline">\(\tau\)</span> is the rate at which individuals recover from quarantine.</p>
+</section>
+<section class="slide level2">
+
+<h4 id="scenarios-with-quarantine">Scenarios with quarantine</h4>
+<ul>
+<li><p>We can use the same approach as the SIR model to simulate the model with quarantine.</p></li>
+<li><p>Let’s do a code walk though in R.</p></li>
 </ul>
 </section></section>
 <section>
 <section id="incorporating-host-heterogeneity" class="title-slide slide level1 center">
-<h1>Incorporating Host Heterogeneity</h1>
+<h1>Incorporating host heterogeneity</h1>
 <ul>
 <li><p>The models we have discussed so far assume that all individuals in the population are identical.</p></li>
 <li><p>However, in reality, individuals differ in their susceptibility to infection and their ability to transmit the disease.</p></li>
-<li><p>It is essential to capture this heterogeneity in the models in order for the models to be more realistic and useful for decision-making ().</p></li>
+<li><p>It is essential to capture this heterogeneity in the models in order for the models to be more realistic and useful for decision-making.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li><p>This can be captured by incorporating heterogeneity into the models.</p></li>
+<li><p>Heterogeneity is often captured by stratifying the population into different groups.</p></li>
 </ul>
 </section>
 <section id="incorporating-age-structure" class="slide level2">
-<h2>Incorporating Age Structure</h2>
+<h2>Incorporating age structure</h2>
 <ul>
-<li><p>The models we have discussed so far assume that the population is homogeneous.</p></li>
-<li><p>However, in reality, populations are structured by age.</p></li>
-<li><p>This can be captured by incorporating age structure into the models.</p></li>
+<li><p>For many infectious diseases, the risk of infection and the severity of the disease vary by age.</p></li>
+<li><p>Hence, it is essential to capture age structure in the models.</p></li>
+<li><p>To do this, we divide the population into different age groups and model the disease dynamics within each age group.</p></li>
 <li><p>Let’s extend the SIR model to include age structure.</p></li>
 </ul>
 </section>
@@ -1291,34 +1509,25 @@ Model equations:
 
 <ul>
 <li><p>We will divide the population into <span class="math inline">\(n\)</span> age groups.</p></li>
-<li><p>The model will have <span class="math inline">\(3n\)</span> compartments: <span class="math inline">\(S_1, I_1, R_1, S_2, I_2, R_2, ..., S_n, I_n, R_n\)</span>.</p></li>
-<li><p>The model will have <span class="math inline">\(n^2\)</span> parameters: <span class="math inline">\(\beta_{ij}\)</span>, the transmission rate from age group <span class="math inline">\(i\)</span> to age group <span class="math inline">\(j\)</span>.</p></li>
-<li><p>The model equations will be:</p></li>
+<li><p>Because the homogeneous model has 3 compartments, the age structured one will have <span class="math inline">\(3n\)</span> compartments: <span class="math inline">\(S_1, I_1, R_1, S_2, I_2, R_2, ..., S_n, I_n, R_n\)</span>.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>The (compact) model equations are as follows:</li>
 </ul>
 <span class="math display">\[\begin{aligned}
 \dfrac{dS_i}{dt} &amp;= -\sum_{j=1}^{n} \beta_{ji} S_i I_j \\
 \dfrac{dI_i}{dt} &amp;= \sum_{j=1}^{n} \beta_{ji} S_i I_j - \gamma I_i \\
 \dfrac{dR_i}{dt} &amp;= \gamma I_i
 \end{aligned}\]</span>
-<ul>
-<li>The model can be used to study the impact of age structure on the dynamics of the epidemic.</li>
-</ul>
 </section>
 <section class="slide level2">
 
 <ul>
 <li><p>The model can be used to study the impact of age structure on the dynamics of the epidemic.</p></li>
 <li><p>For example, we can study the impact of vaccinating different age groups on the dynamics of the epidemic.</p></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<ul>
-<li>Let’s assume that the transmission rate from age group <span class="math inline">\(i\)</span> to age group <span class="math inline">\(j\)</span> is given by:</li>
-</ul>
-<p>[ _{ij} = _0 (1 + ()) ]</p>
-<ul>
-<li>where <span class="math inline">\(\beta_0\)</span> is the baseline transmission rate, <span class="math inline">\(\alpha\)</span> is the age-dependent transmission rate, and <span class="math inline">\(a_i\)</span> is the average age of individuals in age group <span class="math inline">\(i\)</span>.</li>
 </ul>
 </section>
 <section id="other-heterogeneities" class="slide level2">
@@ -1332,18 +1541,57 @@ Model equations:
 </ul></li>
 </ul>
 </section></section>
+<section>
 <section id="wrap-up-and-qa" class="title-slide slide level1 center">
 <h1>Wrap-Up and Q&amp;A</h1>
 
 </section>
-
-<section>
-<section id="what-skills-are-needed-to-build-and-use-infectious-disease-models" class="title-slide slide level1 center">
-<h1>What skills are needed to build and use infectious disease models?</h1>
-
+<section id="takeaways" class="slide level2">
+<h2>Takeaways</h2>
+<p>In the last two days, we have covered a lot of ground. Here are some key takeaways:</p>
+<ul>
+<li><p>Infectious diseases are a major public health concern that can have devastating consequences.</p></li>
+<li><p>Mathematical models are essential tools for studying the dynamics of infectious diseases and informing public health decision-making.</p></li>
+<li><p>Models are simplifications of reality that help us understand complex systems.</p></li>
+</ul>
 </section>
-<section id="mathematical-and-statistical-skills" class="slide level2">
-<h2>Mathematical and statistical skills</h2>
+<section class="slide level2">
+
+<ul>
+<li><p>We have discussed several compartmental models, including the SIR, SEIR, and SEIRV models.</p></li>
+<li><p>The SIR model is a simple compartmental model that divides the population into three compartments: susceptible, infected, and recovered.</p></li>
+<li><p>The SEIR model extends the SIR model by adding an exposed compartment.</p></li>
+<li><p>We can model various pharmaceutical and non-pharmaceutical interventions (NPIs) by modifying the transmission rate or adding new compartments.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>We have discussed the basic reproduction number, <span class="math inline">\(R_0\)</span>, which is a key parameter in infectious disease epidemiology.</p></li>
+<li><p><span class="math inline">\(R_0\)</span> is the average number of secondary infections produced by a single infected individual in a completely susceptible population.</p></li>
+<li><p>If <span class="math inline">\(R_0 &gt; 1\)</span>, the disease will spread in the population; if <span class="math inline">\(R_0 &lt; 1\)</span>, the disease will die out.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>Deriving the basic reproduction number, <span class="math inline">\(R_0\)</span>, is an essential step in understanding the dynamics of infectious diseases.</p></li>
+<li><p>Deriving <span class="math inline">\(R_0\)</span> for the simple SIR model is simple as we just need to study the threshold phenomena.</p></li>
+<li><p>For more complex models, we can use the next-generation matrix approach to derive <span class="math inline">\(R_0\)</span>.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>Often, homogeneous models are not sufficient to capture the complexity of infectious diseases.</p></li>
+<li><p>Incorporating heterogeneity into the models is essential for capturing the complexity of infectious diseases.</p></li>
+<li><p>Age structure is a common form of heterogeneity that can be incorporated into the models.</p></li>
+<li><p>Other forms of heterogeneity include spatial, temporal, and contact heterogeneity.</p></li>
+</ul>
+</section>
+<section id="what-skills-are-needed-to-build-and-use-infectious-disease-models" class="slide level2">
+<h2>What skills are needed to build and use infectious disease models?</h2>
+<h3 id="mathematical-and-statistical-skills">Mathematical and statistical skills</h3>
 <ul>
 <li>Differential equations.</li>
 <li>Probability and statistics.</li>
@@ -1353,16 +1601,18 @@ Model equations:
 <li>Survival analysis</li>
 </ul>
 </section>
-<section id="programming-skills" class="slide level2">
-<h2>Programming skills</h2>
+<section class="slide level2">
+
+<h3 id="programming-skills">Programming skills</h3>
 <ul>
 <li>Proficiency in at least one programming language (e.g., R, Python, Julia, C++).</li>
 <li>Experience with version control (e.g., Git).</li>
 <li>Experience with data manipulation and visualization.</li>
 </ul>
 </section>
-<section id="domain-knowledge-in-infectious-diseases" class="slide level2">
-<h2>Domain knowledge in infectious diseases</h2>
+<section class="slide level2">
+
+<h3 id="domain-knowledge-in-infectious-diseases">Domain knowledge in infectious diseases</h3>
 <ul>
 <li>Immunology</li>
 <li>Epidemiology</li>
@@ -1370,8 +1620,9 @@ Model equations:
 <li>Genomics</li>
 </ul>
 </section>
-<section id="other-subject-areas" class="slide level2">
-<h2>Other subject areas</h2>
+<section class="slide level2">
+
+<h3 id="other-subject-areas">Other subject areas</h3>
 <ul>
 <li>Communication skills:
 <ul>
@@ -1427,11 +1678,14 @@ Blackwood, Julie C., and Lauren M. Childs. 2018. <span>“An Introduction to Com
 <div id="ref-Box1979" class="csl-entry" role="listitem">
 Box, GE. 1979. <span>“All Models Are Wrong, but Some Are Useful.”</span> <em>Robustness in Statistics</em> 202 (1979): 549.
 </div>
+<div id="ref-guerra2017measlesR0" class="csl-entry" role="listitem">
+Guerra, Fiona M, Shelly Bolotin, Gillian Lim, Jane Heffernan, Shelley L Deeks, Ye Li, and Natasha S Crowcroft. 2017. <span>“The Basic Reproduction Number (R0) of Measles: A Systematic Review.”</span> <em>The Lancet Infectious Diseases</em> 17 (12): e420–28.
+</div>
+<div id="ref-heesterbeek2002brief" class="csl-entry" role="listitem">
+Heesterbeek, Johan Andre Peter. 2002. <span>“A Brief History of r 0 and a Recipe for Its Calculation.”</span> <em>Acta Biotheoretica</em> 50 (3): 189–204.
+</div>
 <div id="ref-kermack1927contribution" class="csl-entry" role="listitem">
 Kermack, William Ogilvy, and Anderson G McKendrick. 1927. <span>“A Contribution to the Mathematical Theory of Epidemics.”</span> <em>Proceedings of the Royal Society of London. Series A, Containing Papers of a Mathematical and Physical Character</em> 115 (772): 700–721.
-</div>
-<div id="ref-yadav2021statistical" class="csl-entry" role="listitem">
-Yadav, Subhash Kumar, and Yusuf Akhter. 2021. <span>“Statistical Modeling for the Prediction of Infectious Disease Dissemination with Special Reference to COVID-19 Spread.”</span> <em>Frontiers in Public Health</em> 9: 645405.
 </div>
 </div>
 <div class="quarto-auto-generated-content">
@@ -1446,7 +1700,6 @@ Yadav, Subhash Kumar, and Yusuf Akhter. 2021. <span>“Statistical Modeling for 
 <span class="glightbox-desc lightbox-desc-4">Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)</span>
 <span class="glightbox-desc lightbox-desc-5">Diagram of an SIR model</span>
 <span class="glightbox-desc lightbox-desc-6">Diagram of an SIR model</span>
-<span class="glightbox-desc lightbox-desc-7">Diagram of an SIR model</span>
 </div>
 </section></section>
     </div>
@@ -1881,6 +2134,7 @@ Yadav, Subhash Kumar, and Yusuf Akhter. 2021. <span>“Statistical Modeling for 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
 =======
     <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false});
@@ -1897,6 +2151,9 @@ Yadav, Subhash Kumar, and Yusuf Akhter. 2021. <span>“Statistical Modeling for 
 =======
     <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox"});
 >>>>>>> 298b966 (Add more material)
+=======
+    <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom"});
+>>>>>>> f413a08 (Add more material)
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
