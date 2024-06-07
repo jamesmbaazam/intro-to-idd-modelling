@@ -3,15 +3,15 @@ title: "Introduction to Infectious Disease Modelling"
 author: "James Mba Azam, PhD"
 execute:
   echo: true
-format: beamer
-# format:
-  # revealjs: 
-  #   theme: [solarized, custom.scss]
-  #   slide-number: true
-  #   scrollable: true
-  #   chalkboard: true
-# revealjs-plugins:
-#   - revealjs-text-resizer
+# format: beamer
+format:
+  revealjs:
+    theme: [solarized, custom.scss]
+    slide-number: true
+    scrollable: true
+    chalkboard: true
+revealjs-plugins:
+  - revealjs-text-resizer
 bibliography: references.bib
 link-citations: true
 engine: knitr
@@ -600,15 +600,190 @@ $$
 
 #### The next-generation matrix approach
 
-- The method used to derive $R0$ in the SIR model is possible because there is only one compartment with infected individuals.
+- The method used to derive $R0$ in the SIR model is possible because it is easy to factor out $I$ from the equations.
 
-- In more complex models, $R0$, this method becomes impossible to use.
+- In more complex models, this appraoch becomes impossible to use.
 
-- A more general method would be to use the next-generation matrix approach.
+- A more general framework is the next-generation matrix approach [@diekmann2010construction].
 
 ---
 
-<Insert slides on next-generation matrix approach for deriving $R0$ for SEIR>
+::: columns
+::: {.column width="50%"}
+- The next-generation matrix (NGM) approach focuses on how infections are generated.
+
+- It views the transmission process as a process where new infections are "born" from existing infections through generations.
+    - Think of it like how families grow through generations.
+:::
+
+::: {.column width="50%"}
+![](images/family_tree.jpeg)
+:::
+:::
+
+---
+
+- Here are the steps to derive $R0$ using the NGM approach [@diekmann2010construction]:
+  - Identify the compartments that produce new infections and describe how infections are changing over time. This subset of the system is called the "infected subsystem".
+  - Linearise the infected subsystem around the disease-free equilibrium by taking the Jacobian matrix (See @sec-jacobian).
+  
+::: {.callout-note}
+
+The disease-free equilibrium is the state where no infections are present. For an SEIR model, this is denoted as $(S, E, I, R) = (N, 0, 0, 0)$, where $N$ is the total population size.
+:::
+
+---
+
+### The Jacobian matrix {#sec-jacobian}
+
+- The Jacobian matrix is a matrix of first-order partial derivatives of a vector-valued function.
+
+\begin{equation*}
+J = \begin{bmatrix}
+\dfrac{\partial f_1}{\partial x_1} & \dfrac{\partial f_1}{\partial x_2} & \cdots & \dfrac{\partial f_1}{\partial x_n} \\
+\dfrac{\partial f_2}{\partial x_1} & \dfrac{\partial f_2}{\partial x_2} & \cdots & \dfrac{\partial f_2}{\partial x_n} \\
+\vdots & \vdots & \ddots & \vdots \\
+\dfrac{\partial f_n}{\partial x_1} & \dfrac{\partial f_n}{\partial x_2} & \cdots & \dfrac{\partial f_n}{\partial x_n}
+\end{bmatrix}
+\end{equation*}
+
+where $f_i$ is the $i$-th function of the vector-valued function and $x_i$ is the $i$-th variable.
+
+---
+
+- The linearised infected subsystem is then decomposed into two matrices $\mathcal{T} + \Sigma$:
+  - $\mathcal{T}$ represents the transmission matrix, i.e., how infections are produced.
+  - $\Sigma$ is represents transitions, i.e., how infections move into other states.
+
+- Next, solve $-\mathcal{T}\Sigma^{-1}$
+
+- Finally, determine the spectral radius, $\rho$, of $-\mathcal{T}\Sigma^{-1}$, which is the dominant eigenvalue of the NGM.
+
+- The dominant eigenvalue is the basic reproduction number, $R0$.
+
+---
+
+### The next-generation matrix approach in the SIR model
+
+- In the SIR model, the infected subsystem is given by
+
+\begin{equation*}
+\begin{split}
+\dfrac{dI}{dt} & = \beta SI - \gamma I \\
+\dfrac{dS}{dt} & = -\beta SI \\
+\dfrac{dR}{dt} & = \gamma I
+\end{split}
+\end{equation*}
+
+---
+
+- Linearising the infected subsystem around the disease-free equilibrium $(S, I, R) = (N, 0, 0)$ gives
+
+\begin{equation*}
+\begin{split}
+\dfrac{dI}{dt} & = -\gamma I \\
+\dfrac{dS}{dt} & = -\beta N I \\
+\dfrac{dR}{dt} & = \gamma I
+\end{split}
+\end{equation*}
+
+---
+
+- The transmission matrix $\mathcal{T}$ is given by
+
+\begin{equation*}
+\mathcal{T} = \begin{bmatrix}
+0 & -\beta N & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{bmatrix}
+\end{equation*}
+
+---
+
+- The transition matrix $\Sigma$ is given by
+
+\begin{equation*}
+\Sigma = \begin{bmatrix}
+-\gamma & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & \gamma
+\end{bmatrix}
+\end{equation*}
+
+---
+
+- The spectral radius of $-\mathcal{T}\Sigma^{-1}$ is
+
+\begin{equation*}
+\rho = \dfrac{\beta N}{\gamma}
+\end{equation*}
+
+- Therefore, $R0 = \dfrac{\beta N}{\gamma}$.
+
+---
+
+### The next-generation matrix approach in the SEIR model
+
+- In the SEIR model, the infected subsystem is given by
+
+\begin{equation*}
+\begin{split}
+\dfrac{dE}{dt} & = \beta SI - \sigma E \\
+\dfrac{dI}{dt} & = \sigma E - \gamma I \\
+\dfrac{dS}{dt} & = -\beta SI \\
+\dfrac{dR}{dt} & = \gamma I
+\end{split}
+\end{equation*}
+
+---
+
+- Linearising the infected subsystem around the disease-free equilibrium $(S, E, I, R) = (N, 0, 0, 0)$ gives
+
+\begin{equation*}
+\begin{split}
+\dfrac{dE}{dt} & = -\sigma E \\
+\dfrac{dI}{dt} & = -\gamma I \\
+\dfrac{dS}{dt} & = -\beta N I \\
+\dfrac{dR}{dt} & = \gamma I
+\end{split}
+\end{equation*}
+
+---
+
+- The transmission matrix $\mathcal{T}$ is given by
+
+\begin{equation*}
+\mathcal{T} = \begin{bmatrix}
+0 & 0 & -\beta N & 0 \\
+0 & -\sigma & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{bmatrix}
+\end{equation*}
+
+---
+
+- The transition matrix $\Sigma$ is given by
+
+\begin{equation*}
+\Sigma = \begin{bmatrix}
+0 & 0 & 0 & 0 \\
+0 & -\gamma & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & \gamma
+\end{bmatrix}
+\end{equation*}
+
+---
+
+- The spectral radius of $-\mathcal{T}\Sigma^{-1}$ is
+
+\begin{equation*}
+\rho = \dfrac{\beta N}{\gamma}
+\end{equation*}
+
+- Therefore, $R0 = \dfrac{\beta N}{\gamma}$.
 
 ---
 
