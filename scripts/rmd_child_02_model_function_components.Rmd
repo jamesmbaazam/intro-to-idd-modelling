@@ -1,0 +1,9 @@
+---
+output: html_document
+---
+
+Note the following about the function defined above:
+
+- We use the `with()` function to evaluate the expressions in the context of the list created by `as.list(c(state, parameters))`. This allows us to access the state variables and parameters directly without having to use the `$` operator. This makes the code easier to read and write (Run `?with` in the R console and read the documentation of the first three arguments).
+
+- The function returns a list of the derivatives of the state variables. This is the format expected by the `lsoda()` function (Run `?deSolve::lsoda` in the R console and read the documentation of the first three arguments).

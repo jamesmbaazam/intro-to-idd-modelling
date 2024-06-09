@@ -1,0 +1,173 @@
+---
+title: "Simulating an SIR model"
+author: "James Mba Azam"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+In this walk through, we will be simulating an SIR model.
+
+The SIR model is a simple compartmental model used to describe the spread of infectious diseases in a population. The model divides the population into three compartments: susceptible (S), infectious (I), and recovered (R) individuals. The model equations describe the flow of individuals between these compartments based on the transmission rate ($\beta$) and the recovery rate ($\gamma$).
+
+```{r, child=c('./scripts/rmd_child_01_lsoda_explanation.Rmd')}
+```
+
+## The model function
+
+Let's start by defining the model equations.
+
+Recall that the model equations for the SIR model are given by:
+
+\begin{align}
+\frac{dS}{dt} & = \color{orange}{-\beta S I} \\
+\frac{dI}{dt} & = \color{orange}{\beta S I} - \color{blue}{\gamma I} \\
+\frac{dR}{dt} & = \color{blue}{\gamma I}
+\end{align}
+
+where:
+
+- $S$ is the number of susceptible individuals,
+- $I$ is the number of infectious individuals,
+- $R$ is the number of recovered individuals,
+- $\beta$ is the transmission rate,
+- $\gamma$ is the recovery rate.
+
+
+The model function in R is defined as follows:
+
+```{r sir-model}
+# 1. Define the SIR model
+sir_model <- function(t, y, parms) {
+  with(as.list(c(y, parms)), {
+    dS <- -beta * S * I
+    dI <- beta * S * I - gamma * I
+    dR <- gamma * I
+    return(list(c(dS, dI, dR)))
+  })
+}
+```
+
+```{r, child=c('./scripts/rmd_child_02_model_function_components.Rmd')}
+```
+
+## Model parameters
+
+Next, we will define the parameter values and initial conditions.
+
+The model has two parameters: $\beta$ and $\gamma$.
+
+$\beta$ is a composite of different terms and is not intuitive at face value, so we will define it in terms of the basic reproduction number ($R0$) and the infectious period using the relation $R0 = \frac{\beta}{\gamma}$.
+
+```{r sir-model-params}
+R0 <- 2
+
+# The infectious period is the average duration for which an individual remains infectious.
+infectious_period <- 14
+# Remember gamma = 1/ infectious_period as discussed in the slides
+gamma <- 1/infectious_period 
+
+# The define beta, we will use the relation R0 = beta / gamma  because it is easier to interpret, that is, given an R0 and infectious period, we can calculate the corresponding beta value.
+# beta is not directly interpretable because it is a composite of a number of factors.
+beta <- R0 * gamma
+
+# The parameters
+params <- c(
+  beta = beta,
+  gamma = gamma
+)
+```
+
+
+## Initial conditions and time steps
+
+Due to numerical stability issues, we will specify the populations as proportions and assume they sum up to $1$. We will then scale the populations to the actual population size after obtaining the results.
+
+We will assume the outbreak starts with $0.01$ infectious individual at the start of the simulation. The population is completely susceptible at the start of the simulation, so the number of susceptible individuals is $N - 0.01$. The number of recovered individuals is zero at the start of the simulation.
+```{r sir-model-init}
+# The initial conditions
+N  <- 1
+I0 <- 0.01
+# Initial conditions for S, I, R
+inits <- c(S = N - I0, I = I0, R = 0)
+```
+
+## Time steps to return results
+
+`lsoda()` also expects a vector of time points at which to return results. We will run the model for 365 days and return results at each day.
+```{r sir-time}
+dt <- 1:365
+```
+
+## Solving the model
+
+Now, we are ready to solve the model. We will solve the model using the `lsoda()` function from the `{deSolve}` package. For now, we will use the default values of the function. You are encouraged to explore the documentation to understand the function better.
+```{r sir-model-solve}
+# Load the necessary libraries
+library(deSolve)
+# Solve the model
+results <- deSolve::lsoda(
+  y = inits,
+  times = dt,
+  func = sir_model,
+  parms = params
+)
+```
+
+The results are stored in a matrix with the first column representing the time points and the subsequent columns representing the number of individuals in the susceptible, infectious, and recovered compartments at each time point.
+
+To work with the results more easily, we will convert the results to a data frame.
+
+```{r sir-model-results}
+# Make it a data.frame
+results <- as.data.frame(results)
+head(results)
+```
+
+### Plotting the results
+
+Now, let's plot the results.
+
+We will use the `ggplot2` package to plot the results. We will reshape the data to long format to make it easier to plot. For this, we will use the `pivot_longer()` function from the `tidyr` package.
+```{r sir-model-plot}
+# Load the necessary libraries
+library(ggplot2)
+library(tidyr)
+# Create data for ggplot2 by reshaping
+results_long <- results |>
+  pivot_longer(
+    cols = c(2:4),
+    names_to = "compartment",
+    values_to = "value"
+  )
+
+sir_plot <- ggplot(
+  data = results_long,
+  aes(
+    x = time,
+    y = value,
+    color = compartment
+  )
+  ) +
+  geom_line(linewidth = 1) +
+  labs(
+    title = "SIR model",
+    x = "Time",
+    y = "Number of individuals"
+  )
+plot(sir_plot)
+```
+
+The plot shows the dynamics of the SIR model over time. The number of susceptible individuals decreases over time as individuals become infected and recover. The number of infectious individuals increases initially, peaks, and then decreases as individuals recover. The number of recovered individuals increases over time as individuals recover from the infection.
+
+## Exercise
+
+1. Change the value of the basic reproduction number ($R0$) to 3 and observe the effect on the dynamics of the SIR model.
+2. Change the value of the infectious period to 10 days and observe the effect on the dynamics of the SIR model.
+3. Change the initial number of infectious individuals to 5 and observe the effect on the dynamics of the SIR model.
