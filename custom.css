@@ -1,0 +1,13 @@
+/*-- scss:rules --*/
+.reveal figure figcaption {
+  font-size: 0.08em; /* Adjust the size as needed */
+}
+
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/*# sourceMappingURL=custom.css.map */
