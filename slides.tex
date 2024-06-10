@@ -1,0 +1,2709 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Introduction to Infectious Disease Modelling},
+  pdfauthor={James Mba Azam, PhD},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Introduction to Infectious Disease Modelling}
+\author{James Mba Azam, PhD}
+\date{2024-06-10}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{An overview of infectious diseases}
+\phantomsection\label{an-overview-of-infectious-diseases}
+\begin{block}{What are infectious diseasess}
+\phantomsection\label{what-are-infectious-diseasess}
+\begin{center}
+\includegraphics{images/disease_definition.png}
+\end{center}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{columns}[T]
+\begin{column}{0.45\textwidth}
+\begin{figure}[H]
+
+{\centering \includegraphics{images/rotavirus.jpeg}
+
+}
+
+\caption{A 3D graphical representation of Rotavirus virions.}
+
+\end{figure}%
+\end{column}
+
+\begin{column}{0.55\textwidth}
+Diseases can be classified according to:
+
+\begin{itemize}
+\tightlist
+\item
+  {Cause} (e.g., infectious, non-infectious)
+\item
+  {Duration} (e.g., acute, chronic)
+\item
+  {Mode of transmission} (direct or indirect)
+\item
+  {Impact} on the host (e.g., fatal, non-fatal)
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+Note that these classifications are not mutually exclusive. Hence, a
+disease can be classified under more than one category at a time.
+\end{frame}
+
+\begin{frame}
+\begin{block}{How are infectious diseases controlled?}
+\phantomsection\label{sec-control-measures}
+\begin{itemize}
+\tightlist
+\item
+  In general, infectious disease control aims to reduce disease
+  transmission.
+\item
+  The type of control used depends on the disease and its
+  characteristics.
+\item
+  Broadly, there are two main types of control measures:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Pharmaceutical interventions (PIs)
+  \item
+    Non-pharmaceutical interventions (NPIs)
+  \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Pharmaceutical interventions (PIs)}
+\phantomsection\label{pharmaceutical-interventions-pis}
+\begin{itemize}
+\item
+  Pharmaceutical Interventions are medical interventions that target the
+  pathogen or the host.
+\item
+  Examples:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Vaccines,
+  \item
+    Antiviral drugs, and
+  \item
+    Antibiotics.
+  \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Vaccination}
+\phantomsection\label{sec-vaccination}
+\begin{columns}[T]
+\begin{column}{0.4\textwidth}
+\includegraphics{images/vaccine.jpeg}
+\end{column}
+
+\begin{column}{0.6\textwidth}
+\begin{itemize}
+\tightlist
+\item
+  Activates the host's immune system to produce antibodies against the
+  pathogen.
+\item
+  Generally applied to reduce the risk of infection and disease.
+\item
+  The most effective way to prevent infectious diseases.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Challenges with vaccination}
+\phantomsection\label{challenges-with-vaccination}
+\begin{itemize}
+\tightlist
+\item
+  Take time to develop for new pathogens
+\item
+  Never 100\% effective and limited duration of protection
+\item
+  Adverse side effects
+\item
+  Some individuals cannot be vaccinated or refuce vaccination
+\item
+  Some pathogens mutate rapidly (e.g., influenza virus)
+\item
+  Logistical challenges (e.g., cold chain requirements)
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Non-pharmaceutical interventions (NPIs)}
+\phantomsection\label{sec-npi}
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/mask.jpeg}
+
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/screening.jpeg}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item
+  Non-pharmaceutical interventions are measures that do not involve
+  medical interventions.
+\item
+  Examples:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Quarantine,
+  \item
+    Physical/social distancing, and
+  \item
+    Mask-wearing.
+  \end{itemize}
+\end{itemize}
+\end{column}
+\end{columns}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Quarantine}
+\phantomsection\label{quarantine}
+\begin{itemize}
+\tightlist
+\item
+  \emph{Isolation of individuals who may have been exposed to a
+  contagious disease}.
+\item
+  Advantage is that it's simple and its effectiveness does not depend on
+  the disease.
+\item
+  Disadvantages include:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Infringement on individual rights
+  \item
+    Can be difficult to enforce
+  \item
+    Can be costly
+  \item
+    Can lead to social stigma
+  \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Contact tracing}
+\phantomsection\label{contact-tracing}
+\begin{itemize}
+\tightlist
+\item
+  Contact tracing is used to identify exposed individuals, i.e.,
+  individuals who might been in contact with an infected/infectious
+  individual.
+\item
+  It involves identifying, assessing, and managing people who have been
+  exposed to a contagious disease to prevent further transmission.
+\item
+  It is a critical component of infectious disease surveillance and is
+  often used in combination with other control measures.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, bottomtitle=1mm, opacitybacktitle=0.6, colframe=quarto-callout-caution-color-frame, titlerule=0mm, breakable, colback=white, title={Discussion}, left=2mm, colbacktitle=quarto-callout-caution-color!10!white, arc=.35mm, coltitle=black, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, toptitle=1mm]
+
+\begin{itemize}
+\tightlist
+\item
+  How can we quantify the impact of a control measure?
+\end{itemize}
+
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Infectious disease models}
+\phantomsection\label{infectious-disease-models}
+\begin{block}{What are infectious disease models?}
+\phantomsection\label{what-are-infectious-disease-models}
+\begin{itemize}
+\tightlist
+\item
+  {\emph{Models}} generally refer to conceptual representations of an
+  object or system.
+\item
+  {\emph{Mathematical models}} use mathematics to describe the system.
+  For example, the famous \(E = mc^2\) is a mathematical model that
+  describes the relationship between mass and energy.
+\item
+  {\emph{Infectious disease models}} use mathematics/statistics to
+  represent dynamics/spread of infectious diseases.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  Mathematical models can be used to link the biological process of
+  disease transmission and the emergent dynamics of infection at the
+  population level.
+\item
+  Models require making some assumptions and abstractions.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{columns}[T]
+\begin{column}{0.6\textwidth}
+\begin{itemize}
+\tightlist
+\item
+  By definition, {``all models are wrong, but some are useful''}
+  (\citeproc{ref-Box1979}{Box 1979}).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Good enough models are those that capture the {essential features}
+    of the system being studied.
+  \end{itemize}
+\end{itemize}
+\end{column}
+
+\begin{column}{0.4\textwidth}
+\begin{figure}[H]
+
+{\centering \includegraphics{images/GeorgeEPBox.jpeg}
+
+}
+
+\caption{George Box}
+
+\end{figure}%
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  What makes models ``wrong'' by definition?:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Simplifications of reality; not capturing all the complexities of
+    the system being studied.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Factors that influence model formulation/choice}
+\phantomsection\label{factors-that-influence-model-formulationchoice}
+\begin{itemize}
+\tightlist
+\item
+  {Accuracy}: how well does the model to reproduce observed data and
+  predict future outcomes?
+\item
+  {Transparency}: is it easy to understand and interpret the model and
+  its outputs? (This is affected by the model's complexity)
+\item
+  {Flexibility}: the ability of the model to be adapted to different
+  scenarios.
+\end{itemize}
+
+\note{These will be touched on in the scenario modelling lectures.}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{What are models used for?}
+\phantomsection\label{what-are-models-used-for}
+\begin{itemize}
+\tightlist
+\item
+  Generally, models can be used to predict and understand/explain the
+  dynamics of infectious diseases.
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, bottomtitle=1mm, opacitybacktitle=0.6, colframe=quarto-callout-caution-color-frame, titlerule=0mm, breakable, colback=white, title={Discussion}, left=2mm, colbacktitle=quarto-callout-caution-color!10!white, arc=.35mm, coltitle=black, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, toptitle=1mm]
+
+How are these two uses impacted by accuracy, transparency, and
+flexibility?
+
+\end{tcolorbox}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Prediction of the future course}
+\phantomsection\label{prediction-of-the-future-course}
+\begin{columns}[T]
+\begin{column}{0.4\textwidth}
+\begin{itemize}
+\tightlist
+\item
+  Must be {accurate}.
+\item
+  ``But the estimate proved to be off. Way, way off. Like, 65 times
+  worse than what ended up happening.''
+\end{itemize}
+\end{column}
+
+\begin{column}{0.6\textwidth}
+\includegraphics{images/wrong_ebola_deaths_estimate.png}
+\end{column}
+\end{columns}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Understanding or explaining disease dynamics}
+\phantomsection\label{understanding-or-explaining-disease-dynamics}
+\begin{itemize}
+\tightlist
+\item
+  Models can be used to understand how a disease spreads and how its
+  spread can be controlled.
+\item
+  The insights gained from models can be used to:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    inform public health policy and interventions.
+  \item
+    design interventions to control the spread of the disease, for
+    example, randomised controlled trials.
+  \item
+    collect new data.
+  \item
+    build predictive models.
+  \end{itemize}
+\end{itemize}
+\end{block}
+
+\begin{block}{Limitations of infectious disease models}
+\phantomsection\label{limitations-of-infectious-disease-models}
+\begin{itemize}
+\tightlist
+\item
+  Host behaviour is often difficult to predict.
+\item
+  The pathogen often has unknown characteristics or known
+  characteristics that are difficult to model.
+\item
+  Data is often not available or is of poor quality.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Summary}
+\phantomsection\label{summary}
+\begin{itemize}
+\tightlist
+\item
+  Models:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {Simplifications of reality} and do not capture all the
+    {complexities} of the system being studied.
+  \item
+    Only as good as the {data} used to parameterize them.
+  \item
+    Sensitive to the {assumptions} made during their formulation.
+  \item
+    {Computationally expensive} and require a lot of data to run.
+  \item
+    {Difficult to interpret} and communicate to non-experts.
+  \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Introduction to compartmental models}
+\phantomsection\label{introduction-to-compartmental-models}
+\begin{block}{What are compartmental models?}
+\phantomsection\label{what-are-compartmental-models}
+\begin{itemize}
+\tightlist
+\item
+  Compartmental models:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    divide populations into compartments (or groups) based on the
+    individual's infection status and track them through time
+    (\citeproc{ref-Blackwood2018a}{Blackwood and Childs 2018}).
+  \item
+    are mechanistic, meaning they describe processes such the
+    interaction between hosts, biological processes of pathogen, host
+    immune response, and so forth.
+  \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+Compartmental models are different from statistical models, which are
+used to describe the relationship between variables.
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  Individuals in a compartment:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    are assumed to have the same features (disease state, age, location,
+    etc)
+  \item
+    can only be in one compartment at a time.
+  \item
+    move between compartments based on defined transition rates.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{columns}[T]
+\begin{column}{0.6\textwidth}
+\begin{itemize}
+\tightlist
+\item
+  Common compartments:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Susceptible (S) - hosts are not infected but can be infected
+  \item
+    Infected (I) - hosts are infected (and can infect others)
+  \item
+    Removed (R) - hosts are no longer infected and cannot be re-infected
+  \end{itemize}
+\end{itemize}
+\end{column}
+
+\begin{column}{0.4\textwidth}
+\begin{figure}[H]
+
+{\centering \includegraphics{images/infection_timeline.png}
+
+}
+
+\caption{Infection timeline illustrating how a pathogen in a host
+interacts with the host's immune system (Source: Modelling Infectious
+Diseases of Humans and Animals)}
+
+\end{figure}%
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  Other compartments can be added to the model to account for important
+  events or processes (e.g., exposed, recovered, vaccinated, etc.)
+\item
+  It is, however, important to keep the model simple, less
+  computationally intensive, and interpretable.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  Compartmental models either have \emph{discrete} or \emph{continuous}
+  time scales:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {Discrete time scales}: time is divided into discrete intervals
+    (e.g., days, weeks, months).
+  \item
+    {Continuous time scales}: time is continuous and the model is
+    described using differential equations.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  Compartmental models can be \emph{deterministic} or \emph{stochastic}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {Deterministic} models always return the same output for the same
+    input.
+  \item
+    {Stochastic} models account for randomness in the system and model
+    output always varies. Hence, they are often run multiple times to
+    get an average output.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  The choice of model type depends on:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    the research {question},
+  \item
+    {data} availability,
+  \item
+    {computational resources},
+  \item
+    modeller {skillset}.
+  \end{itemize}
+\item
+  In this introduction, we will focus on {deterministic compartmental
+  models with continuous time scales}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  Now, back to the models, we are going to consider infections that
+  either confer immunity after recovery or not.
+\item
+  The simplest compartmental models for capturing this is the SIR model.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{The Susceptible-Infected-Recovered (SIR) model}
+\phantomsection\label{the-susceptible-infected-recovered-sir-model}
+\begin{center}
+\includegraphics[width=0.4\textwidth,height=\textheight]{./images/model_diagrams/model_diagrams.001.jpeg}
+\end{center}
+
+This model groups individuals into three \emph{disease states}:
+
+\begin{itemize}
+\item
+  {Susceptible (S)}: not infected but can be.
+\item
+  {Infected (I)}: infected \& infectious.
+\item
+  {Recovered/removed (R)}: recovered \& immune.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{How do individuals move between compartments?}
+\phantomsection\label{how-do-individuals-move-between-compartments}
+\begin{block}{Process 1: Transmission}
+\phantomsection\label{process-1-transmission}
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/model_diagrams/model_diagrams.002.jpeg}
+
+{What drives transmission?}
+\end{block}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  Transmission is driven by several factors, including:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Disease prevalence, {\(I\)}, i.e., number of infected individuals at
+    the time.
+  \item
+    The number of contacts, {\(C\)}, susceptible individuals have with
+    infected individual.
+  \item
+    The probability, {\(p\)}, a susceptible individual will become
+    infected when they contact an infected individual.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/model_diagrams/model_diagrams.002.jpeg}
+
+The transmission term is often defined through the {force of infection
+(FOI), \(\lambda\)}.
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  FOI, \(\lambda\), is the {per capita rate} at which susceptible
+  individuals become infected.
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, bottomtitle=1mm, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, colback=white, title={Note}, left=2mm, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, coltitle=black, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, toptitle=1mm]
+
+``Per capita'' means the rate of an event occurring per individual in
+the population per unit of time.
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  Given the rate per individual per time, FOI, the rate at which new
+  infecteds are generated is given by {\(\lambda \times S\)}, where
+  \(S\) is the number of susceptible individuals.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  The force of infection is made up of three probabilities/rates:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    the probability/rate that contacts happen,
+  \item
+    the probability/rate that a given contact is with an infected
+    individual, and
+  \item
+    the probability/rate that a contact results in successful
+    transmission.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  The FOI can be formulated in two ways, depending on how the contact
+  rate is expected to change with the population size:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Frequency-dependent/mass action transmission
+  \item
+    Density-dependent transmission
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  {\emph{Frequency-dependent/mass action transmission}}: The rate of
+  contact between individuals does not depend on the population size.
+  Here, {\(\lambda = \beta \times \dfrac{I}{N}\)}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Often used to model sexually-transmitted diseases and diseases with
+    heterogeneity in contact rates.
+  \item
+    Sexual transmission in this case does not depend on how many
+    infected individuals are in the population.
+  \end{itemize}
+\end{itemize}
+
+\note{Frequency-dependent transmission assumes the interaction between
+susceptible and infected individuals does not change with the population
+size.}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  {\emph{Density dependent transmission}}: The rate of contact between
+  individuals is dependent on the population size. Here,
+  {\(\lambda = \beta \times I\)}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Transmission rates increase with population size/density.
+  \end{itemize}
+\item
+  Can be used to model airborne and directly transmitted diseases, for
+  example, measles.
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, bottomtitle=1mm, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, coltitle=black, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, toptitle=1mm]
+
+We will only use the density-dependent formulation in this course.
+
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+\includegraphics{images/model_diagrams/model_diagrams.003.jpeg}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Process 2: Recovery}
+\phantomsection\label{process-2-recovery}
+\begin{center}
+\includegraphics[width=0.6\textwidth,height=\textheight]{images/model_diagrams/model_diagrams.005.jpeg}
+\end{center}
+
+{Recovery}, governed by the recovery rate, \(\gamma\) (rate at which
+infected individuals recover and become immune).
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Some notes on the recovery process}
+\phantomsection\label{some-notes-on-the-recovery-process}
+\begin{itemize}
+\item
+  If the duration of infection is \(\dfrac{1}{\gamma}\), then the rate
+  at which infected individuals recover is \(\gamma\).
+\item
+  The average infectious period is often {estimated from epidemiological
+  data}.
+\item
+  You will learn about parameter estimation in the model calibration
+  lecture.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{figure}[H]
+
+{\centering \includegraphics{images/epi_parameters.png}
+
+}
+
+\caption{Source: Anderson and May
+(\citeproc{ref-anderson1982directly}{1982})}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}
+\begin{block}{Putting it all together}
+\phantomsection\label{putting-it-all-together}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{images/model_diagrams/model_diagrams.006.jpeg}
+
+}
+
+\caption{An SIR model with transmission rate, \(\beta\), and recovery
+rate, \(\gamma\).}
+
+\end{figure}%
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Formulating the model equations}
+\phantomsection\label{formulating-the-model-equations}
+{Continuous time compartmental} models are formulated using
+{differential equations} that describe the change in the number of
+individuals in each compartment over time.
+\end{block}
+\end{frame}
+
+\begin{frame}
+The SIR model can be formulated as:
+
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\begin{center}
+\includegraphics{images/model_diagrams/model_diagrams.006.jpeg}
+\end{center}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\begin{align}
+\frac{dS}{dt} & = \dot{S}  = \color{orange}{-\beta S I} \\
+\frac{dI}{dt} & = \dot{I}  = \color{orange}{\beta S I} - \color{blue}{\gamma I} \\
+\frac{dR}{dt} & = \dot{R} = \color{blue}{\gamma I}
+\end{align}
+\end{column}
+\end{columns}
+
+where {\(\beta\)} is the transmission rate, and {\(\gamma\)} is the
+recovery rate.
+
+\note{\begin{itemize}
+\tightlist
+\item
+  We may or may not use the dot notation to denote the rate of change.
+\item
+  The terms are just \textbf{inflows} and \textbf{outflows}.
+\item
+  \textbf{Pause} for questions and clarifications.
+\end{itemize}}
+\end{frame}
+
+\begin{frame}
+The initial conditions are given by:
+
+\begin{equation*}
+\begin{aligned}
+S(0) & = N - 1,\\
+I(0) & = 1, \text{and} \\
+R(0) & = 0.
+\end{aligned}
+\end{equation*}
+
+where \(N\) is the total population size.
+\end{frame}
+
+\begin{frame}
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, bottomtitle=1mm, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, colback=white, title={Note}, left=2mm, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, coltitle=black, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, toptitle=1mm]
+
+\begin{itemize}
+\tightlist
+\item
+  We represent the compartments as {population sizes}.:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Some modellers often use {proportions} instead of population sizes
+    as a way to remove the dimensions from the equations.
+  \end{itemize}
+\end{itemize}
+
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Model assumptions}
+\phantomsection\label{model-assumptions}
+\begin{itemize}
+\tightlist
+\item
+  The population is closed: no births, deaths, or migration.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Implicitly: the epidemic occurs much faster than the time scale of
+    births, deaths, or migration.
+  \end{itemize}
+\item
+  Individuals are infectious immediately after infection and remain
+  infectious until they recover.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  Mixing is \emph{homogeneous}, i.e., {individuals mix randomly}:
+\item
+  Individuals have an equal probability of coming into contact with any
+  other individual in the population.
+\item
+  Transition rates are constant and do not change over time.
+\item
+  Individuals acquire ``lifelong'' immunity after recovery.
+\end{itemize}
+
+\note{The \(R\) compartment is an absorbing state in this model.}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Discussion}
+\phantomsection\label{discussion-2}
+\begin{itemize}
+\tightlist
+\item
+  What diseases do you think the SIR model is appropriate for?
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  The SIR model is appropriate for diseases that confer immunity after
+  recovery. For example, measles and chicken pox.
+\item
+  Popularised by Kermack and McKendrick in 1927
+  (\citeproc{ref-kermack1927contribution}{Kermack and McKendrick 1927})
+
+  \begin{itemize}
+  \tightlist
+  \item
+    A must-read paper for budding infectious disease modellers.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{What questions can we answer with the SIR model?}
+\phantomsection\label{what-questions-can-we-answer-with-the-sir-model}
+\begin{itemize}
+\tightlist
+\item
+  The SIR model can be used to understand the dynamics of an epidemic:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    How long will the epidemic last?
+  \item
+    How many individuals will be infected (final epidemic size)?
+  \item
+    When will the epidemic reach its peak?
+  \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Solving the SIR model}
+\phantomsection\label{solving-the-sir-model}
+\begin{itemize}
+\item
+  Compartmental models cannot be solved analytically.
+\item
+  We often perform two types of analyses to understand the {long term
+  dynamics} of the model:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Qualitative: threshold phenomena and analysis of equilibria
+    (disease-free and endemic).\\
+  \item
+    Numerical simulations.
+  \end{itemize}
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, bottomtitle=1mm, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, coltitle=black, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, toptitle=1mm]
+
+\begin{itemize}
+\tightlist
+\item
+  For this introductory course, we will use focus on simulation.
+\end{itemize}
+
+\end{tcolorbox}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Threshold phenomena}
+\phantomsection\label{threshold-phenomena}
+\begin{itemize}
+\tightlist
+\item
+  Here, we study the conditions under which an epidemic will {grow or
+  die out} using the model equations.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  Consider the case where \(I(0) = 1\) individual is introduced into a
+  population of size \(N\) at time \(t = 0\).
+\item
+  That means in a completely susceptible population, we have
+  \(S(0) = N - 1\) susceptible individuals.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  At time 0, the disease will not spread if the rate of change of
+  infections is negative, that is {\(\dfrac{dI}{dt} < 0\)}.
+\item
+  Recall from the SIR model that
+  {\(\dfrac{dI}{dt} = \beta S I - \gamma I\)}.
+\item
+  Let's solve this equation at \(t = 0\) by setting \(I = 1\), assuming
+  {\(\dfrac{dI}{dt} < 0\)}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+At \(t = 0\), we have
+
+\begin{equation*}
+\frac{dI}{dt} = \beta S I - \gamma I < 0 \end{equation*}
+
+Factor out \(I\), and we get
+
+\begin{equation*}
+I (\beta S - \gamma) < 0
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  Since at \(t=0\)\(, I > 0\), we have {\(S < \dfrac{\gamma}{\beta}\)}.
+\item
+  {\(\dfrac{\gamma}{\beta}\)} is the relative removal rate.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  \textbf{Interpretation}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    At \(t = 0\), \(S\) must be less than \(\dfrac{\gamma}{\beta}\) for
+    the epidemic to die out.
+  \item
+    If the rate of removal/recovery is greater than the transmission
+    rate, the epidemic will die out.
+  \item
+    Any infection that cannot transmit to more than one host is going to
+    die out.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+For the SIR model, the quantity {\(\dfrac{\beta}{\gamma}\)} is called
+the {reproduction number, \(R0\)} (pronounced ``R naught'' or ``R
+zero'').
+\end{frame}
+
+\begin{frame}
+\begin{block}{The basic reproduction number, R0}
+\phantomsection\label{the-basic-reproduction-number-r0}
+\begin{itemize}
+\item
+  The basic reproduction number, {\(R0\)}, is the average number of
+  secondary infections generated by a {single primary infection} in a
+  {completely susceptible} population.
+\item
+  The basic reproduction number is a key quantity in infectious disease
+  epidemiology.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  It is often represented as a single number or a range of high-low
+  values.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    For example, the \(R0\) for measles is popularly known to be \(12\)
+    - \(18\) (\citeproc{ref-guerra2017measlesR0}{Guerra et al. 2017}).
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  \(R0\) is often used to express the threshold phenomena in infectious
+  disease epidemiology:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    If \(R0 > 1\), the epidemic will grow.
+  \item
+    If \(R0 < 1\), the epidemic will decline.
+  \end{itemize}
+\item
+  A pathogen's \(R0\) value is determined by biological characteristics
+  of the pathogen and the host's behaviour.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  Conceptually, \(R0\) is given by
+\end{itemize}
+
+\[
+R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}}{\text{Time}} \times \dfrac{\text{Time}}{\text{Infection}}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  \(R0\) is unitless and dimensionless.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Numerical simulations}
+\phantomsection\label{numerical-simulations}
+\begin{itemize}
+\item
+  Numerical simulations can be performed with any programming language.
+\item
+  This course focuses on the R programming language because:
+\item
+  It is a popular language for data analysis and statistical computing.
+\item
+  It has a rich ecosystem of packages for solving differential
+  equations.
+\item
+  It is free and open-source.
+\item
+  In R, we can use the \texttt{\{deSolve\}} package to solve the
+  differential equations.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\tightlist
+\item
+  To solve the model in R with \texttt{\{deSolve\}}, we will always need
+  to define at least three things:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The model equations.
+  \item
+    The initial parameter values.
+  \item
+    The initial conditions (population sizes).
+  \end{itemize}
+\item
+  Let's do a code walk though in R using the script
+  \texttt{01\_sir.Rmd}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, bottomtitle=1mm, opacitybacktitle=0.6, colframe=quarto-callout-caution-color-frame, titlerule=0mm, breakable, colback=white, title={Discussion}, left=2mm, colbacktitle=quarto-callout-caution-color!10!white, arc=.35mm, coltitle=black, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, toptitle=1mm]
+
+\begin{itemize}
+\tightlist
+\item
+  What happens if we increase or decrease the value of \(R0\)?
+\item
+  What happens if we increase or decrease the value of the infectious
+  period?
+\item
+  How can we flatten the curve?
+\end{itemize}
+
+\end{tcolorbox}
+
+\note{\begin{itemize}
+\tightlist
+\item
+  We can flatten the curve by reducing the value of \(R0\).
+\item
+  In reality, we can reduce \(R0\) by implementing control measures such
+  as social distancing, wearing masks, and vaccination.
+\item
+  These control measures reduce the number of contacts between
+  individuals or the probability of infection, which in turn reduces the
+  transmission rate.
+\end{itemize}}
+\end{frame}
+
+\begin{frame}
+\begin{block}{The Susceptible-Exposed-Infected-Recovered (SEIR) Model}
+\phantomsection\label{the-susceptible-exposed-infected-recovered-seir-model}
+\begin{figure}[H]
+
+{\centering \includegraphics{images/infection_timeline.png}
+
+}
+
+\caption{Timeline of infection. Source: Keeling \& Rohani, 2008}
+
+\end{figure}%
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{columns}[T]
+\begin{column}{0.3\textwidth}
+\begin{figure}[H]
+
+{\centering \includegraphics{images/corona_virus.jpeg}
+
+}
+
+\caption{The SARS-COV-2 virus}
+
+\end{figure}%%
+\begin{figure}[H]
+
+{\centering \includegraphics{images/ebola_virus.jpeg}
+
+}
+
+\caption{The Ebola virus}
+
+\end{figure}%
+\end{column}
+
+\begin{column}{0.7\textwidth}
+\begin{itemize}
+\tightlist
+\item
+  Some diseases have an {latent/exposed period} during which individuals
+  are {infected but not yet infectious}. Examples include pertussis,
+  COVID-19, and Ebola.
+\item
+  Disease transmission does not occur during the latent period because
+  of low levels of the virus in the host.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\includegraphics{images/model_diagrams/model_diagrams.007.jpeg}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\tightlist
+\item
+  The SEIR model extends the SIR model to include an exposed
+  compartment, {\(E\)}.
+\item
+  {\(E\)}: infected but are not yet infectious.
+\item
+  Individuals stay in {\(E\)} for {\(1/\sigma\)} days before moving to
+  \(I\).
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\begin{columns}[T]
+\begin{column}{0.6\textwidth}
+\includegraphics[width=0.8\textwidth,height=\textheight]{images/model_diagrams/model_diagrams.008.jpeg}
+\end{column}
+
+\begin{column}{0.4\textwidth}
+Model equations: \begin{align}
+\frac{dS}{dt} & = -\beta S I \\
+\frac{dE}{dt} & = \beta S I - \color{orange}{\sigma E} \\
+\frac{dI}{dt} & = \color{orange}{\sigma E} - \gamma I \\
+\frac{dR}{dt} & = \gamma I
+\end{align}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\begin{block}{SEIR model with births and deaths}
+\phantomsection\label{seir-model-with-births-and-deaths}
+\begin{itemize}
+\item
+  Let's relax the assumption about births and deaths in the population.
+\item
+  We will assume that the susceptible population is replenished with new
+  individuals at a constant rate, \(\mu\).
+\item
+  We will also assume that everyone dies at a constant rate, \(\mu\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+Our model schematic now looks like this:
+
+\includegraphics{images/model_diagrams/model_diagrams.009.jpeg}
+
+\note{Explain in terms of inflows and outflows}
+\end{frame}
+
+\begin{frame}
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\includegraphics{images/model_diagrams/model_diagrams.009.jpeg}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+The model equations now become:
+
+\begin{align}
+\frac{dS}{dt} & = \color{green}{\mu N} - \beta S I - \color{blue}{\mu} S \\
+\frac{dE}{dt} & = \beta S I - \sigma E - \color{blue}{\mu} E \\
+\frac{dI}{dt} & = \sigma E - \gamma I - \color{blue}{\mu} I \\
+\frac{dR}{dt} & = \gamma I - \color{blue}{\mu} R
+\end{align}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item
+  Let's implement the SEIR model in R using the script
+  \texttt{02\_seir.Rmd}.
+\item
+  What is the \(R0\) of this SEIR model?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{The R0 of the SEIR Model}
+\phantomsection\label{the-r0-of-the-seir-model}
+\begin{itemize}
+\item
+  The method used to derive \(R0\) in the SIR model is possible because
+  it is easy to factor out \(I\) from the equations.
+\item
+  In more complex models, this approach becomes impossible to use.
+\item
+  A more general framework is the next-generation matrix approach
+  (\citeproc{ref-diekmann1990definition}{Diekmann, Heesterbeek, and Metz
+  1990}; \citeproc{ref-diekmann2010construction}{Diekmann, Heesterbeek,
+  and Roberts 2010}).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{The next-generation matrix approach}
+\phantomsection\label{the-next-generation-matrix-approach}
+\begin{itemize}
+\item
+  The next-generation matrix (NGM) approach focuses on the infected
+  compartments.
+\item
+  It views the transmission process as a process where new infections
+  are ``born'' from existing infections through generations.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  Here are the steps to derive \(R0\) using the NGM approach
+  (\citeproc{ref-diekmann2010construction}{Diekmann, Heesterbeek, and
+  Roberts 2010}):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Identify the compartments that produce new infections and describe
+    how infections are changing over time. This subset of the system is
+    called the ``infected subsystem''.
+  \item
+    Linearise the infected subsystem around the disease-free equilibrium
+    by generating the Jacobian matrix (See Section~\ref{sec-jacobian}).
+  \end{itemize}
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, bottomtitle=1mm, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, coltitle=black, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, toptitle=1mm]
+
+The disease-free equilibrium is the state where no infections are
+present. For an SEIR model, this is denoted as
+\((S, E, I, R) = (N, 0, 0, 0)\), where \(N\) is the total population
+size.
+
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+\begin{block}{The Jacobian matrix}
+\phantomsection\label{sec-jacobian}
+\begin{itemize}
+\tightlist
+\item
+  The Jacobian matrix is a matrix of first-order partial derivatives of
+  a function.
+\end{itemize}
+
+\begin{equation*}
+J = \begin{bmatrix}
+\dfrac{\partial f_1}{\partial x_1} & \dfrac{\partial f_1}{\partial x_2} & \cdots & \dfrac{\partial f_1}{\partial x_n} \\
+\dfrac{\partial f_2}{\partial x_1} & \dfrac{\partial f_2}{\partial x_2} & \cdots & \dfrac{\partial f_2}{\partial x_n} \\
+\vdots & \vdots & \ddots & \vdots \\
+\dfrac{\partial f_n}{\partial x_1} & \dfrac{\partial f_n}{\partial x_2} & \cdots & \dfrac{\partial f_n}{\partial x_n}
+\end{bmatrix}
+\end{equation*}
+
+where \(f_i\) is the \(i\)-th function of the function and \(x_i\) is
+the \(i\)-th variable.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  The linearised infected subsystem is then decomposed into two matrices
+  \(\mathcal{F}\) and \(\mathcal{V}\):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(\mathcal{F}\) represents the transmission matrix, i.e., the rate
+    of appearance of new infections in a compartment.
+  \item
+    \(\mathcal{V}\) is represents transitions, i.e., how infections move
+    into other states.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  Next, solve \(\mathcal{F}\mathcal{V}^{-1}\) to obtain the
+  next-generation matrix, \(\mathcal{G}\).
+\item
+  Finally, determine the spectral radius, \(\rho\), of \(\mathcal{G}\),
+  which is the {dominant (largest absolute) eigenvalue} of the NGM.
+\item
+  The dominant eigenvalue of the NGM is the basic reproduction number,
+  \(R0\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Steps to determine the Spectral Radius}
+\phantomsection\label{steps-to-determine-the-spectral-radius}
+\begin{itemize}
+\tightlist
+\item
+  Find the Eigenvalues:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Given a square matrix \(A\), compute the eigenvalues \(\lambda\) by
+    solving the characteristic equation:
+  \end{itemize}
+\end{itemize}
+
+\begin{equation*}
+\begin{aligned}
+\text{det}(A - \lambda I) = 0
+\end{aligned}
+\end{equation*}
+
+where \(I\) is the identity matrix of the same dimension as \(A\), and
+\(\text{det}\) denotes the determinant.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  Compute the Spectral Radius,
+  \(\rho(A) = \max \{ |\lambda_1|, |\lambda_2|, \ldots, |\lambda_n|\)
+\end{itemize}
+
+where \(\lambda_1, \lambda_2, \ldots, \lambda_n\) are the eigenvalues of
+\(A\), and \(|\lambda_i|\) denotes the absolute value of the eigenvalue
+\(\lambda_i\).
+
+Let's apply these ideas to derive the \(R0\) of the SEIR model.
+\end{frame}
+
+\begin{frame}
+\begin{block}{Deriving the R0 of the SEIR model}
+\phantomsection\label{deriving-the-r0-of-the-seir-model}
+Step 1: identify the infected compartments \(E\) and \(I\):
+
+\begin{equation*}
+\begin{aligned}
+\frac{dE}{dt} &= \beta S I - \sigma E, \\
+\frac{dI}{dt} &= \sigma E - \gamma I.
+\end{aligned}
+\end{equation*}
+\end{block}
+\end{frame}
+
+\begin{frame}
+Step 2: Decompose the system into \(\mathcal{F}\), and \(\mathcal{V}\):
+
+Define:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\mathcal{F}\): new infection terms
+\item
+  \(\mathcal{V}\): transition terms
+\end{itemize}
+
+\begin{equation*}
+\mathcal{F} = \begin{pmatrix}
+\beta S I \\
+0
+\end{pmatrix},
+\quad
+\mathcal{V} = \begin{pmatrix}
+\sigma E \\
+\sigma E - \gamma I
+\end{pmatrix}
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+Evaluate at the disease-free equilibrium (DFE)
+\((S^*, E^*, I^*, R^*) = (S_0, 0, 0, 0)\):
+
+\begin{equation*}
+\mathcal{F} = \begin{pmatrix}
+0 & \beta S_0 \\
+0 & 0
+\end{pmatrix},
+\quad
+\mathcal{V} = \begin{pmatrix}
+\sigma & 0 \\
+-\sigma & \gamma
+\end{pmatrix}
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+We aim to solve
+
+\begin{equation*}
+\mathcal{G} = \mathcal{F} \mathcal{V}^{-1}
+\end{equation*}
+
+Let's compute \(\mathcal{V}^{-1}\):
+
+\begin{equation*}
+\mathcal{V}^{-1} = \begin{pmatrix}
+\frac{1}{\sigma} & 0 \\
+\frac{1}{\gamma} & \frac{1}{\sigma}
+\end{pmatrix}
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\begin{equation*}
+\mathcal{G} = \begin{pmatrix}
+0 & \beta S_0 \\
+0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+\frac{1}{\sigma} & 0 \\
+\frac{1}{\gamma} & \frac{1}{\sigma}
+\end{pmatrix}
+= \begin{pmatrix}
+\frac{\beta S_0}{\gamma} & \frac{\beta S_0}{\sigma} \\
+0 & 0
+\end{pmatrix}
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\(R_0\) is the spectral radius (dominant eigenvalue) of \(\mathcal{G}\):
+
+\begin{equation*}
+R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
+\end{equation*}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Numerical simulations}
+\phantomsection\label{numerical-simulations-1}
+\begin{block}{R Practicals}
+\phantomsection\label{r-practicals}
+\begin{itemize}
+\item
+  We can use the same approach as the SIR model to simulate the SEIR
+  model.
+\item
+  Let's do a code walk through in R using the \texttt{01\_sir.Rmd}
+  script.
+\end{itemize}
+\end{block}
+\end{block}
+\end{frame}
+
+\begin{frame}{Controlling epidemics}
+\phantomsection\label{controlling-epidemics}
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, bottomtitle=1mm, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, coltitle=black, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, toptitle=1mm]
+
+For a recap on the various control measures, refer to
+Section~\ref{sec-control-measures}.
+
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Vaccination}
+\phantomsection\label{vaccination}
+For a background on vaccination, refer to Section~\ref{sec-vaccination}.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{columns}[T]
+\begin{column}{0.4\textwidth}
+\includegraphics[width=1.5\textwidth,height=\textheight]{images/vaccine.jpeg}
+\end{column}
+
+\begin{column}{0.6\textwidth}
+\begin{itemize}
+\tightlist
+\item
+  Vaccination is one of the most effective ways to control infectious
+  diseases.
+\item
+  Conceptually, vaccination works to reduce the number of susceptible
+  individuals, \(S\).
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  There are different types of vaccination strategies, including:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {pediatric} vaccination: vaccinating children to prevent the spread
+    of diseases.
+  \item
+    {mass/random} vaccination: vaccinating a large proportion of the
+    population.
+  \item
+    {targeted} vaccination: vaccinating specific groups of individuals,
+    example, healthcare workers.
+  \item
+    {pulse} vaccination: periodically vaccinating a large number of
+    individuals.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  Let's consider the case of mass/random vaccination.
+\item
+  Compartmental models can be extended to capture this by adding a new
+  compartment, \(V\).
+\item
+  Let's consider the SEIR model with vaccination.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{The Susceptible-Exposed-Infected-Recovered-Vaccinated
+(SEIRV) Model}
+\phantomsection\label{the-susceptible-exposed-infected-recovered-vaccinated-seirv-model}
+\includegraphics{images/model_diagrams/model_diagrams.010.jpeg}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{columns}[T]
+\begin{column}{0.4\textwidth}
+\includegraphics{images/model_diagrams/model_diagrams.010.jpeg}
+\end{column}
+
+\begin{column}{0.6\textwidth}
+\begin{itemize}
+\tightlist
+\item
+  The SEIRV model is simply the SEIR model with a vaccinated
+  compartment, \(V\).
+\item
+  The vaccinated compartment represents previously susceptible
+  individuals who have been vaccinated and are immune to the disease.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  The vaccinated compartment is:
+
+  \begin{itemize}
+  \item
+    not infectious and does not move to the exposed or infectious
+    compartments.
+  \item
+    replenished by the rate of vaccination, \(\eta\).
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+The model diagram and equations are as follows:
+
+\begin{columns}[T]
+\begin{column}{0.4\textwidth}
+\begin{align}
+\frac{dS}{dt} & = -\beta S I - \eta S \\
+\frac{dE}{dt} & = \beta S I - \sigma E \\
+\frac{dI}{dt} & = \sigma E - \gamma I \\
+\frac{dR}{dt} & = \gamma I \\
+\frac{dV}{dt} & = \eta S
+\end{align}
+\end{column}
+
+\begin{column}{0.6\textwidth}
+\includegraphics{images/model_diagrams/model_diagrams.010.jpeg}
+\end{column}
+\end{columns}
+
+where \(\eta\) is the rate of vaccination.
+\end{frame}
+
+\begin{frame}
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, bottomtitle=1mm, opacitybacktitle=0.6, colframe=quarto-callout-caution-color-frame, titlerule=0mm, breakable, colback=white, title={Discussion}, left=2mm, colbacktitle=quarto-callout-caution-color!10!white, arc=.35mm, coltitle=black, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, toptitle=1mm]
+
+\begin{itemize}
+\item
+  What are some of the assumptions of the SEIRV model?
+\item
+  What are the implications of these assumptions for the model's
+  predictions?
+\end{itemize}
+
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Numerical simulations}
+\phantomsection\label{numerical-simulations-2}
+\begin{block}{R Practicals}
+\phantomsection\label{r-practicals-1}
+\begin{itemize}
+\item
+  We can use the same approach as the SIR and SEIR models to simulate
+  the SEIRV model.
+\item
+  Let's do a code walk through in R with the \texttt{02\_seirv.Rmd}
+  script.
+\end{itemize}
+
+\note{Students are to modify the \texttt{02\_seir.Rmd} script to include
+vaccination.}
+\end{block}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Non-Pharmaceutical Interventions (NPIs)}
+\phantomsection\label{non-pharmaceutical-interventions-npis}
+For a background on non-pharmaceutical interventions, refer to
+Section~\ref{sec-npi}.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  Conceptually, NPIs usually act to either reduce the transmission rate,
+  \(\beta\) or prevent infected individuals from transmitting.
+\item
+  NPIs like quarantine, social distancing and movement restrictions can
+  reduce the transmission rate, \(\beta\), by reducing the contact rate
+  between susceptible and infectious individuals.
+\item
+  Hygiene measures reduce the probability of transmission per contact,
+  thereby reducing the transmission rate, \(\beta\), since
+  \(\beta = c \times p\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  Let's consider two scenarios that will extend the SIR model to include
+  NPIs:
+
+  \begin{enumerate}
+  \tightlist
+  \item
+    Modifying the transmission rate, \(\beta\).
+  \item
+    Preventing infected individuals from transmitting through
+    quarantine.
+  \end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Modifying the transmission rate}
+\phantomsection\label{modifying-the-transmission-rate}
+\begin{itemize}
+\item
+  NPIs such as social distancing, mask-wearing, and hand hygiene can
+  reduce the transmission rate, \(\beta\).
+\item
+  We can model this by making the transmission rate a function of time
+  so that \(\beta(t)\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+The modified SIR model with a reduced transmission rate is as follows:
+
+\begin{align*}
+\frac{dS}{dt} & = -\beta(t) S I \\
+\frac{dI}{dt} & = \beta (t) S I - \gamma I \\
+\frac{dR}{dt} & = \gamma I
+\end{align*}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  The simplest form is to reduce \(\beta\) by an NPI efficacy, say
+  \(\epsilon\).
+\item
+  Assuming the NPI is implemented between \(t_{npi_start}\) and
+  \(t_{npi_end}\), it means that \(\beta\) remains the same before that
+  period and is reduced to \(( 1- \epsilon)\) during the period of the
+  NPI.
+\item
+  With this knowledge, we can define \(\beta(t)\) mathematically as:
+\end{itemize}
+
+\begin{align*}
+\beta(t) = \begin{cases}
+\beta & \text{if } t < t_{\text{npi_start}} | t > t_{\text{npi_end}} \\
+(1 - \epsilon) \beta & \text{if } t_{\text{npi_start}} \le t \le t_{\text{npi_end}}
+\end{cases}
+\end{align*}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{R Practicals}
+\phantomsection\label{r-practicals-2}
+\begin{itemize}
+\tightlist
+\item
+  Let's open the script file \texttt{02\_sir\_npi.R} and follow along.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{NPIs as compartments}
+\phantomsection\label{npis-as-compartments}
+\begin{itemize}
+\item
+  In the previous example, we retained the SIR model structure and
+  modified the transmission rate.
+\item
+  We can also model NPIs as compartments in the model. This is useful
+  when we want to treat individuals affected by the NPIs differently.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  For example, quarantine is an NPI that prevents infected individuals
+  from transmitting the disease.
+\item
+  This means that infected individuals under quarantine do not
+  contribute to the transmission of the disease and need to be removed
+  from the infected compartment.
+\item
+  Moving quarantined individuals to a separate compartment allows us to
+  track them separately in the model and apply relevant parameters.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  We can model this by introducing a new compartment, \(Q\), for
+  quarantining infected individuals.
+\item
+  Let's assume, infected individuals move to the quarantine compartment
+  at a rate, \(\delta\).
+\item
+  Infected individuals in the quarantine compartment do not transmit the
+  disease.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+The modified SIR model with quarantine is as follows:
+
+\begin{align*}
+\frac{dS}{dt} & = -\beta S I \\
+\frac{dI}{dt} & = \beta S I - \gamma I - \delta I \\
+\frac{dR}{dt} & = \gamma I + \tau Q \\
+\frac{dQ}{dt} & = \delta I - \tau Q
+\end{align*}
+
+where \(\delta\) is the rate at which infected individuals move to the
+quarantine compartment, and \(\tau\) is the rate at which individuals
+recover from quarantine.
+\end{frame}
+
+\begin{frame}
+\begin{block}{Scenarios with quarantine}
+\phantomsection\label{scenarios-with-quarantine}
+\begin{itemize}
+\item
+  We can use the same approach as the SIR model to simulate the model
+  with quarantine.
+\item
+  Let's do a code walk though in R.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{An overview of host heterogeneity}
+\phantomsection\label{an-overview-of-host-heterogeneity}
+\begin{itemize}
+\item
+  The models we have discussed so far assume that all individuals in the
+  population are identical.
+\item
+  However, in reality, individuals differ in their susceptibility to
+  infection and their ability to transmit the disease.
+\item
+  It is essential to capture this heterogeneity in the models in order
+  for the models to be more realistic and useful for decision-making.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  This can be captured by incorporating heterogeneity into the models.
+\item
+  Heterogeneity is often captured by stratifying the population into
+  different groups.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Age structure}
+\phantomsection\label{age-structure}
+\begin{itemize}
+\item
+  For many infectious diseases, the risk of infection and the severity
+  of the disease vary by age.
+\item
+  Hence, it is essential to capture age structure in the models.
+\item
+  To do this, we divide the population into different age groups and
+  model the disease dynamics within each age group.
+\item
+  Let's extend the SIR model to include age structure.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  We will divide the population into \(n\) age groups.
+\item
+  Because the homogeneous model has 3 compartments, the age structured
+  one will have \(3n\) compartments:
+  \(S_1, I_1, R_1, S_2, I_2, R_2, ..., S_n, I_n, R_n\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  The (compact) model equations are as follows:
+\end{itemize}
+
+\begin{align}
+\dfrac{dS_i}{dt} &= -\sum_{j=1}^{n} \beta_{ji} S_i I_j \\
+\dfrac{dI_i}{dt} &= \sum_{j=1}^{n} \beta_{ji} S_i I_j - \gamma I_i \\
+\dfrac{dR_i}{dt} &= \gamma I_i
+\end{align}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  The model can be used to study the impact of age structure on the
+  dynamics of the epidemic.
+\item
+  For example, we can study the impact of vaccinating different age
+  groups on the dynamics of the epidemic.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Other Heterogeneities}
+\phantomsection\label{other-heterogeneities}
+\begin{itemize}
+\item
+  Other forms of heterogeneity that can be incorporated into the models
+  include:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Spatial heterogeneity
+  \item
+    Temporal heterogeneity
+  \item
+    Contact heterogeneity
+  \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Wrap-Up and Q\&A}
+\phantomsection\label{wrap-up-and-qa}
+\begin{block}{Takeaways}
+\phantomsection\label{takeaways}
+In the last two days, we have covered a lot of ground. Here are some key
+takeaways:
+
+\begin{itemize}
+\item
+  Infectious diseases are a major public health concern that can have
+  devastating consequences.
+\item
+  Mathematical models are essential tools for studying the dynamics of
+  infectious diseases and informing public health decision-making.
+\item
+  Models are simplifications of reality that help us understand complex
+  systems.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  We have discussed several compartmental models, including the SIR,
+  SEIR, and SEIRV models.
+\item
+  The SIR model is a simple compartmental model that divides the
+  population into three compartments: susceptible, infected, and
+  recovered.
+\item
+  The SEIR model extends the SIR model by adding an exposed compartment.
+\item
+  We can model various pharmaceutical and non-pharmaceutical
+  interventions (NPIs) by modifying the transmission rate or adding new
+  compartments.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  We have discussed the basic reproduction number, \(R0\), which is a
+  key parameter in infectious disease epidemiology.
+\item
+  \(R0\) is the average number of secondary infections produced by a
+  single infected individual in a completely susceptible population.
+\item
+  If \(R0 > 1\), the disease will spread in the population; if
+  \(R0 < 1\), the disease will die out.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  Deriving the basic reproduction number, \(R0\), is an essential step
+  in understanding the dynamics of infectious diseases.
+\item
+  Deriving \(R0\) for the simple SIR model is simple as we just need to
+  study the threshold phenomena.
+\item
+  For more complex models, we can use the next-generation matrix
+  approach to derive \(R0\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  Often, homogeneous models are not sufficient to capture the complexity
+  of infectious diseases.
+\item
+  Incorporating heterogeneity into the models is essential for capturing
+  the complexity of infectious diseases.
+\item
+  Age structure is a common form of heterogeneity that can be
+  incorporated into the models.
+\item
+  Other forms of heterogeneity include spatial, temporal, and contact
+  heterogeneity.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{What skills are needed to build and use infectious disease
+models?}
+\phantomsection\label{what-skills-are-needed-to-build-and-use-infectious-disease-models}
+\begin{block}{Mathematical and statistical skills}
+\phantomsection\label{mathematical-and-statistical-skills}
+\begin{itemize}
+\tightlist
+\item
+  Differential equations.
+\item
+  Probability and statistics.
+\item
+  Stochastic processes.
+\item
+  Numerical analysis
+\item
+  Time series analyses
+\item
+  Survival analysis
+\end{itemize}
+\end{block}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Programming skills}
+\phantomsection\label{programming-skills}
+\begin{itemize}
+\tightlist
+\item
+  Proficiency in at least one programming language (e.g., R, Python,
+  Julia, C++).
+\item
+  Experience with version control (e.g., Git).
+\item
+  Experience with data manipulation and visualization.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Domain knowledge in infectious diseases}
+\phantomsection\label{domain-knowledge-in-infectious-diseases}
+\begin{itemize}
+\tightlist
+\item
+  Immunology
+\item
+  Epidemiology
+\item
+  Virology
+\item
+  Genomics
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Other subject areas}
+\phantomsection\label{other-subject-areas}
+\begin{itemize}
+\tightlist
+\item
+  Communication skills:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Ability to communicate complex ideas to non-experts.
+  \item
+    Ability to write clear and concise reports.
+  \item
+    Ability to present results to a diverse audience.
+  \end{itemize}
+\item
+  Public health.
+\item
+  Health economics.
+\item
+  Policy analysis.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{List of Resources}
+\phantomsection\label{list-of-resources}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Textbooks}
+\phantomsection\label{textbooks}
+\begin{figure}
+
+\begin{minipage}{0.50\linewidth}
+\includegraphics{images/Anderson_and_May.jpeg}\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+\includegraphics{images/ID_modelling_Vynnycky_and_White.jpeg}\end{minipage}%
+
+\end{figure}%
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+
+\begin{minipage}{0.50\linewidth}
+\includegraphics{images/Rohani_and_Keeling.jpeg}\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+\includegraphics{images/Epidemics_Ottar.jpg}\end{minipage}%
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+  \href{https://www.amazon.co.uk/Modeling-Infectious-Diseases-Humans-Animals/dp/0691116172}{Modeling
+  Infectious Diseases in Humans and Animals by Matt Keeling and Pejman
+  Rohani}
+\item
+  \href{https://link.springer.com/book/10.1007/978-3-031-12056-5}{Epidemics:
+  Models and Data Using R by Ottar N. Bjornstad}
+\item
+  \href{https://www.amazon.co.uk/Introduction-Infectious-Disease-Modelling/dp/0198565763}{Infectious
+  Disease Modelling by Emilia Vynnycky and Richard White}
+\item
+  \href{https://www.amazon.co.uk/Infectious-Diseases-Humans-Dynamics-Control/dp/019854040X}{Infectious
+  Diseases of Humans: Dynamics and Control by Roy M. Anderson and Robert
+  M. May}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Papers and Articles}
+\phantomsection\label{papers-and-articles}
+\begin{block}{Modelling infectious disease transmission}
+\phantomsection\label{modelling-infectious-disease-transmission}
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.frontiersin.org/articles/10.3389/fvets.2020.546651/full}{Kirkeby,
+  C., Brookes, V. J., Ward, M. P., Dürr, S., \& Halasa, T. (2021). A
+  practical introduction to mechanistic modeling of disease transmission
+  in veterinary science. Frontiers in veterinary science, 7, 546651.}
+\item
+  \href{https://vtechworks.lib.vt.edu/items/61e9ca00-ef21-4356-bcd7-a9294a1d2f17}{Blackwood,
+  J. C., \& Childs, L. M. (2018). An introduction to compartmental
+  modeling for the budding infectious disease modeler.}
+\item
+  \href{https://doi.org/10.1038/nrmicro1845}{Grassly, N. C., \& Fraser,
+  C. (2008). Mathematical models of infectious disease transmission.
+  Nature Reviews Microbiology, 6(6), 477--487.}
+\end{itemize}
+\end{block}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  \href{https://doi.org/10.1126/science.abb5659}{Cobey, S. (2020).
+  Modeling infectious disease dynamics. Science, 368(6492), 713--714.}
+\item
+  \href{https://doi.org/10.1038/s41592-020-0822-z}{Bjørnstad, O. N.,
+  Shea, K., Krzywinski, M., \& Altman, N. (2020). Modeling infectious
+  epidemics. Nature Methods, 17(5), 455--456.}
+\item
+  \href{https://doi.org/10.1371/journal.pcbi.1008539}{Bodner, K.,
+  Brimacombe, C., Chenery, E. S., Greiner, A., McLeod, A. M., Penk, S.
+  R., \& Soto, J. S. V. (2021). Ten simple rules for tackling your first
+  mathematical models: A guide for graduate students by graduate
+  students. PLOS Computational Biology, 17(1), e1008539.}
+\item
+  \href{https://jech.bmj.com/content/65/1/87}{Mishra, S., Fisman, D. N.,
+  \& Boily, M.-C. (2011). The ABC of terms used in mathematical models
+  of infectious diseases. Journal of Epidemiology \& Community Health,
+  65(1), 87--94.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  \href{https://doi.org/10.1177/0272989X21990391}{James, L. P., Salomon,
+  J. A., Buckee, C. O., \& Menzies, N. A. (2021). The Use and Misuse of
+  Mathematical Modeling for Infectious Disease Policymaking: Lessons for
+  the COVID-19 Pandemic. 41(4), 379--385.}
+\item
+  \href{https://doi.org/10.1056/nejmp2009027}{Holmdah, I., \& Buckee, C.
+  (2020). Wrong but useful---What COVID-19 epidemiologic models can and
+  cannot tell us. New England Journal of Medicine.}
+\item
+  \href{https://doi.org/10.1016/j.epidem.2014.08.008}{Metcalf, C. J. E.
+  E., Edmunds, W. J., \& Lessler, J. (2015). Six challenges in modelling
+  for public health policy. Epidemics, 10(2015), 93--96.}
+\item
+  \href{https://doi.org/10.1016/j.epidem.2014.09.006}{Roberts, M.,
+  Andreasen, V., Lloyd, A., \& Pellis, L. (2015). Nine challenges for
+  deterministic epidemic models. Epidemics, 10(2015), 49--53.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Deriving and Interpreting R0}
+\phantomsection\label{deriving-and-interpreting-r0}
+\begin{itemize}
+\tightlist
+\item
+  \href{https://web.stanford.edu/~jhj1/teachingdocs/Jones-on-R0.pdf}{Jones,
+  J. H. (2011). Notes On R0. Building, 1--19.}
+\item
+  \href{https://doi.org/10.1007/BF00178324}{Diekmann, O., Heesterbeek,
+  J. A. P., \& Metz, J. A. J. (1990). On the definition and the
+  computation of the basic reproduction ratio R0 in models for
+  infectious diseases in heterogeneous populations. Journal of
+  Mathematical Biology, 28(4), 365--382.}
+\item
+  \href{https://doi.org/10.1098/rsif.2009.0386}{Diekmann, O.,
+  Heesterbeek, J. A. P., \& Roberts, M. G. (2010). The construction of
+  next-generation matrices for compartmental epidemic models. Journal of
+  the Royal Society Interface, 7(47), 873--885.}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{References}
+\phantomsection\label{references}
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-anderson1982directly}
+Anderson, Roy M, and Robert M May. 1982. {``Directly Transmitted
+Infections Diseases: Control by Vaccination.''} \emph{Science} 215
+(4536): 1053--60.
+
+\bibitem[\citeproctext]{ref-Blackwood2018a}
+Blackwood, Julie C., and Lauren M. Childs. 2018. {``An Introduction to
+Compartmental Modeling for the Budding Infectious Disease Modeler.''}
+\emph{Letters in Biomathematics} 5 (1): 195--221.
+\url{https://doi.org/10.1080/23737867.2018.1509026}.
+
+\bibitem[\citeproctext]{ref-Box1979}
+Box, GE. 1979. {``All Models Are Wrong, but Some Are Useful.''}
+\emph{Robustness in Statistics} 202 (1979): 549.
+
+\bibitem[\citeproctext]{ref-diekmann2010construction}
+Diekmann, Odo, JAP Heesterbeek, and Michael G Roberts. 2010. {``The
+Construction of Next-Generation Matrices for Compartmental Epidemic
+Models.''} \emph{Journal of the Royal Society Interface} 7 (47):
+873--85.
+
+\bibitem[\citeproctext]{ref-diekmann1990definition}
+Diekmann, Odo, Johan Andre Peter Heesterbeek, and Johan Anton Jacob
+Metz. 1990. {``On the Definition and the Computation of the Basic
+Reproduction Ratio r 0 in Models for Infectious Diseases in
+Heterogeneous Populations.''} \emph{Journal of Mathematical Biology} 28:
+365--82.
+
+\bibitem[\citeproctext]{ref-guerra2017measlesR0}
+Guerra, Fiona M, Shelly Bolotin, Gillian Lim, Jane Heffernan, Shelley L
+Deeks, Ye Li, and Natasha S Crowcroft. 2017. {``The Basic Reproduction
+Number (R0) of Measles: A Systematic Review.''} \emph{The Lancet
+Infectious Diseases} 17 (12): e420--28.
+
+\bibitem[\citeproctext]{ref-kermack1927contribution}
+Kermack, William Ogilvy, and Anderson G McKendrick. 1927. {``A
+Contribution to the Mathematical Theory of Epidemics.''}
+\emph{Proceedings of the Royal Society of London. Series A, Containing
+Papers of a Mathematical and Physical Character} 115 (772): 700--721.
+
+\end{CSLReferences}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\includegraphics{slides_files/mediabag/88x31.png} This presentation is
+made available through a
+\href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons
+Attribution 4.0 International License}.
+\end{frame}
+
+
+
+\end{document}
