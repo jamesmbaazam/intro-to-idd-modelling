@@ -86,29 +86,49 @@ Note that these classifications are not mutually exclusive. Hence, a disease can
 
 #### Vaccination {#sec-vaccination}
 
--   Vaccination is the effective way to prevent infectious diseases.
+::: columns
+::: {.column width="40%"}
+![](images/vaccine.jpeg)
+:::
+
+::: {.column width="60%"}
 -   Activates the host's immune system to produce antibodies against the pathogen.
--   It is generally applied prophylactically to susceptible individuals (before infection); this reduces the risk of infection and disease.
+-   Generally applied to reduce the risk of infection and disease.
+-   The most effective way to prevent infectious diseases.
+:::
+:::
 
 ------------------------------------------------------------------------
 
--   Challenges with vaccination:
-    -   Take time to develop for new pathogens
-    -   Never 100% effective and limited duration of protection
-    -   Adverse side effects
-    -   Some individuals cannot be vaccinated or refuce vaccination
-    -   Some pathogens mutate rapidly (e.g., influenza virus)
+##### Challenges with vaccination
+
+-   Take time to develop for new pathogens
+-   Never 100% effective and limited duration of protection
+-   Adverse side effects
+-   Some individuals cannot be vaccinated or refuce vaccination
+-   Some pathogens mutate rapidly (e.g., influenza virus)
+-  Logistical challenges (e.g., cold chain requirements)
 
 ------------------------------------------------------------------------
 
 ### Non-pharmaceutical interventions (NPIs) {#sec-npi}
 
--   Non-pharmaceutical interventions are measures that do not involve medical interventions.
+::: columns
+::: {.column width="50%"}
+![](images/mask.jpeg){width=70%}
+
+![](images/screening.jpeg){width=70%}
+:::
+
+::: {.column width="50%"}
+- Non-pharmaceutical interventions are measures that do not involve medical interventions.
 
 -   Examples:
-  -   Quarantine,
-  -   Physical/social distancing, and
-  -   Mask-wearing.
+    - Quarantine,
+    -   Physical/social distancing, and
+    -   Mask-wearing.
+:::
+:::
 
 ------------------------------------------------------------------------
 
@@ -656,7 +676,6 @@ $$
 
 ## The Susceptible-Exposed-Infected-Recovered (SEIR) Model
 
-
 ![Timeline of infection. Source: Keeling & Rohani, 2008](images/infection_timeline.png)
 
 ---
@@ -746,13 +765,13 @@ The model equations now become:
 
 ---
 
--   Let's implement the SEIR model in R using the script `02_seir.Rmd`.
+- Let's implement the SEIR model in R using the script `02_seir.Rmd`.
 
 - What is the $R0$ of this SEIR model?
 
 ------------------------------------------------------------------------
 
-### The $R0$ of the SEIR Model
+### The R0 of the SEIR Model
 
 -   The method used to derive $R0$ in the SIR model is possible because it is easy to factor out $I$ from the equations.
 
@@ -826,8 +845,6 @@ where $f_i$ is the $i$-th function of the function and $x_i$ is the $i$-th varia
 where $I$ is the identity matrix of the same dimension as $A$, and $\text{det}$ denotes the determinant.
 
 ---
-
-##### Steps to determine the Spectral Radius (cont'd)
 
 - Compute the Spectral Radius, $\rho(A) = \max \{ |\lambda_1|, |\lambda_2|, \ldots, |\lambda_n|$
 
@@ -932,6 +949,8 @@ R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
 
 ### Numerical simulations
 
+#### R Practicals
+
 -   We can use the same approach as the SIR model to simulate the SEIR model.
 
 -   Let's do a code walk though in R.
@@ -941,7 +960,7 @@ R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
 # Controlling epidemics
 
 ::: callout-note
--   For a recap on the various control measures, refer to @sec-control-measures.
+For a recap on the various control measures, refer to @sec-control-measures.
 :::
 
 ---
@@ -949,7 +968,7 @@ R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
 ## Vaccination
 
 ::: {callout-note}
--   For a background on vaccination, refer to @sec-vaccination.
+For a background on vaccination, refer to @sec-vaccination.
 :::
 
 ---
@@ -986,21 +1005,28 @@ R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
 
 ### The Susceptible-Exposed-Infected-Recovered-Vaccinated (SEIRV) Model
 
+![](images/model_diagrams/model_diagrams.010.jpeg)
+
+---
+
 ::: columns
 ::: {.column width="40%"}
-![](images/model_diagrams/model_diagrams.003.png)
+![](images/model_diagrams/model_diagrams.010.jpeg)
 :::
 
 ::: {.column width="60%"}
 -   The SEIRV model is simply the SEIR model with a vaccinated compartment, $V$.
-
 -   The vaccinated compartment represents previously susceptible individuals who have been vaccinated and are immune to the disease.
-
--   The vaccinated compartment is not infectious and does not move to the exposed or infectious compartments.
-
--   The vaccinated compartment is replenished by the rate of vaccination, $\eta$.
 :::
 :::
+
+---
+
+- The vaccinated compartment is:
+
+  - not infectious and does not move to the exposed or infectious compartments.
+
+  - replenished by the rate of vaccination, $\eta$.
 
 ---
 
@@ -1009,8 +1035,8 @@ The model diagram and equations are as follows:
 ::: columns
 ::: {.column width="40%"}
 \begin{align}
-\frac{dS}{dt} & = -\beta \frac{S I}{N} - \eta S \\
-\frac{dE}{dt} & = \beta \frac{S I}{N} - \sigma E \\
+\frac{dS}{dt} & = -\beta S I - \eta S \\
+\frac{dE}{dt} & = \beta S I - \sigma E \\
 \frac{dI}{dt} & = \sigma E - \gamma I \\
 \frac{dR}{dt} & = \gamma I \\
 \frac{dV}{dt} & = \eta S
@@ -1018,7 +1044,7 @@ The model diagram and equations are as follows:
 :::
 
 ::: {.column width="60%"}
-![](images/model_diagrams/model_diagrams.003.png)
+![](images/model_diagrams/model_diagrams.010.jpeg)
 :::
 :::
 
@@ -1038,17 +1064,25 @@ where $\eta$ is the rate of vaccination.
 
 ### Numerical simulations
 
+#### R Practicals
+
 -   We can use the same approach as the SIR and SEIR models to simulate the SEIRV model.
 
--   Let's do a code walk though in R.
+-   Let's do a code walk through in R with the `02_seirv.Rmd` script.
+
+::: notes
+Students are to modify the `02_seir.Rmd` script to include vaccination.
+:::
 
 ------------------------------------------------------------------------
 
-## Modelling Non-Pharmaceutical Interventions (NPIs)
+## Non-Pharmaceutical Interventions (NPIs)
 
 ::: {callout-note}
--   For a background on non-pharmaceutical interventions, refer to @sec-npi.
+For a background on non-pharmaceutical interventions, refer to @sec-npi.
 :::
+
+---
 
 -   Conceptually, NPIs usually act to either reduce the transmission rate, $\beta$ or prevent infected individuals from transmitting.
 
@@ -1091,147 +1125,16 @@ The modified SIR model with a reduced transmission rate is as follows:
 
 \begin{align*}
 \beta(t) = \begin{cases}
-\beta & \text{if } t < t_{\test{npi_start}} | t > t_{\test{npi_end}} \\
-(1 - \epsilon) \beta & \text{if } t_{\test{npi_start}} \le t \le t_{\test{npi_end}}
+\beta & \text{if } t < t_{\text{npi_start}} | t > t_{\text{npi_end}} \\
+(1 - \epsilon) \beta & \text{if } t_{\text{npi_start}} \le t \le t_{\text{npi_end}}
 \end{cases}
 \end{align*}
 
 ------------------------------------------------------------------------
 
--   Let's translate this to R code.
+#### R Practicals
 
--   We will build on our previous SIR model code and modify it to include the time-varying transmission rate.
-
-------------------------------------------------------------------------
-
-We will start with the main model function.
-
-```{r}
-#| code-line-numbers: "1-4,6-12|5"
-# Define the SIR model differential equations
-sir_with_npi <- function(time, state, parameters) {
-  with(as.list(c(state, parameters)), {
-    # Time-varying transmission rate
-    beta <- ifelse(time < t_NPI_start | time > t_NPI_end, beta_0, (1 - epsilon) * beta_0)
-    # SIR model
-    dS <- -beta * S * I / N
-    dI <- beta * S * I / N - gamma * I
-    dR <- gamma * I
-    list(c(dS, dI, dR))
-  })
-}
-
-```
-
-------------------------------------------------------------------------
-
-Next, we will define the parameters and initial conditions. Note that we will also define the time at which the NPI is implemented, `t_NPI_start` and `t_NPI_end`.
-
-```{r sir-npi-beta-init}
-# The initial conditions
-N  <- 1000  # Population size
-# Initial conditions for S, I, R
-inits <- c(S = N - 1, I = 1, R = 0)
-
-# Parameters
-R0 <- 20
-infectious_period <- 7
-# Remember gamma = 1/ infectious_period as discussed earlier
-gamma <- 1/infectious_period 
-
-# We will use R0 = beta N / gamma  instead because it is easier to interpret.
-# beta is not directly interpretable because it is a composite of a number of factors.
-params <- c(
-  beta_0 = R0 * gamma / N,
-  gamma = gamma,
-  epsilon = 5E-4
-)
-
-# Time steps to return results
-dt <- 1:150
-
-# Time at which the NPI is implemented
-npi_times <- c(t_NPI_start = 30, t_NPI_end = 51) # 21 days of NPI  
-```
-
----
-
-Now, let's solve the model equations.
-
-```{r sir-npi-beta-solve}
-# Load necessary packages
-library(deSolve)
-# Integrate the SIR equations over the time grid
-output <- lsoda(
-  y = inits,
-  times = dt,
-  func = sir_with_npi,
-  parms = c(params, npi_times)
-)
-
-# Convert the output to a data frame
-output_df <- as.data.frame(output)
-head(output_df)
-```
-
----
-
-What do you observe in the output?
-
-```{r sir-npi-beta-plot}
-# Load necessary packages
-library(tidyverse)
-# Convert the output to long format
-output_df <- output_df |> pivot_longer(
-  cols = -time,
-  names_to = "compartment",
-  values_to = "value"
-)
-# Plot the data using ggplot2
-sir_npi_plot <- ggplot(
-  data = output_df,
-  aes(
-    x = time,
-    y = value,
-    color = compartment
-  )) +
-  geom_line() +
-  # Add a vertical line to indicate the times of NPI implementation
-  geom_vline(
-    xintercept = npi_times["t_NPI_start"],
-    linetype = "dashed",
-    color = "black"
-  ) +
-  geom_vline(
-    xintercept = npi_times["t_NPI_end"],
-    linetype = "dashed",
-    color = "black"
-  ) + 
-  # Add labels
-  labs(
-    title = "SIR Model with NPI",
-    x = "Time (days)",
-    y = "Number of individuals",
-    color = "Compartment"
-  ) +
-  theme_minimal()
-```
-
----
-
-Let's plot the results.
-
-```{r sir-npi-beta-plot-show}
-plot(sir_npi_plot)
-```
-
-------------------------------------------------------------------------
-
-#### Scenarios with reduced transmission rate
-
--   We can use the same approach as the SIR model to simulate the model with a reduced transmission rate.
-
--   Let's do a code walk though in R.
+-   Let's open the script file `02_sir_npi.R` and follow along.
 
 ------------------------------------------------------------------------
 
@@ -1262,8 +1165,8 @@ plot(sir_npi_plot)
 The modified SIR model with quarantine is as follows:
 
 \begin{align*}
-\frac{dS}{dt} & = -\beta \frac{S I}{N} \\
-\frac{dI}{dt} & = \beta \frac{S I}{N} - \gamma I - \delta I \\
+\frac{dS}{dt} & = -\beta S I \\
+\frac{dI}{dt} & = \beta S I - \gamma I - \delta I \\
 \frac{dR}{dt} & = \gamma I + \tau Q \\
 \frac{dQ}{dt} & = \delta I - \tau Q
 \end{align*}

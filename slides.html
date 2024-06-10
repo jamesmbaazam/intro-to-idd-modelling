@@ -14,7 +14,7 @@
   <meta name="generator" content="quarto-1.5.41">
 
   <meta name="author" content="James Mba Azam, PhD">
-  <meta name="dcterms.date" content="2024-06-09">
+  <meta name="dcterms.date" content="2024-06-10">
   <title>Introduction to Infectious Disease Modelling</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -33,71 +33,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -434,7 +369,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
     </div>
 </div>
 
-  <p class="date">2024-06-09</p>
+  <p class="date">2024-06-10</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">Table of contents</h2>
@@ -515,35 +450,49 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <section class="slide level2">
 
 <h4 id="sec-vaccination">Vaccination</h4>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><a href="images/vaccine.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="images/vaccine.jpeg"></a></p>
+</div><div class="column" style="width:60%;">
 <ul>
-<li>Vaccination is the effective way to prevent infectious diseases.</li>
 <li>Activates the host’s immune system to produce antibodies against the pathogen.</li>
-<li>It is generally applied prophylactically to susceptible individuals (before infection); this reduces the risk of infection and disease.</li>
+<li>Generally applied to reduce the risk of infection and disease.</li>
+<li>The most effective way to prevent infectious diseases.</li>
 </ul>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
-<ul>
-<li>Challenges with vaccination:
+<h5 id="challenges-with-vaccination">Challenges with vaccination</h5>
 <ul>
 <li>Take time to develop for new pathogens</li>
 <li>Never 100% effective and limited duration of protection</li>
 <li>Adverse side effects</li>
 <li>Some individuals cannot be vaccinated or refuce vaccination</li>
 <li>Some pathogens mutate rapidly (e.g., influenza virus)</li>
-</ul></li>
+<li>Logistical challenges (e.g., cold chain requirements)</li>
 </ul>
 </section>
 <section class="slide level2">
 
 <h3 id="sec-npi">Non-pharmaceutical interventions (NPIs)</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><a href="images/mask.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="images/mask.jpeg" style="width:70.0%"></a></p>
+<p><a href="images/screening.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="images/screening.jpeg" style="width:70.0%"></a></p>
+</div><div class="column" style="width:50%;">
 <ul>
 <li><p>Non-pharmaceutical interventions are measures that do not involve medical interventions.</p></li>
-<li><p>Examples:</p></li>
-<li><p>Quarantine,</p></li>
-<li><p>Physical/social distancing, and</p></li>
-<li><p>Mask-wearing.</p></li>
+<li><p>Examples:</p>
+<ul>
+<li>Quarantine,</li>
+<li>Physical/social distancing, and</li>
+<li>Mask-wearing.</li>
+</ul></li>
 </ul>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
@@ -617,7 +566,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/GeorgeEPBox.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="By DavidMCEddy at en.wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=115167166"><img data-src="images/GeorgeEPBox.jpeg" alt="By DavidMCEddy at en.wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=115167166"></a></p>
+<p><a href="images/GeorgeEPBox.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="By DavidMCEddy at en.wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=115167166"><img data-src="images/GeorgeEPBox.jpeg" alt="By DavidMCEddy at en.wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=115167166"></a></p>
 <figcaption>By DavidMCEddy at en.wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=115167166</figcaption>
 </figure>
 </div>
@@ -667,7 +616,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <li>“But the estimate proved to be off. Way, way off. Like, 65 times worse than what ended up happening.”</li>
 </ul>
 </div><div class="column" style="width:60%;">
-<p><a href="images/wrong_ebola_deaths_estimate.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="images/wrong_ebola_deaths_estimate.png" data-fig-cap="[CDC’s top modeler courts controversy with disease estimate](https://apnews.com/domestic-news-domestic-news-fbb4fc8921d54201a1c5ca91e5b601f5)"></a></p>
+<p><a href="images/wrong_ebola_deaths_estimate.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="images/wrong_ebola_deaths_estimate.png" data-fig-cap="[CDC’s top modeler courts controversy with disease estimate](https://apnews.com/domestic-news-domestic-news-fbb4fc8921d54201a1c5ca91e5b601f5)"></a></p>
 </div>
 </div>
 </section>
@@ -766,7 +715,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/infection_timeline.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)"><img data-src="images/infection_timeline.png" alt="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)"></a></p>
+<p><a href="images/infection_timeline.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)"><img data-src="images/infection_timeline.png" alt="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)"></a></p>
 <figcaption>Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)</figcaption>
 </figure>
 </div>
@@ -818,7 +767,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <h2>The Susceptible-Infected-Recovered (SIR) model</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="./images/model_diagrams/model_diagrams.001.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="./images/model_diagrams/model_diagrams.001.jpeg" class="quarto-figure quarto-figure-center" style="width:40.0%"></a></p>
+<p><a href="./images/model_diagrams/model_diagrams.001.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="./images/model_diagrams/model_diagrams.001.jpeg" class="quarto-figure quarto-figure-center" style="width:40.0%"></a></p>
 </figure>
 </div>
 <p>This model groups individuals into three <em>disease states</em>:</p>
@@ -832,7 +781,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 
 <h3 id="how-do-individuals-move-between-compartments">How do individuals move between compartments?</h3>
 <h4 id="process-1-transmission">Process 1: Transmission</h4>
-<p><a href="images/model_diagrams/model_diagrams.002.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="images/model_diagrams/model_diagrams.002.jpeg" style="width:70.0%"></a></p>
+<p><a href="images/model_diagrams/model_diagrams.002.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="images/model_diagrams/model_diagrams.002.jpeg" style="width:70.0%"></a></p>
 <p><span style="color:red;">What drives transmission?</span></p>
 </section>
 <section class="slide level2">
@@ -848,7 +797,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 </section>
 <section class="slide level2">
 
-<p><a href="images/model_diagrams/model_diagrams.002.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="images/model_diagrams/model_diagrams.002.jpeg" style="width:70.0%"></a></p>
+<p><a href="images/model_diagrams/model_diagrams.002.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img data-src="images/model_diagrams/model_diagrams.002.jpeg" style="width:70.0%"></a></p>
 <p>The transmission term is often defined through the <span style="color:tomato;">force of infection (FOI), <span class="math inline">\(\lambda\)</span></span>.</p>
 </section>
 <section class="slide level2">
@@ -939,14 +888,14 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 </section>
 <section class="slide level2">
 
-<p><a href="images/model_diagrams/model_diagrams.003.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="images/model_diagrams/model_diagrams.003.jpeg"></a></p>
+<p><a href="images/model_diagrams/model_diagrams.003.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img data-src="images/model_diagrams/model_diagrams.003.jpeg"></a></p>
 </section>
 <section class="slide level2">
 
 <h4 id="process-2-recovery">Process 2: Recovery</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/model_diagrams/model_diagrams.005.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="images/model_diagrams/model_diagrams.005.jpeg" class="quarto-figure quarto-figure-center" style="width:60.0%"></a></p>
+<p><a href="images/model_diagrams/model_diagrams.005.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img data-src="images/model_diagrams/model_diagrams.005.jpeg" class="quarto-figure quarto-figure-center" style="width:60.0%"></a></p>
 </figure>
 </div>
 <p><span style="color:tomato;">Recovery</span>, governed by the recovery rate, <span class="math inline">\(\gamma\)</span> (rate at which infected individuals recover and become immune).</p>
@@ -964,7 +913,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/epi_parameters.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Source: @anderson1982directly"><img data-src="images/epi_parameters.png" alt="Source: Anderson and May (1982)"></a></p>
+<p><a href="images/epi_parameters.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Source: @anderson1982directly"><img data-src="images/epi_parameters.png" alt="Source: Anderson and May (1982)"></a></p>
 <figcaption>Source: <span class="citation" data-cites="anderson1982directly">Anderson and May (<a href="#/references" role="doc-biblioref" onclick="">1982</a>)</span></figcaption>
 </figure>
 </div>
@@ -974,7 +923,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <h3 id="putting-it-all-together">Putting it all together</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/model_diagrams/model_diagrams.006.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="An SIR model with transmission rate, \beta, and recovery rate, \gamma."><img data-src="images/model_diagrams/model_diagrams.006.jpeg" style="width:80.0%" alt="An SIR model with transmission rate, \beta, and recovery rate, \gamma."></a></p>
+<p><a href="images/model_diagrams/model_diagrams.006.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="An SIR model with transmission rate, \beta, and recovery rate, \gamma."><img data-src="images/model_diagrams/model_diagrams.006.jpeg" style="width:80.0%" alt="An SIR model with transmission rate, \beta, and recovery rate, \gamma."></a></p>
 <figcaption>An SIR model with transmission rate, <span class="math inline">\(\beta\)</span>, and recovery rate, <span class="math inline">\(\gamma\)</span>.</figcaption>
 </figure>
 </div>
@@ -991,7 +940,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/model_diagrams/model_diagrams.006.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img data-src="images/model_diagrams/model_diagrams.006.jpeg" class="quarto-figure quarto-figure-center"></a></p>
+<p><a href="images/model_diagrams/model_diagrams.006.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img data-src="images/model_diagrams/model_diagrams.006.jpeg" class="quarto-figure quarto-figure-center"></a></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
@@ -1298,7 +1247,7 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 <h2>The Susceptible-Exposed-Infected-Recovered (SEIR) Model</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/infection_timeline.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Timeline of infection. Source: Keeling &amp; Rohani, 2008"><img data-src="images/infection_timeline.png" alt="Timeline of infection. Source: Keeling &amp; Rohani, 2008"></a></p>
+<p><a href="images/infection_timeline.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Timeline of infection. Source: Keeling &amp; Rohani, 2008"><img data-src="images/infection_timeline.png" alt="Timeline of infection. Source: Keeling &amp; Rohani, 2008"></a></p>
 <figcaption>Timeline of infection. Source: Keeling &amp; Rohani, 2008</figcaption>
 </figure>
 </div>
@@ -1309,13 +1258,13 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 <div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/corona_virus.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="The SARS-COV-2 virus"><img data-src="images/corona_virus.jpeg" alt="The SARS-COV-2 virus"></a></p>
+<p><a href="images/corona_virus.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="The SARS-COV-2 virus"><img data-src="images/corona_virus.jpeg" alt="The SARS-COV-2 virus"></a></p>
 <figcaption>The SARS-COV-2 virus</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/ebola_virus.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="The Ebola virus"><img data-src="images/ebola_virus.jpeg" alt="The Ebola virus"></a></p>
+<p><a href="images/ebola_virus.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="The Ebola virus"><img data-src="images/ebola_virus.jpeg" alt="The Ebola virus"></a></p>
 <figcaption>The Ebola virus</figcaption>
 </figure>
 </div>
@@ -1331,7 +1280,7 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><a href="images/model_diagrams/model_diagrams.007.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img data-src="images/model_diagrams/model_diagrams.007.jpeg"></a></p>
+<p><a href="images/model_diagrams/model_diagrams.007.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img data-src="images/model_diagrams/model_diagrams.007.jpeg"></a></p>
 </div><div class="column" style="width:50%;">
 <ul>
 <li>The SEIR model extends the SIR model to include an exposed compartment, <span style="color:blue;"><span class="math inline">\(E\)</span></span>.</li>
@@ -1345,7 +1294,7 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 
 <div class="columns">
 <div class="column" style="width:60%;">
-<p><a href="images/model_diagrams/model_diagrams.008.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img data-src="images/model_diagrams/model_diagrams.008.jpeg" style="width:80.0%"></a></p>
+<p><a href="images/model_diagrams/model_diagrams.008.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img data-src="images/model_diagrams/model_diagrams.008.jpeg" style="width:80.0%"></a></p>
 </div><div class="column" style="width:40%;">
 <p>Model equations: <span class="math display">\[\begin{align}
 \frac{dS}{dt} &amp; = -\beta S I \\
@@ -1368,7 +1317,7 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 <section class="slide level2">
 
 <p>Our model schematic now looks like this:</p>
-<p><a href="images/model_diagrams/model_diagrams.009.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img data-src="images/model_diagrams/model_diagrams.009.jpeg"></a></p>
+<p><a href="images/model_diagrams/model_diagrams.009.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img data-src="images/model_diagrams/model_diagrams.009.jpeg"></a></p>
 <aside class="notes">
 <p>Explain in terms of inflows and outflows</p>
 <style type="text/css">
@@ -1387,7 +1336,7 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><a href="images/model_diagrams/model_diagrams.009.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img data-src="images/model_diagrams/model_diagrams.009.jpeg"></a></p>
+<p><a href="images/model_diagrams/model_diagrams.009.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img data-src="images/model_diagrams/model_diagrams.009.jpeg"></a></p>
 </div><div class="column" style="width:50%;">
 <p>The model equations now become:</p>
 <p><span class="math display">\[\begin{align}
@@ -1408,7 +1357,7 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 </section>
 <section class="slide level2">
 
-<h3 id="the-r0-of-the-seir-model">The <span class="math inline">\(R0\)</span> of the SEIR Model</h3>
+<h3 id="the-r0-of-the-seir-model">The R0 of the SEIR Model</h3>
 <ul>
 <li><p>The method used to derive <span class="math inline">\(R0\)</span> in the SIR model is possible because it is easy to factor out <span class="math inline">\(I\)</span> from the equations.</p></li>
 <li><p>In more complex models, this approach becomes impossible to use.</p></li>
@@ -1498,7 +1447,6 @@ J = \begin{bmatrix}
 </section>
 <section class="slide level2">
 
-<h5 id="steps-to-determine-the-spectral-radius-contd">Steps to determine the Spectral Radius (cont’d)</h5>
 <ul>
 <li>Compute the Spectral Radius, <span class="math inline">\(\rho(A) = \max \{ |\lambda_1|, |\lambda_2|, \ldots, |\lambda_n|\)</span></li>
 </ul>
@@ -1592,6 +1540,7 @@ R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
 <section class="slide level2">
 
 <h3 id="numerical-simulations-1">Numerical simulations</h3>
+<h4 id="r-practicals">R Practicals</h4>
 <ul>
 <li><p>We can use the same approach as the SIR model to simulate the SEIR model.</p></li>
 <li><p>Let’s do a code walk though in R.</p></li>
@@ -1612,9 +1561,7 @@ R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<ul>
-<li>For a recap on the various control measures, refer to <a href="#/sec-control-measures" class="quarto-xref">Section&nbsp;1.2</a>.</li>
-</ul>
+<p>For a recap on the various control measures, refer to <a href="#/sec-control-measures" class="quarto-xref">Section&nbsp;1.2</a>.</p>
 </div>
 </div>
 </div>
@@ -1622,16 +1569,14 @@ R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
 <section id="vaccination" class="slide level2">
 <h2>Vaccination</h2>
 <div class="{callout-note}">
-<ul>
-<li>For a background on vaccination, refer to <a href="#/sec-vaccination" class="quarto-xref">Section&nbsp;1.2.1.1</a>.</li>
-</ul>
+<p>For a background on vaccination, refer to <a href="#/sec-vaccination" class="quarto-xref">Section&nbsp;1.2.1.1</a>.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div class="columns">
 <div class="column" style="width:40%;">
-<p><a href="images/vaccine.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img data-src="images/vaccine.jpeg" style="width:150.0%"></a></p>
+<p><a href="images/vaccine.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img data-src="images/vaccine.jpeg" style="width:150.0%"></a></p>
 </div><div class="column" style="width:60%;">
 <ul>
 <li>Vaccination is one of the most effective ways to control infectious diseases.</li>
@@ -1663,18 +1608,30 @@ R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
 <section class="slide level2">
 
 <h3 id="the-susceptible-exposed-infected-recovered-vaccinated-seirv-model">The Susceptible-Exposed-Infected-Recovered-Vaccinated (SEIRV) Model</h3>
+<p><a href="images/model_diagrams/model_diagrams.010.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img data-src="images/model_diagrams/model_diagrams.010.jpeg"></a></p>
+</section>
+<section class="slide level2">
+
 <div class="columns">
 <div class="column" style="width:40%;">
-<p><a href="images/model_diagrams/model_diagrams.003.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img data-src="images/model_diagrams/model_diagrams.003.png"></a></p>
+<p><a href="images/model_diagrams/model_diagrams.010.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img data-src="images/model_diagrams/model_diagrams.010.jpeg"></a></p>
 </div><div class="column" style="width:60%;">
 <ul>
-<li><p>The SEIRV model is simply the SEIR model with a vaccinated compartment, <span class="math inline">\(V\)</span>.</p></li>
-<li><p>The vaccinated compartment represents previously susceptible individuals who have been vaccinated and are immune to the disease.</p></li>
-<li><p>The vaccinated compartment is not infectious and does not move to the exposed or infectious compartments.</p></li>
-<li><p>The vaccinated compartment is replenished by the rate of vaccination, <span class="math inline">\(\eta\)</span>.</p></li>
+<li>The SEIRV model is simply the SEIR model with a vaccinated compartment, <span class="math inline">\(V\)</span>.</li>
+<li>The vaccinated compartment represents previously susceptible individuals who have been vaccinated and are immune to the disease.</li>
 </ul>
 </div>
 </div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>The vaccinated compartment is:</p>
+<ul>
+<li><p>not infectious and does not move to the exposed or infectious compartments.</p></li>
+<li><p>replenished by the rate of vaccination, <span class="math inline">\(\eta\)</span>.</p></li>
+</ul></li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -1682,14 +1639,14 @@ R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
 <div class="columns">
 <div class="column" style="width:40%;">
 <p><span class="math display">\[\begin{align}
-\frac{dS}{dt} &amp; = -\beta \frac{S I}{N} - \eta S \\
-\frac{dE}{dt} &amp; = \beta \frac{S I}{N} - \sigma E \\
+\frac{dS}{dt} &amp; = -\beta S I - \eta S \\
+\frac{dE}{dt} &amp; = \beta S I - \sigma E \\
 \frac{dI}{dt} &amp; = \sigma E - \gamma I \\
 \frac{dR}{dt} &amp; = \gamma I \\
 \frac{dV}{dt} &amp; = \eta S
 \end{align}\]</span></p>
 </div><div class="column" style="width:60%;">
-<p><a href="images/model_diagrams/model_diagrams.003.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img data-src="images/model_diagrams/model_diagrams.003.png"></a></p>
+<p><a href="images/model_diagrams/model_diagrams.010.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img data-src="images/model_diagrams/model_diagrams.010.jpeg"></a></p>
 </div>
 </div>
 <p>where <span class="math inline">\(\eta\)</span> is the rate of vaccination.</p>
@@ -1713,18 +1670,33 @@ R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
 <section class="slide level2">
 
 <h3 id="numerical-simulations-2">Numerical simulations</h3>
+<h4 id="r-practicals-1">R Practicals</h4>
 <ul>
 <li><p>We can use the same approach as the SIR and SEIR models to simulate the SEIRV model.</p></li>
-<li><p>Let’s do a code walk though in R.</p></li>
+<li><p>Let’s do a code walk through in R with the <code>02_seirv.Rmd</code> script.</p></li>
 </ul>
+<aside class="notes">
+<p>Students are to modify the <code>02_seir.Rmd</code> script to include vaccination.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="modelling-non-pharmaceutical-interventions-npis" class="slide level2">
-<h2>Modelling Non-Pharmaceutical Interventions (NPIs)</h2>
+<section id="non-pharmaceutical-interventions-npis" class="slide level2">
+<h2>Non-Pharmaceutical Interventions (NPIs)</h2>
 <div class="{callout-note}">
-<ul>
-<li>For a background on non-pharmaceutical interventions, refer to <a href="#/sec-npi" class="quarto-xref">Section&nbsp;1.2.2</a>.</li>
-</ul>
+<p>For a background on non-pharmaceutical interventions, refer to <a href="#/sec-npi" class="quarto-xref">Section&nbsp;1.2.2</a>.</p>
 </div>
+</section>
+<section class="slide level2">
+
 <ul>
 <li><p>Conceptually, NPIs usually act to either reduce the transmission rate, <span class="math inline">\(\beta\)</span> or prevent infected individuals from transmitting.</p></li>
 <li><p>NPIs like quarantine, social distancing and movement restrictions can reduce the transmission rate, <span class="math inline">\(\beta\)</span>, by reducing the contact rate between susceptible and infectious individuals.</p></li>
@@ -1767,156 +1739,16 @@ R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
 </ul>
 <p><span class="math display">\[\begin{align*}
 \beta(t) = \begin{cases}
-\beta &amp; \text{if } t &lt; t_{\test{npi_start}} | t &gt; t_{\test{npi_end}} \\
-(1 - \epsilon) \beta &amp; \text{if } t_{\test{npi_start}} \le t \le t_{\test{npi_end}}
+\beta &amp; \text{if } t &lt; t_{\text{npi_start}} | t &gt; t_{\text{npi_end}} \\
+(1 - \epsilon) \beta &amp; \text{if } t_{\text{npi_start}} \le t \le t_{\text{npi_end}}
 \end{cases}
 \end{align*}\]</span></p>
 </section>
 <section class="slide level2">
 
+<h4 id="r-practicals-2">R Practicals</h4>
 <ul>
-<li><p>Let’s translate this to R code.</p></li>
-<li><p>We will build on our previous SIR model code and modify it to include the time-varying transmission rate.</p></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p>We will start with the main model function.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="1-4,6-12|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Define the SIR model differential equations</span></span>
-<span id="cb1-2"><a href=""></a>sir_with_npi <span class="ot">&lt;-</span> <span class="cf">function</span>(time, state, parameters) {</span>
-<span id="cb1-3"><a href=""></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parameters)), {</span>
-<span id="cb1-4"><a href=""></a>    <span class="co"># Time-varying transmission rate</span></span>
-<span id="cb1-5"><a href=""></a>    beta <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(time <span class="sc">&lt;</span> t_NPI_start <span class="sc">|</span> time <span class="sc">&gt;</span> t_NPI_end, beta_0, (<span class="dv">1</span> <span class="sc">-</span> epsilon) <span class="sc">*</span> beta_0)</span>
-<span id="cb1-6"><a href=""></a>    <span class="co"># SIR model</span></span>
-<span id="cb1-7"><a href=""></a>    dS <span class="ot">&lt;-</span> <span class="sc">-</span>beta <span class="sc">*</span> S <span class="sc">*</span> I <span class="sc">/</span> N</span>
-<span id="cb1-8"><a href=""></a>    dI <span class="ot">&lt;-</span> beta <span class="sc">*</span> S <span class="sc">*</span> I <span class="sc">/</span> N <span class="sc">-</span> gamma <span class="sc">*</span> I</span>
-<span id="cb1-9"><a href=""></a>    dR <span class="ot">&lt;-</span> gamma <span class="sc">*</span> I</span>
-<span id="cb1-10"><a href=""></a>    <span class="fu">list</span>(<span class="fu">c</span>(dS, dI, dR))</span>
-<span id="cb1-11"><a href=""></a>  })</span>
-<span id="cb1-12"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section class="slide level2">
-
-<p>Next, we will define the parameters and initial conditions. Note that we will also define the time at which the NPI is implemented, <code>t_NPI_start</code> and <code>t_NPI_end</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># The initial conditions</span></span>
-<span id="cb2-2"><a href=""></a>N  <span class="ot">&lt;-</span> <span class="dv">1000</span>  <span class="co"># Population size</span></span>
-<span id="cb2-3"><a href=""></a><span class="co"># Initial conditions for S, I, R</span></span>
-<span id="cb2-4"><a href=""></a>inits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">S =</span> N <span class="sc">-</span> <span class="dv">1</span>, <span class="at">I =</span> <span class="dv">1</span>, <span class="at">R =</span> <span class="dv">0</span>)</span>
-<span id="cb2-5"><a href=""></a></span>
-<span id="cb2-6"><a href=""></a><span class="co"># Parameters</span></span>
-<span id="cb2-7"><a href=""></a>R0 <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb2-8"><a href=""></a>infectious_period <span class="ot">&lt;-</span> <span class="dv">7</span></span>
-<span id="cb2-9"><a href=""></a><span class="co"># Remember gamma = 1/ infectious_period as discussed earlier</span></span>
-<span id="cb2-10"><a href=""></a>gamma <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>infectious_period </span>
-<span id="cb2-11"><a href=""></a></span>
-<span id="cb2-12"><a href=""></a><span class="co"># We will use R0 = beta N / gamma  instead because it is easier to interpret.</span></span>
-<span id="cb2-13"><a href=""></a><span class="co"># beta is not directly interpretable because it is a composite of a number of factors.</span></span>
-<span id="cb2-14"><a href=""></a>params <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb2-15"><a href=""></a>  <span class="at">beta_0 =</span> R0 <span class="sc">*</span> gamma <span class="sc">/</span> N,</span>
-<span id="cb2-16"><a href=""></a>  <span class="at">gamma =</span> gamma,</span>
-<span id="cb2-17"><a href=""></a>  <span class="at">epsilon =</span> <span class="fl">5E-4</span></span>
-<span id="cb2-18"><a href=""></a>)</span>
-<span id="cb2-19"><a href=""></a></span>
-<span id="cb2-20"><a href=""></a><span class="co"># Time steps to return results</span></span>
-<span id="cb2-21"><a href=""></a>dt <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">150</span></span>
-<span id="cb2-22"><a href=""></a></span>
-<span id="cb2-23"><a href=""></a><span class="co"># Time at which the NPI is implemented</span></span>
-<span id="cb2-24"><a href=""></a>npi_times <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">t_NPI_start =</span> <span class="dv">30</span>, <span class="at">t_NPI_end =</span> <span class="dv">51</span>) <span class="co"># 21 days of NPI  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section class="slide level2">
-
-<p>Now, let’s solve the model equations.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Load necessary packages</span></span>
-<span id="cb3-2"><a href=""></a><span class="fu">library</span>(deSolve)</span>
-<span id="cb3-3"><a href=""></a><span class="co"># Integrate the SIR equations over the time grid</span></span>
-<span id="cb3-4"><a href=""></a>output <span class="ot">&lt;-</span> <span class="fu">lsoda</span>(</span>
-<span id="cb3-5"><a href=""></a>  <span class="at">y =</span> inits,</span>
-<span id="cb3-6"><a href=""></a>  <span class="at">times =</span> dt,</span>
-<span id="cb3-7"><a href=""></a>  <span class="at">func =</span> sir_with_npi,</span>
-<span id="cb3-8"><a href=""></a>  <span class="at">parms =</span> <span class="fu">c</span>(params, npi_times)</span>
-<span id="cb3-9"><a href=""></a>)</span>
-<span id="cb3-10"><a href=""></a></span>
-<span id="cb3-11"><a href=""></a><span class="co"># Convert the output to a data frame</span></span>
-<span id="cb3-12"><a href=""></a>output_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(output)</span>
-<span id="cb3-13"><a href=""></a><span class="fu">head</span>(output_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  time        S         I         R
-1    1 999.0000 1.0000000 0.0000000
-2    2 998.9973 0.8693567 0.1333068
-3    3 998.9950 0.7557805 0.2491984
-4    4 998.9930 0.6570417 0.3499502
-5    5 998.9913 0.5712029 0.4375391
-6    6 998.9897 0.4965784 0.5136850</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<p>What do you observe in the output?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># Load necessary packages</span></span>
-<span id="cb5-2"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb5-3"><a href=""></a><span class="co"># Convert the output to long format</span></span>
-<span id="cb5-4"><a href=""></a>output_df <span class="ot">&lt;-</span> output_df <span class="sc">|&gt;</span> <span class="fu">pivot_longer</span>(</span>
-<span id="cb5-5"><a href=""></a>  <span class="at">cols =</span> <span class="sc">-</span>time,</span>
-<span id="cb5-6"><a href=""></a>  <span class="at">names_to =</span> <span class="st">"compartment"</span>,</span>
-<span id="cb5-7"><a href=""></a>  <span class="at">values_to =</span> <span class="st">"value"</span></span>
-<span id="cb5-8"><a href=""></a>)</span>
-<span id="cb5-9"><a href=""></a><span class="co"># Plot the data using ggplot2</span></span>
-<span id="cb5-10"><a href=""></a>sir_npi_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
-<span id="cb5-11"><a href=""></a>  <span class="at">data =</span> output_df,</span>
-<span id="cb5-12"><a href=""></a>  <span class="fu">aes</span>(</span>
-<span id="cb5-13"><a href=""></a>    <span class="at">x =</span> time,</span>
-<span id="cb5-14"><a href=""></a>    <span class="at">y =</span> value,</span>
-<span id="cb5-15"><a href=""></a>    <span class="at">color =</span> compartment</span>
-<span id="cb5-16"><a href=""></a>  )) <span class="sc">+</span></span>
-<span id="cb5-17"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb5-18"><a href=""></a>  <span class="co"># Add a vertical line to indicate the times of NPI implementation</span></span>
-<span id="cb5-19"><a href=""></a>  <span class="fu">geom_vline</span>(</span>
-<span id="cb5-20"><a href=""></a>    <span class="at">xintercept =</span> npi_times[<span class="st">"t_NPI_start"</span>],</span>
-<span id="cb5-21"><a href=""></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb5-22"><a href=""></a>    <span class="at">color =</span> <span class="st">"black"</span></span>
-<span id="cb5-23"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb5-24"><a href=""></a>  <span class="fu">geom_vline</span>(</span>
-<span id="cb5-25"><a href=""></a>    <span class="at">xintercept =</span> npi_times[<span class="st">"t_NPI_end"</span>],</span>
-<span id="cb5-26"><a href=""></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb5-27"><a href=""></a>    <span class="at">color =</span> <span class="st">"black"</span></span>
-<span id="cb5-28"><a href=""></a>  ) <span class="sc">+</span> </span>
-<span id="cb5-29"><a href=""></a>  <span class="co"># Add labels</span></span>
-<span id="cb5-30"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-31"><a href=""></a>    <span class="at">title =</span> <span class="st">"SIR Model with NPI"</span>,</span>
-<span id="cb5-32"><a href=""></a>    <span class="at">x =</span> <span class="st">"Time (days)"</span>,</span>
-<span id="cb5-33"><a href=""></a>    <span class="at">y =</span> <span class="st">"Number of individuals"</span>,</span>
-<span id="cb5-34"><a href=""></a>    <span class="at">color =</span> <span class="st">"Compartment"</span></span>
-<span id="cb5-35"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb5-36"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section class="slide level2">
-
-<p>Let’s plot the results.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">plot</span>(sir_npi_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><a href="slides_files/figure-revealjs/sir-npi-beta-plot-show-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img data-src="slides_files/figure-revealjs/sir-npi-beta-plot-show-1.png" width="960"></a></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<h4 id="scenarios-with-reduced-transmission-rate">Scenarios with reduced transmission rate</h4>
-<ul>
-<li><p>We can use the same approach as the SIR model to simulate the model with a reduced transmission rate.</p></li>
-<li><p>Let’s do a code walk though in R.</p></li>
+<li>Let’s open the script file <code>02_sir_npi.R</code> and follow along.</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -1947,8 +1779,8 @@ R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
 
 <p>The modified SIR model with quarantine is as follows:</p>
 <p><span class="math display">\[\begin{align*}
-\frac{dS}{dt} &amp; = -\beta \frac{S I}{N} \\
-\frac{dI}{dt} &amp; = \beta \frac{S I}{N} - \gamma I - \delta I \\
+\frac{dS}{dt} &amp; = -\beta S I \\
+\frac{dI}{dt} &amp; = \beta S I - \gamma I - \delta I \\
 \frac{dR}{dt} &amp; = \gamma I + \tau Q \\
 \frac{dQ}{dt} &amp; = \delta I - \tau Q
 \end{align*}\]</span></p>
@@ -2130,10 +1962,10 @@ R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="images/Anderson_and_May.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img data-src="images/Anderson_and_May.jpeg"></a></p>
+<p><a href="images/Anderson_and_May.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img data-src="images/Anderson_and_May.jpeg"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="images/ID_modelling_Vynnycky_and_White.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img data-src="images/ID_modelling_Vynnycky_and_White.jpeg"></a></p>
+<p><a href="images/ID_modelling_Vynnycky_and_White.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-29"><img data-src="images/ID_modelling_Vynnycky_and_White.jpeg"></a></p>
 </div>
 </div>
 </div>
@@ -2146,10 +1978,10 @@ R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma}
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="images/Rohani_and_Keeling.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img data-src="images/Rohani_and_Keeling.jpeg"></a></p>
+<p><a href="images/Rohani_and_Keeling.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img data-src="images/Rohani_and_Keeling.jpeg"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="images/Epidemics_Ottar.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img data-src="images/Epidemics_Ottar.jpg"></a></p>
+<p><a href="images/Epidemics_Ottar.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-31"><img data-src="images/Epidemics_Ottar.jpg"></a></p>
 </div>
 </div>
 </div>
@@ -2681,6 +2513,7 @@ Kermack, William Ogilvy, and Anderson G McKendrick. 1927. <span>“A Contributio
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
 =======
     <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false});
@@ -2724,6 +2557,9 @@ Kermack, William Ogilvy, and Anderson G McKendrick. 1927. <span>“A Contributio
 =======
     <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":false,"closeEffect":"zoom","openEffect":"zoom"});
 >>>>>>> 1668dca (Update slides)
+=======
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom"});
+>>>>>>> a246ffd (Improve slides with images)
     (function() {
       let previousOnload = window.onload;
       window.onload = () => {

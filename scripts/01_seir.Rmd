@@ -21,33 +21,34 @@ The SEIR model is a simple compartmental model used to describe the spread of in
 
 ## Note the following
 
-- For the model equations, refer to the slides.
-- The script on SIR models contains in-depth explanations of coding choices made here, so refer to them if anything looks confusing. If you're not satisfied with the explanations, feel free to ask questions.
+-   For the model equations, refer to the slides.
+-   The script on SIR models contains in-depth explanations of coding choices made here, so refer to them if anything looks confusing. If you're not satisfied with the explanations, feel free to ask questions.
 
 ## The model function
 
 Let's start by defining the model equations.
 
-Recall that the model equations for the SIR model are given by:
+Recall that the model equations for the SEIR model are given by:
 
+```{=tex}
 \begin{align}
 \frac{dS}{dt} & = \color{green}{\mu N} - \beta S I - \color{blue}{\mu} S \\
 \frac{dE}{dt} & = \beta S I - \sigma E - \color{blue}{\mu} E \\
 \frac{dI}{dt} & = \sigma E - \gamma I - \color{blue}{\mu} I \\
 \frac{dR}{dt} & = \gamma I - \color{blue}{\mu} R
 \end{align}
-
+```
 where:
 
-- $S$ is the number of susceptible individuals,
-- $E$ is the number of exposed individuals,
-- $I$ is the number of infectious individuals,
-- $R$ is the number of recovered individuals,
-- $\beta$ is the transmission rate,
-- $\sigma$ is the rate of progression from exposed to infectious,
-- $\gamma$ is the recovery rate,
-- $\mu$ is the birth and death rate,
-- $N$ is the total population.
+-   $S$ is the number of susceptible individuals,
+-   $E$ is the number of exposed individuals,
+-   $I$ is the number of infectious individuals,
+-   $R$ is the number of recovered individuals,
+-   $\beta$ is the transmission rate,
+-   $\sigma$ is the rate of progression from exposed to infectious,
+-   $\gamma$ is the recovery rate,
+-   $\mu$ is the birth and death rate,
+-   $N$ is the total population.
 
 The model function in R is defined as follows:
 
@@ -86,9 +87,10 @@ mu <- 774835 / (65640000 * 365)
 params <- c(beta, sigma, gamma, mu)
 ```
 
-## Initial conditions and time steps
+## Initial conditions
 
 We will assume the outbreak starts with $0.1$ infectious individuals, $0.1$ exposed individuals, and $0$ recovered individuals. The population is completely susceptible at the start of the simulation, so the number of susceptible individuals is $N - E(0) - I(0) - R(0)$.
+
 ```{r seir-init}
 N <- 1
 E_0 <- 0.1
@@ -105,9 +107,9 @@ inits <- c(S = N - (E_0 + I_0 + R_0), E = E_0, I = I_0, R = R_0)
 dt <- 1:365
 ```
 
-# Solve system using lsoda
+## Solving the model
 
-```{r seir-solve} 
+```{r seir-solve}
 seir_results <- deSolve::lsoda(
   y = inits,
   times = dt,
@@ -122,6 +124,7 @@ seir_results <- as.data.frame(seir_results)
 Now, let's plot the results.
 
 We will use the `ggplot2` package to plot the results. We will reshape the data to long format to make it easier to plot. For this, we will use the `pivot_longer()` function from the `tidyr` package.
+
 ```{r seir-model-plot}
 # Load the necessary libraries
 library(ggplot2)
@@ -153,8 +156,8 @@ plot(seir_plot)
 
 ## Exercise
 
-- Can you interpret the plot?
-- What influence does the birth and death rate have on the dynamics of the model?
-- What happens if the birth and death rate is set to zero?
-- What happens if the birth and death rate is set to a very high value?
-- What happens if the birth and death rate is set to a value higher than the recovery rate?
+-   Can you interpret the plot?
+-   What influence does the birth and death rate have on the dynamics of the model?
+-   What happens if the birth and death rate is set to zero?
+-   What happens if the birth and death rate is set to a very high value?
+-   What happens if the birth and death rate is set to a value higher than the recovery rate?

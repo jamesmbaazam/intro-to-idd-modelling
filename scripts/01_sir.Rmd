@@ -85,7 +85,7 @@ params <- c(
 ```
 
 
-## Initial conditions and time steps
+## Initial conditions
 
 Due to numerical stability issues, we will specify the populations as proportions and assume they sum up to $1$. We will then scale the populations to the actual population size after obtaining the results.
 
