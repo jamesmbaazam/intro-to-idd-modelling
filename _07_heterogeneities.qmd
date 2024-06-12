@@ -1,0 +1,55 @@
+-   The models we have discussed so far assume that all individuals in the population are identical.
+
+-   However, in reality, individuals differ in their susceptibility to infection and their ability to transmit the disease.
+
+-   It is essential to capture this heterogeneity in the models in order for the models to be more realistic and useful for decision-making.
+
+------------------------------------------------------------------------
+
+-   This can be captured by incorporating heterogeneity into the models.
+
+-   Heterogeneity is often captured by stratifying the population into different groups.
+
+------------------------------------------------------------------------
+
+## Age structure
+
+-   For many infectious diseases, the risk of infection and the severity of the disease vary by age.
+
+-   Hence, it is essential to capture age structure in the models.
+
+-   To do this, we divide the population into different age groups and model the disease dynamics within each age group.
+
+-   Let's extend the SIR model to include age structure.
+
+------------------------------------------------------------------------
+
+-   We will divide the population into $n$ age groups.
+
+-   Because the homogeneous model has 3 compartments, the age structured one will have $3n$ compartments: $S_1, I_1, R_1, S_2, I_2, R_2, ..., S_n, I_n, R_n$.
+
+------------------------------------------------------------------------
+
+-   The (compact) model equations are as follows:
+
+\begin{align*}
+\dfrac{dS_i}{dt} &= -\sum_{j=1}^{n} \beta_{ji} S_i I_j \\
+\dfrac{dI_i}{dt} &= \sum_{j=1}^{n} \beta_{ji} S_i I_j - \gamma I_i \\
+\dfrac{dR_i}{dt} &= \gamma I_i
+\end{align*}
+
+------------------------------------------------------------------------
+
+-   The model can be used to study the impact of age structure on the dynamics of the epidemic.
+
+-   For example, we can study the impact of vaccinating different age groups on the dynamics of the epidemic.
+
+------------------------------------------------------------------------
+
+## Other Heterogeneities
+
+-   Other forms of heterogeneity that can be incorporated into the models include:
+    -   Spatial heterogeneity
+    -   Temporal heterogeneity
+    -   Contact heterogeneity
+    -   Heterogeneity in host behavior

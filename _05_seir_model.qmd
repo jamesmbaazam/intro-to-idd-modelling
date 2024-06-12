@@ -1,0 +1,132 @@
+![Timeline of infection. Source: Keeling & Rohani, 2008](images/infection_timeline.png)
+
+------------------------------------------------------------------------
+
+::: columns
+::: {.column width="30%"}
+![The SARS-COV-2 virus](images/corona_virus.jpeg)
+
+![The Ebola virus](images/ebola_virus.jpeg)
+:::
+
+::: {.column width="70%"}
+-   Some diseases have an [latent/exposed period]{style="color:tomato;"} during which individuals are [infected but not yet infectious]{style="color:tomato;"}. Examples include pertussis, COVID-19, and Ebola.
+-   Disease transmission does not occur during the latent period because of low levels of the virus in the host.
+:::
+:::
+
+------------------------------------------------------------------------
+
+![](images/model_diagrams/model_diagrams.007.jpeg)
+
+------------------------------------------------------------------------
+
+::: columns
+::: {.column width="50%"}
+![](images/model_diagrams/model_diagrams.007.jpeg)
+:::
+
+::: {.column width="50%"}
+-   The SEIR model extends the SIR model to include an exposed compartment, [$E$]{style="color:blue;"}.
+-   [$E$]{style="color:blue;"}: infected but are not yet infectious.
+-   Individuals stay in [$E$]{style="color:blue;"} for [$1/\sigma$]{style="color:blue;"} days before moving to $I$.
+:::
+:::
+
+------------------------------------------------------------------------
+
+::: columns
+::: {.column width="60%"}
+![](images/model_diagrams/model_diagrams.008.jpeg){width="80%"}
+:::
+
+::: {.column width="40%"}
+Model equations: \begin{align*}
+\frac{dS}{dt} & = -\beta S I \\
+\frac{dE}{dt} & = \beta S I - \color{orange}{\sigma E} \\
+\frac{dI}{dt} & = \color{orange}{\sigma E} - \gamma I \\
+\frac{dR}{dt} & = \gamma I
+\end{align*}
+:::
+:::
+
+------------------------------------------------------------------------
+
+### SEIR model with births and deaths
+
+-   Let's relax the assumption about births and deaths in the population.
+
+-   We will assume that the susceptible population is replenished with new individuals at a constant rate, $\mu$.
+
+-   We will also assume that everyone dies at a constant rate, $\mu$.
+
+------------------------------------------------------------------------
+
+Our model schematic now looks like this:
+
+![](images/model_diagrams/model_diagrams.009.jpeg)
+
+::: notes
+Explain in terms of inflows and outflows
+:::
+
+------------------------------------------------------------------------
+
+::: columns
+::: {.column width="50%"}
+![](images/model_diagrams/model_diagrams.009.jpeg)
+:::
+
+::: {.column width="50%"}
+The model equations now become:
+
+```{=tex}
+\begin{align}
+\frac{dS}{dt} & = \color{green}{\mu N} - \beta S I - \color{blue}{\mu} S \\
+\frac{dE}{dt} & = \beta S I - \sigma E - \color{blue}{\mu} E \\
+\frac{dI}{dt} & = \sigma E - \gamma I - \color{blue}{\mu} I \\
+\frac{dR}{dt} & = \gamma I - \color{blue}{\mu} R
+\end{align}
+```
+:::
+:::
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- #### Practicals -->
+
+<!-- -   Let's implement the SEIR model in R using the script `02_seir.Rmd`. -->
+
+------------------------------------------------------------------------
+
+::: {.callout-caution collapse="true" icon="false"}
+#### Discussion
+
+What is the $R0$ of the SEIR model?
+:::
+
+------------------------------------------------------------------------
+
+### The R0 of the SEIR Model
+
+-   Beyond the SIR model, calculating $R0$ for more complex models can be challenging due to the presence of multiple compartments.
+
+-   For complex models, we use the [next generation matrix]{style="color:tomato;"} approach [@diekmann1990definition; @diekmann2010construction].
+
+::: {.callout-note collapse="true" icon="false"}
+Using the next generation matrix approach, we can show that the SEIR model with constant births and deaths has $$R0 = \dfrac{\beta \sigma}{(\gamma + \mu)(\sigma + \mu)}$$.
+:::
+
+------------------------------------------------------------------------
+
+<!-- {{< include _05_01_next_generation_matrix.qmd >}} -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+### Numerical simulations
+
+#### R Practicals
+
+-   We can use the same approach as the SIR model to simulate the SEIR model.
+
+-   Modify the `sir.Rmd` script to simulate the SEIR model.

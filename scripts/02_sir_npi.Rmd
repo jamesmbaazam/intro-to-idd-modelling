@@ -59,7 +59,7 @@ infectious_period <- 7
 # Remember gamma = 1/ infectious_period as discussed earlier
 gamma <- 1/infectious_period 
 beta_0 <- 0.25
-epsilon <- 0.005
+epsilon <- 0.5
 
 # Combine the parameters
 parms <- c(
@@ -69,8 +69,8 @@ parms <- c(
 )
 ```
 
-
 ## Time steps to return results
+
 ```{r model-time}
 dt <- 1:365
 ```
@@ -79,10 +79,10 @@ dt <- 1:365
 
 ```{r npi-time}
 # Time at which the NPI is implemented
-npi_times <- c(t_NPI_start = 30, t_NPI_end = 51) # 21 days of NPI  
+npi_times <- c(t_NPI_start = 10, t_NPI_end = 51) # 21 days of NPI  
 ```
 
----
+------------------------------------------------------------------------
 
 ## Solving the model
 
@@ -104,7 +104,7 @@ output_df <- as.data.frame(output)
 head(output_df)
 ```
 
----
+------------------------------------------------------------------------
 
 ### Plotting the results
 
@@ -153,7 +153,7 @@ plot(sir_npi_plot)
 
 ## Exercise
 
-- What do you observe when you change the value of `epsilon`?
-- What do you observe when you change the start and end times of the npi?
-- Would you recommend longer NPIs with smaller values of `epsilon` or shorter NPIs with larger values of `epsilon`?
-- How would you make this model more realistic?
+-   What do you observe when you change the value of `epsilon`?
+-   What do you observe when you change the start and end times of the npi?
+-   Would you recommend longer NPIs with smaller values of `epsilon` or shorter NPIs with larger values of `epsilon`?
+-   How would you make this model more realistic?

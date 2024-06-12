@@ -6,8 +6,4 @@ We will be using the `{deSolve}` package to solve the model equations. The `{deS
 
 Here, we will use the `lsoda()` function from the `{deSolve}` package to solve the SIR model. The `lsoda()` function is a wrapper for the Livermore Solver for Ordinary Differential Equations (LSODA) developed by Hindmarsh and Petzold. It is a robust and efficient solver for stiff and non-stiff differential equations.
 
-The `lsoda()` function takes, among others, the following arguments:
-- `func`: the model function that defines the differential equations,
-- `times`: the time points at which to return results,
-- `y`: the initial conditions, and
-- `parms`: the parameters of the model.
+The `lsoda()` function takes, among others, the following arguments: - `func`: the model function that defines the differential equations, - `times`: the time points at which to return results, - `y`: the initial conditions, and - `parms`: the parameters of the model.
