@@ -1,544 +1,101 @@
 ---
 title: "Introduction to Infectious Disease Modelling"
-author: "James Mba Azam, PhD"
+author:
+  - name: "James Mba Azam, PhD"
+    orcid: 0000-0001-5782-7330
+    email: james.azam@lshtm.ac.uk
+    affiliation: 
+      - name: Epiverse-TRACE Initiative, London School of Hygiene and Tropical Medicine, UK
+        city: London, United Kingdom
+date: "last-modified"
 execute:
   echo: true
-# format: clean-revealjs
+  freeze: auto
 format:
-  revealjs: 
-    theme: solarized
-    slide-number: true
-    scrollable: true
-    chalkboard: true
-revealjs-plugins:
-  - revealjs-text-resizer
+  beamer:
+    navigation: horizontal
+    theme: metropolis
+    institute: Epiverse-TRACE Initiative, London School of Hygiene and Tropical Medicine, UK
+    orcid: 0000-0001-5782-7330
+    email: james.azam@lshtm.ac.uk
+# format:
+#   revealjs:
+#     theme: [solarized, custom.scss]
+#     slide-number: true
+#     scrollable: true
+#     chalkboard: true
+#     toc: true
+#     toc-depth: 1
+transition: fade
+lightbox: true
+progress: true
+code-copy: true
+# revealjs-plugins:
+#   - revealjs-text-resizer
 bibliography: references.bib
 link-citations: true
 engine: knitr
+editor_options: 
+  chunk_output_type: console
 ---
 
 # An overview of infectious diseases
 
-## What are infectious diseasess
-
-::: columns
-::: {.column width="30%"}
-![Generic definition of a disease (source: Merriam Webster)](images/disease_definition.png){.lightbox}
-:::
-
-::: {.column width="70%"}
-Depending on what we care about, we can classify diseases according to:
-
--   Cause (e.g., infectious, non-infectious)
--   Duration (e.g., acute, chronic)
--   Mode of transmission (direct or indirect)
--   Impact on the host (e.g., fatal, non-fatal)
-
-Note that these classifications are not mutually exclusive. Hence, a disease can be classified under more than one category at a time.
-:::
-:::
-
-## How are infectious diseases controlled?
-
--   In general, infectious disease control aims to reduce disease transmission.
--   The type of control used depends on the disease and its characteristics.
--   Broadly, there are two main types of control measures:
-    -   Pharmaceutical interventions (PIs)
-    -   Non-pharmaceutical interventions (NPIs)
-
-------------------------------------------------------------------------
-
-### Pharmaceutical interventions (PIs)
-
--   Pharmaceutical Interventions are medical interventions that target the pathogen or the host.
-
--   Examples:
-
-    -   Vaccines,
-    -   Antiviral drugs, and
-    -   Antibiotics.
-
-------------------------------------------------------------------------
-
-### Vaccination
-
--   Most effective way to prevent infectious diseases.
--   Activates the host's immune system to produce antibodies against the pathogen.
--   Generally applied prophylactically to susceptible individuals (before infection); this reduces the risk of infection and disease.
--   Challenges:
-    -   Take time to develop for new pathogens
-    -   Never 100% effective and limited duration of protection
-    -   Adverse side effects
-    -   Some individuals cannot be vaccinated or refuce vaccination
-    -   Some pathogens mutate rapidly (e.g., influenza virus)
-
-------------------------------------------------------------------------
-
-### Non-pharmaceutical interventions (NPIs)
-
--   Non-pharmaceutical interventions are measures that do not involve medical interventions.
-
--   Examples:
-
-    -   Quarantine,
-    -   Physical/social distancing, and
-    -   Mask-wearing.
-
-------------------------------------------------------------------------
-
-### Quarantine
-
--   *Isolation of individuals who may have been exposed to a contagious disease*.
--   Advantage is that it's simple and its effectiveness does not depend on the disease.
--   Disadvantages include:
-    -   Infringement on individual rights
-    -   Can be difficult to enforce
-    -   Can be costly
-    -   Can lead to social stigma
-
-[What type of intervention is contact tracing?]{style="color:red;"}
-
-------------------------------------------------------------------------
-
-### Contact tracing
-
--   Contact tracing is not necessarily an NPI but is often used to identify likely infected individuals.
--   It involves identifying, assessing, and managing people who have been exposed to a contagious disease to prevent further transmission.
--   It is a critical component of infectious disease surveillance and is often used in combination with other control measures.
-
-------------------------------------------------------------------------
-
-[How do we quantify the impact of a control measure?]{style="color:red;"}
+{{< include _01_infectious_diseases_overview.qmd >}}
 
 # Infectious disease models
 
-## What are infectious disease models?
-
--   [*Models*]{style="color:red;"} generally refer to conceptual representations of an object or system.
--   [*Mathematical models*]{style="color:red;"} use mathematics to represent the description of the system.
--   [*Infectious disease models*]{style="color:red;"} use mathematics/statistics to represent dynamics/spread of infectious diseases.
-
-------------------------------------------------------------------------
-
--   Mathematical models can be used to link the biological process of disease transmission and the emergent dynamics of infection at the population level.
--   Models require making some assumptions and abstractions.
--   By definition, "all models are wrong, but some are useful" [@Box1979].
-    -   Good enough models are those that capture the essential features of the system being studied.
--   "Wrong" here means that models are simplifications of reality and do not capture all the complexities of the system being studied. It does not mean that models are useless.
-
-------------------------------------------------------------------------
-
-\<Insert example of some models and their assumptions and what makes them "wrong"\>
-
-------------------------------------------------------------------------
-
-## (Conflicting) Factors that influence model formulation/choice
-
--   Accuracy: how well does the model to reproduce observed data and predict future outcomes?
--   Transparency: is it easy to understand and interpret the model and its outputs? (This is affected by the model's complexity)
--   Flexibility: the ability of the model to be adapted to different scenarios.
-
-## What are models used for?
-
--   Generally, models can be used to predict and understand/explain the dynamics of infectious diseases.
-
-[How are these two uses impacted by accuracy, transparency, and flexibility?]{style="color:red;"}
-
-------------------------------------------------------------------------
-
-### Modelling to predict the future course
-
-::: columns
-::: {.column width="40%"}
--   Must be [accurate]{style="color:red;"} else they will provide an incorrect outlook of the future.
--   Example of the [prediction of Ebola deaths](https://apnews.com/domestic-news-domestic-news-fbb4fc8921d54201a1c5ca91e5b601f5) during the outbreak in West Africa in 2014/2015.
--   "But the estimate proved to be off. Way, way off. Like, 65 times worse than what ended up happening."
-:::
-
-::: {.column width="60%"}
-![Controversy over estimates of Ebola deaths](images/wrong_ebola_deaths_estimate.png){.lightbox}
-:::
-:::
-
-------------------------------------------------------------------------
-
-\< Insert examples of models that have made accurate predictions of the future course of an outbreak \>
-
-------------------------------------------------------------------------
-
-### Modelling to understand or explain
-
--   Models can be used to understand how a disease spreads and how its spread can be controlled.
--   The insights gained from models can be used to:
-    -   inform public health policy and interventions.
-    -   design interventions to control the spread of the disease, for example, randomised controlled trials.
-    -   collect new data.
-    -   build predictive models.
-
-------------------------------------------------------------------------
-
-\< Insert examples of models that explain the spread and dynamics of infectious diseases \>
-
-\< Insert examples of models that evaluate the impact of interventions and determine the next course of action \>
-
-------------------------------------------------------------------------
-
-## Limitations of infectious disease models
-
--   Host behaviour is often difficult to predict.
--   The pathogen often has unknown characteristics or known characteristics that are difficult to model.
--   Data is often not available or is of poor quality.
-
-------------------------------------------------------------------------
-
--   Models:
-    -   Simplifications of reality and do not capture all the complexities of the system being studied.
-    -   Only as good as the data used to parameterize them.
-    -   Can be sensitive to the assumptions made during their formulation.
-    -   Can be computationally expensive and require a lot of data to run.
-    -   Can be difficult to interpret and communicate to non-experts.
-
-## What skills are needed to build and use infectious disease models?
-
--   Mathematical and statistical skills:
-    -   Differential equations.
-    -   Probability and statistics.
-    -   Stochastic processes.
-    -   Numerical analysis
-    -   Time series analyses
-    -   Survival analysis
-
----
-
--   Programming skills:
-    -   Proficiency in at least one programming language (e.g., R, Python, Julia, C++).
-    -   Experience with version control (e.g., Git).
-    -   Experience with data manipulation and visualization.
-
----
-
--   Domain knowledge in infectious diseases:
-    -   Immunology.
-    -   Epidemiology.
-    -   Virology.
-    -   Genomics
-    
----
-
--   Other subject areas:
-
-  - Communication skills:
-    -   Ability to communicate complex ideas to non-experts.
-    -   Ability to write clear and concise reports.
-    -   Ability to present results to a diverse audience.
-  -   Public health.
-  -   Health economics.
-  - Policy analysis.
+{{< include _02_infectious_disease_models.qmd >}}
 
 # Introduction to compartmental models
 
-## What are compartmental models?
+{{< include _03_compartmental_models.qmd >}}
 
--   Compartmental models divide populations into compartments (or groups) based on individual's infection status [@Blackwood2018a].
--   Individuals move between compartments based on defined transition quantities.
--   Any particular individual can only be in one compartment at a time.
+## The Susceptible-Infected-Recovered (SIR) model
 
-------------------------------------------------------------------------
+{{< include _04_sir_model.qmd >}}
 
-::: columns
-::: {.column width="40%"}
--   They divide the population into compartments based on the [disease status]{style="color:red;"} of individuals.
--   The most common compartments are:
-    -   Susceptible (S) - hosts are not infected but can be infected
-    -   Infected (I) - hosts are infected (and can infect others)
-    -   Removed (R) - hosts are no longer infected and cannot be re-infected
--   In compartmental models, individuals move between compartments based on defined transition quantities.
-:::
+## The Susceptible-Exposed-Infected-Recovered (SEIR) Model
 
-::: {.column width="60%"}
-![Infection timeline illustrating how a pathogen in a host interacts with the host's immune system (source: Modelling Infectious Diseases of Humans and Animals)](images/infection_timeline.png){.lightbox}
-:::
-:::
+{{< include _05_seir_model.qmd >}}
+
+# Modelling epidemic control
+
+{{< include _06_controlling_epidemics.qmd >}}
+
+# Brief notes on modelling host heterogeneity
+
+{{< include _07_heterogeneities.qmd >}}
 
 ------------------------------------------------------------------------
 
--   Other compartments can be added to the model to account for important events or processes (e.g., exposed, recovered, vaccinated, etc.)
+# Final Remarks
 
--   It is, however, important to keep the model simple, less computationally intensive, and interpretable.
+## Takeaways
 
-# Some simple compartmental models
-
--   We are going to consider infections that either confer immunity after recovery or not.
--   The simplest compartmental models for capturing this are the SIS and SIR models.
-
-## The Susceptible-Infected-Recovered model (SIR)
-
-- SIR models are used to model diseases that confer immunity after recovery.
-
-- The SIR model groups individuals into three _disease states_:
-  - Susceptible (S): individuals who are not infected and can be infected.
-  - Infected (I): individuals who are infected and can infect others.
-  - Removed (R): individuals who have recovered from the infection and are immune.
- 
-- This framework was popularised by Kermack and McKendrick in 1927 [@kermack1927contribution]
-  - A must-read paper for anyone interested in infectious disease modelling.
-
----
-
-![Diagram of an SIR/SIRS model](images/sir_sirs_model.png){.lightbox}
-
-## Model equations
-
-- The SIR model is described by the following set of differential equations:
-
-\begin{aligned}
-\frac{dS}{dt} & = \color{orange}{-\beta \frac{S I}{N}} \\
-\frac{dI}{dt} & = \color{orange}{\beta \frac{S I}{N}} - \color{cornflowerblue}{\gamma I} \\
-\frac{dR}{dt} & = \color{cornflowerblue}{\gamma I}
-\end{aligned}
-
-With initial conditions $S(0) = S_0$, $I(0) = I_0$, and $R(0) = R_0$.
-
-where:
-
-- $N$ is the total population size.
-- $\beta$ is the transmission rate.
-- $\gamma$ is the recovery rate.
-
----
-
-- The model cannot be solved analytically, so numerical methods are used to solve the equations.
-
-- However, we can gain insights into the dynamics of the model by qualitatively analysing the equations.
-
----
-
-## Solving the SIR model in R
-
-- To solve the model in R, we will always need to define at least three things:
-  - The model equations.
-  - The parameter values.
-  - The initial conditions.
-
-- We will need the `deSolve` package to solve the model.
-
----
-
-- Let's start by defining the model equations.
-
-```{r sir-model}
-# Define the SIR model
-sir_model <- function(t, state, parameters) {
-  with(as.list(c(state, parameters)), {
-    dS <- -beta * S * I
-    dI <- beta * S * I - gamma * I
-    dR <- gamma * I
-    return(list(c(dS, dI, dR)))
-  })
-}
-```
-
----
-
-Next, we will define the parameter values and initial conditions.
-
-```{r parameter-values}
-# define parameters we know
-N  <- 1000  
-R0 <- 2
-infectious_period <- 7
-
-# Remember gamma <- 1/ infectious_period as discussed earlier
-gamma <- 1/infectious_period 
-
-# We will use R0 = beta N / gamma  instead because it is easier to interpret.
-# beta is not directly interpretable.
-
-params <- c(beta = R0 * gamma / N, gamma = gamma)
-
-# Initial conditions for S, I, R
-# Why is S = N - 1?
-inits <- c(S = N - 1, I = 1, R = 0)
-
-# Time steps to return results
-dt <- 1:150
-```
-
----
-
-Finally, we will solve the model using the `ode` function from the `deSolve` package.
-
-```{r solve-sir-model}
-# Solve the model
-results <- deSolve::ode(
-  y = inits,
-  times = dt,
-  func = sir_model,
-  parms = params
-)
-
-# Make it a data.frame
-results <- as.data.frame(results)
-```
-
----
-
-Now, let's plot the results.
-
-```{r plot-sir}
-#| echo: true
-#| output-location: slide
-# Load the necessary libraries
-library(dplyr)
-library(tidyr)
-library(ggplot2)
-# Create data for ggplot2 by reshaping
-results_long <- results |> 
-  pivot_longer(cols = c(2:4), names_to = "compartment", values_to = "value")
-  
-plot <- ggplot(data = results_long,
-  aes(x = time, y = value, color = compartment)
-  ) +
-geom_line(linewidth = 1) +
-labs(
-  title = "SIR model",
-  x = "Time",
-  y = "Number of individuals"
-) 
-print(plot)
-```
-
----
-
-## Model assumptions
-
-- There are no inflows or outflows from the population, i.e., no births, deaths, or migration. This is often described as a _closed population_.
- - That is, the epidemic occurs much faster than the time scale of births, deaths, or migration.
-
-- Mixing is homogeneous, i.e., individuals mix randomly and have an equal probability of coming into contact with any other individual in the population.
-
-- Transition rates are constant and do not change over time.
-
-- When this assumption is "relaxed"/included, we get more complex models.
-
----
-
-## Transitions between compartments
-
-- There are two processes that govern the transitions between compartments:
-  - Transmission, governed by the transmission rate, $\beta$ (rate at which susceptible individuals become infected).
-  - Recovery, governed by the recovery rate, $\gamma$ (rate at which infected individuals recover and become immune).
-  
----
-
-### Transmission
-
-[What factors drive transmission?]{style="color:orange;"}
-
----
-
-- Transmission is driven by several factors:
-  - The prevalence, [$I$]{style="color:orange;"}, i.e., number of infected individuals at the time.
-  - The number of contacts, [$C$]{style="color:orange;"}, susceptible individuals have with infected individual.
-  - The probability, [$p$]{style="color:orange;"}, a susceptible individual will become infected when they contact an infected individual.
-
----
-
-- The transmission term is often defined through the force of infection (FOI), $\lambda$:
-  - The force of infection is the [per capita rate]{style="color:orange;"} at which susceptible individuals become infected.
-
-- The rate at which new infecteds are generated is given by [$\lambda S$]{style="color:orange;"}, where $S$ is the number of susceptible individuals.
-
-- The force of infection is proportional to the number of infected individuals and the transmission rate, [$\beta$]{style="color:orange;"}.
-
-- $\beta$ is the product of the contact rate and the probability of transmission per contact.
-
----
-
-- The FOI can be formulated in two ways, depending on how the contact rate is expected to change with the population size:
-  - [_Frequency-dependent/mass action transmission_]{style="color:orange;"}: The rate of contact between individuals is proportional to the population size. Here, [$\lambda = \beta \times \dfrac{I}{N}$]{style="color:orange;"}.
-  - [_Density dependent transmission_]{style="color:orange;"}: The rate of contact between individuals is independent of the population size. Here, [$\lambda = \beta \times I$]{style="color:orange;"}.
-
----
-
-- Frequency-dependent transmission assumes that that the number of contacts an individual has is independent of the population size:
-  - Often used to model vector-borned diseases and diseases with heterogeneity in contact rates.
-
----
-
-- Density-dependent transmission assumes that the number of contacts an individual has is proportional to the population size:
-  - Often used to model diseases that allow the safe assumption of random/homogenous mixing.
-
-::: {.callout-note}
-The differences become important when dealing with population sizes that change significantly over time.
-:::
-
----
-
-- The recovery rate $\gamma$ is the reciprocal of the average duration of the infection. That is, infected individuals spend $1/\gamma$ days in the infected compartment before recovering.
-
-- The average infectious period is often estimated from epidemiological data.
-
-
-# The Susceptible-Infected-Susceptible model (SIS)
-
--   The SIS model has two compartments: Susceptible (S) and Infected (I).
-
-<Insert SIS model diagram>
-
-<!-- ### An SIR Shiny App -->
-
-<!-- ```{r} -->
-
-<!-- library(shinySIR) -->
-
-<!-- shinySIR::run_shiny(model = "SIR") -->
-
-<!-- ``` -->
-
--   We assume that individuals are susceptible to infection, become infected, and then either recover become susceptible again or become immune.
-
-[What kinds of diseases can be modelled using the SIS and SIR models?]{style="color:red;"}
+{{< include _takeaways.qmd >}}
 
 ------------------------------------------------------------------------
 
-# The Basic Reproduction Number
+## What skills are needed to build and use infectious disease models?
 
-# Analyzing Model Outputs and Dynamics
+{{< include _modelling_skills.qmd >}}
 
-# Wrap-Up and Q&A
+------------------------------------------------------------------------
+
+## Contact Information
+
+{{< include _contact_info.qmd >}}
+
+------------------------------------------------------------------------
+
+![](https://i.creativecommons.org/l/by/4.0/88x31.png) This presentation is made available through a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
 
 # List of Resources
 
-## Textbooks
+{{< include _resources.qmd >}}
 
--   [Modeling Infectious Diseases in Humans and Animals by Matt Keeling and Pejman Rohani](https://www.amazon.co.uk/Modeling-Infectious-Diseases-Humans-Animals/dp/0691116172) -[Epidemics: Models and Data Using R by Ottar N. Bjornstad](https://link.springer.com/book/10.1007/978-3-031-12056-5)
--   [Infectious Disease Modelling by Emilia Vynnycky and Richard White](https://www.amazon.co.uk/Introduction-Infectious-Disease-Modelling/dp/0198565763)
--   [Infectious Diseases of Humans: Dynamics and Control by Roy M. Anderson and Robert M. May](https://www.amazon.co.uk/Infectious-Diseases-Humans-Dynamics-Control/dp/019854040X)
-
-## Papers and Articles {.scrollable}
-
-### Modelling infectious disease transmission
-
--   [Kirkeby, C., Brookes, V. J., Ward, M. P., Dürr, S., & Halasa, T. (2021). A practical introduction to mechanistic modeling of disease transmission in veterinary science. Frontiers in veterinary science, 7, 546651.](https://www.frontiersin.org/articles/10.3389/fvets.2020.546651/full)
--   [Blackwood, J. C., & Childs, L. M. (2018). An introduction to compartmental modeling for the budding infectious disease modeler.](https://vtechworks.lib.vt.edu/items/61e9ca00-ef21-4356-bcd7-a9294a1d2f17)
--   [Grassly, N. C., & Fraser, C. (2008). Mathematical models of infectious disease transmission. Nature Reviews Microbiology, 6(6), 477–487.](https://doi.org/10.1038/nrmicro1845)
--   [Cobey, S. (2020). Modeling infectious disease dynamics. Science, 368(6492), 713–714.](https://doi.org/10.1126/science.abb5659)
--   [Bjørnstad, O. N., Shea, K., Krzywinski, M., & Altman, N. (2020). Modeling infectious epidemics. Nature Methods, 17(5), 455–456.](https://doi.org/10.1038/s41592-020-0822-z)
--   [Bodner, K., Brimacombe, C., Chenery, E. S., Greiner, A., McLeod, A. M., Penk, S. R., & Soto, J. S. V. (2021). Ten simple rules for tackling your first mathematical models: A guide for graduate students by graduate students. PLOS Computational Biology, 17(1), e1008539.](https://doi.org/10.1371/journal.pcbi.1008539)
--   [Mishra, S., Fisman, D. N., & Boily, M.-C. (2011). The ABC of terms used in mathematical models of infectious diseases. Journal of Epidemiology & Community Health, 65(1), 87–94.](https://jech.bmj.com/content/65/1/87)
--   [James, L. P., Salomon, J. A., Buckee, C. O., & Menzies, N. A. (2021). The Use and Misuse of Mathematical Modeling for Infectious Disease Policymaking: Lessons for the COVID-19 Pandemic. 41(4), 379–385.](https://doi.org/10.1177/0272989X21990391)
--   [Holmdah, I., & Buckee, C. (2020). Wrong but useful—What COVID-19 epidemiologic models can and cannot tell us. New England Journal of Medicine.](https://doi.org/10.1056/nejmp2009027)
--   [Metcalf, C. J. E. E., Edmunds, W. J., & Lessler, J. (2015). Six challenges in modelling for public health policy. Epidemics, 10(2015), 93–96.](https://doi.org/10.1016/j.epidem.2014.08.008)
--   [Roberts, M., Andreasen, V., Lloyd, A., & Pellis, L. (2015). Nine challenges for deterministic epidemic models. Epidemics, 10(2015), 49–53.](https://doi.org/10.1016/j.epidem.2014.09.006)
-
-### Deriving and Interpreting R0
-
--   [Jones, J. H. (2011). Notes On R0. Building, 1–19.](https://web.stanford.edu/~jhj1/teachingdocs/Jones-on-R0.pdf)
--   [Diekmann, O., Heesterbeek, J. A. P., & Metz, J. A. J. (1990). On the definition and the computation of the basic reproduction ratio R0 in models for infectious diseases in heterogeneous populations. Journal of Mathematical Biology, 28(4), 365–382.](https://doi.org/10.1007/BF00178324)
--   [Diekmann, O., Heesterbeek, J. A. P., & Roberts, M. G. (2010). The construction of next-generation matrices for compartmental epidemic models. Journal of the Royal Society Interface, 7(47), 873–885.](https://doi.org/10.1098/rsif.2009.0386)
-
-### References
+# References
 
 ::: {#refs}
 :::
