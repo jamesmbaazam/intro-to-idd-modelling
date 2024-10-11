@@ -175,21 +175,19 @@ You will learn about parameter estimation in the model fitting and calibration l
 
 The SIR model can be formulated as:
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ![](images/model_diagrams/model_diagrams.006.jpeg){fig-align="center"}
 :::
 
 ::: {.column width="50%"}
-```{=tex}
 \begin{align*}
 \frac{dS}{dt} & = \dot{S}  = \color{orange}{-\beta S I} \\
 \frac{dI}{dt} & = \dot{I}  = \color{orange}{\beta S I} - \color{blue}{\gamma I} \\
 \frac{dR}{dt} & = \dot{R} = \color{blue}{\gamma I}
 \end{align*}
-```
 :::
-:::
+:::::
 
 where [$\beta$]{style="color:blue;"} is the transmission rate, and [$\gamma$]{style="color:blue;"} is the recovery rate.
 
@@ -203,7 +201,6 @@ where [$\beta$]{style="color:blue;"} is the transmission rate, and [$\gamma$]{st
 
 The initial conditions are given by:
 
-```{=tex}
 \begin{equation*}
 \begin{aligned}
 S(0) & = N - 1,\\
@@ -211,7 +208,7 @@ I(0) & = 1, \text{and} \\
 R(0) & = 0.
 \end{aligned}
 \end{equation*}
-```
+
 where $N$ is the total population size.
 
 ------------------------------------------------------------------------
@@ -307,17 +304,14 @@ The $R$ compartment is an absorbing state in this model.
 
 At $t = 0$, we have
 
-```{=tex}
 \begin{equation*}
 \frac{dI}{dt} = \beta S I - \gamma I < 0 \end{equation*}
-```
+
 Factor out $I$, and we get
 
-```{=tex}
 \begin{equation*}
 I (\beta S - \gamma) < 0
 \end{equation*}
-```
 
 ------------------------------------------------------------------------
 
