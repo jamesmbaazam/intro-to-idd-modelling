@@ -1,0 +1,113 @@
+## What are infectious disease models?
+
+-   [*Models*]{style="color:tomato;"} generally refer to conceptual representations of an object or system.
+-   [*Mathematical models*]{style="color:tomato;"} use mathematics to describe the system. For example, the famous $E = mc^2$ is a mathematical model that describes the relationship between mass and energy.
+-   [*Infectious disease models*]{style="color:tomato;"} use mathematics/statistics to represent dynamics/spread of infectious diseases.
+
+------------------------------------------------------------------------
+
+-   Mathematical models can be used to link the biological process of disease transmission and the emergent dynamics of infection at the population level.
+-   Models require making some assumptions and abstractions.
+
+------------------------------------------------------------------------
+
+::: columns
+::: {.column width="60%"}
+-   By definition, ["all models are wrong, but some are useful"]{style="color:tomato"} [@Box1979].
+    -   Good enough models are those that capture the [essential features]{style="color:tomato"} of the system being studied.
+:::
+
+::: {.column width="40%"}
+![George Box](images/GeorgeEPBox.jpeg)
+:::
+:::
+
+------------------------------------------------------------------------
+
+-   What makes models "wrong" by definition?:
+    -   Simplifications of reality; not capturing all the complexities of the system being studied.
+
+------------------------------------------------------------------------
+
+## Factors that influence model formulation/choice
+
+-   [Accuracy]{style="color:tomato"}: how well does the model to reproduce observed data and predict future outcomes?
+-   [Transparency]{style="color:tomato"}: is it easy to understand and interpret the model and its outputs? (This is affected by the model's complexity)
+-   [Flexibility]{style="color:tomato"}: the ability of the model to be adapted to different scenarios.
+
+::: notes
+These will be touched on in the scenario modelling lectures.
+:::
+
+------------------------------------------------------------------------
+
+## What are models used for?
+
+-   Generally, models can be used to predict and understand/explain the dynamics of infectious diseases.
+
+::: {.callout-caution collapse="true" icon="false"}
+### Discussion
+
+How are these two uses impacted by accuracy, transparency, and flexibility?
+:::
+
+------------------------------------------------------------------------
+
+### Prediction of the future course
+
+::: columns
+::: {.column width="40%"}
+-   Must be [accurate]{style="color:tomato;"}.
+-   "But the estimate proved to be off. Way, way off. Like, 65 times worse than what ended up happening."
+:::
+
+::: {.column width="60%"}
+![](images/wrong_ebola_deaths_estimate.png){fig-cap="[CDC’s top modeler courts controversy with disease estimate](https://apnews.com/domestic-news-domestic-news-fbb4fc8921d54201a1c5ca91e5b601f5)"}
+:::
+:::
+
+------------------------------------------------------------------------
+
+<!-- \< Insert examples of models that have made accurate predictions of the future course of an outbreak \> -->
+
+<!-- - See <Justin Lessler, Derek A. T. Cummings, Mechanistic Models of Infectious Disease and Their Impact on Public Health, American Journal of Epidemiology, Volume 183, Issue 5, 1 March 2016, Pages 415–422, https://doi.org/10.1093/aje/kww021> -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+### Understanding or explaining disease dynamics
+
+-   Models can be used to understand how a disease spreads and how its spread can be controlled.
+-   The insights gained from models can be used to:
+    -   inform public health policy and interventions.
+    -   design interventions to control the spread of the disease, for example, randomised controlled trials.
+    -   collect new data.
+    -   build predictive models.
+
+<!-- \< Insert examples of models that explain the spread and dynamics of infectious diseases \> -->
+
+<!-- - See <Justin Lessler, Derek A. T. Cummings, Mechanistic Models of Infectious Disease and Their Impact on Public Health, American Journal of Epidemiology, Volume 183, Issue 5, 1 March 2016, Pages 415–422, https://doi.org/10.1093/aje/kww021> -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- \< Insert examples of models that evaluate the impact of interventions and determine the next course of action \> -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+---
+
+## Limitations of infectious disease models
+
+-   Host behaviour is often difficult to predict.
+-   The pathogen often has unknown characteristics or known characteristics that are difficult to model.
+-   Data is often not available or is of poor quality.
+
+------------------------------------------------------------------------
+
+## Summary
+
+-   Models:
+    -   [Simplifications of reality]{style="color:tomato"} and do not capture all the [complexities]{style="color:tomato"} of the system being studied.
+    -   Only as good as the [data]{style="color:tomato"} used to parameterize them.
+    -   Sensitive to the [assumptions]{style="color:tomato"} made during their formulation.
+    -   [Computationally expensive]{style="color:tomato"} and require a lot of data to run.
+    -   [Difficult to interpret]{style="color:tomato"} and communicate to non-experts.

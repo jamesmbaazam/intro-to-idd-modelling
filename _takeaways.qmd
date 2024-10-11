@@ -1,0 +1,43 @@
+In the last two days, we have covered a lot of ground. Here are some key takeaways:
+
+-   Infectious diseases are a major public health concern that can have devastating consequences.
+
+-   Mathematical models are essential tools for studying the dynamics of infectious diseases and informing public health decision-making.
+
+-   Models are simplifications of reality that help us understand complex systems.
+
+------------------------------------------------------------------------
+
+-   We have discussed several compartmental models, including the SIR, SEIR, and SEIRV models.
+
+-   The SIR model is a simple compartmental model that divides the population into three compartments: susceptible, infected, and recovered.
+
+-   The SEIR model extends the SIR model by adding an exposed compartment.
+
+-   We can model various pharmaceutical and non-pharmaceutical interventions (NPIs) by modifying the transmission rate or adding new compartments.
+
+------------------------------------------------------------------------
+
+-   We have discussed the basic reproduction number, $R0$, which is a key parameter in infectious disease epidemiology.
+
+-   $R0$ is the average number of secondary infections produced by a single infected individual in a completely susceptible population.
+
+-   If $R0 > 1$, the disease will spread in the population; if $R0 < 1$, the disease will die out.
+
+------------------------------------------------------------------------
+
+-   Deriving the basic reproduction number, $R0$, is an essential step in understanding the dynamics of infectious diseases.
+
+-   Deriving $R0$ for the simple SIR model is simple as we just need to study the threshold phenomena.
+
+-   For more complex models, we can use the next-generation matrix approach to derive $R0$.
+
+------------------------------------------------------------------------
+
+-   Often, homogeneous models are not sufficient to capture the complexity of infectious diseases.
+
+-   Incorporating heterogeneity into the models is essential for capturing the complexity of infectious diseases.
+
+-   Age structure is a common form of heterogeneity that can be incorporated into the models.
+
+-   Other forms of heterogeneity include spatial, temporal, and contact heterogeneity.
