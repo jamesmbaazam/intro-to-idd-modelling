@@ -1,0 +1,65 @@
+## What are compartmental models?
+
+-   Compartmental models:
+    -   divide populations into compartments (or groups) based on the individual's infection status and track them through time [@Blackwood2018a].
+    -   are mechanistic, meaning they describe processes such the interaction between hosts, biological processes of pathogen, host immune response, and so forth.
+
+------------------------------------------------------------------------
+
+Compartmental models are different from statistical models, which are used to describe the relationship between variables.
+
+------------------------------------------------------------------------
+
+-   Individuals in a compartment:
+    -   are assumed to have the same features (disease state, age, location, etc)
+    -   can only be in one compartment at a time.
+    -   move between compartments based on defined transition rates.
+
+------------------------------------------------------------------------
+
+::: columns
+::: {.column width="60%"}
+-   Common compartments:
+    -   Susceptible (S) - hosts are not infected but can be infected
+    -   Infected (I) - hosts are infected (and can infect others)
+    -   Removed (R) - hosts are no longer infected and cannot be re-infected
+:::
+
+::: {.column width="40%"}
+![Infection timeline illustrating how a pathogen in a host interacts with the host's immune system (Source: Modelling Infectious Diseases of Humans and Animals)](images/infection_timeline.png)
+:::
+:::
+
+------------------------------------------------------------------------
+
+-   Other compartments can be added to the model to account for important events or processes (e.g., exposed, recovered, vaccinated, etc.)
+
+-   It is, however, important to keep the model simple, less computationally intensive, and interpretable.
+
+------------------------------------------------------------------------
+
+-   Compartmental models either have *discrete* or *continuous* time scales:
+    -   [Discrete time scales]{style="color:tomato;"}: time is divided into discrete intervals (e.g., days, weeks, months).
+    -   [Continuous time scales]{style="color:tomato;"}: time is continuous and the model is described using differential equations.
+
+------------------------------------------------------------------------
+
+-   Compartmental models can be *deterministic* or *stochastic*:
+    -   [Deterministic]{style="color:tomato;"} models always return the same output for the same input.
+    -   [Stochastic]{style="color:tomato;"} models account for randomness in the system and model output always varies. Hence, they are often run multiple times to get an average output.
+
+------------------------------------------------------------------------
+
+-   The choice of model type depends on:
+    -   the research [question]{style="color:tomato"},
+    -   [data]{style="color:tomato"} availability,
+    -   [computational resources]{style="color:tomato"},
+    -   modeller [skillset]{style="color:tomato"}.
+-   In this introduction, we will focus on [deterministic compartmental models with continuous time scales]{style="color:tomato;"}.
+
+------------------------------------------------------------------------
+
+-   Now, back to the models, we are going to consider infections that either confer immunity after recovery or not.
+-   The simplest compartmental models for capturing this is the SIR model.
+
+------------------------------------------------------------------------

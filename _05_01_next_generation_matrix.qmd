@@ -1,0 +1,305 @@
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- #### The next-generation matrix approach -->
+
+<!-- - The next-generation matrix (NGM) approach focuses on all the infected compartments. -->
+
+<!-- - Let's outline the steps to derive $R0$ using the NGM approach [@diekmann2010construction]. -->
+
+<!-- --- -->
+
+<!-- - Step 1: Identify the compartments that produce new infections and describe how infections are changing over time. This subset of the system is called the "infected subsystem". -->
+
+<!-- - Note the infected subsystem/compartments by a vector $x$ and the uninfected subsystem by $y$.  -->
+
+<!--     - For example, for the SEIR model, $x = (E, I)$ and $y = (S, R)$. -->
+
+<!-- --- -->
+
+<!-- - For each infected compartment, extract the following components: -->
+
+<!--     - $F_i(x,y)$: the rate of new infections entering compartment $i$, and -->
+
+<!--     - $V_i(x,y) = V_i^-(x,y) - V_i^+(x,y)$, that is, the rate of transfers out of compartment $i$ minus the rate of transfers into the compartment. -->
+
+<!-- - Essentially, each infected compartment can be written as $\dfrac{d x_i}{dt} = F_i(x,y) - V_i(x,y)$. -->
+
+<!-- --- -->
+
+<!-- Step 2: Find $\mathcal{F}$ and $\mathcal{V}$, the matrix of partial derivatives for $F$ and $V$ respectively and evaluate at the disease-free equilibrium. This is called the Jacobian matrix (See @sec-jacobian). -->
+
+<!-- ::: callout-note -->
+
+<!-- The disease-free equilibrium is the state where no infections are present. For an SEIR model, this is denoted as $(S^*, E^*, I^*, R^*) = (N, 0, 0, 0)$, where $N$ is the total population size. -->
+
+<!-- ::: -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- ##### The Jacobian matrix {#sec-jacobian} -->
+
+<!-- -   The Jacobian matrix is a matrix of first-order partial derivatives of a function. -->
+
+<!-- -   What does it look like? -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- ```{=tex} -->
+
+<!-- \begin{equation*} -->
+
+<!-- J = \begin{bmatrix} -->
+
+<!-- \dfrac{\partial f_1}{\partial x_1} & \dfrac{\partial f_1}{\partial x_2} & \cdots & \dfrac{\partial f_1}{\partial x_n} \\ -->
+
+<!-- \dfrac{\partial f_2}{\partial x_1} & \dfrac{\partial f_2}{\partial x_2} & \cdots & \dfrac{\partial f_2}{\partial x_n} \\ -->
+
+<!-- \vdots & \vdots & \ddots & \vdots \\ -->
+
+<!-- \dfrac{\partial f_n}{\partial x_1} & \dfrac{\partial f_n}{\partial x_2} & \cdots & \dfrac{\partial f_n}{\partial x_n} -->
+
+<!-- \end{bmatrix} -->
+
+<!-- \end{equation*} -->
+
+<!-- ``` -->
+
+<!-- where $f_i$ is the $i$-th function of the function and $x_i$ is the $i$-th variable. -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- -   Step 3: Solve $\mathcal{F}\mathcal{V}^{-1}$ to obtain the next-generation matrix, $\mathcal{G}$. -->
+
+<!-- -   Step 4: Determine the spectral radius, $\rho$, of $\mathcal{G}$, which is the [dominant (largest absolute) eigenvalue]{style="color:tomato;"} of the NGM. -->
+
+<!-- --- -->
+
+<!-- $R0$ is the dominant eigenvalue of the next generation matrix. -->
+
+<!-- ::: {.callout-note} -->
+
+<!-- - If you are wondering why $R0$ is taken to be the spectral radius of the NGM, see [@brouwer2022spectral]. -->
+
+<!-- - [@brouwer2022spectral] also provides a detailed explanation of the the building blocks of $R0$ and the intuition behind it. -->
+
+<!-- ::: -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- ##### Steps to determine the Spectral Radius -->
+
+<!-- -   Find the Eigenvalues: -->
+
+<!--     -   Given a square matrix $A$, compute the eigenvalues $\lambda$ by solving the characteristic equation: -->
+
+<!-- ```{=tex} -->
+
+<!-- \begin{equation*} -->
+
+<!-- \begin{aligned} -->
+
+<!-- \text{det}(A - \lambda I) = 0 -->
+
+<!-- \end{aligned} -->
+
+<!-- \end{equation*} -->
+
+<!-- ``` -->
+
+<!-- where $I$ is the identity matrix of the same dimension as $A$, and $\text{det}$ denotes the determinant. -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- -   Compute the Spectral Radius, $\rho(A) = \max \{ |\lambda_1|, |\lambda_2|, \ldots, |\lambda_n|$ -->
+
+<!-- where $\lambda_1, \lambda_2, \ldots, \lambda_n$ are the eigenvalues of $A$, and $|\lambda_i|$ denotes the absolute value of the eigenvalue $\lambda_i$. -->
+
+<!-- Let's apply these ideas to derive the $R0$ of the SEIR model. -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- #### Deriving the R0 of the SEIR model -->
+
+<!-- Step 1: identify the infected compartments $E$ and $I$: -->
+
+<!-- ```{=tex} -->
+
+<!-- \begin{equation*} -->
+
+<!-- \begin{aligned} -->
+
+<!-- \frac{dE}{dt} &= \beta S I - \sigma E, \\ -->
+
+<!-- \frac{dI}{dt} &= \sigma E - \gamma I. -->
+
+<!-- \end{aligned} -->
+
+<!-- \end{equation*} -->
+
+<!-- ``` -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- Step 2: Decompose the system into $\mathcal{F}$, and $\mathcal{V}$: -->
+
+<!-- Define: -->
+
+<!-- -   $\mathcal{F}$: new infection terms -->
+
+<!-- -   $\mathcal{V}$: transition terms -->
+
+<!-- \begin{equation*} -->
+
+<!-- \mathbf{F} = \begin{pmatrix} -->
+
+<!-- \beta S I \\ -->
+
+<!-- 0 -->
+
+<!-- \end{pmatrix}, -->
+
+<!-- \quad -->
+
+<!-- \mathbf{V} = \begin{pmatrix} -->
+
+<!-- \sigma E \\ -->
+
+<!-- \gamma I - \sigma E -->
+
+<!-- \end{pmatrix} -->
+
+<!-- \end{equation*} -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- Calculate the matrix of partial derivatives of $\mathcal{F}$ and $\mathcal{V}$ with respect to $E$ and $I$ and evaluate at the disease-free equilibrium (DFE) $(S^*, E^*, I^*, R^*) = (N, 0, 0, 0)$: -->
+
+<!-- \begin{equation*} -->
+
+<!-- \mathcal{F} = \begin{bmatrix} -->
+
+<!-- \dfrac{\partial{(\beta S I)}}{\partial{E}} & \dfrac{\partial{(\beta S I)}}{\partial{I}} \\ -->
+
+<!-- \dfrac{\partial{(0)}}{\partial{E}} & \dfrac{\partial{(0)}}{\partial{I}} -->
+
+<!-- \end{bmatrix}_{\substack{S = N, E = I = R = 0}}, -->
+
+<!-- \quad -->
+
+<!-- \mathcal{V} = \begin{bmatrix} -->
+
+<!-- \dfrac{\partial{(\sigma E)}}{\partial{E}} & \dfrac{\partial{(\sigma E)}}{\partial{I}} \\ -->
+
+<!-- \dfrac{\partial{(\gamma I - \sigma E)}}{\partial{E}} & \dfrac{\partial{(\gamma I - \sigma E)}}{\partial{I}} -->
+
+<!-- \end{bmatrix}_{\substack{S = N, E = I = R = 0}} -->
+
+<!-- \end{equation*} -->
+
+<!-- --- -->
+
+<!-- ```{=tex} -->
+
+<!-- \begin{equation*} -->
+
+<!-- \mathcal{F} = \begin{pmatrix} -->
+
+<!-- 0 & \beta N \\ -->
+
+<!-- 0 & 0 -->
+
+<!-- \end{pmatrix}, -->
+
+<!-- \quad -->
+
+<!-- \mathcal{V} = \begin{pmatrix} -->
+
+<!-- -\sigma & 0 \\ -->
+
+<!-- \sigma & -\gamma -->
+
+<!-- \end{pmatrix} -->
+
+<!-- \end{equation*} -->
+
+<!-- ``` -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- We aim to solve -->
+
+<!-- ```{=tex} -->
+
+<!-- \begin{equation*} -->
+
+<!-- \mathcal{G} = \mathcal{F} \mathcal{V}^{-1} -->
+
+<!-- \end{equation*} -->
+
+<!-- ``` -->
+
+<!-- Let's compute $\mathcal{V}^{-1}$: -->
+
+<!-- ```{=tex} -->
+
+<!-- \begin{equation*} -->
+
+<!-- \mathcal{V}^{-1} = \begin{pmatrix} -->
+
+<!-- \frac{1}{\sigma} & 0 \\ -->
+
+<!-- \frac{1}{\gamma} & \frac{1}{\sigma} -->
+
+<!-- \end{pmatrix} -->
+
+<!-- \end{equation*} -->
+
+<!-- ``` -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- ```{=tex} -->
+
+<!-- \begin{equation*} -->
+
+<!-- \mathcal{G} = \begin{pmatrix} -->
+
+<!-- 0 & \beta S_0 \\ -->
+
+<!-- 0 & 0 -->
+
+<!-- \end{pmatrix} -->
+
+<!-- \begin{pmatrix} -->
+
+<!-- \frac{1}{\sigma} & 0 \\ -->
+
+<!-- \frac{1}{\gamma} & \frac{1}{\sigma} -->
+
+<!-- \end{pmatrix} -->
+
+<!-- = \begin{pmatrix} -->
+
+<!-- \frac{\beta S_0}{\gamma} & \frac{\beta S_0}{\sigma} \\ -->
+
+<!-- 0 & 0 -->
+
+<!-- \end{pmatrix} -->
+
+<!-- \end{equation*} -->
+
+<!-- ``` -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- $R_0$ is the spectral radius (dominant eigenvalue) of $\mathcal{G}$: -->
+
+<!-- ```{=tex} -->
+
+<!-- \begin{equation*} -->
+
+<!-- R_0 = \rho(\mathcal{G}) = \frac{\beta S_0}{\gamma} -->
+
+<!-- \end{equation*} -->
+
+<!-- ``` -->
