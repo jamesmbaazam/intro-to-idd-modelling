@@ -46,4 +46,4 @@ A report detailing how you addressed the problem outlined here and including any
 5 minutes presentation:
 1. Progress with summarizing the problem.
 2. Plan to solve the problem.
-3. Anticipated challenges (modeling shortcomings, R differences, in opinion leadership, etc.).
+3. Anticipated challenges (modeling shortcomings, R programming challenges, differences in opinion, leadership, etc.).
