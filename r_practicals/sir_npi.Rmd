@@ -1,0 +1,159 @@
+---
+title: "Simulating an SEIR model with births and deaths"
+author: "James Mba Azam"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = TRUE,
+  message = TRUE
+)
+```
+
+In this practical, we will be simulating an SIR model with a non-pharmaceutical intervention.
+
+We will build on our previous SIR model code in `01_sir.Rmd` and modify it to include the time-varying transmission rate.
+
+## The model function
+
+We will start with the main model function.
+
+```{r sir-npi-model}
+# Define the SIR model differential equations
+sir_npi <- function(t, y, parms) {
+  with(as.list(c(y, parms)), {
+    # Time-varying transmission rate
+    beta <- ifelse(t < t_NPI_start | t > t_NPI_end, beta_0, (1 - epsilon) * beta_0)
+    # SIR model
+    dS <- -beta * S * I 
+    dI <- beta * S * I - gamma * I
+    dR <- gamma * I
+    list(c(dS, dI, dR))
+  })
+}
+
+```
+
+Next, we will define the parameters and initial conditions. Note that we will also define the time at which the NPI is implemented, `t_NPI_start` and `t_NPI_end`.
+
+## Initial conditions
+
+```{r model-init}
+# The initial conditions
+# Population size
+N  <- 1 
+I_0 <- 0.01
+R_0 <- 0
+# Initial conditions for S, I, R
+inits <- c(S = N - I_0, I = I_0, R = R_0)
+```
+
+## Model parameters
+
+```{r model-params}
+# Parameters
+R0 <- 2
+infectious_period <- 7
+# Remember gamma = 1/ infectious_period as discussed earlier
+gamma <- 1/infectious_period 
+beta_0 <- 0.25
+epsilon <- 0.5
+
+# Combine the parameters
+parms <- c(
+  beta_0 = beta_0,
+  gamma = gamma,
+  epsilon = epsilon
+)
+```
+
+## Time steps to return results
+
+```{r model-time}
+dt <- 1:365
+```
+
+## NPI implementation
+
+```{r npi-time}
+# Time at which the NPI is implemented
+npi_times <- c(t_NPI_start = 10, t_NPI_end = 51) # 21 days of NPI  
+```
+
+------------------------------------------------------------------------
+
+## Solving the model
+
+Now, let's solve the model equations.
+
+```{r sir-npi-solve}
+# Load necessary packages
+library(deSolve)
+# Integrate the SIR equations over the time grid
+output <- lsoda(
+  y = inits,
+  times = dt,
+  func = sir_npi,
+  parms = c(parms, npi_times)
+)
+
+# Convert the output to a data frame
+output_df <- as.data.frame(output)
+head(output_df)
+```
+
+------------------------------------------------------------------------
+
+### Plotting the results
+
+We will now plot the results by first converting the output to a long format and then using `ggplot2` to plot the data.
+
+```{r sir-npi-plot}
+# Load necessary packages
+library(tidyr)
+library(ggplot2)
+# Convert the output to long format
+output_df <- output_df |> pivot_longer(
+  cols = -time,
+  names_to = "compartment",
+  values_to = "value"
+)
+# Plot the data using ggplot2
+sir_npi_plot <- ggplot(
+  data = output_df,
+  aes(
+    x = time,
+    y = value,
+    color = compartment
+  )) +
+  geom_line() +
+  # Add a vertical line to indicate the times of NPI implementation
+  geom_vline(
+    xintercept = npi_times["t_NPI_start"],
+    linetype = "dashed",
+    color = "black"
+  ) +
+  geom_vline(
+    xintercept = npi_times["t_NPI_end"],
+    linetype = "dashed",
+    color = "black"
+  ) + 
+  # Add labels
+  labs(
+    title = "SIR Model with NPI",
+    x = "Time (days)",
+    y = "Number of individuals",
+    color = "Compartment"
+  ) +
+  theme_minimal()
+plot(sir_npi_plot)
+```
+
+## Exercise
+
+-   What do you observe when you change the value of `epsilon`?
+-   What do you observe when you change the start and end times of the npi?
+-   Would you recommend longer NPIs with smaller values of `epsilon` or shorter NPIs with larger values of `epsilon`?
+-   How would you make this model more realistic?
