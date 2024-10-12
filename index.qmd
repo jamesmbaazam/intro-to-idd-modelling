@@ -30,11 +30,11 @@ Participants should have a basic understanding of calculus and differential equa
 
 -   9:00 AM - 10:30 AM: Overview of Infectious Disease Modelling (1 hour 30 mins)
 
-    - A brief overview of diseases
+    -   A brief overview of diseases
         -   What are infectious diseases?
         -   What are the impacts of infectious diseases on public health?
         -   How are infectious diseases controlled?
-    - Introduction to mathematical modelling in epidemiology
+    -   Introduction to mathematical modelling in epidemiology
         -   What are infectious disease (mathematical and statistical) models?
         -   The role of models in public health decision-making
         -   Types of models:
@@ -53,7 +53,6 @@ Participants should have a basic understanding of calculus and differential equa
         -   The SIR model:
             -   structure and assumptions
         -   Understanding model parameters: rates, proportions, and probabilities
-        
     -   The SEIR Model: Adding the Exposed (E) compartment
         -   Incorporating an incubation period
         -   Understanding the role of the exposed compartment in disease transmission
@@ -88,10 +87,14 @@ Participants should have a basic understanding of calculus and differential equa
 
 ## Day 2
 
--  9:00 AM - 10:30 AM: Analysing model outputs (1 hour 30 mins)
+-   9:00 AM - 10:30 AM: Analysing model outputs (1 hour 30 mins)
 
     -   Interpreting the epidemic curve
     -   Understanding equilibrium and threshold conditions
     -   Sensitivity analysis: How changes in parameters affect the model outputs
+
+# Slide deck
+
+Access the slide deck [here](slides.html).
 
 ![](https://i.creativecommons.org/l/by/4.0/88x31.png) This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
