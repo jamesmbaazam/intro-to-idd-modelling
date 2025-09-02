@@ -1,0 +1,428 @@
+## Overview of infectious disease model types
+
+-   Infectious disease models can be classified in several ways:
+    -   [Mathematical approach]{style="color:tomato; font-weight:bold;"}: mechanistic vs. phenomenological
+    -   [Randomness]{style="color:tomato; font-weight:bold;"}: deterministic vs. stochastic
+    -   [Time]{style="color:tomato; font-weight:bold;"}: discrete vs. continuous
+    -   [Space]{style="color:tomato; font-weight:bold;"}: spatial vs. non-spatial
+    -   [Population structure]{style="color:tomato; font-weight:bold;"}: homogeneous vs. heterogeneous
+
+------------------------------------------------------------------------
+
+-   The choice of model type depends on:
+    -   [Research question]{style="color:tomato"} being addressed
+    -   [Available data]{style="color:tomato"} and its quality
+    -   [Computational resources]{style="color:tomato"} and time constraints
+    -   [Expertise]{style="color:tomato"} of the modelling team
+    -   [Intended audience]{style="color:tomato"} and use case
+
+------------------------------------------------------------------------
+
+## Mathematical approach: Mechanistic vs. Phenomenological
+
+::::: columns
+::: {.column width="50%"}
+### Mechanistic models
+
+-   Model the [underlying biological processes]{style="color:blue"} of disease transmission
+-   Include explicit representations of:
+    -   Host-pathogen interactions
+    -   Disease natural history
+    -   Population mixing patterns
+-   Examples: SIR, SEIR, agent-based models
+:::
+
+::: {.column width="50%"}
+### Phenomenological models
+
+-   Focus on [describing patterns]{style="color:orange"} in data
+-   Do not explicitly model biological mechanisms
+-   Often statistical in nature
+-   Examples: curve fitting, time series models, regression models
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### Mechanistic models: Advantages and disadvantages
+
+::::: columns
+::: {.column width="50%"}
+**Advantages:**
+
+\- Can provide [biological insights]{style="color:green"}
+
+\- Allow testing of [intervention scenarios]{style="color:green"}
+
+-   Can extrapolate beyond observed data
+
+\- Parameters often have [biological interpretation]{style="color:green"}
+:::
+
+::: {.column width="50%"}
+**Disadvantages:**
+
+\- Require [detailed knowledge]{style="color:red"} of biological processes
+
+\- Can be [complex]{style="color:red"} to develop and validate
+
+\- May require [extensive data]{style="color:red"} for parameterization
+
+\- Computationally [expensive]{style="color:red"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### Phenomenological models: Advantages and disadvantages
+
+::::: columns
+::: {.column width="50%"}
+**Advantages:**
+
+\- [Simpler]{style="color:green"} to develop and implement
+
+\- Good for [short-term predictions]{style="color:green"}
+
+\- Require [less detailed data]{style="color:green"}
+
+\- Computationally [efficient]{style="color:green"}
+:::
+
+::: {.column width="50%"}
+**Disadvantages:**
+
+\- Limited [biological insight]{style="color:red"}
+
+\- Poor [extrapolation]{style="color:red"} capabilities
+
+\- Cannot easily test [interventions]{style="color:red"}
+
+\- May not capture [underlying dynamics]{style="color:red"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+::: {.callout-important icon="false"}
+### Discussion
+
+Think of a recent epidemic (e.g., COVID-19, Mpox, Ebola). Which type of model would be more appropriate for:
+
+1\. Understanding transmission mechanisms?
+
+2\. Forecasting case numbers next week?
+
+3\. Evaluating vaccination strategies?
+:::
+
+------------------------------------------------------------------------
+
+## Deterministic vs. Stochastic models
+
+::::: columns
+::: {.column width="50%"}
+### Deterministic models
+
+-   [Same input]{style="color:blue"} always produces [same output]{style="color:blue"}
+-   Use differential equations or difference equations
+-   Represent [average behavior]{style="color:blue"} of the system
+-   Examples: classical SIR/SEIR models
+:::
+
+::: {.column width="50%"}
+### Stochastic models
+
+-   Include [random variation]{style="color:orange"}
+-   Same input can produce [different outputs]{style="color:orange"}
+-   Account for uncertainty and chance events
+-   Examples: stochastic SIR, branching processes
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### When to use deterministic vs. stochastic models?
+
+::::: columns
+::: {.column width="50%"}
+### Deterministic models
+
+**Best for:**
+
+\- [Large populations]{style="color:green"} (\>10,000)
+
+\- Understanding [general trends]{style="color:green"}
+
+\- [Parameter estimation]{style="color:green"}
+
+\- When computational [efficiency]{style="color:green"} is important
+
+**Limitations:**
+
+\- Cannot capture [fade-out]{style="color:red"} in small populations
+
+\- No [uncertainty quantification]{style="color:red"}
+:::
+
+::: {.column width="50%"}
+### Stochastic models
+
+**Best for:**
+
+\- [Small populations]{style="color:green"} (\<1,000)
+
+\- [Early epidemic phases]{style="color:green"}
+
+\- [Uncertainty quantification]{style="color:green"}
+
+\- [Extinction events]{style="color:green"}
+
+**Limitations:**
+
+\- Computationally [intensive]{style="color:red"}
+
+\- Require [multiple runs]{style="color:red"}
+
+\- More complex to [implement]{style="color:red"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Time: Discrete vs. Continuous models
+
+::::: columns
+::: {.column width="50%"}
+### Discrete time models
+
+-   Time progresses in [fixed steps]{style="color:blue"} (hours, days, weeks)
+-   Use *difference equations*
+-   Natural for [surveillance data]{style="color:blue"}
+-   Examples: daily case counts, weekly reports
+
+$$S_{t+1} = S_t - \beta S_t I_t$$
+:::
+
+::: {.column width="50%"}
+### Continuous time models
+
+-   Time flows [continuously]{style="color:orange"}
+-   Use *differential equations*
+-   Better for [theoretical analysis]{style="color:orange"}
+-   Examples: classical epidemic models
+
+$$\frac{dS}{dt} = -\beta S I$$
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### Time scale considerations
+
+-   [Disease natural history]{style="color:tomato"}:
+    -   Acute diseases (days) → *discrete time* often sufficient
+    -   Chronic diseases (years) → *continuous time* may be better
+-   [Data availability]{style="color:tomato"}:
+    -   Daily surveillance data → *discrete time* natural
+    -   Continuous monitoring → either approach possible
+-   [Research question]{style="color:tomato"}:
+    -   Policy timing → *discrete time* practical
+    -   Theoretical insights → *continuous time* elegant
+
+------------------------------------------------------------------------
+
+## Spatial considerations
+
+::::: columns
+::: {.column width="50%"}
+### Non-spatial (well-mixed) models
+
+-   Assume [homogeneous mixing]{style="color:blue"}
+-   All individuals have [equal contact]{style="color:blue"} probability
+-   Simpler to analyze and implement
+-   Good for [small, homogeneous]{style="color:blue"} populations
+:::
+
+::: {.column width="50%"}
+### Spatial models
+
+-   Account for [geographic structure]{style="color:orange"}
+-   Include [movement patterns]{style="color:orange"}
+-   Can model [local transmission]{style="color:orange"}
+-   Important for [large-scale]{style="color:orange"} epidemics
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### Types of spatial models
+
+-   [**Metapopulation models**]{style="color:tomato"}:
+    -   Discrete patches connected by migration
+    -   Good for cities/regions connected by travel
+-   [**Network models**]{style="color:tomato"}:
+    -   Individuals as nodes, contacts as edges
+    -   Can represent social or transportation networks
+-   [**Continuous space models**]{style="color:tomato"}:
+    -   Individuals distributed in continuous space
+    -   Include local transmission kernels
+
+------------------------------------------------------------------------
+
+## Population structure: Homogeneous vs. Heterogeneous
+
+::::: columns
+::: {.column width="50%"}
+### Homogeneous models
+
+-   All individuals are [identical]{style="color:blue"}
+-   Same [contact rates]{style="color:blue"}
+-   Same [susceptibility]{style="color:blue"}
+-   Simpler to analyze
+:::
+
+::: {.column width="50%"}
+### Heterogeneous models
+
+-   Account for [individual differences]{style="color:orange"}:
+    -   Age groups
+    -   Risk behaviors
+    -   Vaccination status
+    -   Geographic location
+-   More realistic but complex
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### Common types of heterogeneity
+
+-   [**Age structure**]{style="color:tomato"}: Different contact patterns and susceptibility by age
+-   [**Risk groups**]{style="color:tomato"}: High-risk vs. low-risk populations
+-   [**Behavioral differences**]{style="color:tomato"}: Compliance with interventions
+-   [**Immunity status**]{style="color:tomato"}: Vaccinated, previously infected, naive
+-   [**Geographic**]{style="color:tomato"}: Urban vs. rural, different regions
+
+------------------------------------------------------------------------
+
+## Network models: A special class
+
+::::: columns
+::: {.column width="60%"}
+-   Represent individuals as [nodes]{style="color:tomato"}
+-   Contacts/relationships as [edges]{style="color:tomato"}
+-   Can capture:
+    -   Social networks
+    -   Sexual networks
+    -   Transportation networks
+    -   Hospital networks
+:::
+
+::: {.column width="40%"}
+![Examples of network models. Source: [Danon et al., 2010](10.1155/2011/284909)](images/network_models.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### Network model advantages
+
+-   Capture [realistic contact patterns]{style="color:green"}
+-   Can model [targeted interventions]{style="color:green"} (e.g., contact tracing)
+-   Account for [superspreading]{style="color:green"} events
+-   Useful for [outbreak investigation]{style="color:green"}
+
+### Network model challenges
+
+-   Require [detailed contact data]{style="color:red"}
+-   Computationally [intensive]{style="color:red"}
+-   Network structure may be [unknown]{style="color:red"} or [time-varying]{style="color:red"}
+
+------------------------------------------------------------------------
+
+## Agent-based models (ABMs)
+
+-   Model [individual agents]{style="color:tomato"} and their interactions
+-   Each agent has:
+    -   Individual characteristics
+    -   Behavioral rules
+    -   Interaction patterns
+-   System behavior [emerges]{style="color:blue"} from individual interactions
+-   Very flexible but computationally intensive
+
+------------------------------------------------------------------------
+
+### Agent-based model applications
+
+-   [**Household transmission**]{style="color:tomato"}: Model within-household spread
+-   [**School closures**]{style="color:tomato"}: Impact on different age groups
+-   [**Behavioral responses**]{style="color:tomato"}: How people change behavior during epidemics
+-   [**Contact tracing**]{style="color:tomato"}: Effectiveness of different strategies
+-   [**Vaccination campaigns**]{style="color:tomato"}: Optimal distribution strategies
+
+------------------------------------------------------------------------
+
+## Model selection framework
+
+::: {.callout-tip icon="false"}
+### Key questions for model selection:
+
+1.  What is your [research question]{style="color:tomato"}?
+2.  What [data]{style="color:tomato"} do you have available?
+3.  What is your [population size]{style="color:tomato"}?
+4.  How important is [spatial structure]{style="color:tomato"}?
+5.  Do you need to model [heterogeneity]{style="color:tomato"}?
+6.  What are your [computational constraints]{style="color:tomato"}?
+7.  What is your [timeline]{style="color:tomato"}?
+:::
+
+------------------------------------------------------------------------
+
+### The modelling for decision-making process
+
+![The modelling process involves balancing realism, tractability, and generality. Source: [Heesterbeek et al, 2015](10.1126/science.aaa4339)](images/modelling_process.png)
+
+------------------------------------------------------------------------
+
+::: {.callout-important icon="false"}
+### Discussion
+
+Consider modeling influenza transmission in a university:
+
+1. What type of model would you choose and why?
+2. What heterogeneities would be important to include?
+3. Would you use a spatial model?
+4. Deterministic or stochastic?
+:::
+
+------------------------------------------------------------------------
+
+## Summary: Choosing the right model type
+
+-   [**Start simple**]{style="color:tomato"}: Begin with the simplest model that addresses your question
+-   [**Add complexity gradually**]{style="color:tomato"}: Only when justified by data or research needs
+-   [**Consider your audience**]{style="color:tomato"}: Policymakers may prefer simpler, more interpretable models
+-   [**Validate carefully**]{style="color:tomato"}: More complex models require more validation
+-   [**Document assumptions**]{style="color:tomato"}: Be explicit about model limitations
+
+------------------------------------------------------------------------
+
+### Common model progression
+
+1.  [**Homogeneous compartmental**]{style="color:blue"} (SIR/SEIR) → understanding basic dynamics
+2.  [**Add heterogeneity**]{style="color:blue"} → age groups, risk groups
+3.  [**Add spatial structure**]{style="color:blue"} → metapopulation, networks
+4.  [**Add stochasticity**]{style="color:blue"} → uncertainty quantification
+5.  [**Individual-based**]{style="color:blue"} → complex behaviors, interventions
+
+------------------------------------------------------------------------
+
+### Next: Deep dive into compartmental models
+
+-   Now that we understand the landscape of infectious disease models...
+-   We'll focus on [**compartmental models**]{style="color:tomato"} - the most widely used approach
+-   Starting with the fundamental concepts and building up to specific models (SIR, SEIR)
+-   These form the foundation for most infectious disease modelling
+
+------------------------------------------------------------------------
