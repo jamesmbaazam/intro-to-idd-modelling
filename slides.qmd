@@ -47,9 +47,13 @@ editor_options:
 
 {{< include _02_infectious_disease_models.qmd >}}
 
+# Types of infectious disease models
+
+{{< include _03_01_types_of_models.qmd >}}
+
 # Introduction to compartmental models
 
-{{< include _03_compartmental_models.qmd >}}
+{{< include _03_02_compartmental_models.qmd >}}
 
 ## The Susceptible-Infected-Recovered (SIR) model
 
