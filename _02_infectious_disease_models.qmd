@@ -2,16 +2,16 @@
 
 -   [*Models*]{style="color:tomato;"} generally refer to conceptual representations of an object or system.
 -   [*Mathematical models*]{style="color:tomato;"} use mathematics to describe the system. For example, the famous $E = mc^2$ is a mathematical model that describes the relationship between mass and energy.
--   [*Infectious disease models*]{style="color:tomato;"} use mathematics/statistics to represent dynamics/spread of infectious diseases.
+-   [*Infectious disease models*]{style="color:tomato;"} use mathematics and/or statistics to represent dynamics/spread of infectious diseases.
 
 ------------------------------------------------------------------------
 
--   Mathematical models can be used to link the biological process of disease transmission and the emergent dynamics of infection at the population level.
--   Models require making some assumptions and abstractions.
+-   Mathematical models can be used to link the [biological process]{style="color:tomato"} of disease transmission and the [emergent dynamics]{style="color:tomato"} of infection at the [population level]{style="color:tomato"}.
+-   Models require making some [assumptions and abstractions]{style="color:tomato"}.
 
 ------------------------------------------------------------------------
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 -   By definition, ["all models are wrong, but some are useful"]{style="color:tomato"} [@Box1979].
     -   Good enough models are those that capture the [essential features]{style="color:tomato"} of the system being studied.
@@ -20,20 +20,31 @@
 ::: {.column width="40%"}
 ![George Box](images/GeorgeEPBox.jpeg)
 :::
+:::::
+
+------------------------------------------------------------------------
+
+::: {.callout-caution collapse="true" icon="false"}
+### Discussion
+
+-   What makes models "wrong" by definition?:
 :::
 
 ------------------------------------------------------------------------
 
 -   What makes models "wrong" by definition?:
-    -   Simplifications of reality; not capturing all the complexities of the system being studied.
+    -   Models simplify reality
+    -   They cannot fully capture all the complexities of the system being studied.
 
 ------------------------------------------------------------------------
 
 ## Factors that influence model formulation/choice
 
--   [Accuracy]{style="color:tomato"}: how well does the model to reproduce observed data and predict future outcomes?
--   [Transparency]{style="color:tomato"}: is it easy to understand and interpret the model and its outputs? (This is affected by the model's complexity)
--   [Flexibility]{style="color:tomato"}: the ability of the model to be adapted to different scenarios.
+-   [Accuracy]{style="color:tomato; font-weight:bold;"}: how well does the model to reproduce observed data and predict future outcomes?
+-   [Transparency]{style="color:tomato; font-weight:bold;"}: is it easy to understand and interpret the model and its outputs?
+    -   This is affected by the model's complexity
+-   [Flexibility]{style="color:tomato; font-weight:bold;"}: the ability of the model to be adapted to different scenarios.
+    -   For example, can the model be easily modified to account for new data or changing conditions?
 
 ::: notes
 These will be touched on in the scenario modelling lectures.
@@ -43,19 +54,19 @@ These will be touched on in the scenario modelling lectures.
 
 ## What are models used for?
 
--   Generally, models can be used to predict and understand/explain the dynamics of infectious diseases.
+-   Generally, models can be used to [predict]{style="color:tomato; font-weight:bold;"} and [understand/explain]{style="color:tomato; font-weight:bold;"} the dynamics of infectious diseases.
 
-::: {.callout-caution collapse="true" icon="false"}
+::: {.callout-important icon="false"}
 ### Discussion
 
-How are these two uses impacted by accuracy, transparency, and flexibility?
+How are these two uses impacted by accuracy, transparency, and flexibility? That is, which of these factors is more important for each use?
 :::
 
 ------------------------------------------------------------------------
 
 ### Prediction of the future course
 
-::: columns
+::::: columns
 ::: {.column width="40%"}
 -   Must be [accurate]{style="color:tomato;"}.
 -   "But the estimate proved to be off. Way, way off. Like, 65 times worse than what ended up happening."
@@ -64,41 +75,31 @@ How are these two uses impacted by accuracy, transparency, and flexibility?
 ::: {.column width="60%"}
 ![](images/wrong_ebola_deaths_estimate.png){fig-cap="[CDC’s top modeler courts controversy with disease estimate](https://apnews.com/domestic-news-domestic-news-fbb4fc8921d54201a1c5ca91e5b601f5)"}
 :::
-:::
+:::::
 
 ------------------------------------------------------------------------
 
-<!-- \< Insert examples of models that have made accurate predictions of the future course of an outbreak \> -->
-
-<!-- - See <Justin Lessler, Derek A. T. Cummings, Mechanistic Models of Infectious Disease and Their Impact on Public Health, American Journal of Epidemiology, Volume 183, Issue 5, 1 March 2016, Pages 415–422, https://doi.org/10.1093/aje/kww021> -->
-
-<!-- ------------------------------------------------------------------------ -->
-
 ### Understanding or explaining disease dynamics
 
--   Models can be used to understand how a disease spreads and how its spread can be controlled.
+-   Models can be used to [understand how a disease spreads]{style="color:tomato"} and how its spread can be [controlled]{style="color:tomato"}.
 -   The insights gained from models can be used to:
-    -   inform public health policy and interventions.
-    -   design interventions to control the spread of the disease, for example, randomised controlled trials.
-    -   collect new data.
-    -   build predictive models.
+    -   [inform]{style="color:blue"} public health policy and interventions.
+    -   [design]{style="color:blue"} interventions to control the spread of the disease, for example, randomised controlled trials.
+    -   [collect]{style="color:blue"} new data.
+    -   [build]{style="color:blue"} predictive models.
 
-<!-- \< Insert examples of models that explain the spread and dynamics of infectious diseases \> -->
+------------------------------------------------------------------------
 
-<!-- - See <Justin Lessler, Derek A. T. Cummings, Mechanistic Models of Infectious Disease and Their Impact on Public Health, American Journal of Epidemiology, Volume 183, Issue 5, 1 March 2016, Pages 415–422, https://doi.org/10.1093/aje/kww021> -->
+### Some key milestones in infectious disease modelling
 
-<!-- ------------------------------------------------------------------------ -->
+![](images/model_milestones.png){fig-cap="Milestones in mathematical modeling and modeling to inform public policy. Source: [Lesslar et al., 2016](10.1093/aje/kww021)"}
 
-<!-- \< Insert examples of models that evaluate the impact of interventions and determine the next course of action \> -->
-
-<!-- ------------------------------------------------------------------------ -->
-
----
+------------------------------------------------------------------------
 
 ## Limitations of infectious disease models
 
 -   Host behaviour is often difficult to predict.
--   The pathogen often has unknown characteristics or known characteristics that are difficult to model.
+-   The pathogen often has known/unknown characteristics that are difficult to capture.
 -   Data is often not available or is of poor quality.
 
 ------------------------------------------------------------------------
@@ -106,8 +107,15 @@ How are these two uses impacted by accuracy, transparency, and flexibility?
 ## Summary
 
 -   Models:
-    -   [Simplifications of reality]{style="color:tomato"} and do not capture all the [complexities]{style="color:tomato"} of the system being studied.
-    -   Only as good as the [data]{style="color:tomato"} used to parameterize them.
+    - Simplify reality and allow us to understand complex systems.  
+    - [Simplifications of reality]{style="color:tomato"} and do not capture all the [complexities]{style="color:tomato"} of the system being studied.
+    -   Only as good as the [data]{style="color:tomato"} used to calibrate them.
     -   Sensitive to the [assumptions]{style="color:tomato"} made during their formulation.
     -   [Computationally expensive]{style="color:tomato"} and require a lot of data to run.
     -   [Difficult to interpret]{style="color:tomato"} and communicate to non-experts.
+
+------------------------------------------------------------------------
+
+::: {.fragment style="font-size: 450%"}
+Any Questions?
+:::
