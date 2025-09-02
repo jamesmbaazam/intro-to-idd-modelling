@@ -401,7 +401,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <div class="column" style="width:45%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/rotavirus.jpeg" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-2" title="A 3D graphical representation of Rotavirus virions."><img data-src="images/rotavirus.jpeg" alt="A 3D graphical representation of Rotavirus virions."></a></p>
+<p><a href="images/rotavirus.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-description="" title="A 3D graphical representation of Rotavirus virions."><img data-src="images/rotavirus.jpeg" alt="A 3D graphical representation of Rotavirus virions."></a></p>
 <figcaption>A 3D graphical representation of Rotavirus virions.</figcaption>
 </figure>
 </div>
@@ -570,7 +570,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/GeorgeEPBox.jpeg" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-6" title="George Box"><img data-src="images/GeorgeEPBox.jpeg" alt="George Box"></a></p>
+<p><a href="images/GeorgeEPBox.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-description="" title="George Box"><img data-src="images/GeorgeEPBox.jpeg" alt="George Box"></a></p>
 <figcaption>George Box</figcaption>
 </figure>
 </div>
@@ -751,7 +751,6 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <li>Disease natural history</li>
 <li>Population mixing patterns</li>
 </ul></li>
-<li>Examples: SIR, SEIR, agent-based models</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <h3 id="phenomenological-models">Phenomenological models</h3>
@@ -759,6 +758,21 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <li>Focus on <span style="color:orange">describing patterns</span> in data</li>
 <li>Do not explicitly model biological mechanisms</li>
 <li>Often statistical in nature</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="mathematical-approach-mechanistic-vs.-phenomenological-1" class="slide level2">
+<h2>Mathematical approach: Mechanistic vs.&nbsp;Phenomenological</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="mechanistic-models-1">Mechanistic models</h3>
+<ul>
+<li>Examples: SIR, SEIR, agent-based models</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="phenomenological-models-1">Phenomenological models</h3>
+<ul>
 <li>Examples: curve fitting, time series models, regression models</li>
 </ul>
 </div>
@@ -772,9 +786,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <p><strong>Advantages:</strong></p>
 <p>- Can provide <span style="color:green">biological insights</span></p>
 <p>- Allow testing of <span style="color:green">intervention scenarios</span></p>
-<ul>
-<li>Can extrapolate beyond observed data</li>
-</ul>
+<p>- Can extrapolate beyond observed data</p>
 <p>- Parameters often have <span style="color:green">biological interpretation</span></p>
 </div><div class="column" style="width:50%;">
 <p><strong>Disadvantages:</strong></p>
@@ -853,9 +865,6 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <p>- Understanding <span style="color:green">general trends</span></p>
 <p>- <span style="color:green">Parameter estimation</span></p>
 <p>- When computational <span style="color:green">efficiency</span> is important</p>
-<p><strong>Limitations:</strong></p>
-<p>- Cannot capture <span style="color:red">fade-out</span> in small populations</p>
-<p>- No <span style="color:red">uncertainty quantification</span></p>
 </div><div class="column" style="width:50%;">
 <h3 id="stochastic-models-1">Stochastic models</h3>
 <p><strong>Best for:</strong></p>
@@ -863,6 +872,20 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <p>- <span style="color:green">Early epidemic phases</span></p>
 <p>- <span style="color:green">Uncertainty quantification</span></p>
 <p>- <span style="color:green">Extinction events</span></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="when-to-use-deterministic-vs.-stochastic-models-1">When to use deterministic vs.&nbsp;stochastic models?</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="deterministic-models-2">Deterministic models</h3>
+<p><strong>Limitations:</strong></p>
+<p>- Cannot capture <span style="color:red">fade-out</span> in small populations</p>
+<p>- No <span style="color:red">uncertainty quantification</span></p>
+</div><div class="column" style="width:50%;">
+<h3 id="stochastic-models-2">Stochastic models</h3>
 <p><strong>Limitations:</strong></p>
 <p>- Computationally <span style="color:red">intensive</span></p>
 <p>- Require <span style="color:red">multiple runs</span></p>
@@ -879,15 +902,29 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <li>Time progresses in <span style="color:blue">fixed steps</span> (hours, days, weeks)</li>
 <li>Use <em>difference equations</em></li>
 <li>Natural for <span style="color:blue">surveillance data</span></li>
-<li>Examples: daily case counts, weekly reports</li>
 </ul>
-<p><span class="math display">\[S_{t+1} = S_t - \beta S_t I_t\]</span></p>
 </div><div class="column" style="width:50%;">
 <h3 id="continuous-time-models">Continuous time models</h3>
 <ul>
 <li>Time flows <span style="color:orange">continuously</span></li>
 <li>Use <em>differential equations</em></li>
 <li>Better for <span style="color:orange">theoretical analysis</span></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="time-discrete-vs.-continuous-models-1" class="slide level2">
+<h2>Time: Discrete vs.&nbsp;Continuous models</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="discrete-time-models-1">Discrete time models</h3>
+<ul>
+<li>Examples: daily case counts, weekly reports</li>
+</ul>
+<p><span class="math display">\[S_{t+1} = S_t - \beta S_t I_t\]</span></p>
+</div><div class="column" style="width:50%;">
+<h3 id="continuous-time-models-1">Continuous time models</h3>
+<ul>
 <li>Examples: classical epidemic models</li>
 </ul>
 <p><span class="math display">\[\frac{dS}{dt} = -\beta S I\]</span></p>
@@ -903,11 +940,21 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <li>Acute diseases (days) → <em>discrete time</em> often sufficient</li>
 <li>Chronic diseases (years) → <em>continuous time</em> may be better</li>
 </ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li><span style="color:tomato">Data availability</span>:
 <ul>
 <li>Daily surveillance data → <em>discrete time</em> natural</li>
 <li>Continuous monitoring → either approach possible</li>
 </ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li><span style="color:tomato">Research question</span>:
 <ul>
 <li>Policy timing → <em>discrete time</em> practical</li>
@@ -939,18 +986,45 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 </section>
 <section class="slide level2">
 
-<h3 id="types-of-spatial-models">Types of spatial models</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="non-spatial-well-mixed-models-1">Non-spatial (well-mixed) models</h3>
+<ul>
+<li>Simpler to analyze and implement</li>
+<li>Good for <span style="color:blue">small, homogeneous</span> populations</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="spatial-models-1">Spatial models</h3>
+<ul>
+<li>Can model <span style="color:orange">local transmission</span></li>
+<li>Important for <span style="color:orange">large-scale</span> epidemics</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
 <ul>
 <li><span style="color:tomato"><strong>Metapopulation models</strong></span>:
 <ul>
 <li>Discrete patches connected by migration</li>
 <li>Good for cities/regions connected by travel</li>
 </ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li><span style="color:tomato"><strong>Network models</strong></span>:
 <ul>
 <li>Individuals as nodes, contacts as edges</li>
 <li>Can represent social or transportation networks</li>
 </ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li><span style="color:tomato"><strong>Continuous space models</strong></span>:
 <ul>
 <li>Individuals distributed in continuous space</li>
@@ -991,12 +1065,17 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <li><span style="color:tomato"><strong>Age structure</strong></span>: Different contact patterns and susceptibility by age</li>
 <li><span style="color:tomato"><strong>Risk groups</strong></span>: High-risk vs.&nbsp;low-risk populations</li>
 <li><span style="color:tomato"><strong>Behavioral differences</strong></span>: Compliance with interventions</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li><span style="color:tomato"><strong>Immunity status</strong></span>: Vaccinated, previously infected, naive</li>
 <li><span style="color:tomato"><strong>Geographic</strong></span>: Urban vs.&nbsp;rural, different regions</li>
 </ul>
 </section>
-<section id="network-models-a-special-class" class="slide level2">
-<h2>Network models: A special class</h2>
+<section id="network-models" class="slide level2">
+<h2>Network models</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
@@ -1013,7 +1092,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/network_models.png" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-9" title="Examples of network models. Source: Danon et al., 2010"><img data-src="images/network_models.png" alt="Examples of network models. Source: Danon et al., 2010"></a></p>
+<p><a href="images/network_models.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-description="" title="Examples of network models. Source: Danon et al., 2010"><img data-src="images/network_models.png" alt="Examples of network models. Source: Danon et al., 2010"></a></p>
 <figcaption>Examples of network models. Source: <a href="10.1155/2011/284909">Danon et al., 2010</a></figcaption>
 </figure>
 </div>
@@ -1046,6 +1125,11 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <li>Behavioral rules</li>
 <li>Interaction patterns</li>
 </ul></li>
+</ul>
+</section>
+<section id="agent-based-models-abms-1" class="slide level2">
+<h2>Agent-based models (ABMs)</h2>
+<ul>
 <li>System behavior <span style="color:blue">emerges</span> from individual interactions</li>
 <li>Very flexible but computationally intensive</li>
 </ul>
@@ -1057,6 +1141,12 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <li><span style="color:tomato"><strong>Household transmission</strong></span>: Model within-household spread</li>
 <li><span style="color:tomato"><strong>School closures</strong></span>: Impact on different age groups</li>
 <li><span style="color:tomato"><strong>Behavioral responses</strong></span>: How people change behavior during epidemics</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="agent-based-model-applications-1">Agent-based model applications</h3>
+<ul>
 <li><span style="color:tomato"><strong>Contact tracing</strong></span>: Effectiveness of different strategies</li>
 <li><span style="color:tomato"><strong>Vaccination campaigns</strong></span>: Optimal distribution strategies</li>
 </ul>
@@ -1087,7 +1177,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <h3 id="the-modelling-for-decision-making-process">The modelling for decision-making process</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/modelling_process.png" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-10" title="The modelling process involves balancing realism, tractability, and generality. Source: Heesterbeek et al, 2015"><img data-src="images/modelling_process.png" alt="The modelling process involves balancing realism, tractability, and generality. Source: Heesterbeek et al, 2015"></a></p>
+<p><a href="images/modelling_process.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-description="" title="The modelling process involves balancing realism, tractability, and generality. Source: Heesterbeek et al, 2015"><img data-src="images/modelling_process.png" alt="The modelling process involves balancing realism, tractability, and generality. Source: Heesterbeek et al, 2015"></a></p>
 <figcaption>The modelling process involves balancing realism, tractability, and generality. Source: <a href="10.1126/science.aaa4339">Heesterbeek et al, 2015</a></figcaption>
 </figure>
 </div>
@@ -1193,7 +1283,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/infection_timeline.png" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-11" title="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)"><img data-src="images/infection_timeline.png" alt="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)"></a></p>
+<p><a href="images/infection_timeline.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-description="" title="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)"><img data-src="images/infection_timeline.png" alt="Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)"></a></p>
 <figcaption>Infection timeline illustrating how a pathogen in a host interacts with the host’s immune system (Source: Modelling Infectious Diseases of Humans and Animals)</figcaption>
 </figure>
 </div>
@@ -1462,7 +1552,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/epi_parameters.png" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-17" title="Source: @anderson1982directly"><img data-src="images/epi_parameters.png" alt="Source: Anderson and May (1982)"></a></p>
+<p><a href="images/epi_parameters.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" data-description="" title="Source: @anderson1982directly"><img data-src="images/epi_parameters.png" alt="Source: Anderson and May (1982)"></a></p>
 <figcaption>Source: <span class="citation" data-cites="anderson1982directly">Anderson and May (<a href="#/references" role="doc-biblioref" onclick="">1982</a>)</span></figcaption>
 </figure>
 </div>
@@ -1472,7 +1562,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <h3 id="putting-it-all-together">Putting it all together</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/model_diagrams/model_diagrams.006.jpeg" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-18" title="An SIR model with transmission rate, \beta, and recovery rate, \gamma."><img data-src="images/model_diagrams/model_diagrams.006.jpeg" style="width:80.0%" alt="An SIR model with transmission rate, \beta, and recovery rate, \gamma."></a></p>
+<p><a href="images/model_diagrams/model_diagrams.006.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-18" data-description="" title="An SIR model with transmission rate, \beta, and recovery rate, \gamma."><img data-src="images/model_diagrams/model_diagrams.006.jpeg" style="width:80.0%" alt="An SIR model with transmission rate, \beta, and recovery rate, \gamma."></a></p>
 <figcaption>An SIR model with transmission rate, <span class="math inline">\(\beta\)</span>, and recovery rate, <span class="math inline">\(\gamma\)</span>.</figcaption>
 </figure>
 </div>
@@ -1815,7 +1905,7 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 <h2>The Susceptible-Exposed-Infected-Recovered (SEIR) Model</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/infection_timeline.png" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-20" title="Timeline of infection. Source: Keeling &amp; Rohani, 2008"><img data-src="images/infection_timeline.png" alt="Timeline of infection. Source: Keeling &amp; Rohani, 2008"></a></p>
+<p><a href="images/infection_timeline.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" data-description="" title="Timeline of infection. Source: Keeling &amp; Rohani, 2008"><img data-src="images/infection_timeline.png" alt="Timeline of infection. Source: Keeling &amp; Rohani, 2008"></a></p>
 <figcaption>Timeline of infection. Source: Keeling &amp; Rohani, 2008</figcaption>
 </figure>
 </div>
@@ -1826,13 +1916,13 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 <div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/corona_virus.jpeg" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-21" title="The SARS-COV-2 virus"><img data-src="images/corona_virus.jpeg" alt="The SARS-COV-2 virus"></a></p>
+<p><a href="images/corona_virus.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-21" data-description="" title="The SARS-COV-2 virus"><img data-src="images/corona_virus.jpeg" alt="The SARS-COV-2 virus"></a></p>
 <figcaption>The SARS-COV-2 virus</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/ebola_virus.jpeg" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-22" title="The Ebola virus"><img data-src="images/ebola_virus.jpeg" alt="The Ebola virus"></a></p>
+<p><a href="images/ebola_virus.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-22" data-description="" title="The Ebola virus"><img data-src="images/ebola_virus.jpeg" alt="The Ebola virus"></a></p>
 <figcaption>The Ebola virus</figcaption>
 </figure>
 </div>
@@ -2332,7 +2422,7 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 <h2>What skills are needed to build and use infectious disease models?</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/modelling_skills.jpeg" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-32" title="A non-exhaustive list of skills needed for modelling infectious diseases."><img data-src="images/modelling_skills.jpeg" alt="A non-exhaustive list of skills needed for modelling infectious diseases."></a></p>
+<p><a href="images/modelling_skills.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-32" data-description="" title="A non-exhaustive list of skills needed for modelling infectious diseases."><img data-src="images/modelling_skills.jpeg" alt="A non-exhaustive list of skills needed for modelling infectious diseases."></a></p>
 <figcaption>A non-exhaustive list of skills needed for modelling infectious diseases.</figcaption>
 </figure>
 </div>
@@ -2363,13 +2453,13 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure quarto-figure-center quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <figure>
-<p><a href="images/Anderson_and_May.jpeg" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-33" title="Infectious Diseases of Humans: Dynamics and Control by Roy M. Anderson and Robert M. May"><img data-src="images/Anderson_and_May.jpeg" style="width:60.0%" alt="Infectious Diseases of Humans: Dynamics and Control by Roy M. Anderson and Robert M. May"></a></p>
+<p><a href="images/Anderson_and_May.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-33" data-description="" title="Infectious Diseases of Humans: Dynamics and Control by Roy M. Anderson and Robert M. May"><img data-src="images/Anderson_and_May.jpeg" style="width:60.0%" alt="Infectious Diseases of Humans: Dynamics and Control by Roy M. Anderson and Robert M. May"></a></p>
 <figcaption>Infectious Diseases of Humans: Dynamics and Control by Roy M. Anderson and Robert M. May</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <figure>
-<p><a href="images/ID_modelling_Vynnycky_and_White.jpeg" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-34" title="Infectious Disease Modelling by Emilia Vynnycky and Richard White"><img data-src="images/ID_modelling_Vynnycky_and_White.jpeg" style="width:60.0%" alt="Infectious Disease Modelling by Emilia Vynnycky and Richard White"></a></p>
+<p><a href="images/ID_modelling_Vynnycky_and_White.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-34" data-description="" title="Infectious Disease Modelling by Emilia Vynnycky and Richard White"><img data-src="images/ID_modelling_Vynnycky_and_White.jpeg" style="width:60.0%" alt="Infectious Disease Modelling by Emilia Vynnycky and Richard White"></a></p>
 <figcaption>Infectious Disease Modelling by Emilia Vynnycky and Richard White</figcaption>
 </figure>
 </div>
@@ -2382,13 +2472,13 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure quarto-figure-center quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <figure>
-<p><a href="images/Rohani_and_Keeling.jpeg" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-35" title="Modeling Infectious Diseases in Humans and Animals by Matt Keeling and Pejman Rohani"><img data-src="images/Rohani_and_Keeling.jpeg" style="width:60.0%" alt="Modeling Infectious Diseases in Humans and Animals by Matt Keeling and Pejman Rohani"></a></p>
+<p><a href="images/Rohani_and_Keeling.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-35" data-description="" title="Modeling Infectious Diseases in Humans and Animals by Matt Keeling and Pejman Rohani"><img data-src="images/Rohani_and_Keeling.jpeg" style="width:60.0%" alt="Modeling Infectious Diseases in Humans and Animals by Matt Keeling and Pejman Rohani"></a></p>
 <figcaption>Modeling Infectious Diseases in Humans and Animals by Matt Keeling and Pejman Rohani</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <figure>
-<p><a href="images/Epidemics_Ottar.jpg" class="lightbox" data-description="" data-gallery="quarto-lightbox-gallery-36" title="Epidemics: Models and Data Using R by Ottar N. Bjornstad"><img data-src="images/Epidemics_Ottar.jpg" style="width:60.0%" alt="Epidemics: Models and Data Using R by Ottar N. Bjornstad"></a></p>
+<p><a href="images/Epidemics_Ottar.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-36" data-description="" title="Epidemics: Models and Data Using R by Ottar N. Bjornstad"><img data-src="images/Epidemics_Ottar.jpg" style="width:60.0%" alt="Epidemics: Models and Data Using R by Ottar N. Bjornstad"></a></p>
 <figcaption>Epidemics: Models and Data Using R by Ottar N. Bjornstad</figcaption>
 </figure>
 </div>
@@ -2897,7 +2987,7 @@ Kermack, William Ogilvy, and Anderson G McKendrick. 1927. <span>“A Contributio
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","openEffect":"zoom","descPosition":"bottom"});</script>
+    <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false});</script>
     
 
 </body></html>
