@@ -114,7 +114,6 @@ window.Quarto = {
 <li>Disease natural history</li>
 <li>Population mixing patterns</li>
 </ul></li>
-<li>Examples: SIR, SEIR, agent-based models</li>
 </ul>
 </section>
 </div><div class="column" style="width:50%;">
@@ -124,6 +123,25 @@ window.Quarto = {
 <li>Focus on <span style="color:orange">describing patterns</span> in data</li>
 <li>Do not explicitly model biological mechanisms</li>
 <li>Often statistical in nature</li>
+</ul>
+</section>
+</div>
+</div>
+</section>
+<section id="mathematical-approach-mechanistic-vs.-phenomenological-1" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-approach-mechanistic-vs.-phenomenological-1">Mathematical approach: Mechanistic vs.&nbsp;Phenomenological</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="mechanistic-models-1" class="level3">
+<h3 class="anchored" data-anchor-id="mechanistic-models-1">Mechanistic models</h3>
+<ul>
+<li>Examples: SIR, SEIR, agent-based models</li>
+</ul>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="phenomenological-models-1" class="level3">
+<h3 class="anchored" data-anchor-id="phenomenological-models-1">Phenomenological models</h3>
+<ul>
 <li>Examples: curve fitting, time series models, regression models</li>
 </ul>
 </section>
@@ -137,9 +155,7 @@ window.Quarto = {
 <p><strong>Advantages:</strong></p>
 <p>- Can provide <span style="color:green">biological insights</span></p>
 <p>- Allow testing of <span style="color:green">intervention scenarios</span></p>
-<ul>
-<li>Can extrapolate beyond observed data</li>
-</ul>
+<p>- Can extrapolate beyond observed data</p>
 <p>- Parameters often have <span style="color:green">biological interpretation</span></p>
 </div><div class="column" style="width:50%;">
 <p><strong>Disadvantages:</strong></p>
@@ -226,9 +242,6 @@ Discussion
 <p>- Understanding <span style="color:green">general trends</span></p>
 <p>- <span style="color:green">Parameter estimation</span></p>
 <p>- When computational <span style="color:green">efficiency</span> is important</p>
-<p><strong>Limitations:</strong></p>
-<p>- Cannot capture <span style="color:red">fade-out</span> in small populations</p>
-<p>- No <span style="color:red">uncertainty quantification</span></p>
 </section>
 </div><div class="column" style="width:50%;">
 <section id="stochastic-models-1" class="level3">
@@ -238,6 +251,24 @@ Discussion
 <p>- <span style="color:green">Early epidemic phases</span></p>
 <p>- <span style="color:green">Uncertainty quantification</span></p>
 <p>- <span style="color:green">Extinction events</span></p>
+</section>
+</div>
+</div>
+<hr>
+<section id="when-to-use-deterministic-vs.-stochastic-models-1" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-use-deterministic-vs.-stochastic-models-1">When to use deterministic vs.&nbsp;stochastic models?</h3>
+</section>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="deterministic-models-2" class="level3">
+<h3 class="anchored" data-anchor-id="deterministic-models-2">Deterministic models</h3>
+<p><strong>Limitations:</strong></p>
+<p>- Cannot capture <span style="color:red">fade-out</span> in small populations</p>
+<p>- No <span style="color:red">uncertainty quantification</span></p>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="stochastic-models-2" class="level3">
+<h3 class="anchored" data-anchor-id="stochastic-models-2">Stochastic models</h3>
 <p><strong>Limitations:</strong></p>
 <p>- Computationally <span style="color:red">intensive</span></p>
 <p>- Require <span style="color:red">multiple runs</span></p>
@@ -245,7 +276,6 @@ Discussion
 </section>
 </div>
 </div>
-<hr>
 </section>
 <section id="time-discrete-vs.-continuous-models" class="level2">
 <h2 class="anchored" data-anchor-id="time-discrete-vs.-continuous-models">Time: Discrete vs.&nbsp;Continuous models</h2>
@@ -257,9 +287,7 @@ Discussion
 <li>Time progresses in <span style="color:blue">fixed steps</span> (hours, days, weeks)</li>
 <li>Use <em>difference equations</em></li>
 <li>Natural for <span style="color:blue">surveillance data</span></li>
-<li>Examples: daily case counts, weekly reports</li>
 </ul>
-<p><span class="math display">\[S_{t+1} = S_t - \beta S_t I_t\]</span></p>
 </section>
 </div><div class="column" style="width:50%;">
 <section id="continuous-time-models" class="level3">
@@ -268,6 +296,27 @@ Discussion
 <li>Time flows <span style="color:orange">continuously</span></li>
 <li>Use <em>differential equations</em></li>
 <li>Better for <span style="color:orange">theoretical analysis</span></li>
+</ul>
+</section>
+</div>
+</div>
+<hr>
+</section>
+<section id="time-discrete-vs.-continuous-models-1" class="level2">
+<h2 class="anchored" data-anchor-id="time-discrete-vs.-continuous-models-1">Time: Discrete vs.&nbsp;Continuous models</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="discrete-time-models-1" class="level3">
+<h3 class="anchored" data-anchor-id="discrete-time-models-1">Discrete time models</h3>
+<ul>
+<li>Examples: daily case counts, weekly reports</li>
+</ul>
+<p><span class="math display">\[S_{t+1} = S_t - \beta S_t I_t\]</span></p>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="continuous-time-models-1" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-time-models-1">Continuous time models</h3>
+<ul>
 <li>Examples: classical epidemic models</li>
 </ul>
 <p><span class="math display">\[\frac{dS}{dt} = -\beta S I\]</span></p>
@@ -283,18 +332,23 @@ Discussion
 <li>Acute diseases (days) → <em>discrete time</em> often sufficient</li>
 <li>Chronic diseases (years) → <em>continuous time</em> may be better</li>
 </ul></li>
+</ul>
+<hr>
+<ul>
 <li><span style="color:tomato">Data availability</span>:
 <ul>
 <li>Daily surveillance data → <em>discrete time</em> natural</li>
 <li>Continuous monitoring → either approach possible</li>
 </ul></li>
+</ul>
+<hr>
+<ul>
 <li><span style="color:tomato">Research question</span>:
 <ul>
 <li>Policy timing → <em>discrete time</em> practical</li>
 <li>Theoretical insights → <em>continuous time</em> elegant</li>
 </ul></li>
 </ul>
-<hr>
 </section>
 </section>
 <section id="spatial-considerations" class="level2">
@@ -323,19 +377,43 @@ Discussion
 </div>
 </div>
 <hr>
-<section id="types-of-spatial-models" class="level3">
-<h3 class="anchored" data-anchor-id="types-of-spatial-models">Types of spatial models</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="non-spatial-well-mixed-models-1" class="level3">
+<h3 class="anchored" data-anchor-id="non-spatial-well-mixed-models-1">Non-spatial (well-mixed) models</h3>
+<ul>
+<li>Simpler to analyze and implement</li>
+<li>Good for <span style="color:blue">small, homogeneous</span> populations</li>
+</ul>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="spatial-models-1" class="level3">
+<h3 class="anchored" data-anchor-id="spatial-models-1">Spatial models</h3>
+<ul>
+<li>Can model <span style="color:orange">local transmission</span></li>
+<li>Important for <span style="color:orange">large-scale</span> epidemics</li>
+</ul>
+</section>
+</div>
+</div>
+<hr>
 <ul>
 <li><span style="color:tomato"><strong>Metapopulation models</strong></span>:
 <ul>
 <li>Discrete patches connected by migration</li>
 <li>Good for cities/regions connected by travel</li>
 </ul></li>
+</ul>
+<hr>
+<ul>
 <li><span style="color:tomato"><strong>Network models</strong></span>:
 <ul>
 <li>Individuals as nodes, contacts as edges</li>
 <li>Can represent social or transportation networks</li>
 </ul></li>
+</ul>
+<hr>
+<ul>
 <li><span style="color:tomato"><strong>Continuous space models</strong></span>:
 <ul>
 <li>Individuals distributed in continuous space</li>
@@ -343,7 +421,6 @@ Discussion
 </ul></li>
 </ul>
 <hr>
-</section>
 </section>
 <section id="population-structure-homogeneous-vs.-heterogeneous" class="level2">
 <h2 class="anchored" data-anchor-id="population-structure-homogeneous-vs.-heterogeneous">Population structure: Homogeneous vs.&nbsp;Heterogeneous</h2>
@@ -381,14 +458,17 @@ Discussion
 <li><span style="color:tomato"><strong>Age structure</strong></span>: Different contact patterns and susceptibility by age</li>
 <li><span style="color:tomato"><strong>Risk groups</strong></span>: High-risk vs.&nbsp;low-risk populations</li>
 <li><span style="color:tomato"><strong>Behavioral differences</strong></span>: Compliance with interventions</li>
+</ul>
+<hr>
+<ul>
 <li><span style="color:tomato"><strong>Immunity status</strong></span>: Vaccinated, previously infected, naive</li>
 <li><span style="color:tomato"><strong>Geographic</strong></span>: Urban vs.&nbsp;rural, different regions</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="network-models-a-special-class" class="level2">
-<h2 class="anchored" data-anchor-id="network-models-a-special-class">Network models: A special class</h2>
+<section id="network-models" class="level2">
+<h2 class="anchored" data-anchor-id="network-models">Network models</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
@@ -428,7 +508,6 @@ Discussion
 <li>Computationally <span style="color:red">intensive</span></li>
 <li>Network structure may be <span style="color:red">unknown</span> or <span style="color:red">time-varying</span></li>
 </ul>
-<hr>
 </section>
 </section>
 <section id="agent-based-models-abms" class="level2">
@@ -441,6 +520,12 @@ Discussion
 <li>Behavioral rules</li>
 <li>Interaction patterns</li>
 </ul></li>
+</ul>
+<hr>
+</section>
+<section id="agent-based-models-abms-1" class="level2">
+<h2 class="anchored" data-anchor-id="agent-based-models-abms-1">Agent-based models (ABMs)</h2>
+<ul>
 <li>System behavior <span style="color:blue">emerges</span> from individual interactions</li>
 <li>Very flexible but computationally intensive</li>
 </ul>
@@ -451,6 +536,12 @@ Discussion
 <li><span style="color:tomato"><strong>Household transmission</strong></span>: Model within-household spread</li>
 <li><span style="color:tomato"><strong>School closures</strong></span>: Impact on different age groups</li>
 <li><span style="color:tomato"><strong>Behavioral responses</strong></span>: How people change behavior during epidemics</li>
+</ul>
+<hr>
+</section>
+<section id="agent-based-model-applications-1" class="level3">
+<h3 class="anchored" data-anchor-id="agent-based-model-applications-1">Agent-based model applications</h3>
+<ul>
 <li><span style="color:tomato"><strong>Contact tracing</strong></span>: Effectiveness of different strategies</li>
 <li><span style="color:tomato"><strong>Vaccination campaigns</strong></span>: Optimal distribution strategies</li>
 </ul>
@@ -542,6 +633,9 @@ Discussion
 <li>These form the foundation for most infectious disease modelling</li>
 </ul>
 <hr>
+<div class="fragment" style="font-size: 450%">
+<p>Any Questions?</p>
+</div>
 </section>
 </section>
 

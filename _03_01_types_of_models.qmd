@@ -29,7 +29,6 @@
     -   Host-pathogen interactions
     -   Disease natural history
     -   Population mixing patterns
--   Examples: SIR, SEIR, agent-based models
 :::
 
 ::: {.column width="50%"}
@@ -38,6 +37,21 @@
 -   Focus on [describing patterns]{style="color:orange"} in data
 -   Do not explicitly model biological mechanisms
 -   Often statistical in nature
+:::
+:::::
+
+## Mathematical approach: Mechanistic vs. Phenomenological
+
+::::: columns
+::: {.column width="50%"}
+### Mechanistic models
+
+-   Examples: SIR, SEIR, agent-based models
+:::
+
+::: {.column width="50%"}
+### Phenomenological models
+
 -   Examples: curve fitting, time series models, regression models
 :::
 :::::
@@ -54,7 +68,7 @@
 
 \- Allow testing of [intervention scenarios]{style="color:green"}
 
--   Can extrapolate beyond observed data
+\-   Can extrapolate beyond observed data
 
 \- Parameters often have [biological interpretation]{style="color:green"}
 :::
@@ -157,12 +171,6 @@ Think of a recent epidemic (e.g., COVID-19, Mpox, Ebola). Which type of model wo
 \- [Parameter estimation]{style="color:green"}
 
 \- When computational [efficiency]{style="color:green"} is important
-
-**Limitations:**
-
-\- Cannot capture [fade-out]{style="color:red"} in small populations
-
-\- No [uncertainty quantification]{style="color:red"}
 :::
 
 ::: {.column width="50%"}
@@ -177,6 +185,26 @@ Think of a recent epidemic (e.g., COVID-19, Mpox, Ebola). Which type of model wo
 \- [Uncertainty quantification]{style="color:green"}
 
 \- [Extinction events]{style="color:green"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### When to use deterministic vs. stochastic models?
+
+::::: columns
+::: {.column width="50%"}
+### Deterministic models
+
+**Limitations:**
+
+\- Cannot capture [fade-out]{style="color:red"} in small populations
+
+\- No [uncertainty quantification]{style="color:red"}
+:::
+
+::: {.column width="50%"}
+### Stochastic models
 
 **Limitations:**
 
@@ -188,8 +216,6 @@ Think of a recent epidemic (e.g., COVID-19, Mpox, Ebola). Which type of model wo
 :::
 :::::
 
-------------------------------------------------------------------------
-
 ## Time: Discrete vs. Continuous models
 
 ::::: columns
@@ -199,9 +225,6 @@ Think of a recent epidemic (e.g., COVID-19, Mpox, Ebola). Which type of model wo
 -   Time progresses in [fixed steps]{style="color:blue"} (hours, days, weeks)
 -   Use *difference equations*
 -   Natural for [surveillance data]{style="color:blue"}
--   Examples: daily case counts, weekly reports
-
-$$S_{t+1} = S_t - \beta S_t I_t$$
 :::
 
 ::: {.column width="50%"}
@@ -210,6 +233,25 @@ $$S_{t+1} = S_t - \beta S_t I_t$$
 -   Time flows [continuously]{style="color:orange"}
 -   Use *differential equations*
 -   Better for [theoretical analysis]{style="color:orange"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Time: Discrete vs. Continuous models
+
+::::: columns
+::: {.column width="50%"}
+### Discrete time models
+
+-   Examples: daily case counts, weekly reports
+
+$$S_{t+1} = S_t - \beta S_t I_t$$
+:::
+
+::: {.column width="50%"}
+### Continuous time models
+
 -   Examples: classical epidemic models
 
 $$\frac{dS}{dt} = -\beta S I$$
@@ -223,14 +265,18 @@ $$\frac{dS}{dt} = -\beta S I$$
 -   [Disease natural history]{style="color:tomato"}:
     -   Acute diseases (days) → *discrete time* often sufficient
     -   Chronic diseases (years) → *continuous time* may be better
+
+------------------------------------------------------------------------
+
 -   [Data availability]{style="color:tomato"}:
     -   Daily surveillance data → *discrete time* natural
     -   Continuous monitoring → either approach possible
+
+------------------------------------------------------------------------
+
 -   [Research question]{style="color:tomato"}:
     -   Policy timing → *discrete time* practical
     -   Theoretical insights → *continuous time* elegant
-
-------------------------------------------------------------------------
 
 ## Spatial considerations
 
@@ -256,14 +302,36 @@ $$\frac{dS}{dt} = -\beta S I$$
 
 ------------------------------------------------------------------------
 
-### Types of spatial models
+::::: columns
+::: {.column width="50%"}
+### Non-spatial (well-mixed) models
+
+-   Simpler to analyze and implement
+-   Good for [small, homogeneous]{style="color:blue"} populations
+:::
+
+::: {.column width="50%"}
+### Spatial models
+
+-   Can model [local transmission]{style="color:orange"}
+-   Important for [large-scale]{style="color:orange"} epidemics
+:::
+:::::
+
+------------------------------------------------------------------------
 
 -   [**Metapopulation models**]{style="color:tomato"}:
     -   Discrete patches connected by migration
     -   Good for cities/regions connected by travel
+    
+------------------------------------------------------------------------
+
 -   [**Network models**]{style="color:tomato"}:
     -   Individuals as nodes, contacts as edges
     -   Can represent social or transportation networks
+
+------------------------------------------------------------------------
+
 -   [**Continuous space models**]{style="color:tomato"}:
     -   Individuals distributed in continuous space
     -   Include local transmission kernels
@@ -301,12 +369,15 @@ $$\frac{dS}{dt} = -\beta S I$$
 -   [**Age structure**]{style="color:tomato"}: Different contact patterns and susceptibility by age
 -   [**Risk groups**]{style="color:tomato"}: High-risk vs. low-risk populations
 -   [**Behavioral differences**]{style="color:tomato"}: Compliance with interventions
+
+------------------------------------------------------------------------
+
 -   [**Immunity status**]{style="color:tomato"}: Vaccinated, previously infected, naive
 -   [**Geographic**]{style="color:tomato"}: Urban vs. rural, different regions
 
 ------------------------------------------------------------------------
 
-## Network models: A special class
+## Network models
 
 ::::: columns
 ::: {.column width="60%"}
@@ -339,8 +410,6 @@ $$\frac{dS}{dt} = -\beta S I$$
 -   Computationally [intensive]{style="color:red"}
 -   Network structure may be [unknown]{style="color:red"} or [time-varying]{style="color:red"}
 
-------------------------------------------------------------------------
-
 ## Agent-based models (ABMs)
 
 -   Model [individual agents]{style="color:tomato"} and their interactions
@@ -348,6 +417,11 @@ $$\frac{dS}{dt} = -\beta S I$$
     -   Individual characteristics
     -   Behavioral rules
     -   Interaction patterns
+    
+------------------------------------------------------------------------
+
+## Agent-based models (ABMs)
+
 -   System behavior [emerges]{style="color:blue"} from individual interactions
 -   Very flexible but computationally intensive
 
@@ -358,6 +432,11 @@ $$\frac{dS}{dt} = -\beta S I$$
 -   [**Household transmission**]{style="color:tomato"}: Model within-household spread
 -   [**School closures**]{style="color:tomato"}: Impact on different age groups
 -   [**Behavioral responses**]{style="color:tomato"}: How people change behavior during epidemics
+
+------------------------------------------------------------------------
+
+### Agent-based model applications
+
 -   [**Contact tracing**]{style="color:tomato"}: Effectiveness of different strategies
 -   [**Vaccination campaigns**]{style="color:tomato"}: Optimal distribution strategies
 
