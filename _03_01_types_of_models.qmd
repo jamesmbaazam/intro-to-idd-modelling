@@ -390,10 +390,10 @@ $$\frac{dS}{dt} = -\beta S I$$
 
 Consider modeling influenza transmission in a university:
 
-1. What type of model would you choose and why?
-2. What heterogeneities would be important to include?
-3. Would you use a spatial model?
-4. Deterministic or stochastic?
+1.  What type of model would you choose and why?
+2.  What heterogeneities would be important to include?
+3.  Would you use a spatial model?
+4.  Deterministic or stochastic?
 :::
 
 ------------------------------------------------------------------------
@@ -426,3 +426,7 @@ Consider modeling influenza transmission in a university:
 -   These form the foundation for most infectious disease modelling
 
 ------------------------------------------------------------------------
+
+::: {.fragment style="font-size: 450%"}
+Any Questions?
+:::

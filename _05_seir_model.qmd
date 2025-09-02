@@ -127,4 +127,10 @@ Using the next generation matrix approach, we can show that the SEIR model with 
 
 -   We can use the same approach as the SIR model to simulate the SEIR model.
 
--   Modify the `sir.Rmd` script to simulate the SEIR model.
+-   Modify the [`sir.Rmd`](https://github.com/jamesmbaazam/mppr_r_practicals/tree/main/model_implementation_practicals) script to simulate the SEIR model.
+
+------------------------------------------------------------------------
+
+::: {.fragment style="font-size: 450%"}
+Any Questions?
+:::

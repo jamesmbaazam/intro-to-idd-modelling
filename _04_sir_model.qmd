@@ -387,7 +387,7 @@ $$
 
 #### Practicals
 
--   Let's do a code walk through in R using the script `sir.Rmd`.
+-   Let's do a code walk through in R using the script [`sir.Rmd`](https://github.com/jamesmbaazam/mppr_r_practicals/tree/main/model_implementation_practicals).
 
 ------------------------------------------------------------------------
 
@@ -406,3 +406,7 @@ $$
 :::
 
 ------------------------------------------------------------------------
+
+::: {.fragment style="font-size: 450%"}
+Any Questions?
+:::

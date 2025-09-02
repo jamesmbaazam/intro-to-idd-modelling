@@ -107,8 +107,8 @@ How are these two uses impacted by accuracy, transparency, and flexibility? That
 ## Summary
 
 -   Models:
-    - Simplify reality and allow us to understand complex systems.  
-    - [Simplifications of reality]{style="color:tomato"} and do not capture all the [complexities]{style="color:tomato"} of the system being studied.
+    -   Simplify reality and allow us to understand complex systems.\
+    -   [Simplifications of reality]{style="color:tomato"} and do not capture all the [complexities]{style="color:tomato"} of the system being studied.
     -   Only as good as the [data]{style="color:tomato"} used to calibrate them.
     -   Sensitive to the [assumptions]{style="color:tomato"} made during their formulation.
     -   [Computationally expensive]{style="color:tomato"} and require a lot of data to run.

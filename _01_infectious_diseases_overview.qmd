@@ -4,7 +4,7 @@
 
 ------------------------------------------------------------------------
 
-::: columns
+::::: columns
 ::: {.column width="45%"}
 ![A 3D graphical representation of Rotavirus virions.](images/rotavirus.jpeg)
 :::
@@ -17,7 +17,7 @@ Diseases can be classified according to:
 -   [Mode of transmission]{style="color:tomato"} (direct or indirect)
 -   [Impact]{style="color:tomato"} on the host (e.g., fatal, non-fatal)
 :::
-:::
+:::::
 
 ------------------------------------------------------------------------
 
@@ -49,7 +49,7 @@ Note that these classifications are not mutually exclusive. Hence, a disease can
 
 #### Vaccination {#sec-vaccination}
 
-::: columns
+::::: columns
 ::: {.column width="40%"}
 ![](images/vaccine.jpeg)
 :::
@@ -59,7 +59,7 @@ Note that these classifications are not mutually exclusive. Hence, a disease can
 -   Generally applied to reduce the risk of infection and disease.
 -   The most effective way to prevent infectious diseases.
 :::
-:::
+:::::
 
 ------------------------------------------------------------------------
 
@@ -76,7 +76,7 @@ Note that these classifications are not mutually exclusive. Hence, a disease can
 
 ### Non-pharmaceutical interventions (NPIs) {#sec-npi}
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ![](images/mask.jpeg){width="70%"}
 
@@ -92,7 +92,7 @@ Note that these classifications are not mutually exclusive. Hence, a disease can
     -   Physical/social distancing, and
     -   Mask-wearing.
 :::
-:::
+:::::
 
 ------------------------------------------------------------------------
 
@@ -120,4 +120,10 @@ Note that these classifications are not mutually exclusive. Hence, a disease can
 ### Discussion
 
 -   How can we quantify the impact of a control measure?
+:::
+
+------------------------------------------------------------------------
+
+::: {.fragment style="font-size: 450%"}
+Any Questions?
 :::

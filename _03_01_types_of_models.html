@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.43">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>types_of_models</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="_03_01_types_of_models_files/libs/clipboard/clipboard.min.js"></script>
+<script src="_03_01_types_of_models_files/libs/quarto-html/quarto.js"></script>
+<script src="_03_01_types_of_models_files/libs/quarto-html/popper.min.js"></script>
+<script src="_03_01_types_of_models_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="_03_01_types_of_models_files/libs/quarto-html/anchor.min.js"></script>
+<link href="_03_01_types_of_models_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="_03_01_types_of_models_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="_03_01_types_of_models_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="_03_01_types_of_models_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="_03_01_types_of_models_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="overview-of-infectious-disease-model-types" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-infectious-disease-model-types">Overview of infectious disease model types</h2>
+<ul>
+<li>Infectious disease models can be classified in several ways:
+<ul>
+<li><span style="color:tomato; font-weight:bold;">Mathematical approach</span>: mechanistic vs.&nbsp;phenomenological</li>
+<li><span style="color:tomato; font-weight:bold;">Randomness</span>: deterministic vs.&nbsp;stochastic</li>
+<li><span style="color:tomato; font-weight:bold;">Time</span>: discrete vs.&nbsp;continuous</li>
+<li><span style="color:tomato; font-weight:bold;">Space</span>: spatial vs.&nbsp;non-spatial</li>
+<li><span style="color:tomato; font-weight:bold;">Population structure</span>: homogeneous vs.&nbsp;heterogeneous</li>
+</ul></li>
+</ul>
+<hr>
+<ul>
+<li>The choice of model type depends on:
+<ul>
+<li><span style="color:tomato">Research question</span> being addressed</li>
+<li><span style="color:tomato">Available data</span> and its quality</li>
+<li><span style="color:tomato">Computational resources</span> and time constraints</li>
+<li><span style="color:tomato">Expertise</span> of the modelling team</li>
+<li><span style="color:tomato">Intended audience</span> and use case</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="mathematical-approach-mechanistic-vs.-phenomenological" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-approach-mechanistic-vs.-phenomenological">Mathematical approach: Mechanistic vs.&nbsp;Phenomenological</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="mechanistic-models" class="level3">
+<h3 class="anchored" data-anchor-id="mechanistic-models">Mechanistic models</h3>
+<ul>
+<li>Model the <span style="color:blue">underlying biological processes</span> of disease transmission</li>
+<li>Include explicit representations of:
+<ul>
+<li>Host-pathogen interactions</li>
+<li>Disease natural history</li>
+<li>Population mixing patterns</li>
+</ul></li>
+<li>Examples: SIR, SEIR, agent-based models</li>
+</ul>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="phenomenological-models" class="level3">
+<h3 class="anchored" data-anchor-id="phenomenological-models">Phenomenological models</h3>
+<ul>
+<li>Focus on <span style="color:orange">describing patterns</span> in data</li>
+<li>Do not explicitly model biological mechanisms</li>
+<li>Often statistical in nature</li>
+<li>Examples: curve fitting, time series models, regression models</li>
+</ul>
+</section>
+</div>
+</div>
+<hr>
+<section id="mechanistic-models-advantages-and-disadvantages" class="level3">
+<h3 class="anchored" data-anchor-id="mechanistic-models-advantages-and-disadvantages">Mechanistic models: Advantages and disadvantages</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Advantages:</strong></p>
+<p>- Can provide <span style="color:green">biological insights</span></p>
+<p>- Allow testing of <span style="color:green">intervention scenarios</span></p>
+<ul>
+<li>Can extrapolate beyond observed data</li>
+</ul>
+<p>- Parameters often have <span style="color:green">biological interpretation</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>Disadvantages:</strong></p>
+<p>- Require <span style="color:red">detailed knowledge</span> of biological processes</p>
+<p>- Can be <span style="color:red">complex</span> to develop and validate</p>
+<p>- May require <span style="color:red">extensive data</span> for parameterization</p>
+<p>- Computationally <span style="color:red">expensive</span></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="phenomenological-models-advantages-and-disadvantages" class="level3">
+<h3 class="anchored" data-anchor-id="phenomenological-models-advantages-and-disadvantages">Phenomenological models: Advantages and disadvantages</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Advantages:</strong></p>
+<p>- <span style="color:green">Simpler</span> to develop and implement</p>
+<p>- Good for <span style="color:green">short-term predictions</span></p>
+<p>- Require <span style="color:green">less detailed data</span></p>
+<p>- Computationally <span style="color:green">efficient</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>Disadvantages:</strong></p>
+<p>- Limited <span style="color:red">biological insight</span></p>
+<p>- Poor <span style="color:red">extrapolation</span> capabilities</p>
+<p>- Cannot easily test <span style="color:red">interventions</span></p>
+<p>- May not capture <span style="color:red">underlying dynamics</span></p>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Discussion
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think of a recent epidemic (e.g., COVID-19, Mpox, Ebola). Which type of model would be more appropriate for:</p>
+<p>1. Understanding transmission mechanisms?</p>
+<p>2. Forecasting case numbers next week?</p>
+<p>3. Evaluating vaccination strategies?</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="deterministic-vs.-stochastic-models" class="level2">
+<h2 class="anchored" data-anchor-id="deterministic-vs.-stochastic-models">Deterministic vs.&nbsp;Stochastic models</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="deterministic-models" class="level3">
+<h3 class="anchored" data-anchor-id="deterministic-models">Deterministic models</h3>
+<ul>
+<li><span style="color:blue">Same input</span> always produces <span style="color:blue">same output</span></li>
+<li>Use differential equations or difference equations</li>
+<li>Represent <span style="color:blue">average behavior</span> of the system</li>
+<li>Examples: classical SIR/SEIR models</li>
+</ul>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="stochastic-models" class="level3">
+<h3 class="anchored" data-anchor-id="stochastic-models">Stochastic models</h3>
+<ul>
+<li>Include <span style="color:orange">random variation</span></li>
+<li>Same input can produce <span style="color:orange">different outputs</span></li>
+<li>Account for uncertainty and chance events</li>
+<li>Examples: stochastic SIR, branching processes</li>
+</ul>
+</section>
+</div>
+</div>
+<hr>
+<section id="when-to-use-deterministic-vs.-stochastic-models" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-use-deterministic-vs.-stochastic-models">When to use deterministic vs.&nbsp;stochastic models?</h3>
+</section>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="deterministic-models-1" class="level3">
+<h3 class="anchored" data-anchor-id="deterministic-models-1">Deterministic models</h3>
+<p><strong>Best for:</strong></p>
+<p>- <span style="color:green">Large populations</span> (&gt;10,000)</p>
+<p>- Understanding <span style="color:green">general trends</span></p>
+<p>- <span style="color:green">Parameter estimation</span></p>
+<p>- When computational <span style="color:green">efficiency</span> is important</p>
+<p><strong>Limitations:</strong></p>
+<p>- Cannot capture <span style="color:red">fade-out</span> in small populations</p>
+<p>- No <span style="color:red">uncertainty quantification</span></p>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="stochastic-models-1" class="level3">
+<h3 class="anchored" data-anchor-id="stochastic-models-1">Stochastic models</h3>
+<p><strong>Best for:</strong></p>
+<p>- <span style="color:green">Small populations</span> (&lt;1,000)</p>
+<p>- <span style="color:green">Early epidemic phases</span></p>
+<p>- <span style="color:green">Uncertainty quantification</span></p>
+<p>- <span style="color:green">Extinction events</span></p>
+<p><strong>Limitations:</strong></p>
+<p>- Computationally <span style="color:red">intensive</span></p>
+<p>- Require <span style="color:red">multiple runs</span></p>
+<p>- More complex to <span style="color:red">implement</span></p>
+</section>
+</div>
+</div>
+<hr>
+</section>
+<section id="time-discrete-vs.-continuous-models" class="level2">
+<h2 class="anchored" data-anchor-id="time-discrete-vs.-continuous-models">Time: Discrete vs.&nbsp;Continuous models</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="discrete-time-models" class="level3">
+<h3 class="anchored" data-anchor-id="discrete-time-models">Discrete time models</h3>
+<ul>
+<li>Time progresses in <span style="color:blue">fixed steps</span> (hours, days, weeks)</li>
+<li>Use <em>difference equations</em></li>
+<li>Natural for <span style="color:blue">surveillance data</span></li>
+<li>Examples: daily case counts, weekly reports</li>
+</ul>
+<p><span class="math display">\[S_{t+1} = S_t - \beta S_t I_t\]</span></p>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="continuous-time-models" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-time-models">Continuous time models</h3>
+<ul>
+<li>Time flows <span style="color:orange">continuously</span></li>
+<li>Use <em>differential equations</em></li>
+<li>Better for <span style="color:orange">theoretical analysis</span></li>
+<li>Examples: classical epidemic models</li>
+</ul>
+<p><span class="math display">\[\frac{dS}{dt} = -\beta S I\]</span></p>
+</section>
+</div>
+</div>
+<hr>
+<section id="time-scale-considerations" class="level3">
+<h3 class="anchored" data-anchor-id="time-scale-considerations">Time scale considerations</h3>
+<ul>
+<li><span style="color:tomato">Disease natural history</span>:
+<ul>
+<li>Acute diseases (days) → <em>discrete time</em> often sufficient</li>
+<li>Chronic diseases (years) → <em>continuous time</em> may be better</li>
+</ul></li>
+<li><span style="color:tomato">Data availability</span>:
+<ul>
+<li>Daily surveillance data → <em>discrete time</em> natural</li>
+<li>Continuous monitoring → either approach possible</li>
+</ul></li>
+<li><span style="color:tomato">Research question</span>:
+<ul>
+<li>Policy timing → <em>discrete time</em> practical</li>
+<li>Theoretical insights → <em>continuous time</em> elegant</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="spatial-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-considerations">Spatial considerations</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="non-spatial-well-mixed-models" class="level3">
+<h3 class="anchored" data-anchor-id="non-spatial-well-mixed-models">Non-spatial (well-mixed) models</h3>
+<ul>
+<li>Assume <span style="color:blue">homogeneous mixing</span></li>
+<li>All individuals have <span style="color:blue">equal contact</span> probability</li>
+<li>Simpler to analyze and implement</li>
+<li>Good for <span style="color:blue">small, homogeneous</span> populations</li>
+</ul>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="spatial-models" class="level3">
+<h3 class="anchored" data-anchor-id="spatial-models">Spatial models</h3>
+<ul>
+<li>Account for <span style="color:orange">geographic structure</span></li>
+<li>Include <span style="color:orange">movement patterns</span></li>
+<li>Can model <span style="color:orange">local transmission</span></li>
+<li>Important for <span style="color:orange">large-scale</span> epidemics</li>
+</ul>
+</section>
+</div>
+</div>
+<hr>
+<section id="types-of-spatial-models" class="level3">
+<h3 class="anchored" data-anchor-id="types-of-spatial-models">Types of spatial models</h3>
+<ul>
+<li><span style="color:tomato"><strong>Metapopulation models</strong></span>:
+<ul>
+<li>Discrete patches connected by migration</li>
+<li>Good for cities/regions connected by travel</li>
+</ul></li>
+<li><span style="color:tomato"><strong>Network models</strong></span>:
+<ul>
+<li>Individuals as nodes, contacts as edges</li>
+<li>Can represent social or transportation networks</li>
+</ul></li>
+<li><span style="color:tomato"><strong>Continuous space models</strong></span>:
+<ul>
+<li>Individuals distributed in continuous space</li>
+<li>Include local transmission kernels</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="population-structure-homogeneous-vs.-heterogeneous" class="level2">
+<h2 class="anchored" data-anchor-id="population-structure-homogeneous-vs.-heterogeneous">Population structure: Homogeneous vs.&nbsp;Heterogeneous</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="homogeneous-models" class="level3">
+<h3 class="anchored" data-anchor-id="homogeneous-models">Homogeneous models</h3>
+<ul>
+<li>All individuals are <span style="color:blue">identical</span></li>
+<li>Same <span style="color:blue">contact rates</span></li>
+<li>Same <span style="color:blue">susceptibility</span></li>
+<li>Simpler to analyze</li>
+</ul>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="heterogeneous-models" class="level3">
+<h3 class="anchored" data-anchor-id="heterogeneous-models">Heterogeneous models</h3>
+<ul>
+<li>Account for <span style="color:orange">individual differences</span>:
+<ul>
+<li>Age groups</li>
+<li>Risk behaviors</li>
+<li>Vaccination status</li>
+<li>Geographic location</li>
+</ul></li>
+<li>More realistic but complex</li>
+</ul>
+</section>
+</div>
+</div>
+<hr>
+<section id="common-types-of-heterogeneity" class="level3">
+<h3 class="anchored" data-anchor-id="common-types-of-heterogeneity">Common types of heterogeneity</h3>
+<ul>
+<li><span style="color:tomato"><strong>Age structure</strong></span>: Different contact patterns and susceptibility by age</li>
+<li><span style="color:tomato"><strong>Risk groups</strong></span>: High-risk vs.&nbsp;low-risk populations</li>
+<li><span style="color:tomato"><strong>Behavioral differences</strong></span>: Compliance with interventions</li>
+<li><span style="color:tomato"><strong>Immunity status</strong></span>: Vaccinated, previously infected, naive</li>
+<li><span style="color:tomato"><strong>Geographic</strong></span>: Urban vs.&nbsp;rural, different regions</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="network-models-a-special-class" class="level2">
+<h2 class="anchored" data-anchor-id="network-models-a-special-class">Network models: A special class</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Represent individuals as <span style="color:tomato">nodes</span></li>
+<li>Contacts/relationships as <span style="color:tomato">edges</span></li>
+<li>Can capture:
+<ul>
+<li>Social networks</li>
+<li>Sexual networks</li>
+<li>Transportation networks</li>
+<li>Hospital networks</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/network_models.png" class="img-fluid figure-img"></p>
+<figcaption>Examples of network models. Source: <a href="10.1155/2011/284909">Danon et al., 2010</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<section id="network-model-advantages" class="level3">
+<h3 class="anchored" data-anchor-id="network-model-advantages">Network model advantages</h3>
+<ul>
+<li>Capture <span style="color:green">realistic contact patterns</span></li>
+<li>Can model <span style="color:green">targeted interventions</span> (e.g., contact tracing)</li>
+<li>Account for <span style="color:green">superspreading</span> events</li>
+<li>Useful for <span style="color:green">outbreak investigation</span></li>
+</ul>
+</section>
+<section id="network-model-challenges" class="level3">
+<h3 class="anchored" data-anchor-id="network-model-challenges">Network model challenges</h3>
+<ul>
+<li>Require <span style="color:red">detailed contact data</span></li>
+<li>Computationally <span style="color:red">intensive</span></li>
+<li>Network structure may be <span style="color:red">unknown</span> or <span style="color:red">time-varying</span></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="agent-based-models-abms" class="level2">
+<h2 class="anchored" data-anchor-id="agent-based-models-abms">Agent-based models (ABMs)</h2>
+<ul>
+<li>Model <span style="color:tomato">individual agents</span> and their interactions</li>
+<li>Each agent has:
+<ul>
+<li>Individual characteristics</li>
+<li>Behavioral rules</li>
+<li>Interaction patterns</li>
+</ul></li>
+<li>System behavior <span style="color:blue">emerges</span> from individual interactions</li>
+<li>Very flexible but computationally intensive</li>
+</ul>
+<hr>
+<section id="agent-based-model-applications" class="level3">
+<h3 class="anchored" data-anchor-id="agent-based-model-applications">Agent-based model applications</h3>
+<ul>
+<li><span style="color:tomato"><strong>Household transmission</strong></span>: Model within-household spread</li>
+<li><span style="color:tomato"><strong>School closures</strong></span>: Impact on different age groups</li>
+<li><span style="color:tomato"><strong>Behavioral responses</strong></span>: How people change behavior during epidemics</li>
+<li><span style="color:tomato"><strong>Contact tracing</strong></span>: Effectiveness of different strategies</li>
+<li><span style="color:tomato"><strong>Vaccination campaigns</strong></span>: Optimal distribution strategies</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="model-selection-framework" class="level2">
+<h2 class="anchored" data-anchor-id="model-selection-framework">Model selection framework</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key questions for model selection:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>What is your <span style="color:tomato">research question</span>?</li>
+<li>What <span style="color:tomato">data</span> do you have available?</li>
+<li>What is your <span style="color:tomato">population size</span>?</li>
+<li>How important is <span style="color:tomato">spatial structure</span>?</li>
+<li>Do you need to model <span style="color:tomato">heterogeneity</span>?</li>
+<li>What are your <span style="color:tomato">computational constraints</span>?</li>
+<li>What is your <span style="color:tomato">timeline</span>?</li>
+</ol>
+</div>
+</div>
+<hr>
+<section id="the-modelling-for-decision-making-process" class="level3">
+<h3 class="anchored" data-anchor-id="the-modelling-for-decision-making-process">The modelling for decision-making process</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/modelling_process.png" class="img-fluid figure-img"></p>
+<figcaption>The modelling process involves balancing realism, tractability, and generality. Source: <a href="10.1126/science.aaa4339">Heesterbeek et al, 2015</a></figcaption>
+</figure>
+</div>
+<hr>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Discussion
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider modeling influenza transmission in a university:</p>
+<ol type="1">
+<li>What type of model would you choose and why?</li>
+<li>What heterogeneities would be important to include?</li>
+<li>Would you use a spatial model?</li>
+<li>Deterministic or stochastic?</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="summary-choosing-the-right-model-type" class="level2">
+<h2 class="anchored" data-anchor-id="summary-choosing-the-right-model-type">Summary: Choosing the right model type</h2>
+<ul>
+<li><span style="color:tomato"><strong>Start simple</strong></span>: Begin with the simplest model that addresses your question</li>
+<li><span style="color:tomato"><strong>Add complexity gradually</strong></span>: Only when justified by data or research needs</li>
+<li><span style="color:tomato"><strong>Consider your audience</strong></span>: Policymakers may prefer simpler, more interpretable models</li>
+<li><span style="color:tomato"><strong>Validate carefully</strong></span>: More complex models require more validation</li>
+<li><span style="color:tomato"><strong>Document assumptions</strong></span>: Be explicit about model limitations</li>
+</ul>
+<hr>
+<section id="common-model-progression" class="level3">
+<h3 class="anchored" data-anchor-id="common-model-progression">Common model progression</h3>
+<ol type="1">
+<li><span style="color:blue"><strong>Homogeneous compartmental</strong></span> (SIR/SEIR) → understanding basic dynamics</li>
+<li><span style="color:blue"><strong>Add heterogeneity</strong></span> → age groups, risk groups</li>
+<li><span style="color:blue"><strong>Add spatial structure</strong></span> → metapopulation, networks</li>
+<li><span style="color:blue"><strong>Add stochasticity</strong></span> → uncertainty quantification</li>
+<li><span style="color:blue"><strong>Individual-based</strong></span> → complex behaviors, interventions</li>
+</ol>
+<hr>
+</section>
+<section id="next-deep-dive-into-compartmental-models" class="level3">
+<h3 class="anchored" data-anchor-id="next-deep-dive-into-compartmental-models">Next: Deep dive into compartmental models</h3>
+<ul>
+<li>Now that we understand the landscape of infectious disease models…</li>
+<li>We’ll focus on <span style="color:tomato"><strong>compartmental models</strong></span> - the most widely used approach</li>
+<li>Starting with the fundamental concepts and building up to specific models (SIR, SEIR)</li>
+<li>These form the foundation for most infectious disease modelling</li>
+</ul>
+<hr>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

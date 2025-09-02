@@ -12,7 +12,7 @@ For a background on vaccination, refer to @sec-vaccination.
 
 ------------------------------------------------------------------------
 
-::: columns
+::::: columns
 ::: {.column width="40%"}
 ![](images/vaccine.jpeg){width="100%"}
 :::
@@ -21,7 +21,7 @@ For a background on vaccination, refer to @sec-vaccination.
 -   Vaccination is one of the most effective ways to control infectious diseases.
 -   Conceptually, vaccination works to reduce the number of susceptible individuals, $S$.
 :::
-:::
+:::::
 
 ------------------------------------------------------------------------
 
@@ -48,7 +48,7 @@ For a background on vaccination, refer to @sec-vaccination.
 
 ------------------------------------------------------------------------
 
-::: columns
+::::: columns
 ::: {.column width="40%"}
 ![](images/model_diagrams/model_diagrams.010.jpeg)
 :::
@@ -57,7 +57,7 @@ For a background on vaccination, refer to @sec-vaccination.
 -   The SEIRV model is simply the SEIR model with a vaccinated compartment, $V$.
 -   The vaccinated compartment represents previously susceptible individuals who have been vaccinated and are immune to the disease.
 :::
-:::
+:::::
 
 ------------------------------------------------------------------------
 
@@ -71,9 +71,8 @@ For a background on vaccination, refer to @sec-vaccination.
 
 The model diagram and equations are as follows:
 
-::: columns
+::::: columns
 ::: {.column width="40%"}
-```{=tex}
 \begin{align}
 \frac{dS}{dt} & = -\beta S I - \eta S \\
 \frac{dE}{dt} & = \beta S I - \sigma E \\
@@ -81,13 +80,12 @@ The model diagram and equations are as follows:
 \frac{dR}{dt} & = \gamma I \\
 \frac{dV}{dt} & = \eta S
 \end{align}
-```
 :::
 
 ::: {.column width="60%"}
 ![](images/model_diagrams/model_diagrams.010.jpeg)
 :::
-:::
+:::::
 
 where $\eta$ is the rate of vaccination.
 
@@ -142,19 +140,17 @@ For a background on non-pharmaceutical interventions, refer to @sec-npi.
 
 -   We can model this by making the transmission rate a function of time, $\beta (t)$.
 
----
+------------------------------------------------------------------------
 
 The modified SIR model with a reduced transmission rate is as follows:
 
-```{=tex}
 \begin{align*}
 \frac{dS}{dt} & = -\beta (t) S I \\
 \frac{dI}{dt} & = \beta (t) S I - \gamma I \\
 \frac{dR}{dt} & = \gamma I
 \end{align*}
-```
 
----
+------------------------------------------------------------------------
 
 -   The simplest form is to reduce $\beta$ by an NPI efficacy, say $\epsilon$.
 
@@ -162,14 +158,12 @@ The modified SIR model with a reduced transmission rate is as follows:
 
 -   With this knowledge, we can define $\beta (t)$ mathematically as:
 
-```{=tex}
 \begin{equation*}
 \beta(t) = \begin{cases}
 \beta & \text{if } t < t_{\text{npi\_start}} \text{ or } t > t_{\text{npi\_end}} \\
 (1 - \epsilon) \beta & \text{if } t_{\text{npi\_start}} \le t \le t_{\text{npi\_end}}
 \end{cases}
 \end{equation*}
-```
 
 ------------------------------------------------------------------------
 
@@ -205,14 +199,13 @@ The modified SIR model with a reduced transmission rate is as follows:
 
 The modified SIR model with isolated is as follows:
 
-```{=tex}
 \begin{align*}
 \frac{dS}{dt} & = -\beta S I \\
 \frac{dI}{dt} & = \beta S I - \gamma I - \delta I \\
 \frac{dR}{dt} & = \gamma I + \tau Q \\
 \frac{dQ}{dt} & = \delta I - \tau Q
 \end{align*}
-```
+
 where $\delta$ is the rate at which infected individuals move to the isolated compartment, and $\tau$ is the rate at which individuals recover from isolation.
 
 ------------------------------------------------------------------------
@@ -220,4 +213,10 @@ where $\delta$ is the rate at which infected individuals move to the isolated co
 ##### R Practicals
 
 -   We can use the same approach as the SIR model to simulate the model with isolation.
--   Modify the SIR model in `sir.Rmd` to incorporate the isolated compartment, $Q$ and the relevant parameters.
+-   Modify the SIR model in [`sir.Rmd`](https://github.com/jamesmbaazam/mppr_r_practicals/tree/main/model_implementation_practicals) to incorporate the isolated compartment, $Q$ and the relevant parameters.
+
+------------------------------------------------------------------------
+
+::: {.fragment style="font-size: 450%"}
+Any Questions?
+:::
