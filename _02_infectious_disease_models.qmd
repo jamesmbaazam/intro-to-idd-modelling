@@ -92,7 +92,7 @@ How are these two uses impacted by accuracy, transparency, and flexibility? That
 
 ### Some key milestones in infectious disease modelling
 
-![](images/model_milestones.png){fig-cap="Milestones in mathematical modeling and modeling to inform public policy. Source: [Lesslar et al., 2016](10.1093/aje/kww021)"}
+![Milestones in mathematical modeling and modeling to inform public policy. Source: [Lesslar et al., 2016](10.1093/aje/kww021)](images/model_milestones.png)
 
 ------------------------------------------------------------------------
 

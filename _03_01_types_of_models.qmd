@@ -40,6 +40,8 @@
 :::
 :::::
 
+------------------------------------------------------------------------
+
 ## Mathematical approach: Mechanistic vs. Phenomenological
 
 ::::: columns
@@ -216,6 +218,8 @@ Think of a recent epidemic (e.g., COVID-19, Mpox, Ebola). Which type of model wo
 :::
 :::::
 
+------------------------------------------------------------------------
+
 ## Time: Discrete vs. Continuous models
 
 ::::: columns
@@ -277,6 +281,8 @@ $$\frac{dS}{dt} = -\beta S I$$
 -   [Research question]{style="color:tomato"}:
     -   Policy timing → *discrete time* practical
     -   Theoretical insights → *continuous time* elegant
+
+------------------------------------------------------------------------
 
 ## Spatial considerations
 
@@ -404,6 +410,8 @@ $$\frac{dS}{dt} = -\beta S I$$
 -   Account for [superspreading]{style="color:green"} events
 -   Useful for [outbreak investigation]{style="color:green"}
 
+------------------------------------------------------------------------
+
 ### Network model challenges
 
 -   Require [detailed contact data]{style="color:red"}
@@ -460,7 +468,7 @@ $$\frac{dS}{dt} = -\beta S I$$
 
 ### The modelling for decision-making process
 
-![The modelling process involves balancing realism, tractability, and generality. Source: [Heesterbeek et al, 2015](10.1126/science.aaa4339)](images/modelling_process.png)
+![The modelling process involves balancing realism, tractability, and generality. Source: [Heesterbeek et al, 2015](10.1126/science.aaa4339)](images/modelling_process.png){width=70%}
 
 ------------------------------------------------------------------------
 

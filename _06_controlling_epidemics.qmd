@@ -108,6 +108,7 @@ where $\eta$ is the rate of vaccination.
 -   We can use the same approach as the SIR and SEIR models to simulate the SEIRV model.
 
 -   Modify the `seir.Rmd` script to simulate the SEIRV model.
+    - Link: https://github.com/jamesmbaazam/mppr_r_practicals/
 
 ------------------------------------------------------------------------
 
@@ -170,6 +171,7 @@ The modified SIR model with a reduced transmission rate is as follows:
 #### R Practicals
 
 -   Let's open the script file `sir_npi.R` and follow along.
+    - Link: https://github.com/jamesmbaazam/mppr_r_practicals/
 
 ------------------------------------------------------------------------
 
@@ -214,6 +216,7 @@ where $\delta$ is the rate at which infected individuals move to the isolated co
 
 -   We can use the same approach as the SIR model to simulate the model with isolation.
 -   Modify the SIR model in [`sir.Rmd`](https://github.com/jamesmbaazam/mppr_r_practicals/tree/main/model_implementation_practicals) to incorporate the isolated compartment, $Q$ and the relevant parameters.
+    - Link: https://github.com/jamesmbaazam/mppr_r_practicals/
 
 ------------------------------------------------------------------------
 
