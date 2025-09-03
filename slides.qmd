@@ -20,9 +20,9 @@ execute:
 #   beamer:
 #     navigation: horizontal
 #     theme: metropolis
-# institute: London School of Hygiene and Tropical Medicine, UK
-# orcid: 0000-0001-5782-7330
-# email: james.azam@lshtm.ac.uk
+#     institute: London School of Hygiene and Tropical Medicine, UK
+#     orcid: 0000-0001-5782-7330
+#     email: james.azam@lshtm.ac.uk
 format:
   revealjs:
     theme: [solarized]
