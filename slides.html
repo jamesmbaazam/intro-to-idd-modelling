@@ -14,7 +14,7 @@
   <meta name="generator" content="quarto-1.5.43">
 
   <meta name="author" content="James Mba Azam, PhD">
-  <meta name="dcterms.date" content="2025-09-02">
+  <meta name="dcterms.date" content="2025-09-03">
   <title>Introduction to Infectious Disease Modelling</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -354,6 +354,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Introduction to Infectious Disease Modelling</h1>
+  <p class="subtitle">Modelling for Pandemic Preparedness and Response Modular Shortcourse, 2025</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -364,12 +365,12 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <a href="mailto:james.azam@lshtm.ac.uk">james.azam@lshtm.ac.uk</a>
 </div>
         <p class="quarto-title-affiliation">
-            Epiverse-TRACE Initiative, London School of Hygiene and Tropical Medicine, UK
+            London School of Hygiene and Tropical Medicine, UK
           </p>
     </div>
 </div>
 
-  <p class="date">2025-09-02</p>
+  <p class="date">2025-09-03</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">Table of contents</h2>
@@ -680,7 +681,12 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <section class="slide level2">
 
 <h3 id="some-key-milestones-in-infectious-disease-modelling">Some key milestones in infectious disease modelling</h3>
-<p><a href="images/model_milestones.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="images/model_milestones.png" data-fig-cap="Milestones in mathematical modeling and modeling to inform public policy. Source: [Lesslar et al., 2016](10.1093/aje/kww021)"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/model_milestones.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Milestones in mathematical modeling and modeling to inform public policy. Source: Lesslar et al., 2016"><img data-src="images/model_milestones.png" alt="Milestones in mathematical modeling and modeling to inform public policy. Source: Lesslar et al., 2016"></a></p>
+<figcaption>Milestones in mathematical modeling and modeling to inform public policy. Source: <a href="10.1093/aje/kww021">Lesslar et al., 2016</a></figcaption>
+</figure>
+</div>
 </section>
 <section id="limitations-of-infectious-disease-models" class="slide level2">
 <h2>Limitations of infectious disease models</h2>
@@ -1112,6 +1118,9 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <li>Account for <span style="color:green">superspreading</span> events</li>
 <li>Useful for <span style="color:green">outbreak investigation</span></li>
 </ul>
+</section>
+<section class="slide level2">
+
 <h3 id="network-model-challenges">Network model challenges</h3>
 <ul>
 <li>Require <span style="color:red">detailed contact data</span></li>
@@ -1181,7 +1190,7 @@ James Mba Azam, PhD <a href="https://orcid.org/0000-0001-5782-7330" class="quart
 <h3 id="the-modelling-for-decision-making-process">The modelling for decision-making process</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/modelling_process.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="The modelling process involves balancing realism, tractability, and generality. Source: Heesterbeek et al, 2015"><img data-src="images/modelling_process.png" alt="The modelling process involves balancing realism, tractability, and generality. Source: Heesterbeek et al, 2015"></a></p>
+<p><a href="images/modelling_process.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="The modelling process involves balancing realism, tractability, and generality. Source: Heesterbeek et al, 2015"><img data-src="images/modelling_process.png" style="width:70.0%" alt="The modelling process involves balancing realism, tractability, and generality. Source: Heesterbeek et al, 2015"></a></p>
 <figcaption>The modelling process involves balancing realism, tractability, and generality. Source: <a href="10.1126/science.aaa4339">Heesterbeek et al, 2015</a></figcaption>
 </figure>
 </div>
@@ -1874,7 +1883,10 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 
 <h4 id="practicals">Practicals</h4>
 <ul>
-<li>Let’s do a code walk through in R using the script <a href="https://github.com/jamesmbaazam/mppr_r_practicals/tree/main/model_implementation_practicals"><code>sir.Rmd</code></a>.</li>
+<li>Let’s do a code walk through in R using the script <a href="https://github.com/jamesmbaazam/mppr_r_practicals/tree/main/model_implementation_practicals"><code>sir.Rmd</code></a>.
+<ul>
+<li>Link: https://github.com/jamesmbaazam/mppr_r_practicals/</li>
+</ul></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -2049,13 +2061,16 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 <li><p>Beyond the SIR model, calculating <span class="math inline">\(R0\)</span> for more complex models can be challenging due to the presence of multiple compartments.</p></li>
 <li><p>For complex models, we use the <span style="color:tomato;">next generation matrix</span> approach <span class="citation" data-cites="diekmann1990definition diekmann2010construction">(<a href="#/references" role="doc-biblioref" onclick="">Diekmann, Heesterbeek, and Metz 1990</a>; <a href="#/references" role="doc-biblioref" onclick="">Diekmann, Heesterbeek, and Roberts 2010</a>)</span>.</p></li>
 </ul>
+</section>
+<section class="slide level2">
+
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Using the next generation matrix approach, we can show that the SEIR model with constant births and deaths has <span class="math display">\[R0 = \dfrac{\beta \sigma}{(\gamma + \mu)(\sigma + \mu)}\]</span>.</p>
+<p>Using the next generation matrix approach, we can show that the SEIR model with constant births and deaths has <span class="math display">\[R0 = \dfrac{\beta \sigma}{(\gamma + \mu)(\sigma + \mu)}\]</span></p>
 </div>
 </div>
 </div>
@@ -2068,7 +2083,10 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 <h4 id="r-practicals">R Practicals</h4>
 <ul>
 <li><p>We can use the same approach as the SIR model to simulate the SEIR model.</p></li>
-<li><p>Modify the <a href="https://github.com/jamesmbaazam/mppr_r_practicals/tree/main/model_implementation_practicals"><code>sir.Rmd</code></a> script to simulate the SEIR model.</p></li>
+<li><p>Modify the <a href="https://github.com/jamesmbaazam/mppr_r_practicals/tree/main/model_implementation_practicals"><code>sir.Rmd</code></a> script to simulate the SEIR model.</p>
+<ul>
+<li>Link: https://github.com/jamesmbaazam/mppr_r_practicals/</li>
+</ul></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -2201,7 +2219,10 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 <h4 id="r-practicals-1">R Practicals</h4>
 <ul>
 <li><p>We can use the same approach as the SIR and SEIR models to simulate the SEIRV model.</p></li>
-<li><p>Modify the <code>seir.Rmd</code> script to simulate the SEIRV model.</p></li>
+<li><p>Modify the <code>seir.Rmd</code> script to simulate the SEIRV model.</p>
+<ul>
+<li>Link: https://github.com/jamesmbaazam/mppr_r_practicals/</li>
+</ul></li>
 </ul>
 </section>
 <section id="non-pharmaceutical-interventions-npis" class="slide level2">
@@ -2263,7 +2284,10 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 
 <h4 id="r-practicals-2">R Practicals</h4>
 <ul>
-<li>Let’s open the script file <code>sir_npi.R</code> and follow along.</li>
+<li>Let’s open the script file <code>sir_npi.R</code> and follow along.
+<ul>
+<li>Link: https://github.com/jamesmbaazam/mppr_r_practicals/</li>
+</ul></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -2306,7 +2330,10 @@ R0 \propto \dfrac{\text{Infection}}{\text{Contact}} \times \dfrac{\text{Contact}
 <h5 id="r-practicals-3">R Practicals</h5>
 <ul>
 <li>We can use the same approach as the SIR model to simulate the model with isolation.</li>
-<li>Modify the SIR model in <a href="https://github.com/jamesmbaazam/mppr_r_practicals/tree/main/model_implementation_practicals"><code>sir.Rmd</code></a> to incorporate the isolated compartment, <span class="math inline">\(Q\)</span> and the relevant parameters.</li>
+<li>Modify the SIR model in <a href="https://github.com/jamesmbaazam/mppr_r_practicals/tree/main/model_implementation_practicals"><code>sir.Rmd</code></a> to incorporate the isolated compartment, <span class="math inline">\(Q\)</span> and the relevant parameters.
+<ul>
+<li>Link: https://github.com/jamesmbaazam/mppr_r_practicals/</li>
+</ul></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -3052,7 +3079,7 @@ Kermack, William Ogilvy, and Anderson G McKendrick. 1927. <span>“A Contributio
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom"});
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom"});
     (function() {
       let previousOnload = window.onload;
       window.onload = () => {
